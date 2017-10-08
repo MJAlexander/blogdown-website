@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Monica Alexander</title>
+    <link>/publication/</link>
+    <description>Recent content in Publications on Monica Alexander</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Monica Alexander</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/publication/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Flexible Bayesian Model for Estimating Subnational Mortality</title>
+      <link>/publication/a_flexible_bayesian_model/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/a_flexible_bayesian_model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Comparing Temporal Smoothers for use in Demographic Estimation and Projection</title>
+      <link>/publication/temporal_smoothing/</link>
+      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/temporal_smoothing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Global Estimation of Neonatal Mortality using a Bayesian Hierarchical Splines Regression Model</title>
+      <link>/publication/estimating_neonatal_mortality/</link>
+      <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/estimating_neonatal_mortality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Opioid deaths by race in the United States, 2000–2015</title>
+      <link>/publication/opioid_deaths_by_race/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/opioid_deaths_by_race/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wages, government payments and other income of Indigenous and non-Indigenous Australians</title>
+      <link>/publication/wages_gov_payments/</link>
+      <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/wages_gov_payments/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Economic Impact of the Mining Boom on Indigenous and Non-Indigenous Australians</title>
+      <link>/publication/economic_impact_of_the_mining/</link>
+      <pubDate>Mon, 17 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/economic_impact_of_the_mining/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Labour market outcomes for Indigenous Australians</title>
+      <link>/publication/labour_market_outcomes/</link>
+      <pubDate>Fri, 08 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/labour_market_outcomes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modelling Exposure to Risk of Experiencing Discrimination in the Context of Endogenous Ethnic Identification</title>
+      <link>/publication/model_discrimination/</link>
+      <pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/model_discrimination/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Labour Market and Other Discrimination Facing Indigenous Australians</title>
+      <link>/publication/labour_market_and_other_discrimination/</link>
+      <pubDate>Mon, 01 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/labour_market_and_other_discrimination/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Indigenous employment: A story of continuing growth</title>
+      <link>/publication/employment_growth/</link>
+      <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/employment_growth/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Monica Alexander</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Monica Alexander</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Monica Alexander</copyright>
+    <lastBuildDate>Sun, 08 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Text analysis of migration news articles</title>
+      <link>/2017/10/08/text-analysis-of-migration-news-articles/</link>
+      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/10/08/text-analysis-of-migration-news-articles/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://leslieroot.net/&#34;&gt;Leslie Root&lt;/a&gt; and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed over time.&lt;/p&gt;
+&lt;p&gt;Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslism migrants.&lt;/p&gt;
+&lt;p&gt;All analysis was done in &lt;code&gt;R&lt;/code&gt; using the awesome package &lt;code&gt;tidytext&lt;/code&gt; and following &lt;a href=&#34;http://tidytextmining.com/&#34;&gt;‘Text Mining in R: A tidy approach’&lt;/a&gt; by Julia Silge and David Robinson. Code can be found &lt;a href=&#34;https://github.com/lesliejroot/migration-news&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data&lt;/h2&gt;
+&lt;p&gt;We searched &lt;a href=&#34;https://search.proquest.com&#34;&gt;ProQuest&lt;/a&gt; for newspaper articles that included the terms ‘population’ and ’immigra*’. This resulting in a total of 9,869 articles over the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn’t collect for the whole year.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/source_year.png&#34; alt=&#34;number of articles by year&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;important-words-and-combinations&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Important words and combinations&lt;/h2&gt;
+&lt;p&gt;The plots below show the most ‘important words’ for articles in each year. We define important words based on the term frequency–inverse document frequency, or &lt;a href=&#34;%5Bhttp://tidytextmining.com/tfidf.html&#34;&gt;tf-idf&lt;/a&gt; measure. This measures the number of times a word appears in the document, but adjusts for the fact that some words appear more frequently in general.&lt;/p&gt;
+&lt;p&gt;Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words ‘police’ and ‘muslim’ have become important.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We also looked at words preceeding the words ‘immigrant’ and ‘migrant’ to see what the most important combinations were. In general the most common preceeding word was ‘illegal’. However, looking over at changes over time suggests a shift to using alternative words such as ‘undocumented’ and ‘unauthorized’. The number of instances of ‘undocumented immigrant/migrant’ overtook ‘illegal immigrant/migrant’ in 2017. Various ethnicities were also important preceeding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceeding immigrant&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceeding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;sentiment&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Sentiment&lt;/h2&gt;
+&lt;p&gt;We also looked at how the overall sentiment is changing over time. The plot below shows sentiment over time for all news articles, using the &lt;a href=&#34;http://tidytextmining.com/sentiment.html#the-sentiments-dataset&#34;&gt;AFINN&lt;/a&gt; measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.&lt;/p&gt;
+&lt;p&gt;Sentiment is negative over all years, but the level has been changing over time. After initially dropping, sentiment increased during Obama’s second term, but has since decreased. This year’s news articles display the most negative sentiment of the whole period.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sentiment_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of ‘illegal’ towards the use of ‘undocumented’ over time. The use of ‘attack’ peaked in 2015, corresponding to the Paris attacks.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sent_neg_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;topics&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Topics&lt;/h2&gt;
+&lt;p&gt;We used &lt;a href=&#34;http://tidytextmining.com/topicmodeling.html&#34;&gt;LDA&lt;/a&gt; to create an eight-topic model for all migration articles. The plots below show the terms that are most common with each topic. Broadly, the topics can be thought of as covering&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hispanic/ Latinos in LA&lt;/li&gt;
+&lt;li&gt;Europe&lt;/li&gt;
+&lt;li&gt;Art and museums&lt;/li&gt;
+&lt;li&gt;Workers, growth and the economy&lt;/li&gt;
+&lt;li&gt;Communities&lt;/li&gt;
+&lt;li&gt;Trump-related politics&lt;/li&gt;
+&lt;li&gt;Illegal, border, law enforcement&lt;/li&gt;
+&lt;li&gt;Elections&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_8topic.png&#34; alt=&#34;eight topics&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_doc_year_5.png&#34; alt=&#34;topics over time&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Coverage of migration issues in major news outlets in the US is generally negative, however it seems to have become even more negative over the past few years. Coverage is driven by the election cycles, and while many of the articles focus on illegal immigrants, there appears to have been a shift in terminology in recent years from ‘illegal’ to ‘undocumented’ and ‘unauthorized’.&lt;/p&gt;
+&lt;p&gt;In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Text analysis of migration news articles</title>
+      <link>/2017/10/08/text-analysis-of-migration-news-articles/</link>
+      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/10/08/text-analysis-of-migration-news-articles/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://leslieroot.net/&#34; target=&#34;_blank&#34;&gt;Leslie Root&lt;/a&gt; and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed over time.&lt;/p&gt;
+
+&lt;p&gt;Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslism migrants.&lt;/p&gt;
+
+&lt;p&gt;All analysis was done in &lt;code&gt;R&lt;/code&gt; using the awesome package &lt;code&gt;tidytext&lt;/code&gt; and following &lt;a href=&#34;http://tidytextmining.com/&#34; target=&#34;_blank&#34;&gt;&amp;lsquo;Text Mining in R: A tidy approach&amp;rsquo;&lt;/a&gt; by Julia Silge and David Robinson. Code can be found &lt;a href=&#34;https://github.com/lesliejroot/migration-news&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
+
+&lt;p&gt;We searched &lt;a href=&#34;https://search.proquest.com&#34; target=&#34;_blank&#34;&gt;ProQuest&lt;/a&gt; for newspaper articles that included the terms &amp;lsquo;population&amp;rsquo; and &amp;lsquo;immigra*&amp;lsquo;. This resulting in a total of 9,869 articles over the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn&amp;rsquo;t collect for the whole year.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/source_year.png&#34; alt=&#34;number of articles by year&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;important-words-and-combinations&#34;&gt;Important words and combinations&lt;/h2&gt;
+
+&lt;p&gt;The plots below show the most &amp;lsquo;important words&amp;rsquo; for articles in each year. We define important words based on the term frequency–inverse document frequency, or &lt;a href=&#34;[http://tidytextmining.com/tfidf.html&#34; target=&#34;_blank&#34;&gt;tf-idf&lt;/a&gt; measure. This measures the number of times a word appears in the document, but  adjusts for the fact that some words appear more frequently in general.&lt;/p&gt;
+
+&lt;p&gt;Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words &amp;lsquo;police&amp;rsquo; and &amp;lsquo;muslim&amp;rsquo; have become important.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;We also looked at words preceeding the words &amp;lsquo;immigrant&amp;rsquo; and &amp;lsquo;migrant&amp;rsquo; to see what the most important combinations were. In general the most common preceeding word was &amp;lsquo;illegal&amp;rsquo;. However, looking over at changes over time suggests a shift to using alternative words such as &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;. The number of instances of &amp;lsquo;undocumented immigrant/migrant&amp;rsquo; overtook &amp;lsquo;illegal immigrant/migrant&amp;rsquo; in 2017. Various ethnicities were also important preceeding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceeding immigrant&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceeding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sentiment&#34;&gt;Sentiment&lt;/h2&gt;
+
+&lt;p&gt;We also looked at how the overall sentiment is changing over time. The plot below shows sentiment over time for all news articles, using the &lt;a href=&#34;http://tidytextmining.com/sentiment.html#the-sentiments-dataset&#34; target=&#34;_blank&#34;&gt;AFINN&lt;/a&gt; measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.&lt;/p&gt;
+
+&lt;p&gt;Sentiment is negative over all years, but the level has been changing over time. After initially dropping, sentiment increased during Obama&amp;rsquo;s second term, but has since decreased. This year&amp;rsquo;s news articles display the most negative sentiment of the whole period.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sentiment_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of &amp;lsquo;illegal&amp;rsquo; towards the use of &amp;lsquo;undocumented&amp;rsquo; over time. The use of &amp;lsquo;attack&amp;rsquo; peaked in 2015, corresponding to the Paris attacks.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sent_neg_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;We used &lt;a href=&#34;http://tidytextmining.com/topicmodeling.html&#34; target=&#34;_blank&#34;&gt;LDA&lt;/a&gt; to create an eight-topic model for all migration articles. The plots below show the terms that are most common with each topic. Broadly, the topics can be thought of as covering&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hispanic/ Latinos in LA&lt;/li&gt;
+&lt;li&gt;Europe&lt;/li&gt;
+&lt;li&gt;Art and museums&lt;/li&gt;
+&lt;li&gt;Workers, growth and the economy&lt;/li&gt;
+&lt;li&gt;Communities&lt;/li&gt;
+&lt;li&gt;Trump-related politics&lt;/li&gt;
+&lt;li&gt;Illegal, border, law enforcement&lt;/li&gt;
+&lt;li&gt;Elections&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_8topic.png&#34; alt=&#34;eight topics&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_doc_year_5.png&#34; alt=&#34;topics over time&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Coverage of migration issues in major news outlets in the US is generally negative, however it seems to have become even more negative over the past few years. Coverage is driven by the election cycles, and while many of the articles focus on illegal immigrants, there appears to have been a shift in terminology in recent years from &amp;lsquo;illegal&amp;rsquo; to &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Text analysis of migration news articles</title>
+      <link>/2017/10/08/text-analysis-of-migration-news-articles/</link>
+      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/10/08/text-analysis-of-migration-news-articles/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://leslieroot.net/&#34; target=&#34;_blank&#34;&gt;Leslie Root&lt;/a&gt; and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed over time.&lt;/p&gt;
+
+&lt;p&gt;Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslism migrants.&lt;/p&gt;
+
+&lt;p&gt;All analysis was done in &lt;code&gt;R&lt;/code&gt; using the awesome package &lt;code&gt;tidytext&lt;/code&gt; and following &lt;a href=&#34;http://tidytextmining.com/&#34; target=&#34;_blank&#34;&gt;&amp;lsquo;Text Mining in R: A tidy approach&amp;rsquo;&lt;/a&gt; by Julia Silge and David Robinson. Code can be found &lt;a href=&#34;https://github.com/lesliejroot/migration-news&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
+
+&lt;p&gt;We searched &lt;a href=&#34;https://search.proquest.com&#34; target=&#34;_blank&#34;&gt;ProQuest&lt;/a&gt; for newspaper articles that included the terms &amp;lsquo;population&amp;rsquo; and &amp;lsquo;immigra*&amp;lsquo;. This resulting in a total of 9,869 articles over the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn&amp;rsquo;t collect for the whole year.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/source_year.png&#34; alt=&#34;number of articles by year&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;important-words-and-combinations&#34;&gt;Important words and combinations&lt;/h2&gt;
+
+&lt;p&gt;The plots below show the most &amp;lsquo;important words&amp;rsquo; for articles in each year. We define important words based on the term frequency–inverse document frequency, or &lt;a href=&#34;[http://tidytextmining.com/tfidf.html&#34; target=&#34;_blank&#34;&gt;tf-idf&lt;/a&gt; measure. This measures the number of times a word appears in the document, but  adjusts for the fact that some words appear more frequently in general.&lt;/p&gt;
+
+&lt;p&gt;Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words &amp;lsquo;police&amp;rsquo; and &amp;lsquo;muslim&amp;rsquo; have become important.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;We also looked at words preceeding the words &amp;lsquo;immigrant&amp;rsquo; and &amp;lsquo;migrant&amp;rsquo; to see what the most important combinations were. In general the most common preceeding word was &amp;lsquo;illegal&amp;rsquo;. However, looking over at changes over time suggests a shift to using alternative words such as &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;. The number of instances of &amp;lsquo;undocumented immigrant/migrant&amp;rsquo; overtook &amp;lsquo;illegal immigrant/migrant&amp;rsquo; in 2017. Various ethnicities were also important preceeding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceeding immigrant&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceeding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sentiment&#34;&gt;Sentiment&lt;/h2&gt;
+
+&lt;p&gt;We also looked at how the overall sentiment is changing over time. The plot below shows sentiment over time for all news articles, using the &lt;a href=&#34;http://tidytextmining.com/sentiment.html#the-sentiments-dataset&#34; target=&#34;_blank&#34;&gt;AFINN&lt;/a&gt; measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.&lt;/p&gt;
+
+&lt;p&gt;Sentiment is negative over all years, but the level has been changing over time. After initially dropping, sentiment increased during Obama&amp;rsquo;s second term, but has since decreased. This year&amp;rsquo;s news articles display the most negative sentiment of the whole period.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sentiment_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of &amp;lsquo;illegal&amp;rsquo; towards the use of &amp;lsquo;undocumented&amp;rsquo; over time. The use of &amp;lsquo;attack&amp;rsquo; peaked in 2015, corresponding to the Paris attacks.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sent_neg_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;
+
+&lt;p&gt;We used &lt;a href=&#34;http://tidytextmining.com/topicmodeling.html&#34; target=&#34;_blank&#34;&gt;LDA&lt;/a&gt; to create an eight-topic model for all migration articles. The plots below show the terms that are most common with each topic. Broadly, the topics can be thought of as covering&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hispanic/ Latinos in LA&lt;/li&gt;
+&lt;li&gt;Europe&lt;/li&gt;
+&lt;li&gt;Art and museums&lt;/li&gt;
+&lt;li&gt;Workers, growth and the economy&lt;/li&gt;
+&lt;li&gt;Communities&lt;/li&gt;
+&lt;li&gt;Trump-related politics&lt;/li&gt;
+&lt;li&gt;Illegal, border, law enforcement&lt;/li&gt;
+&lt;li&gt;Elections&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_8topic.png&#34; alt=&#34;eight topics&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_doc_year_5.png&#34; alt=&#34;topics over time&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Coverage of migration issues in major news outlets in the US is generally negative, however it seems to have become even more negative over the past few years. Coverage is driven by the election cycles, and while many of the articles focus on illegal immigrants, there appears to have been a shift in terminology in recent years from &amp;lsquo;illegal&amp;rsquo; to &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;.&lt;/p&gt;
+
+&lt;p&gt;In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Opioid mortality by race: from divergence to convergence</title>
+      <link>/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/</guid>
+      <description>&lt;p&gt;Opioid-related mortality in the United States has been rising steadily since 2000. The opioid mortality rate more than tripled since over the fifteen year period 2000–2015, and shows no signs of declining — in fact, the rate of increase has accelerated in recent years. This is unique to opioid-related drug deaths, with the non-opioid mortality rate remaining fairly level since 2005. The so-called ‘opioid epidemic’ has gained national attention and become an important part of the &lt;a href=&#34;https://www.vox.com/policy-and-politics/2017/3/29/15089618/trump-opioid-epidemic-executive-order&#34;&gt;political agenda&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;While the epidemic has also gained widespread media attention, coverage tends to focus on overall trends in deaths or for the &lt;a href=&#34;https://www.nytimes.com/2016/01/17/science/drug-overdoses-propel-rise-in-mortality-rates-of-young-whites.html&#34;&gt;white population only&lt;/a&gt;. In a recent paper presented at &lt;a href=&#34;https://paa.confex.com/paa/2017/webprogrampreliminary/Paper16497.html&#34;&gt;PAA 2017&lt;/a&gt;, we focused on differences in opioid mortality by race, to see how trends in underlying cause of death, opioid types and age patterns differ.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/img/opiod_plots/fig1_nood_v_ci.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;div id=&#34;a-story-in-two-stages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2000–2015: A story in two stages&lt;/h2&gt;
+&lt;p&gt;While mortality rates were similar for both races in 2000, the opioid mortality rate for the non-Hispanic white population is now much higher than for the non-Hispanic black population. In 2015, the white opioid mortality rate was more than two times the black opioid mortality rate. This observation is different to what we usually see — by most other measures of mortality, the black population is worse off.&lt;/p&gt;
+&lt;p&gt;The combination of high opioid death rates, as well as a lower overall death rate compared to the black population, means that the impact is more noticeable in the white population. Opioid drug overdoses comprise some of the ‘deaths of despair’ (i.e. deaths due to drugs, alcohol and suicide) that &lt;a href=&#34;https://www.brookings.edu/bpea-articles/mortality-and-morbidity-in-the-21st-century/&#34;&gt;Case and Deaton&lt;/a&gt; attributed to causing an increase in the mortality rate in the non-Hispanic white population aged 45-54.&lt;/p&gt;
+&lt;p&gt;However, looking over the period 2000–2015, we see that patterns in the race-specific opioid mortality rate exhibit two distinct periods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;From &lt;strong&gt;2000–2010&lt;/strong&gt;, shows a &lt;strong&gt;divergence&lt;/strong&gt; in opioid mortality, with the non-Hispanic white mortality rate steadily increasing while the non-Hispanic black mortality rate remains fairly constant.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Since 2010&lt;/strong&gt; the opioid mortality rate has been increasing at a similar pace for both the white and black populations. As a consequence, the relative risk of opioid mortality in the white to black populations reached a peak in 2010 at around 2.5, but has since declined.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/img/opiod_plots/paa_2017_fig.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;from-prescription-drugs-to-heroin-fentanyl-mixes&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;From prescription drugs to heroin-fentanyl mixes&lt;/h2&gt;
+&lt;p&gt;Breaking down the opioid mortality rate by underlying type of opioid, it is clear that there has been a shift in the types of opioids driving the increased mortality rates. In the first period, from 2000–2010, increases, which were mostly observed in the white population, were driven by an increased mortality rate due to other natural and semi-synthetic opioids — namely oxycodone and hydrocone, sold under the brand names OxyContin and Vicodin.&lt;/p&gt;
+&lt;p&gt;Since 2010, however, there has been a noticeable shift in the relative importance of deaths from heroin and other synthetic opioids. This is true for both races. Other synthetic opioids largely consist of fentanyl. Pharmaceutical fentanyl is a synthetic painkiller that is 50–100 times more powerful than morphine and is used for treating severe pain. However, the presence of illicitly-made fentanyl in the form of acetyl- and furanyl-fentanyl has increased in recent years. These products are often mixed with heroin or cocaine to increase potency.&lt;/p&gt;
+&lt;p&gt;In 2010 OxyContin was reformulated to be less easily abused, making it harder to crush (and therefore be snorted or dissolved and injected). This reformulation may explain some of the leveling-off in the white death rate since 2010. In addition, &lt;a href=&#34;http://www.nber.org/papers/w23031&#34;&gt;previous research&lt;/a&gt; has found strong evidence to suggest that much of the increase in heroin overdoses is due a substitution effect since the reformulation of OxyContin.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/img/opiod_plots/fig4_t40_adjusted_race_lines_v_ci.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;Compared to earlier years, a larger proportion of opioid deaths now involve more than one type of opioid. In 2015, the proportion of all opioid deaths that involved two or more types of opioids was more than 25% for the black population and around 22% for the white population. This was an increase from around 12% of all deaths for both races in 2010.&lt;/p&gt;
+&lt;p&gt;Looking specifically at heroin deaths, the proportion of deaths involving other types has increased across the board since 2010 for both races. In particular, since 2012 there has been a ten-fold increase in the proportion of heroin deaths also involving other synthetic opioids, namely fentanyl. In 2015, around 35% of all heroin deaths in the black population involved other synthetic opioids.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/img/opiod_plots/fig9_t401_combos_v_ci.png&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;black-opioid-deaths-tend-to-occur-at-older-ages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Black opioid deaths tend to occur at older ages&lt;/h2&gt;
+&lt;p&gt;Since 2000, the age distribution of opioid deaths in the white population has been shifting to younger ages, with the highest mortality rate occurring in the 30-39 age group. In contrast, the age distribution for the black population has been shifting to older ages, and the peak mortality rate occurs in the 50-59 age group. This somewhat surprising observation is true for deaths relating to all types of opioids. Focusing specifically on the heroin mortality rate, the differences in age distributions creates a mortality ‘cross-over’, where black heroin mortality rates are higher at older ages.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/opiod_plots/fig5_asmr_race_all_errorbars.png&#34; /&gt; &lt;img src=&#34;/img/opiod_plots/fig7_t40_heroin_ci.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;an-issue-for-both-races&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;An issue for both races&lt;/h2&gt;
+&lt;p&gt;The nature of the epidemic has changed over the past fifteen years, and had different impacts on the black and white populations. Importantly, there has been an increase in mortality due to opioids since 2010 for both races, and this trend shows no sign of slowing. A better understanding of the differences across race and how they relate to the use of other drugs, place of residence, and socioeconomic status, is necessary to improve health policy and rehabilitation programs across the country.&lt;/p&gt;
+&lt;div id=&#34;notes&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Notes&lt;/h4&gt;
+&lt;p&gt;This post is based on a &lt;a href=&#34;https://github.com/MJAlexander/opioid-mcd/blob/master/report/paa_2017_paper/paa.pdf&#34;&gt;paper&lt;/a&gt; presented in the session on Trends and Causes of Adult Mortality in the United States at &lt;a href=&#34;https://paa.confex.com/paa/2017/webprogrampreliminary/Paper16497.html&#34;&gt;PAA 2017&lt;/a&gt;. It is joint work with &lt;a href=&#34;http://www.demog.berkeley.edu/directories/profiles/barbieri.shtml&#34;&gt;Magali Barbieri&lt;/a&gt; and &lt;a href=&#34;https://mathewkiang.com/&#34;&gt;Mathew Kiang&lt;/a&gt;. All figures were derived from multiple casue of death data available from the &lt;a href=&#34;https://www.cdc.gov/nchs/nvss/deaths.htm&#34;&gt;National Center for Health Statistics&lt;/a&gt;. The code to reproduce graphs from the raw data is available &lt;a href=&#34;https://github.com/MJAlexander/opioid-mcd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Distinguishing between real differences and model artefacts in mortality inequality research</title>
+      <link>/2016/04/26/distinguishing-between-real-differences-and-model-artefacts-in-mortality-inequality-research/</link>
+      <pubDate>Tue, 26 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/04/26/distinguishing-between-real-differences-and-model-artefacts-in-mortality-inequality-research/</guid>
+      <description>&lt;p&gt;A couple of weeks ago, &lt;a href=&#34;http://jama.jamanetwork.com/article.aspx?articleId=2513561&amp;amp;guestAccessKey=4023ce75-d0fb-44de-bb6c-8a10a30a6173&#34;&gt;a paper&lt;/a&gt; was published in the JAMA detailing income inequalities in mortality across cities in the United States. The research, which was led by Raj Chetty at Stanford University, received &lt;a href=&#34;http://www.nytimes.com/interactive/2016/04/11/upshot/for-the-poor-geography-is-life-and-death.html&#34;&gt;wide attention&lt;/a&gt;. It is an important contribution to the literature, utilizing detailed income and mortality data from the IRS and SSA to estimate adult mortality by income at the city level.&lt;/p&gt;
+&lt;p&gt;The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography. The standard deviation of the average age at death for those in the bottom income quartile was found to be 1.39 years; the standard deviation for those in the top income quartile was only 0.7 years.&lt;/p&gt;
+&lt;p&gt;Although the authors had access to a rich, longitudinal dataset, there were some data limitations which meant that some assumptions had to be made. Here I want to draw attention to one assumption in particular – that &lt;strong&gt;differences in mortality across race/ethnic groups are constant across the whole of the United States.&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;section-producing-race-adjusted-life-expectancy-estimates&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Producing race-adjusted life expectancy estimates&lt;/h3&gt;
+&lt;p&gt;The main metric of mortality used in the paper is a race-adjusted measure of life expectancy. (An aside: although it is referred to as life expectancy in the paper, it is actually life expectancy at age 40 + 40 years, i.e. &lt;span class=&#34;math inline&#34;&gt;\(e_{40} + 40\)&lt;/span&gt; years, which is the average age at death having reached age 40).&lt;/p&gt;
+&lt;p&gt;On the log scale, the average mortality rate at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; for a particular sex, area and income group is the weighted sum of the mortality rates of the white, black, Asian and Hispanic populations:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \log(m_x) = p_{white} \log(m_{x,white}) +  p_{black} \log(m_{x,black}) +  p_{Hispanic} \log(m_{x,Hispanic}) +  p_{Asian} \log(m_{x,Asian}) \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(p_{group}\)&lt;/span&gt; is the proportion of the total population in that group. Once the race-specific mortality rates are found and life expectancies calculated, the aggregate life expectancy is reweighted based on national values of &lt;span class=&#34;math inline&#34;&gt;\(p_{group}\)&lt;/span&gt; to produce a race-adjusted life expectancy measure.&lt;/p&gt;
+&lt;p&gt;The average mortality rate, &lt;span class=&#34;math inline&#34;&gt;\(\log(m_x)\)&lt;/span&gt; comes from the main dataset. But in this dataset information on race or ethnicity is not available, so the authors use information from the National Longitudinal Mortality Study (NLMS). Mortality rates for a particular race group are assumed to follow a Gompertz model, which models age-specific mortality as a function of two parameters, &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;; i.e. for age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \log(m_{x,white}) = \alpha + \beta x \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Now mortality rates for the other race groups can be represented in terms of the difference between that group and white mortality. For example, for the black population:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \log(m_{x,black}) = \log(m_{x,white}) + \delta_{black} + \Delta_{black}x \]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;span class=&#34;math inline&#34;&gt;\((\delta, \Delta)\)&lt;/span&gt; are race shifters: the &lt;span class=&#34;math inline&#34;&gt;\(\delta\)&lt;/span&gt; term is the difference in the intercept parameter and the &lt;span class=&#34;math inline&#34;&gt;\(\Delta\)&lt;/span&gt; term is the difference in the slope for a particular race group. The key assumption made is that, for each group (black, Hispanic and Asian) those race shifters are &lt;strong&gt;constant&lt;/strong&gt; across all areas and income groups. For example, the &lt;span class=&#34;math inline&#34;&gt;\(\delta_{black}\)&lt;/span&gt; equals around 0.53, irrespective of location or income group.&lt;/p&gt;
+&lt;p&gt;This is implicitly assuming that mortality differences by race are constant across geography and income. This seems strange given the main finding of the paper was that overall mortality varies greatly by geography and income.&lt;/p&gt;
+&lt;p&gt;The authors &lt;a href=&#34;https://healthinequality.org/documents/paper/healthineq_supplement.pdf&#34;&gt;justify this assumption&lt;/a&gt; by showing that, in the NLMS, these race shifters do not differ significantly across broad Census regions (Northeast, Midwest, South, West). But just because there are no significant differences at the aggregate level does not mean that it holds when comparing one city to another, say, Detroit and Salt Lake City.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-sensitivities&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Sensitivities&lt;/h3&gt;
+&lt;p&gt;How might this assumption affect the race-adjusted life expectancy measure? Look at the equation for black log-mortality rates above. What if, in a particular city, the proportion of the black population was higher than the national average, and additionally the mortality difference were higher and black mortality was worse than assumed. Then the &lt;span class=&#34;math inline&#34;&gt;\((\delta, \Delta)\)&lt;/span&gt; values would be too small, and so &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; would be too low. But because all race-specific mortality rates are constrained to equal the average mortality rate &lt;span class=&#34;math inline&#34;&gt;\(\log(m_x)\)&lt;/span&gt;, if the &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; is too low, then, all else equal, &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,white})\)&lt;/span&gt; is too high. As a consequence, the race-adjusted mortality will be too high, so race-adjusted life expectancy will be too low.&lt;/p&gt;
+&lt;p&gt;The graph below illustrates this effect. The underlying race distribution is roughly equal to females in Detroit in the lowest income quartile. The mortality rates are made up using a Gompertz model, but with a life expectancy roughly equal to that published in the paper for females in Detroit in the lowest income quartile.&lt;/p&gt;
+&lt;p&gt;With &lt;span class=&#34;math inline&#34;&gt;\((\delta_{black}, \Delta_{black}) = (0.53, -0.0012)\)&lt;/span&gt;, the race adjusted life expectancy is 80.4 years. These shifters are approximately equal to those used in the paper; I say approximately, because the values weren’t actually published anywhere, so I had to eye-ball figure e6/7 in the &lt;a href=&#34;https://healthinequality.org/documents/paper/healthineq_supplement.pdf&#34;&gt;supplementary information&lt;/a&gt;. If you change the values to &lt;span class=&#34;math inline&#34;&gt;\((\delta_{black}, \Delta_{black}) = (0.8, 0)\)&lt;/span&gt;, the race adjusted life expectancy is 81.3 years.&lt;/p&gt;
+&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/mortality_app?showcase=0&#34; width=&#34;1152&#34; height=&#34;600px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-summary&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary&lt;/h3&gt;
+&lt;p&gt;Demographic estimation usually involves using some sort of model process or set of assumptions, no matter how detailed or high-quality the data are. As data availability increases, we are producing estimates at more granular levels of geography, with disaggregation into smaller subpopulations. As this continues, it becomes even more important to be aware of how modeling assumptions may affect results.&lt;/p&gt;
+&lt;p&gt;The main conclusions in the Chetty et. al paper are most likely right, and it is a great paper. But without access to the raw data, it is difficult for other researchers to disentangle how much are real differences, versus model artefacts, with any confidence.&lt;/p&gt;
+&lt;div id=&#34;section-code&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Code&lt;/h4&gt;
+&lt;p&gt;Code for this is &lt;a href=&#34;https://github.com/MJAlexander&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Cost of NBA Games</title>
+      <link>/2016/02/05/the-cost-of-nba-games/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/2016/02/05/the-cost-of-nba-games/</guid>
+      <description>&lt;p&gt;I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got &lt;a href=&#34;https://www.youtube.com/watch?v=UdvA9w3Tmoc&#34;&gt;really, really, good&lt;/a&gt;. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, &lt;a href=&#34;http://www.cnn.com/2012/04/13/health/side-effects-sports-fan/&#34;&gt;while healthier than drugs&lt;/a&gt;, may not be any cheaper.&lt;/p&gt;
+&lt;p&gt;I grabbed all data on resale tickets from &lt;a href=&#34;https://www.stubhub.com/&#34;&gt;StubHub&lt;/a&gt; for all remaining games of the 2015-16 season. As at 1 Feb, there were around 264,200 tickets for sale on StubHub. Note that these do not represent all tickets available, but the large sample size means that the prices are fairly representative of what you could expect to pay.&lt;/p&gt;
+&lt;p&gt;For those who don’t follow basketball: The NBA is made up of 30 teams, all of whom play each other at some point during the 82-game season. The teams are roughly geographically divided into either the Eastern Conference or the Western Conference. The Golden State Warriors are the number one ranked team in the Western Conference and won the Grand Final last season. Their star player is Stephen Curry, who has revolutionized basketball in the past few years with the &lt;a href=&#34;http://basketball-players.pointafter.com/stories/10645/stephen-curry-three-point-shooting&#34;&gt;efficacy of his 3 point throws&lt;/a&gt;. The Warriors are followed by the San Antonio Spurs, and the Oklahoma City Thunder. The number one team in the Eastern Conference is the Cleveland Cavaliers, whose star player is LeBron James. They are followed by the Toronto Raptors and the Boston Celtics.&lt;/p&gt;
+&lt;div id=&#34;section-home-games&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Home Games&lt;/h3&gt;
+&lt;p&gt;The plot below shows median ticket price for home games versus current overall standing of the team. Unsurprisingly, going to Warriors home games is generally much more expensive than for any other team. At $285, the median ticket price for remaining games at Oracle Arena is around $100 more than the next closest team, the Spurs.&lt;/p&gt;
+&lt;p&gt;The median home game ticket price generally decreases as you go down the current standings. The most notable exception is the LA Lakers, where you can pay $280 to &lt;a href=&#34;http://bleacherreport.com/articles/2613737-la-lakers-have-somehow-surpassed-philadelphia-76ers-as-nbas-worst&#34;&gt;probably see them lose&lt;/a&gt;. But then, how long until we see another Kobe?&lt;/p&gt;
+&lt;p&gt;New York Knicks games are also more expensive than expected given their overall ranking, but is probably due to a Madison Square Garden premium and an income effect of living in New York (this income effect doesn’t stretch to Brooklyn). Another income effect – in the opposite direction – may be the Detroit Pistons, who, despite winning more than half their games and being ranked in the top half of teams, have the cheapest tickets available.&lt;/p&gt;
+&lt;p&gt;Median ticket prices generally decrease with team rankings, but this observation really only holds for the top ten-ranked teams. After that, apart Lakers and the Knicks, there is not much difference between median home game prices. Maybe the &lt;a href=&#34;http://espn.go.com/blog/truehoop/post/_/id/25914/mark-cuban-hopes-to-lose-and-lose-badly-someday&#34;&gt;treadmill of mediocrity&lt;/a&gt; starts turning. You could be paying the same amount of money to see, for example, the Pacers or the Suns, even though the former have won twice as many games.&lt;/p&gt;
+&lt;center&gt;
+&lt;h4&gt;
+Median ticket price for remaining 15/16 home games
+&lt;/h4&gt;
+&lt;/center&gt;
+&lt;iframe srcdoc=&#34; &amp;lt;!doctype HTML&amp;gt;
+&amp;lt;meta charset = &#39;utf-8&#39;&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;link rel=&#39;stylesheet&#39; href=&#39;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css&#39;&amp;gt;
+    
+    &amp;lt;script src=&#39;//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&#39;//d3js.org/d3.v3.min.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&#39;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&#39;//nvd3.org/assets/lib/fisheye.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    
+    &amp;lt;style&amp;gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    &amp;lt;/style&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body &amp;gt;
+    
+    &amp;lt;div id = &#39;chart1ba03e6a6b57&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
+ $(document).ready(function(){
+      drawchart1ba03e6a6b57()
+    });
+    function drawchart1ba03e6a6b57(){  
+      var opts = {
+ &amp;quot;dom&amp;quot;: &amp;quot;chart1ba03e6a6b57&amp;quot;,
+&amp;quot;width&amp;quot;:    800,
+&amp;quot;height&amp;quot;:    400,
+&amp;quot;x&amp;quot;: &amp;quot;standing&amp;quot;,
+&amp;quot;y&amp;quot;: &amp;quot;med.price&amp;quot;,
+&amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
+&amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
+&amp;quot;showLegend&amp;quot;: false,
+&amp;quot;id&amp;quot;: &amp;quot;chart1ba03e6a6b57&amp;quot; 
+},
+        data = [
+ {
+ &amp;quot;home&amp;quot;: &amp;quot;Golden State Warriors&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 746.5825573492,
+&amp;quot;med.price&amp;quot;:            285,
+&amp;quot;total.tickets&amp;quot;: 13881,
+&amp;quot;team&amp;quot;: &amp;quot;Golden State Warriors&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            340,
+&amp;quot;standing&amp;quot;: 1 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Los Angeles Lakers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 638.9048909919,
+&amp;quot;med.price&amp;quot;:         279.97,
+&amp;quot;total.tickets&amp;quot;: 45163,
+&amp;quot;team&amp;quot;: &amp;quot;Los Angeles Lakers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          267.6,
+&amp;quot;standing&amp;quot;: 29 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;San Antonio Spurs&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 331.6622040208,
+&amp;quot;med.price&amp;quot;:         183.98,
+&amp;quot;total.tickets&amp;quot;: 26856,
+&amp;quot;team&amp;quot;: &amp;quot;San Antonio Spurs&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            168,
+&amp;quot;standing&amp;quot;: 2 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Oklahoma City Thunder&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 234.0735251129,
+&amp;quot;med.price&amp;quot;:         169.97,
+&amp;quot;total.tickets&amp;quot;: 19271,
+&amp;quot;team&amp;quot;: &amp;quot;Oklahoma City Thunder&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         156.86,
+&amp;quot;standing&amp;quot;: 4 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;New York Knicks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 264.8877804695,
+&amp;quot;med.price&amp;quot;:            165,
+&amp;quot;total.tickets&amp;quot;: 73917,
+&amp;quot;team&amp;quot;: &amp;quot;New York Knicks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         119.89,
+&amp;quot;standing&amp;quot;: 19 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Cleveland Cavaliers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 195.7354707026,
+&amp;quot;med.price&amp;quot;:            126,
+&amp;quot;total.tickets&amp;quot;: 12272,
+&amp;quot;team&amp;quot;: &amp;quot;Cleveland Cavaliers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          271.6,
+&amp;quot;standing&amp;quot;: 3 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Los Angeles Clippers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 362.9090423815,
+&amp;quot;med.price&amp;quot;:            125,
+&amp;quot;total.tickets&amp;quot;: 56796,
+&amp;quot;team&amp;quot;: &amp;quot;Los Angeles Clippers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         179.05,
+&amp;quot;standing&amp;quot;: 6 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Miami Heat&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 212.5452275964,
+&amp;quot;med.price&amp;quot;:         120.37,
+&amp;quot;total.tickets&amp;quot;: 57184,
+&amp;quot;team&amp;quot;: &amp;quot;Miami Heat&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            147,
+&amp;quot;standing&amp;quot;: 8 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Chicago Bulls&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  183.414019484,
+&amp;quot;med.price&amp;quot;:         119.01,
+&amp;quot;total.tickets&amp;quot;: 68046,
+&amp;quot;team&amp;quot;: &amp;quot;Chicago Bulls&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         149.26,
+&amp;quot;standing&amp;quot;: 10 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Orlando Magic&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 195.5518711386,
+&amp;quot;med.price&amp;quot;:        117.975,
+&amp;quot;total.tickets&amp;quot;: 14965,
+&amp;quot;team&amp;quot;: &amp;quot;Orlando Magic&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             95,
+&amp;quot;standing&amp;quot;: 21 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Minnesota Timberwolves&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 208.1714285714,
+&amp;quot;med.price&amp;quot;:            117,
+&amp;quot;total.tickets&amp;quot;: 34,
+&amp;quot;team&amp;quot;: &amp;quot;Minnesota Timberwolves&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:           82.5,
+&amp;quot;standing&amp;quot;: 27 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Toronto Raptors&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 178.9227711097,
+&amp;quot;med.price&amp;quot;:            112,
+&amp;quot;total.tickets&amp;quot;: 42429,
+&amp;quot;team&amp;quot;: &amp;quot;Toronto Raptors&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            110,
+&amp;quot;standing&amp;quot;: 5 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Denver Nuggets&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  171.964158268,
+&amp;quot;med.price&amp;quot;:         108.78,
+&amp;quot;total.tickets&amp;quot;: 11813,
+&amp;quot;team&amp;quot;: &amp;quot;Denver Nuggets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:           90.1,
+&amp;quot;standing&amp;quot;: 24 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Sacramento Kings&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 163.1164965831,
+&amp;quot;med.price&amp;quot;:            106,
+&amp;quot;total.tickets&amp;quot;: 6446,
+&amp;quot;team&amp;quot;: &amp;quot;Sacramento Kings&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          99.01,
+&amp;quot;standing&amp;quot;: 22 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Houston Rockets&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 188.0682343456,
+&amp;quot;med.price&amp;quot;:            105,
+&amp;quot;total.tickets&amp;quot;: 15255,
+&amp;quot;team&amp;quot;: &amp;quot;Houston Rockets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            117,
+&amp;quot;standing&amp;quot;: 15 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Atlanta Hawks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 181.6457681549,
+&amp;quot;med.price&amp;quot;:            100,
+&amp;quot;total.tickets&amp;quot;: 24650,
+&amp;quot;team&amp;quot;: &amp;quot;Atlanta Hawks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          93.01,
+&amp;quot;standing&amp;quot;: 9 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Portland Trail Blazers&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  158.924484968,
+&amp;quot;med.price&amp;quot;:            100,
+&amp;quot;total.tickets&amp;quot;: 17844,
+&amp;quot;team&amp;quot;: &amp;quot;Portland Trail Blazers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            106,
+&amp;quot;standing&amp;quot;: 17 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Brooklyn Nets&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 195.3687750977,
+&amp;quot;med.price&amp;quot;:          99.75,
+&amp;quot;total.tickets&amp;quot;: 31879,
+&amp;quot;team&amp;quot;: &amp;quot;Brooklyn Nets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            100,
+&amp;quot;standing&amp;quot;: 28 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Memphis Grizzlies&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 151.0936938286,
+&amp;quot;med.price&amp;quot;:          87.97,
+&amp;quot;total.tickets&amp;quot;: 24368,
+&amp;quot;team&amp;quot;: &amp;quot;Memphis Grizzlies&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         114.44,
+&amp;quot;standing&amp;quot;: 7 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Boston Celtics&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 171.9399356711,
+&amp;quot;med.price&amp;quot;:          86.52,
+&amp;quot;total.tickets&amp;quot;: 45188,
+&amp;quot;team&amp;quot;: &amp;quot;Boston Celtics&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         119.89,
+&amp;quot;standing&amp;quot;: 11 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Dallas Mavericks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 149.9544251852,
+&amp;quot;med.price&amp;quot;:          84.01,
+&amp;quot;total.tickets&amp;quot;: 49171,
+&amp;quot;team&amp;quot;: &amp;quot;Dallas Mavericks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             91,
+&amp;quot;standing&amp;quot;: 12 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Charlotte Hornets&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 124.9853293496,
+&amp;quot;med.price&amp;quot;:          80.13,
+&amp;quot;total.tickets&amp;quot;: 26535,
+&amp;quot;team&amp;quot;: &amp;quot;Charlotte Hornets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             80,
+&amp;quot;standing&amp;quot;: 16 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Phoenix Suns&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  132.971847174,
+&amp;quot;med.price&amp;quot;:             75,
+&amp;quot;total.tickets&amp;quot;: 14109,
+&amp;quot;team&amp;quot;: &amp;quot;Phoenix Suns&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             85,
+&amp;quot;standing&amp;quot;: 26 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Indiana Pacers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 119.9811269571,
+&amp;quot;med.price&amp;quot;:             70,
+&amp;quot;total.tickets&amp;quot;: 27407,
+&amp;quot;team&amp;quot;: &amp;quot;Indiana Pacers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            100,
+&amp;quot;standing&amp;quot;: 14 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Washington Wizards&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 132.4703064818,
+&amp;quot;med.price&amp;quot;:             70,
+&amp;quot;total.tickets&amp;quot;: 44848,
+&amp;quot;team&amp;quot;: &amp;quot;Washington Wizards&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         104.65,
+&amp;quot;standing&amp;quot;: 20 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Milwaukee Bucks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 107.9297793939,
+&amp;quot;med.price&amp;quot;:           59.4,
+&amp;quot;total.tickets&amp;quot;: 17338,
+&amp;quot;team&amp;quot;: &amp;quot;Milwaukee Bucks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          77.49,
+&amp;quot;standing&amp;quot;: 23 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Utah Jazz&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 143.4808084862,
+&amp;quot;med.price&amp;quot;:           58.2,
+&amp;quot;total.tickets&amp;quot;: 9412,
+&amp;quot;team&amp;quot;: &amp;quot;Utah Jazz&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             92,
+&amp;quot;standing&amp;quot;: 18 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;New Orleans Pelicans&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 124.5160423474,
+&amp;quot;med.price&amp;quot;:           55.2,
+&amp;quot;total.tickets&amp;quot;: 32299,
+&amp;quot;team&amp;quot;: &amp;quot;New Orleans Pelicans&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          75.95,
+&amp;quot;standing&amp;quot;: 25 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Philadelphia 76ers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 89.53557283465,
+&amp;quot;med.price&amp;quot;:          49.99,
+&amp;quot;total.tickets&amp;quot;: 34636,
+&amp;quot;team&amp;quot;: &amp;quot;Philadelphia 76ers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          73.53,
+&amp;quot;standing&amp;quot;: 30 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Detroit Pistons&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 88.34122615804,
+&amp;quot;med.price&amp;quot;:             45,
+&amp;quot;total.tickets&amp;quot;: 23802,
+&amp;quot;team&amp;quot;: &amp;quot;Detroit Pistons&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          86.06,
+&amp;quot;standing&amp;quot;: 13 
+} 
+]
+  
+      if(!(opts.type===&amp;quot;pieChart&amp;quot; || opts.type===&amp;quot;sparklinePlus&amp;quot; || opts.type===&amp;quot;bulletChart&amp;quot;)) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? &#39;main&#39; : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != &amp;quot;bulletChart&amp;quot;){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .color([ &amp;quot;#006BB6&amp;quot;, &amp;quot;#552582&amp;quot;, &amp;quot;#000000&amp;quot;, &amp;quot;#007DC3&amp;quot;, &amp;quot;#F58426&amp;quot;, &amp;quot;#860038&amp;quot;, &amp;quot;#006BB6&amp;quot;, &amp;quot;#F9A01B&amp;quot;, &amp;quot;#CE1141&amp;quot;, &amp;quot;#C4CED3&amp;quot;, &amp;quot;#00A94F&amp;quot;, &amp;quot;#CE1141&amp;quot;, &amp;quot;#4FA8FF&amp;quot;, &amp;quot;#724C9F&amp;quot;, &amp;quot;#CE1142&amp;quot;, &amp;quot;#E03A3E&amp;quot;, &amp;quot;#F0163A&amp;quot;, &amp;quot;#000000&amp;quot;, &amp;quot;#23375B&amp;quot;, &amp;quot;#008348&amp;quot;, &amp;quot;#20385B&amp;quot;, &amp;quot;#1D1160&amp;quot;, &amp;quot;#E56020&amp;quot;, &amp;quot;#FFC633&amp;quot;, &amp;quot;#002566&amp;quot;, &amp;quot;#00471B&amp;quot;, &amp;quot;#002B5C&amp;quot;, &amp;quot;#B4975A&amp;quot;, &amp;quot;#006BB6&amp;quot;, &amp;quot;#001F70&amp;quot; ])
+  .tooltipContent( function(key, x, y){
+        return &#39;&amp;lt;h3&amp;gt;&#39; + key + &#39;&amp;lt;/h3&amp;gt;&#39; + 
+        &#39;&amp;lt;p&amp;gt;&#39; + &#39;Standing: &#39;+ x + &#39; , &#39; + &#39;Price: $&#39;+ y + &#39;&amp;lt;/p&amp;gt;&#39;
+        } )
+  .showLegend(false)
+  .sizeRange([    250,    250 ])
+  .forceY([     25,    375 ])
+  .forceX([      0,     30 ])
+          
+        chart.xAxis
+  .axisLabel(&amp;quot;Current Team Standing&amp;quot;)
+  .tickValues( function (x) {    
+                tickvalues = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+                return tickvalues;
+                } )
+
+        
+        
+        chart.yAxis
+  .axisLabel(&amp;quot;Ticket price, home games ($)&amp;quot;)
+  .width(    62)
+  .tickValues( function (x) {    
+                tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
+                return tickvalues;
+                } )
+      
+       d3.select(&amp;quot;#&amp;quot; + opts.id)
+        .append(&#39;svg&#39;)
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+&amp;lt;/script&amp;gt;
+    
+    &amp;lt;style&amp;gt;
+    .tick line {
+      opacity: 0;
+    }
+    &amp;lt;/style&amp;gt;    
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart1ba03e6a6b57&#34;&gt;
+&lt;/iframe&gt;
+&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-everyone-wants-to-see-curry-lebron&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Everyone wants to see Curry (+ LeBron)&lt;/h3&gt;
+&lt;p&gt;Oracle is notorious for its &lt;a href=&#34;http://abc7news.com/sports/expert-decibel-level-at-oracle-is-similar-to-jet-engine/773850/&#34;&gt;electric atmosphere&lt;/a&gt;, and Warriors fans are some of the most passionate in the league, so maybe there is a price premium for the home-court advantage. The plot below shows the median ticket price for each team, with the home-game price plotted against away-game price. While the home game prices for the Warriors &lt;a href=&#34;https://www.youtube.com/watch?v=LB4rplyj3TU&#34;&gt;are enough the make you fall over&lt;/a&gt;, the away game prices are even worse. The median price is $340 for all remaining away games for the Warriors, $55 more than their home games. Everyone wants to see &lt;a href=&#34;https://www.youtube.com/watch?v=F8uoujg1XgE&#34;&gt;Curry score a three from their half court logo&lt;/a&gt;. The prospect of playing the Warriors must be daunting for any team, even at home. But the average price of tickets when the Warriors come to town must have the team and stadium owners rubbing their hands with joy.&lt;/p&gt;
+&lt;p&gt;For most other teams, home and away median prices are pretty close. The notable exception is the Cleveland Cavaliers, where the away game median price more than twice the home game price. This could be explained by the LeBron Effect: the King’s Lands reach far and wide. However, the Cleveland locals aren’t so excited. The number of times the Cavs have lost a championship is too high. They don’t want to pay too much, only to get their hearts broken again.&lt;/p&gt;
+&lt;p&gt;The three dots to the far right of the chart show that the Warriors, Lakers and Cavs fetch far more in away games than any other team. On the other hand, the San Antonio Spurs, despite being the second-best team in the league, having an All-Star starter, a record home-game start to the season and playing to sellout crowds at home, fail to instill any excitement in non-San Antionians. After all, Tim Duncan only dunks when necessary.&lt;/p&gt;
+&lt;center&gt;
+&lt;h4&gt;
+Median ticket price, home games versus away games
+&lt;/h4&gt;
+&lt;/center&gt;
+&lt;iframe srcdoc=&#34; &amp;lt;!doctype HTML&amp;gt;
+&amp;lt;meta charset = &#39;utf-8&#39;&amp;gt;
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
+    &amp;lt;link rel=&#39;stylesheet&#39; href=&#39;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css&#39;&amp;gt;
+    
+    &amp;lt;script src=&#39;//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&#39;//d3js.org/d3.v3.min.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&#39;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&#39;//nvd3.org/assets/lib/fisheye.js&#39; type=&#39;text/javascript&#39;&amp;gt;&amp;lt;/script&amp;gt;
+    
+    &amp;lt;style&amp;gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    &amp;lt;/style&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body &amp;gt;
+    
+    &amp;lt;div id = &#39;chart1ba072add1ae&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
+ $(document).ready(function(){
+      drawchart1ba072add1ae()
+    });
+    function drawchart1ba072add1ae(){  
+      var opts = {
+ &amp;quot;dom&amp;quot;: &amp;quot;chart1ba072add1ae&amp;quot;,
+&amp;quot;width&amp;quot;:    800,
+&amp;quot;height&amp;quot;:    400,
+&amp;quot;x&amp;quot;: &amp;quot;away.med.price&amp;quot;,
+&amp;quot;y&amp;quot;: &amp;quot;med.price&amp;quot;,
+&amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
+&amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
+&amp;quot;showLegend&amp;quot;: false,
+&amp;quot;id&amp;quot;: &amp;quot;chart1ba072add1ae&amp;quot; 
+},
+        data = [
+ {
+ &amp;quot;home&amp;quot;: &amp;quot;Golden State Warriors&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 746.5825573492,
+&amp;quot;med.price&amp;quot;:            285,
+&amp;quot;total.tickets&amp;quot;: 13881,
+&amp;quot;team&amp;quot;: &amp;quot;Golden State Warriors&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            340,
+&amp;quot;standing&amp;quot;: 1 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Los Angeles Lakers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 638.9048909919,
+&amp;quot;med.price&amp;quot;:         279.97,
+&amp;quot;total.tickets&amp;quot;: 45163,
+&amp;quot;team&amp;quot;: &amp;quot;Los Angeles Lakers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          267.6,
+&amp;quot;standing&amp;quot;: 29 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;San Antonio Spurs&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 331.6622040208,
+&amp;quot;med.price&amp;quot;:         183.98,
+&amp;quot;total.tickets&amp;quot;: 26856,
+&amp;quot;team&amp;quot;: &amp;quot;San Antonio Spurs&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            168,
+&amp;quot;standing&amp;quot;: 2 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Oklahoma City Thunder&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 234.0735251129,
+&amp;quot;med.price&amp;quot;:         169.97,
+&amp;quot;total.tickets&amp;quot;: 19271,
+&amp;quot;team&amp;quot;: &amp;quot;Oklahoma City Thunder&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         156.86,
+&amp;quot;standing&amp;quot;: 4 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;New York Knicks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 264.8877804695,
+&amp;quot;med.price&amp;quot;:            165,
+&amp;quot;total.tickets&amp;quot;: 73917,
+&amp;quot;team&amp;quot;: &amp;quot;New York Knicks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         119.89,
+&amp;quot;standing&amp;quot;: 19 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Cleveland Cavaliers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 195.7354707026,
+&amp;quot;med.price&amp;quot;:            126,
+&amp;quot;total.tickets&amp;quot;: 12272,
+&amp;quot;team&amp;quot;: &amp;quot;Cleveland Cavaliers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          271.6,
+&amp;quot;standing&amp;quot;: 3 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Los Angeles Clippers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 362.9090423815,
+&amp;quot;med.price&amp;quot;:            125,
+&amp;quot;total.tickets&amp;quot;: 56796,
+&amp;quot;team&amp;quot;: &amp;quot;Los Angeles Clippers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         179.05,
+&amp;quot;standing&amp;quot;: 6 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Miami Heat&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 212.5452275964,
+&amp;quot;med.price&amp;quot;:         120.37,
+&amp;quot;total.tickets&amp;quot;: 57184,
+&amp;quot;team&amp;quot;: &amp;quot;Miami Heat&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            147,
+&amp;quot;standing&amp;quot;: 8 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Chicago Bulls&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  183.414019484,
+&amp;quot;med.price&amp;quot;:         119.01,
+&amp;quot;total.tickets&amp;quot;: 68046,
+&amp;quot;team&amp;quot;: &amp;quot;Chicago Bulls&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         149.26,
+&amp;quot;standing&amp;quot;: 10 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Orlando Magic&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 195.5518711386,
+&amp;quot;med.price&amp;quot;:        117.975,
+&amp;quot;total.tickets&amp;quot;: 14965,
+&amp;quot;team&amp;quot;: &amp;quot;Orlando Magic&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             95,
+&amp;quot;standing&amp;quot;: 21 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Minnesota Timberwolves&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 208.1714285714,
+&amp;quot;med.price&amp;quot;:            117,
+&amp;quot;total.tickets&amp;quot;: 34,
+&amp;quot;team&amp;quot;: &amp;quot;Minnesota Timberwolves&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:           82.5,
+&amp;quot;standing&amp;quot;: 27 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Toronto Raptors&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 178.9227711097,
+&amp;quot;med.price&amp;quot;:            112,
+&amp;quot;total.tickets&amp;quot;: 42429,
+&amp;quot;team&amp;quot;: &amp;quot;Toronto Raptors&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            110,
+&amp;quot;standing&amp;quot;: 5 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Denver Nuggets&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  171.964158268,
+&amp;quot;med.price&amp;quot;:         108.78,
+&amp;quot;total.tickets&amp;quot;: 11813,
+&amp;quot;team&amp;quot;: &amp;quot;Denver Nuggets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:           90.1,
+&amp;quot;standing&amp;quot;: 24 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Sacramento Kings&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 163.1164965831,
+&amp;quot;med.price&amp;quot;:            106,
+&amp;quot;total.tickets&amp;quot;: 6446,
+&amp;quot;team&amp;quot;: &amp;quot;Sacramento Kings&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          99.01,
+&amp;quot;standing&amp;quot;: 22 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Houston Rockets&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 188.0682343456,
+&amp;quot;med.price&amp;quot;:            105,
+&amp;quot;total.tickets&amp;quot;: 15255,
+&amp;quot;team&amp;quot;: &amp;quot;Houston Rockets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            117,
+&amp;quot;standing&amp;quot;: 15 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Atlanta Hawks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 181.6457681549,
+&amp;quot;med.price&amp;quot;:            100,
+&amp;quot;total.tickets&amp;quot;: 24650,
+&amp;quot;team&amp;quot;: &amp;quot;Atlanta Hawks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          93.01,
+&amp;quot;standing&amp;quot;: 9 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Portland Trail Blazers&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  158.924484968,
+&amp;quot;med.price&amp;quot;:            100,
+&amp;quot;total.tickets&amp;quot;: 17844,
+&amp;quot;team&amp;quot;: &amp;quot;Portland Trail Blazers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            106,
+&amp;quot;standing&amp;quot;: 17 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Brooklyn Nets&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 195.3687750977,
+&amp;quot;med.price&amp;quot;:          99.75,
+&amp;quot;total.tickets&amp;quot;: 31879,
+&amp;quot;team&amp;quot;: &amp;quot;Brooklyn Nets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            100,
+&amp;quot;standing&amp;quot;: 28 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Memphis Grizzlies&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 151.0936938286,
+&amp;quot;med.price&amp;quot;:          87.97,
+&amp;quot;total.tickets&amp;quot;: 24368,
+&amp;quot;team&amp;quot;: &amp;quot;Memphis Grizzlies&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         114.44,
+&amp;quot;standing&amp;quot;: 7 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Boston Celtics&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 171.9399356711,
+&amp;quot;med.price&amp;quot;:          86.52,
+&amp;quot;total.tickets&amp;quot;: 45188,
+&amp;quot;team&amp;quot;: &amp;quot;Boston Celtics&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         119.89,
+&amp;quot;standing&amp;quot;: 11 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Dallas Mavericks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 149.9544251852,
+&amp;quot;med.price&amp;quot;:          84.01,
+&amp;quot;total.tickets&amp;quot;: 49171,
+&amp;quot;team&amp;quot;: &amp;quot;Dallas Mavericks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             91,
+&amp;quot;standing&amp;quot;: 12 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Charlotte Hornets&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 124.9853293496,
+&amp;quot;med.price&amp;quot;:          80.13,
+&amp;quot;total.tickets&amp;quot;: 26535,
+&amp;quot;team&amp;quot;: &amp;quot;Charlotte Hornets&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             80,
+&amp;quot;standing&amp;quot;: 16 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Phoenix Suns&amp;quot;,
+&amp;quot;mean.price&amp;quot;:  132.971847174,
+&amp;quot;med.price&amp;quot;:             75,
+&amp;quot;total.tickets&amp;quot;: 14109,
+&amp;quot;team&amp;quot;: &amp;quot;Phoenix Suns&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             85,
+&amp;quot;standing&amp;quot;: 26 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Indiana Pacers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 119.9811269571,
+&amp;quot;med.price&amp;quot;:             70,
+&amp;quot;total.tickets&amp;quot;: 27407,
+&amp;quot;team&amp;quot;: &amp;quot;Indiana Pacers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:            100,
+&amp;quot;standing&amp;quot;: 14 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Washington Wizards&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 132.4703064818,
+&amp;quot;med.price&amp;quot;:             70,
+&amp;quot;total.tickets&amp;quot;: 44848,
+&amp;quot;team&amp;quot;: &amp;quot;Washington Wizards&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:         104.65,
+&amp;quot;standing&amp;quot;: 20 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Milwaukee Bucks&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 107.9297793939,
+&amp;quot;med.price&amp;quot;:           59.4,
+&amp;quot;total.tickets&amp;quot;: 17338,
+&amp;quot;team&amp;quot;: &amp;quot;Milwaukee Bucks&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          77.49,
+&amp;quot;standing&amp;quot;: 23 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Utah Jazz&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 143.4808084862,
+&amp;quot;med.price&amp;quot;:           58.2,
+&amp;quot;total.tickets&amp;quot;: 9412,
+&amp;quot;team&amp;quot;: &amp;quot;Utah Jazz&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:             92,
+&amp;quot;standing&amp;quot;: 18 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;New Orleans Pelicans&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 124.5160423474,
+&amp;quot;med.price&amp;quot;:           55.2,
+&amp;quot;total.tickets&amp;quot;: 32299,
+&amp;quot;team&amp;quot;: &amp;quot;New Orleans Pelicans&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          75.95,
+&amp;quot;standing&amp;quot;: 25 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Philadelphia 76ers&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 89.53557283465,
+&amp;quot;med.price&amp;quot;:          49.99,
+&amp;quot;total.tickets&amp;quot;: 34636,
+&amp;quot;team&amp;quot;: &amp;quot;Philadelphia 76ers&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          73.53,
+&amp;quot;standing&amp;quot;: 30 
+},
+{
+ &amp;quot;home&amp;quot;: &amp;quot;Detroit Pistons&amp;quot;,
+&amp;quot;mean.price&amp;quot;: 88.34122615804,
+&amp;quot;med.price&amp;quot;:             45,
+&amp;quot;total.tickets&amp;quot;: 23802,
+&amp;quot;team&amp;quot;: &amp;quot;Detroit Pistons&amp;quot;,
+&amp;quot;away.med.price&amp;quot;:          86.06,
+&amp;quot;standing&amp;quot;: 13 
+} 
+]
+  
+      if(!(opts.type===&amp;quot;pieChart&amp;quot; || opts.type===&amp;quot;sparklinePlus&amp;quot; || opts.type===&amp;quot;bulletChart&amp;quot;)) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? &#39;main&#39; : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != &amp;quot;bulletChart&amp;quot;){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .color([ &amp;quot;#006BB6&amp;quot;, &amp;quot;#552582&amp;quot;, &amp;quot;#000000&amp;quot;, &amp;quot;#007DC3&amp;quot;, &amp;quot;#F58426&amp;quot;, &amp;quot;#860038&amp;quot;, &amp;quot;#006BB6&amp;quot;, &amp;quot;#F9A01B&amp;quot;, &amp;quot;#CE1141&amp;quot;, &amp;quot;#C4CED3&amp;quot;, &amp;quot;#00A94F&amp;quot;, &amp;quot;#CE1141&amp;quot;, &amp;quot;#4FA8FF&amp;quot;, &amp;quot;#724C9F&amp;quot;, &amp;quot;#CE1142&amp;quot;, &amp;quot;#E03A3E&amp;quot;, &amp;quot;#F0163A&amp;quot;, &amp;quot;#000000&amp;quot;, &amp;quot;#23375B&amp;quot;, &amp;quot;#008348&amp;quot;, &amp;quot;#20385B&amp;quot;, &amp;quot;#1D1160&amp;quot;, &amp;quot;#E56020&amp;quot;, &amp;quot;#FFC633&amp;quot;, &amp;quot;#002566&amp;quot;, &amp;quot;#00471B&amp;quot;, &amp;quot;#002B5C&amp;quot;, &amp;quot;#B4975A&amp;quot;, &amp;quot;#006BB6&amp;quot;, &amp;quot;#001F70&amp;quot; ])
+  .tooltipContent( function(key, x, y){
+        return &#39;&amp;lt;h3&amp;gt;&#39; + key + &#39;&amp;lt;/h3&amp;gt;&#39; + 
+        &#39;&amp;lt;p&amp;gt;&#39; + &#39;Away: $&#39;+ x + &#39; , &#39; + &#39;Home: $&#39;+ y + &#39;&amp;lt;/p&amp;gt;&#39;
+        } )
+  .showLegend(false)
+  .sizeRange([    250,    250 ])
+  .forceY([     25,    375 ])
+  .forceX([     25,    375 ])
+          
+        chart.xAxis
+  .axisLabel(&amp;quot;Ticket price, away games ($)&amp;quot;)
+  .tickValues( function (x) {    
+    tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
+    return tickvalues;
+} )
+
+        
+        
+        chart.yAxis
+  .axisLabel(&amp;quot;Ticket price, home games ($)&amp;quot;)
+  .width(    62)
+  .tickValues( function (x) {    
+    tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
+    return tickvalues;
+} )
+      
+       d3.select(&amp;quot;#&amp;quot; + opts.id)
+        .append(&#39;svg&#39;)
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+&amp;lt;/script&amp;gt;
+    
+    &amp;lt;style&amp;gt;
+    .tick line {
+      opacity: 0;
+    }
+    &amp;lt;/style&amp;gt;    
+  &amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart1ba072add1ae&#34;&gt;
+&lt;/iframe&gt;
+&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-you-pay-for-what-you-get&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;You pay for what you get&lt;/h3&gt;
+&lt;p&gt;The plot below shows median ticket price for all remaining regular games in the 15/16 season, plotted against the average standing of the two teams playing. For example, if the game is between the Warriors and the Spurs, the average rating is (1+2)/2 = 1.5. You can select to see prices involving different games using the drop downs on the left; selections show up in red.&lt;/p&gt;
+&lt;p&gt;In general, you pay for what you get: the higher the combined ranking of the two teams playing, the more expensive the tickets. Lakers games buck this trend. Note that for visibility I left the most expensive game off this chart: Kobe’s final game at the Staples Center on 13 April has a median ticket price of &lt;a href=&#34;https://www.stubhub.com/los-angeles-lakers-tickets-los-angeles-lakers-los-angeles-staples-center-4-13-2016/event/9370774/&#34;&gt;around $1650&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Despite the high price of Warrior away-games in general, it could still be cheaper to &lt;a href=&#34;https://www.kayak.com/flights/SFO-SLC/2016-03-30/2016-03-31&#34;&gt;fly to Utah&lt;/a&gt; in late March to see the Jazz game, than to see any remaining home games. The most expensive games are between the Warriors and Spurs or OKC, the two teams who are most likely to threaten the Warriors chances of breaking the &lt;a href=&#34;http://www.nba.com/history/season/19951996.html&#34;&gt;Bull’s 72-10 record&lt;/a&gt;. No matter what happens, Steve Kerr still may be the &lt;a href=&#34;http://www.huffingtonpost.com/2015/06/17/steve-kerr-warriors-coach_n_7603384.html&#34;&gt;luckiest man in NBA history&lt;/a&gt;.&lt;/p&gt;
+&lt;center&gt;
+&lt;h4&gt;
+Median ticket price, all remaining NBA games
+&lt;/h4&gt;
+&lt;/center&gt;
+&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/nba_app?showcase=0&#34; width=&#34;1152&#34; height=&#34;600px&#34;&gt;
+&lt;/iframe&gt;
+&lt;div id=&#34;section-notes&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Notes:&lt;/h4&gt;
+&lt;p&gt;These charts were made using &lt;code&gt;rCharts&lt;/code&gt; (thanks Ramnath Vaidyanathan for the awesome package). Code for scraping StubHub and analysis can be found &lt;a href=&#34;https://github.com/MJAlexander/nba&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
