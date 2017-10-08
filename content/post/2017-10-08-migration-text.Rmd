@@ -5,16 +5,16 @@ date: "2017-10-08"
 output: html_document
 ---
 
-[Leslie Root](https://leslieroot.net/) and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed over time. 
+[Leslie Root](https://leslieroot.net/) and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed. 
 
-Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslim migrants. 
+Our initial analysis suggests that sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslim migrants. 
 
 All analysis was done in `R` using the awesome package `tidytext` and following ['Text Mining in R: A tidy approach'](http://tidytextmining.com/) by Julia Silge and David Robinson. Code can be found [here](https://github.com/lesliejroot/migration-news).
 
 
 
 ## Data
-We searched [ProQuest](https://search.proquest.com) for newspaper articles that included the terms 'population' and 'immigra*'. This resulting in a total of 9,869 articles over the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn't collect for the whole year.
+We searched [ProQuest](https://search.proquest.com) for newspaper articles that included the terms 'population' and 'immigra*'. This resulting in a total of 9,869 articles in the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn't collect for the whole year.
 
 <img src="/img/migration_plots/source_year.png" alt="number of articles by year">
 
@@ -26,7 +26,7 @@ Throughout all years there is a strong political focus, with Obama, McCain, Clin
 
 <img src="/img/migration_plots/tf_idf_year_barplot.png" alt="important words", height="4000">
 
-We also looked at words preceding the words 'immigrant' and 'migrant' to see what the most important combinations were. In general the most common preceding word was 'illegal'. However, looking over at changes over time suggests a shift to using alternative words such as 'undocumented' and 'unauthorized'. The number of instances of 'undocumented immigrant/migrant' overtook 'illegal immigrant/migrant' in 2017. Various ethnicities were also important preceding words, including Mexican, Latino, Hispanic, Asian and Muslim. 
+We also looked at words preceding the words 'immigrant' and 'migrant' to see what the most important combinations were. In general the most common preceding word was 'illegal'. However, looking at changes over time suggests a shift to using alternative words such as 'undocumented' and 'unauthorized'. The number of instances of 'undocumented immigrant/migrant' overtook 'illegal immigrant/migrant' in 2017. Various ethnicities were also important preceding words, including Mexican, Latino, Hispanic, Asian and Muslim. 
 
 <img src="/img/migration_plots/bigram_immigration_year_barplot.png" alt="words preceding immigrant">
 
@@ -36,13 +36,13 @@ Focusing on the types of ethnicities/religions most commonly mentioned preceding
 
 
 ## Sentiment
-We also looked at how the overall sentiment is changing over time. The plot below shows sentiment over time for all news articles, using the [AFINN](http://tidytextmining.com/sentiment.html#the-sentiments-dataset) measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.
+We also looked at how sentiment in migration news articles is changing over time. The plot below shows sentiment for all articles in each year, using the [AFINN](http://tidytextmining.com/sentiment.html#the-sentiments-dataset) measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.
 
-Sentiment is negative over all years, but the level has been changing over time. After initially dropping, sentiment increased during Obama's second term, but has since decreased. This year's news articles display the most negative sentiment of the whole period. 
+Sentiment is negative for all years, but the level has been changing. After initially dropping, sentiment increased during Obama's second term, but has since decreased. This year's news articles display the most negative sentiment of the whole period. 
 
 <img src="/img/migration_plots/sentiment_year.png" alt="sentiment over time">
 
-Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of 'illegal' towards the use of 'undocumented' over time. The use of 'attack' peaked in 2015, corresponding to the Paris attacks. 
+Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of 'illegal' towards the use of 'undocumented'. The use of 'attack' peaked in 2015, corresponding to the Paris attacks. 
 
 <img src="/img/migration_plots/sent_neg_year.png" alt="sentiment over time">
 
