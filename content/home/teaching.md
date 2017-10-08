@@ -16,8 +16,8 @@ weight = 4
 
 ## University of California, Berkeley
 
-- Instructor, [Formal Demography Workshop](http://courses.demog.berkeley.edu/formaldemography/), Berkeley 5 -- 9 June, 2017
-- Instructor, Formal Demography Workshop, Berkeley 17 -- 21 August, 2015
+- Instructor, [Formal Demography Workshop](http://courses.demog.berkeley.edu/formaldemography/), June 2017
+- Instructor, Formal Demography Workshop, August 2015
 - Graduate Student Instructor, Demographic Methods, Fall Semester, 2014
 
 ## University of Tasmania
@@ -28,5 +28,5 @@ weight = 4
 
 ## Other
 
-- Instructor, [Introduction to Causal Inference](https://github.com/mkiang/intro-ci-shortcourse), ITAM, Mexico, March 2017
-- Instructor, [IUSSP Workshop on Social Media Data and Demography](https://github.com/CSDE-UW/iussp-mainz-social-media), Mainz, 31 August 2016
+- Instructor, [Introduction to Causal Inference](https://github.com/mkiang/intro-ci-shortcourse), ITAM, March 2017
+- Instructor, [IUSSP Workshop on Social Media Data and Demography](https://github.com/CSDE-UW/iussp-mainz-social-media), August 2016
