@@ -1,5 +1,5 @@
 +++
-abstract = "We present a Bayesian hierarchical model to estimate age-specific mortality at the subnational level. The model framework overcomes issues with estimating mortality in small populations; is flexible enough to be implemented in a wide variety of situations; and produces estimates of different measures of inequality across regions."
+abstract = "We present a Bayesian hierarchical model to estimate age-specific mortality at the subnational level. The model framework overcomes issues with estimating mortality in small populations, is flexible enough to be implemented in a wide variety of situations, and produces estimates of different measures of inequality across regions."
 authors = ["Monica Alexander", "Emilio Zagheni", "Magali Barbieri"]
 date = "2017-10-15"
 image_preview = ""
