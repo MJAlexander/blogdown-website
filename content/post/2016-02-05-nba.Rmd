@@ -16,7 +16,7 @@ For those who don't follow basketball: The NBA is made up of 30 teams, all of wh
 
 ###Home Games
 
-The plot below shows median ticket price for home games versus current overall standing of the team. Unsurprisingly, going to Warriors home games is generally much more expensive than for any other team. At \$285, the median ticket price for remaining games at Oracle Arena is around \$100 more than the next closest team, the Spurs. 
+The plot below shows median ticket price for home games versus current overall standing of the team. Unsurprisingly, going to Warriors home games is generally much more expensive than for any other team. At 285 dollars, the median ticket price for remaining games at Oracle Arena is around \$100 more than the next closest team, the Spurs. 
 
 The median home game ticket price generally decreases as you go down the current standings. The most notable exception is the LA Lakers, where you can pay \$280 to [probably see them lose](http://bleacherreport.com/articles/2613737-la-lakers-have-somehow-surpassed-philadelphia-76ers-as-nbas-worst). But then, how long until we see another Kobe?
 
@@ -77,11 +77,11 @@ standPlot$show('iframesrc',cdn=TRUE)
 ### Everyone wants to see Curry (+ LeBron)
 
 
-Oracle is notorious for its [electric atmosphere](http://abc7news.com/sports/expert-decibel-level-at-oracle-is-similar-to-jet-engine/773850/), and Warriors fans are some of the most passionate in the league, so maybe there is a price premium for  the home-court advantage. The plot below shows the median ticket price for each team, with the home-game price plotted against away-game price. While the home game prices for the Warriors [are enough the make you fall over](https://www.youtube.com/watch?v=LB4rplyj3TU), the away game prices are even worse. The median price is \$340 for all remaining away games for the Warriors, \$55 more than their home games. Everyone wants to see [Curry score a three from their half court logo](https://www.youtube.com/watch?v=F8uoujg1XgE). The prospect of playing the Warriors must be daunting for any team, even at home. But the average price of tickets when the Warriors come to town must have the team and stadium owners rubbing their hands with joy. 
+Oracle is notorious for its [electric atmosphere](http://abc7news.com/sports/expert-decibel-level-at-oracle-is-similar-to-jet-engine/773850/), and Warriors fans are some of the most passionate in the league, so maybe there is a price premium for  the home-court advantage. The plot below shows the median ticket price for each team, with the home-game price plotted against away-game price. While the home game prices for the Warriors [are enough the make you fall over](https://www.youtube.com/watch?v=LB4rplyj3TU), the away game prices are even worse. The median price is 340 dollars for all remaining away games for the Warriors, \$55 more than their home games. Everyone wants to see [Curry score a three from their half court logo](https://www.youtube.com/watch?v=F8uoujg1XgE). The prospect of playing the Warriors must be daunting for any team, even at home. But the average price of tickets when the Warriors come to town must have the team and stadium owners rubbing their hands with joy. 
 
 For most other teams, home and away median prices are pretty close. The notable exception is the Cleveland Cavaliers, where the away game median price more than twice the home game price. This could be explained by the LeBron Effect: the King's Lands reach far and wide. However, the Cleveland locals aren't so excited. The number of times the Cavs have lost a championship is too high. They don't want to pay too much, only to get their hearts broken again. 
 
-The three dots to the far right of the chart show that the Warriors, Lakers and Cavs fetch far more in away games than any other team. On the other hand, the San Antonio Spurs, despite being the second-best team in the league, having an All-Star starter, a record home-game start to the season and playing to sellout crowds at home, fail to instill any excitement in non-San Antionians. After all, Tim Duncan only dunks when necessary. 
+The three dots to the far right of the chart show that the Warriors, Lakers and Cavs fetch far more in away games than any other team. On the other hand, the San Antonio Spurs, despite being the second-best team in the league, having an All-Star starter, a record home-game start to the season and playing to sellout crowds at home, fail to instill any excitement in non-San Antonians. After all, Tim Duncan only dunks when necessary. 
 
 
 

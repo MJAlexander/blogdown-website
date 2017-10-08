@@ -17,7 +17,7 @@
       
       <guid>/2017/10/08/text-analysis-of-migration-news-articles/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://leslieroot.net/&#34;&gt;Leslie Root&lt;/a&gt; and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed over time.&lt;/p&gt;
-&lt;p&gt;Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslism migrants.&lt;/p&gt;
+&lt;p&gt;Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslim migrants.&lt;/p&gt;
 &lt;p&gt;All analysis was done in &lt;code&gt;R&lt;/code&gt; using the awesome package &lt;code&gt;tidytext&lt;/code&gt; and following &lt;a href=&#34;http://tidytextmining.com/&#34;&gt;‘Text Mining in R: A tidy approach’&lt;/a&gt; by Julia Silge and David Robinson. Code can be found &lt;a href=&#34;https://github.com/lesliejroot/migration-news&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data&lt;/h2&gt;
@@ -29,9 +29,9 @@
 &lt;p&gt;The plots below show the most ‘important words’ for articles in each year. We define important words based on the term frequency–inverse document frequency, or &lt;a href=&#34;%5Bhttp://tidytextmining.com/tfidf.html&#34;&gt;tf-idf&lt;/a&gt; measure. This measures the number of times a word appears in the document, but adjusts for the fact that some words appear more frequently in general.&lt;/p&gt;
 &lt;p&gt;Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words ‘police’ and ‘muslim’ have become important.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
-&lt;p&gt;We also looked at words preceeding the words ‘immigrant’ and ‘migrant’ to see what the most important combinations were. In general the most common preceeding word was ‘illegal’. However, looking over at changes over time suggests a shift to using alternative words such as ‘undocumented’ and ‘unauthorized’. The number of instances of ‘undocumented immigrant/migrant’ overtook ‘illegal immigrant/migrant’ in 2017. Various ethnicities were also important preceeding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceeding immigrant&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceeding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
+&lt;p&gt;We also looked at words preceding the words ‘immigrant’ and ‘migrant’ to see what the most important combinations were. In general the most common preceding word was ‘illegal’. However, looking over at changes over time suggests a shift to using alternative words such as ‘undocumented’ and ‘unauthorized’. The number of instances of ‘undocumented immigrant/migrant’ overtook ‘illegal immigrant/migrant’ in 2017. Various ethnicities were also important preceding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceding immigrant&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;sentiment&#34; class=&#34;section level2&#34;&gt;
@@ -64,160 +64,6 @@
 &lt;p&gt;Coverage of migration issues in major news outlets in the US is generally negative, however it seems to have become even more negative over the past few years. Coverage is driven by the election cycles, and while many of the articles focus on illegal immigrants, there appears to have been a shift in terminology in recent years from ‘illegal’ to ‘undocumented’ and ‘unauthorized’.&lt;/p&gt;
 &lt;p&gt;In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.&lt;/p&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Text analysis of migration news articles</title>
-      <link>/2017/10/08/text-analysis-of-migration-news-articles/</link>
-      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/10/08/text-analysis-of-migration-news-articles/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://leslieroot.net/&#34; target=&#34;_blank&#34;&gt;Leslie Root&lt;/a&gt; and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed over time.&lt;/p&gt;
-
-&lt;p&gt;Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslism migrants.&lt;/p&gt;
-
-&lt;p&gt;All analysis was done in &lt;code&gt;R&lt;/code&gt; using the awesome package &lt;code&gt;tidytext&lt;/code&gt; and following &lt;a href=&#34;http://tidytextmining.com/&#34; target=&#34;_blank&#34;&gt;&amp;lsquo;Text Mining in R: A tidy approach&amp;rsquo;&lt;/a&gt; by Julia Silge and David Robinson. Code can be found &lt;a href=&#34;https://github.com/lesliejroot/migration-news&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
-
-&lt;p&gt;We searched &lt;a href=&#34;https://search.proquest.com&#34; target=&#34;_blank&#34;&gt;ProQuest&lt;/a&gt; for newspaper articles that included the terms &amp;lsquo;population&amp;rsquo; and &amp;lsquo;immigra*&amp;lsquo;. This resulting in a total of 9,869 articles over the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn&amp;rsquo;t collect for the whole year.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/source_year.png&#34; alt=&#34;number of articles by year&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;important-words-and-combinations&#34;&gt;Important words and combinations&lt;/h2&gt;
-
-&lt;p&gt;The plots below show the most &amp;lsquo;important words&amp;rsquo; for articles in each year. We define important words based on the term frequency–inverse document frequency, or &lt;a href=&#34;[http://tidytextmining.com/tfidf.html&#34; target=&#34;_blank&#34;&gt;tf-idf&lt;/a&gt; measure. This measures the number of times a word appears in the document, but  adjusts for the fact that some words appear more frequently in general.&lt;/p&gt;
-
-&lt;p&gt;Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words &amp;lsquo;police&amp;rsquo; and &amp;lsquo;muslim&amp;rsquo; have become important.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;We also looked at words preceeding the words &amp;lsquo;immigrant&amp;rsquo; and &amp;lsquo;migrant&amp;rsquo; to see what the most important combinations were. In general the most common preceeding word was &amp;lsquo;illegal&amp;rsquo;. However, looking over at changes over time suggests a shift to using alternative words such as &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;. The number of instances of &amp;lsquo;undocumented immigrant/migrant&amp;rsquo; overtook &amp;lsquo;illegal immigrant/migrant&amp;rsquo; in 2017. Various ethnicities were also important preceeding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceeding immigrant&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceeding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;sentiment&#34;&gt;Sentiment&lt;/h2&gt;
-
-&lt;p&gt;We also looked at how the overall sentiment is changing over time. The plot below shows sentiment over time for all news articles, using the &lt;a href=&#34;http://tidytextmining.com/sentiment.html#the-sentiments-dataset&#34; target=&#34;_blank&#34;&gt;AFINN&lt;/a&gt; measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.&lt;/p&gt;
-
-&lt;p&gt;Sentiment is negative over all years, but the level has been changing over time. After initially dropping, sentiment increased during Obama&amp;rsquo;s second term, but has since decreased. This year&amp;rsquo;s news articles display the most negative sentiment of the whole period.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sentiment_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of &amp;lsquo;illegal&amp;rsquo; towards the use of &amp;lsquo;undocumented&amp;rsquo; over time. The use of &amp;lsquo;attack&amp;rsquo; peaked in 2015, corresponding to the Paris attacks.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sent_neg_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;
-
-&lt;p&gt;We used &lt;a href=&#34;http://tidytextmining.com/topicmodeling.html&#34; target=&#34;_blank&#34;&gt;LDA&lt;/a&gt; to create an eight-topic model for all migration articles. The plots below show the terms that are most common with each topic. Broadly, the topics can be thought of as covering&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Hispanic/ Latinos in LA&lt;/li&gt;
-&lt;li&gt;Europe&lt;/li&gt;
-&lt;li&gt;Art and museums&lt;/li&gt;
-&lt;li&gt;Workers, growth and the economy&lt;/li&gt;
-&lt;li&gt;Communities&lt;/li&gt;
-&lt;li&gt;Trump-related politics&lt;/li&gt;
-&lt;li&gt;Illegal, border, law enforcement&lt;/li&gt;
-&lt;li&gt;Elections&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_8topic.png&#34; alt=&#34;eight topics&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_doc_year_5.png&#34; alt=&#34;topics over time&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;Coverage of migration issues in major news outlets in the US is generally negative, however it seems to have become even more negative over the past few years. Coverage is driven by the election cycles, and while many of the articles focus on illegal immigrants, there appears to have been a shift in terminology in recent years from &amp;lsquo;illegal&amp;rsquo; to &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;.&lt;/p&gt;
-
-&lt;p&gt;In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Text analysis of migration news articles</title>
-      <link>/2017/10/08/text-analysis-of-migration-news-articles/</link>
-      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/10/08/text-analysis-of-migration-news-articles/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://leslieroot.net/&#34; target=&#34;_blank&#34;&gt;Leslie Root&lt;/a&gt; and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed over time.&lt;/p&gt;
-
-&lt;p&gt;Our initial analysis suggests that overall sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslism migrants.&lt;/p&gt;
-
-&lt;p&gt;All analysis was done in &lt;code&gt;R&lt;/code&gt; using the awesome package &lt;code&gt;tidytext&lt;/code&gt; and following &lt;a href=&#34;http://tidytextmining.com/&#34; target=&#34;_blank&#34;&gt;&amp;lsquo;Text Mining in R: A tidy approach&amp;rsquo;&lt;/a&gt; by Julia Silge and David Robinson. Code can be found &lt;a href=&#34;https://github.com/lesliejroot/migration-news&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;data&#34;&gt;Data&lt;/h2&gt;
-
-&lt;p&gt;We searched &lt;a href=&#34;https://search.proquest.com&#34; target=&#34;_blank&#34;&gt;ProQuest&lt;/a&gt; for newspaper articles that included the terms &amp;lsquo;population&amp;rsquo; and &amp;lsquo;immigra*&amp;lsquo;. This resulting in a total of 9,869 articles over the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn&amp;rsquo;t collect for the whole year.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/source_year.png&#34; alt=&#34;number of articles by year&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;important-words-and-combinations&#34;&gt;Important words and combinations&lt;/h2&gt;
-
-&lt;p&gt;The plots below show the most &amp;lsquo;important words&amp;rsquo; for articles in each year. We define important words based on the term frequency–inverse document frequency, or &lt;a href=&#34;[http://tidytextmining.com/tfidf.html&#34; target=&#34;_blank&#34;&gt;tf-idf&lt;/a&gt; measure. This measures the number of times a word appears in the document, but  adjusts for the fact that some words appear more frequently in general.&lt;/p&gt;
-
-&lt;p&gt;Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words &amp;lsquo;police&amp;rsquo; and &amp;lsquo;muslim&amp;rsquo; have become important.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;We also looked at words preceeding the words &amp;lsquo;immigrant&amp;rsquo; and &amp;lsquo;migrant&amp;rsquo; to see what the most important combinations were. In general the most common preceeding word was &amp;lsquo;illegal&amp;rsquo;. However, looking over at changes over time suggests a shift to using alternative words such as &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;. The number of instances of &amp;lsquo;undocumented immigrant/migrant&amp;rsquo; overtook &amp;lsquo;illegal immigrant/migrant&amp;rsquo; in 2017. Various ethnicities were also important preceeding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceeding immigrant&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceeding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;sentiment&#34;&gt;Sentiment&lt;/h2&gt;
-
-&lt;p&gt;We also looked at how the overall sentiment is changing over time. The plot below shows sentiment over time for all news articles, using the &lt;a href=&#34;http://tidytextmining.com/sentiment.html#the-sentiments-dataset&#34; target=&#34;_blank&#34;&gt;AFINN&lt;/a&gt; measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.&lt;/p&gt;
-
-&lt;p&gt;Sentiment is negative over all years, but the level has been changing over time. After initially dropping, sentiment increased during Obama&amp;rsquo;s second term, but has since decreased. This year&amp;rsquo;s news articles display the most negative sentiment of the whole period.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sentiment_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of &amp;lsquo;illegal&amp;rsquo; towards the use of &amp;lsquo;undocumented&amp;rsquo; over time. The use of &amp;lsquo;attack&amp;rsquo; peaked in 2015, corresponding to the Paris attacks.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sent_neg_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;topics&#34;&gt;Topics&lt;/h2&gt;
-
-&lt;p&gt;We used &lt;a href=&#34;http://tidytextmining.com/topicmodeling.html&#34; target=&#34;_blank&#34;&gt;LDA&lt;/a&gt; to create an eight-topic model for all migration articles. The plots below show the terms that are most common with each topic. Broadly, the topics can be thought of as covering&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Hispanic/ Latinos in LA&lt;/li&gt;
-&lt;li&gt;Europe&lt;/li&gt;
-&lt;li&gt;Art and museums&lt;/li&gt;
-&lt;li&gt;Workers, growth and the economy&lt;/li&gt;
-&lt;li&gt;Communities&lt;/li&gt;
-&lt;li&gt;Trump-related politics&lt;/li&gt;
-&lt;li&gt;Illegal, border, law enforcement&lt;/li&gt;
-&lt;li&gt;Elections&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_8topic.png&#34; alt=&#34;eight topics&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_doc_year_5.png&#34; alt=&#34;topics over time&#34;&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;Coverage of migration issues in major news outlets in the US is generally negative, however it seems to have become even more negative over the past few years. Coverage is driven by the election cycles, and while many of the articles focus on illegal immigrants, there appears to have been a shift in terminology in recent years from &amp;lsquo;illegal&amp;rsquo; to &amp;lsquo;undocumented&amp;rsquo; and &amp;lsquo;unauthorized&amp;rsquo;.&lt;/p&gt;
-
-&lt;p&gt;In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.&lt;/p&gt;
 </description>
     </item>
     
@@ -273,7 +119,7 @@
 &lt;p&gt;The nature of the epidemic has changed over the past fifteen years, and had different impacts on the black and white populations. Importantly, there has been an increase in mortality due to opioids since 2010 for both races, and this trend shows no sign of slowing. A better understanding of the differences across race and how they relate to the use of other drugs, place of residence, and socioeconomic status, is necessary to improve health policy and rehabilitation programs across the country.&lt;/p&gt;
 &lt;div id=&#34;notes&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Notes&lt;/h4&gt;
-&lt;p&gt;This post is based on a &lt;a href=&#34;https://github.com/MJAlexander/opioid-mcd/blob/master/report/paa_2017_paper/paa.pdf&#34;&gt;paper&lt;/a&gt; presented in the session on Trends and Causes of Adult Mortality in the United States at &lt;a href=&#34;https://paa.confex.com/paa/2017/webprogrampreliminary/Paper16497.html&#34;&gt;PAA 2017&lt;/a&gt;. It is joint work with &lt;a href=&#34;http://www.demog.berkeley.edu/directories/profiles/barbieri.shtml&#34;&gt;Magali Barbieri&lt;/a&gt; and &lt;a href=&#34;https://mathewkiang.com/&#34;&gt;Mathew Kiang&lt;/a&gt;. All figures were derived from multiple casue of death data available from the &lt;a href=&#34;https://www.cdc.gov/nchs/nvss/deaths.htm&#34;&gt;National Center for Health Statistics&lt;/a&gt;. The code to reproduce graphs from the raw data is available &lt;a href=&#34;https://github.com/MJAlexander/opioid-mcd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post is based on a &lt;a href=&#34;https://github.com/MJAlexander/opioid-mcd/blob/master/report/paa_2017_paper/paa.pdf&#34;&gt;paper&lt;/a&gt; presented in the session on Trends and Causes of Adult Mortality in the United States at &lt;a href=&#34;https://paa.confex.com/paa/2017/webprogrampreliminary/Paper16497.html&#34;&gt;PAA 2017&lt;/a&gt;. It is joint work with &lt;a href=&#34;http://www.demog.berkeley.edu/directories/profiles/barbieri.shtml&#34;&gt;Magali Barbieri&lt;/a&gt; and &lt;a href=&#34;https://mathewkiang.com/&#34;&gt;Mathew Kiang&lt;/a&gt;. All figures were derived from multiple cause of death data available from the &lt;a href=&#34;https://www.cdc.gov/nchs/nvss/deaths.htm&#34;&gt;National Center for Health Statistics&lt;/a&gt;. The code to reproduce graphs from the raw data is available &lt;a href=&#34;https://github.com/MJAlexander/opioid-mcd&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -287,7 +133,7 @@
       <guid>/2016/04/26/distinguishing-between-real-differences-and-model-artefacts-in-mortality-inequality-research/</guid>
       <description>&lt;p&gt;A couple of weeks ago, &lt;a href=&#34;http://jama.jamanetwork.com/article.aspx?articleId=2513561&amp;amp;guestAccessKey=4023ce75-d0fb-44de-bb6c-8a10a30a6173&#34;&gt;a paper&lt;/a&gt; was published in the JAMA detailing income inequalities in mortality across cities in the United States. The research, which was led by Raj Chetty at Stanford University, received &lt;a href=&#34;http://www.nytimes.com/interactive/2016/04/11/upshot/for-the-poor-geography-is-life-and-death.html&#34;&gt;wide attention&lt;/a&gt;. It is an important contribution to the literature, utilizing detailed income and mortality data from the IRS and SSA to estimate adult mortality by income at the city level.&lt;/p&gt;
 &lt;p&gt;The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography. The standard deviation of the average age at death for those in the bottom income quartile was found to be 1.39 years; the standard deviation for those in the top income quartile was only 0.7 years.&lt;/p&gt;
-&lt;p&gt;Although the authors had access to a rich, longitudinal dataset, there were some data limitations which meant that some assumptions had to be made. Here I want to draw attention to one assumption in particular – that &lt;strong&gt;differences in mortality across race/ethnic groups are constant across the whole of the United States.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Although the authors had access to a rich, longitudinal dataset, there were some data limitations which meant that some assumptions had to be made. Here I want to draw attention to one assumption in particular – that differences in mortality across race/ethnic groups are constant across the whole of the United States.&lt;/p&gt;
 &lt;div id=&#34;section-producing-race-adjusted-life-expectancy-estimates&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Producing race-adjusted life expectancy estimates&lt;/h3&gt;
 &lt;p&gt;The main metric of mortality used in the paper is a race-adjusted measure of life expectancy. (An aside: although it is referred to as life expectancy in the paper, it is actually life expectancy at age 40 + 40 years, i.e. &lt;span class=&#34;math inline&#34;&gt;\(e_{40} + 40\)&lt;/span&gt; years, which is the average age at death having reached age 40).&lt;/p&gt;
@@ -304,7 +150,7 @@
 &lt;/div&gt;
 &lt;div id=&#34;section-sensitivities&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Sensitivities&lt;/h3&gt;
-&lt;p&gt;How might this assumption affect the race-adjusted life expectancy measure? Look at the equation for black log-mortality rates above. What if, in a particular city, the proportion of the black population was higher than the national average, and additionally the mortality difference were higher and black mortality was worse than assumed. Then the &lt;span class=&#34;math inline&#34;&gt;\((\delta, \Delta)\)&lt;/span&gt; values would be too small, and so &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; would be too low. But because all race-specific mortality rates are constrained to equal the average mortality rate &lt;span class=&#34;math inline&#34;&gt;\(\log(m_x)\)&lt;/span&gt;, if the &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; is too low, then, all else equal, &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,white})\)&lt;/span&gt; is too high. As a consequence, the race-adjusted mortality will be too high, so race-adjusted life expectancy will be too low.&lt;/p&gt;
+&lt;p&gt;How might this assumption affect the race-adjusted life expectancy measure? Look at the equation for black log-mortality rates above. What if, in a particular city, the proportion of the black population was higher than the national average, and additionally the mortality differences were higher and black mortality was worse than assumed. Then the &lt;span class=&#34;math inline&#34;&gt;\((\delta, \Delta)\)&lt;/span&gt; values would be too small, and so &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; would be too low. But because all race-specific mortality rates are constrained to equal the average mortality rate &lt;span class=&#34;math inline&#34;&gt;\(\log(m_x)\)&lt;/span&gt;, if the &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; is too low, then, all else equal, &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,white})\)&lt;/span&gt; is too high. As a consequence, the race-adjusted mortality will be too high, so race-adjusted life expectancy will be too low.&lt;/p&gt;
 &lt;p&gt;The graph below illustrates this effect. The underlying race distribution is roughly equal to females in Detroit in the lowest income quartile. The mortality rates are made up using a Gompertz model, but with a life expectancy roughly equal to that published in the paper for females in Detroit in the lowest income quartile.&lt;/p&gt;
 &lt;p&gt;With &lt;span class=&#34;math inline&#34;&gt;\((\delta_{black}, \Delta_{black}) = (0.53, -0.0012)\)&lt;/span&gt;, the race adjusted life expectancy is 80.4 years. These shifters are approximately equal to those used in the paper; I say approximately, because the values weren’t actually published anywhere, so I had to eye-ball figure e6/7 in the &lt;a href=&#34;https://healthinequality.org/documents/paper/healthineq_supplement.pdf&#34;&gt;supplementary information&lt;/a&gt;. If you change the values to &lt;span class=&#34;math inline&#34;&gt;\((\delta_{black}, \Delta_{black}) = (0.8, 0)\)&lt;/span&gt;, the race adjusted life expectancy is 81.3 years.&lt;/p&gt;
 &lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/mortality_app?showcase=0&#34; width=&#34;1152&#34; height=&#34;600px&#34;&gt;
@@ -333,7 +179,7 @@
 &lt;p&gt;For those who don’t follow basketball: The NBA is made up of 30 teams, all of whom play each other at some point during the 82-game season. The teams are roughly geographically divided into either the Eastern Conference or the Western Conference. The Golden State Warriors are the number one ranked team in the Western Conference and won the Grand Final last season. Their star player is Stephen Curry, who has revolutionized basketball in the past few years with the &lt;a href=&#34;http://basketball-players.pointafter.com/stories/10645/stephen-curry-three-point-shooting&#34;&gt;efficacy of his 3 point throws&lt;/a&gt;. The Warriors are followed by the San Antonio Spurs, and the Oklahoma City Thunder. The number one team in the Eastern Conference is the Cleveland Cavaliers, whose star player is LeBron James. They are followed by the Toronto Raptors and the Boston Celtics.&lt;/p&gt;
 &lt;div id=&#34;section-home-games&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Home Games&lt;/h3&gt;
-&lt;p&gt;The plot below shows median ticket price for home games versus current overall standing of the team. Unsurprisingly, going to Warriors home games is generally much more expensive than for any other team. At $285, the median ticket price for remaining games at Oracle Arena is around $100 more than the next closest team, the Spurs.&lt;/p&gt;
+&lt;p&gt;The plot below shows median ticket price for home games versus current overall standing of the team. Unsurprisingly, going to Warriors home games is generally much more expensive than for any other team. At 285 dollars, the median ticket price for remaining games at Oracle Arena is around $100 more than the next closest team, the Spurs.&lt;/p&gt;
 &lt;p&gt;The median home game ticket price generally decreases as you go down the current standings. The most notable exception is the LA Lakers, where you can pay $280 to &lt;a href=&#34;http://bleacherreport.com/articles/2613737-la-lakers-have-somehow-surpassed-philadelphia-76ers-as-nbas-worst&#34;&gt;probably see them lose&lt;/a&gt;. But then, how long until we see another Kobe?&lt;/p&gt;
 &lt;p&gt;New York Knicks games are also more expensive than expected given their overall ranking, but is probably due to a Madison Square Garden premium and an income effect of living in New York (this income effect doesn’t stretch to Brooklyn). Another income effect – in the opposite direction – may be the Detroit Pistons, who, despite winning more than half their games and being ranked in the top half of teams, have the cheapest tickets available.&lt;/p&gt;
 &lt;p&gt;Median ticket prices generally decrease with team rankings, but this observation really only holds for the top ten-ranked teams. After that, apart Lakers and the Knicks, there is not much difference between median home game prices. Maybe the &lt;a href=&#34;http://espn.go.com/blog/truehoop/post/_/id/25914/mark-cuban-hopes-to-lose-and-lose-badly-someday&#34;&gt;treadmill of mediocrity&lt;/a&gt; starts turning. You could be paying the same amount of money to see, for example, the Pacers or the Suns, even though the former have won twice as many games.&lt;/p&gt;
@@ -366,14 +212,14 @@ Median ticket price for remaining 15/16 home games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chart1ba03e6a6b57&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chart22e75341c44d&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchart1ba03e6a6b57()
+      drawchart22e75341c44d()
     });
-    function drawchart1ba03e6a6b57(){  
+    function drawchart22e75341c44d(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart1ba03e6a6b57&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chart22e75341c44d&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;standing&amp;quot;,
@@ -381,7 +227,7 @@ Median ticket price for remaining 15/16 home games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chart1ba03e6a6b57&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chart22e75341c44d&amp;quot; 
 },
         data = [
  {
@@ -730,15 +576,15 @@ Median ticket price for remaining 15/16 home games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart1ba03e6a6b57&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart22e75341c44d&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
 &lt;div id=&#34;section-everyone-wants-to-see-curry-lebron&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Everyone wants to see Curry (+ LeBron)&lt;/h3&gt;
-&lt;p&gt;Oracle is notorious for its &lt;a href=&#34;http://abc7news.com/sports/expert-decibel-level-at-oracle-is-similar-to-jet-engine/773850/&#34;&gt;electric atmosphere&lt;/a&gt;, and Warriors fans are some of the most passionate in the league, so maybe there is a price premium for the home-court advantage. The plot below shows the median ticket price for each team, with the home-game price plotted against away-game price. While the home game prices for the Warriors &lt;a href=&#34;https://www.youtube.com/watch?v=LB4rplyj3TU&#34;&gt;are enough the make you fall over&lt;/a&gt;, the away game prices are even worse. The median price is $340 for all remaining away games for the Warriors, $55 more than their home games. Everyone wants to see &lt;a href=&#34;https://www.youtube.com/watch?v=F8uoujg1XgE&#34;&gt;Curry score a three from their half court logo&lt;/a&gt;. The prospect of playing the Warriors must be daunting for any team, even at home. But the average price of tickets when the Warriors come to town must have the team and stadium owners rubbing their hands with joy.&lt;/p&gt;
+&lt;p&gt;Oracle is notorious for its &lt;a href=&#34;http://abc7news.com/sports/expert-decibel-level-at-oracle-is-similar-to-jet-engine/773850/&#34;&gt;electric atmosphere&lt;/a&gt;, and Warriors fans are some of the most passionate in the league, so maybe there is a price premium for the home-court advantage. The plot below shows the median ticket price for each team, with the home-game price plotted against away-game price. While the home game prices for the Warriors &lt;a href=&#34;https://www.youtube.com/watch?v=LB4rplyj3TU&#34;&gt;are enough the make you fall over&lt;/a&gt;, the away game prices are even worse. The median price is 340 dollars for all remaining away games for the Warriors, $55 more than their home games. Everyone wants to see &lt;a href=&#34;https://www.youtube.com/watch?v=F8uoujg1XgE&#34;&gt;Curry score a three from their half court logo&lt;/a&gt;. The prospect of playing the Warriors must be daunting for any team, even at home. But the average price of tickets when the Warriors come to town must have the team and stadium owners rubbing their hands with joy.&lt;/p&gt;
 &lt;p&gt;For most other teams, home and away median prices are pretty close. The notable exception is the Cleveland Cavaliers, where the away game median price more than twice the home game price. This could be explained by the LeBron Effect: the King’s Lands reach far and wide. However, the Cleveland locals aren’t so excited. The number of times the Cavs have lost a championship is too high. They don’t want to pay too much, only to get their hearts broken again.&lt;/p&gt;
-&lt;p&gt;The three dots to the far right of the chart show that the Warriors, Lakers and Cavs fetch far more in away games than any other team. On the other hand, the San Antonio Spurs, despite being the second-best team in the league, having an All-Star starter, a record home-game start to the season and playing to sellout crowds at home, fail to instill any excitement in non-San Antionians. After all, Tim Duncan only dunks when necessary.&lt;/p&gt;
+&lt;p&gt;The three dots to the far right of the chart show that the Warriors, Lakers and Cavs fetch far more in away games than any other team. On the other hand, the San Antonio Spurs, despite being the second-best team in the league, having an All-Star starter, a record home-game start to the season and playing to sellout crowds at home, fail to instill any excitement in non-San Antonians. After all, Tim Duncan only dunks when necessary.&lt;/p&gt;
 &lt;center&gt;
 &lt;h4&gt;
 Median ticket price, home games versus away games
@@ -768,14 +614,14 @@ Median ticket price, home games versus away games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chart1ba072add1ae&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chart22e73496ecf3&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchart1ba072add1ae()
+      drawchart22e73496ecf3()
     });
-    function drawchart1ba072add1ae(){  
+    function drawchart22e73496ecf3(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart1ba072add1ae&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chart22e73496ecf3&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;away.med.price&amp;quot;,
@@ -783,7 +629,7 @@ Median ticket price, home games versus away games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chart1ba072add1ae&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chart22e73496ecf3&amp;quot; 
 },
         data = [
  {
@@ -1132,7 +978,7 @@ Median ticket price, home games versus away games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart1ba072add1ae&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart22e73496ecf3&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;

@@ -16,7 +16,7 @@ A couple of weeks ago, [a paper](http://jama.jamanetwork.com/article.aspx?articl
 
 The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography. The standard deviation of the average age at death for those in the bottom income quartile was found to be 1.39 years; the standard deviation for those in the top income quartile was only 0.7 years. 
 
-Although the authors had access to a rich, longitudinal dataset, there were some data limitations which meant that some assumptions had to be made. Here I want to draw attention to one assumption in particular -- that **differences in mortality across race/ethnic groups are constant across the whole of the United States.** 
+Although the authors had access to a rich, longitudinal dataset, there were some data limitations which meant that some assumptions had to be made. Here I want to draw attention to one assumption in particular -- that differences in mortality across race/ethnic groups are constant across the whole of the United States.
 
 ### Producing race-adjusted life expectancy estimates
 
@@ -44,7 +44,7 @@ The authors [justify this assumption](https://healthinequality.org/documents/pap
 
 ###Sensitivities
 
-How might this assumption affect the race-adjusted life expectancy measure? Look at the equation for black log-mortality rates above. What if, in a particular city, the proportion of the black population was higher than the national average, and additionally the mortality difference were higher and black mortality was worse than assumed. Then the $(\delta, \Delta)$ values would be too small, and so $\log(m_{x,black})$ would be too low. But because all race-specific mortality rates are constrained to equal the average mortality rate $\log(m_x)$, if the $\log(m_{x,black})$ is too low, then, all else equal, $\log(m_{x,white})$ is too high. As a consequence, the race-adjusted mortality will be too high, so race-adjusted life expectancy will be too low. 
+How might this assumption affect the race-adjusted life expectancy measure? Look at the equation for black log-mortality rates above. What if, in a particular city, the proportion of the black population was higher than the national average, and additionally the mortality differences were higher and black mortality was worse than assumed. Then the $(\delta, \Delta)$ values would be too small, and so $\log(m_{x,black})$ would be too low. But because all race-specific mortality rates are constrained to equal the average mortality rate $\log(m_x)$, if the $\log(m_{x,black})$ is too low, then, all else equal, $\log(m_{x,white})$ is too high. As a consequence, the race-adjusted mortality will be too high, so race-adjusted life expectancy will be too low. 
 
 The graph below illustrates this effect. The underlying race distribution is roughly equal to females in Detroit in the lowest income quartile. The mortality rates are made up using a Gompertz model, but with a life expectancy roughly equal to that published in the paper for females in Detroit in the lowest income quartile. 
 
