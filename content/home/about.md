@@ -13,6 +13,7 @@ weight = 1
 [interests]
   interests = [
     "Statistical demography",
+    "Mortality modeling",
     "Health inequalities",
     "Small-area population issues"
   ]
