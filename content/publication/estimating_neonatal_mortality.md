@@ -1,5 +1,5 @@
 +++
-abstract = "In recent years, much of the focus in monitoring child mortality has been on assessing changes in the under-five mortality rate (U5MR). However, as the U5MR decreases, the share of neonatal deaths (within the first month) tends to increase, warranting increased efforts in monitoring this indicator in addition to the U5MR. We present a model for estimating neonatal mortality rates for all countries. The model has now been adopted by the United Nations Inter-agency Group for Child Mortality Estimation."
+abstract = "We present a model for estimating neonatal mortality rates for all countries. Neonatal mortality is an important indicator to track progess towards the Sustainable Development Goals. The model is used by the United Nations Inter-agency Group for Child Mortality Estimation."
 authors = ["Monica Alexander", "Leontine Alkema"]
 date = "2017-09-15"
 image_preview = ""
