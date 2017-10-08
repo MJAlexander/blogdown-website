@@ -1,4 +1,4 @@
-baseurl = "http://monicaalexander.com/"
+baseurl = "https://monicaalexander.netlify.com/"
 title = "Monica Alexander"
 copyright = "&copy; 2017 Monica Alexander"
 theme = "hugo-academic"
