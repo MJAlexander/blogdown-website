@@ -62,7 +62,7 @@ Given data are often sparse or unreliable, especially in the case of developing 
 
 Datasets with observations from multiple countries/areas can be used, with the following columns requred:
 
-- country/area name or code (e.g. country iso code)
+- country/area name or code (e.g. country ISO code)
 - value of observation
 - year of observation
 - sampling error of observation
