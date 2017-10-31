@@ -2,45 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Monica Alexander</title>
-    <link>/post/</link>
+    <link>https://monicaalexander.com/post/</link>
     <description>Recent content in Posts on Monica Alexander</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Monica Alexander</copyright>
-    <lastBuildDate>Sun, 08 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 31 Oct 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Comparing methods for smoothing temporal demographic data, and the `distortr` package</title>
+      <link>https://monicaalexander.com/2017/10/31/comparing-methods-for-smoothing-temporal-demographic-data-and-the-distortr-package/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://monicaalexander.com/2017/10/31/comparing-methods-for-smoothing-temporal-demographic-data-and-the-distortr-package/</guid>
+      <description>&lt;p&gt;At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I presented work on comparing different methods from smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package &lt;code&gt;distortr&lt;/code&gt; which accompanies the project.&lt;/p&gt;
+&lt;div id=&#34;motivation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data. In these cases, the underlying trends may be unclear due to missing data or overly messy data.&lt;/p&gt;
+&lt;p&gt;In such sitations, demographers often employ statistical models to help estimate and understand underlying trends. Often, these statistical models have the same general form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\theta_t = f(X_t) + Z_t + \varepsilon_t
+\]&lt;/span&gt; where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\theta_t\)&lt;/span&gt; is the outcome of interest (mortality rate, fertility rate, etc)&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(f(X_t)\)&lt;/span&gt; is a regression framework, a function of covariates &lt;span class=&#34;math inline&#34;&gt;\(X_t\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; are temporal distortions, which capture data-driven non-linear trends over time, not otherwise captured in &lt;span class=&#34;math inline&#34;&gt;\(f(X_t)\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_t\)&lt;/span&gt; is an error term.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;While the inclusion of covariates and regression framework is often well justified, the choice for modeling the distortions &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; is often more arbitrary. However, models for &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; are important: they allow for data-driven trends that may not be captured by simple regression models; they express these distortions in a smooth way, accounting for error in data observations; they incorporate uncertainty in the underlying processes; and allow for a temporal mechanism to be projected into the future. Different model choice can sometimes lead to vastly different estimates.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/smoothing_plots/compbol.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This project aimed to compare three main families of models for temporal distortions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ARMA models&lt;/li&gt;
+&lt;li&gt;Gaussian Process regression&lt;/li&gt;
+&lt;li&gt;Penalized splines regression&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The aim is to compare the three methods theoretically and see how differences manifest into differences in estimates for different data scenarios.&lt;/p&gt;
+&lt;p&gt;The paper presented at IUSSP is available &lt;a href=&#34;https://www.monicaalexander.com/pdf/temporal_smoothing.pdf&#34;&gt;here&lt;/a&gt;, and the slides are &lt;a href=&#34;https://github.com/MJAlexander/distortr/blob/master/IUSSP_011117.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-distortr-package&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The &lt;code&gt;distortr&lt;/code&gt; package&lt;/h2&gt;
+&lt;p&gt;As part of this project, I am developing an R package to aid in comparing and fitting different models for estimation of demographic time series. The &lt;code&gt;distortr&lt;/code&gt; package is available on &lt;a href=&#34;https://github.com/MJAlexander/distortr&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The package consists of two main parts:&lt;/p&gt;
+&lt;div id=&#34;simulate-time-series-of-distortions-and-fit-and-validate-models&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1. Simulate time series of distortions and fit and validate models&lt;/h3&gt;
+&lt;p&gt;This part of the package contains tools to investigate how different models performed in different simulation settings and how much it matters if we pick the ‘wrong’ model.&lt;/p&gt;
+&lt;p&gt;Simulated time series of data can be created from any of the following processes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AR(1)&lt;/li&gt;
+&lt;li&gt;ARMA(1,1)&lt;/li&gt;
+&lt;li&gt;P-splines (first or second order penalization)&lt;/li&gt;
+&lt;li&gt;Gaussian Process (squared exponential or Matern function)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The various parameters associated with each function can be specified. The user can also specify how much of the time series is missing, and the sampling error around data. The sample autocorrelation function of the time series can also be plotted.&lt;/p&gt;
+&lt;p&gt;In terms of model fitting, any of the above models can be fit to simulated data. Projections of time series can also easily be obtained. Estimates and uncertainty around estimates can be outputted and plotted.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fit-bayesian-hierarchical-models-to-datasets-with-observations-from-multiple-areas&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2. Fit Bayesian hierarchical models to datasets with observations from multiple areas&lt;/h3&gt;
+&lt;p&gt;Given data are often sparse or unreliable, especially in the case of developing countries, models that estimate demographic indicators for multiple areas/countries are often hierarchical, incorporating pooling of information across geographies. This part of the package has the infrastructure to fit Bayesian hierarchical models using one of the temporal smoothing methods. The user can specify whether or not to include a linear trend, and the type of temporal smoother to fit to the data.&lt;/p&gt;
+&lt;p&gt;Datasets with observations from multiple countries/areas can be used, with the following columns requred:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;country/area name or code (e.g. country iso code)&lt;/li&gt;
+&lt;li&gt;value of observation&lt;/li&gt;
+&lt;li&gt;year of observation&lt;/li&gt;
+&lt;li&gt;sampling error of observation&lt;/li&gt;
+&lt;li&gt;data source (e.g. survey, administrative)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In addition, a region column may also be included (e.g. World Bank region). By default the builtin models include a region heirarchy (i.e. a country within a region within the world). However, models can also be run without the region level.&lt;/p&gt;
+&lt;p&gt;For an example using real data, refer to the file &lt;a href=&#34;https://github.com/MJAlexander/distortr/blob/master/real_data_anc4_example.R&#34;&gt;real_data_anc4_example.R&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;One of the aims of this project was to provide the tools to increase transparency of model choice and to help demographers and policymakers understand differences in models and sensitivities of estimates to model choice. The &lt;code&gt;distortr&lt;/code&gt; package provides some infrastructure to explore and fit different methods. It is a work in progress and any feedback is much appreciated.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Text analysis of migration news articles</title>
-      <link>/2017/10/08/text-analysis-of-migration-news-articles/</link>
+      <link>https://monicaalexander.com/2017/10/08/text-analysis-of-migration-news-articles/</link>
       <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/10/08/text-analysis-of-migration-news-articles/</guid>
+      <guid>https://monicaalexander.com/2017/10/08/text-analysis-of-migration-news-articles/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://leslieroot.net/&#34;&gt;Leslie Root&lt;/a&gt; and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed.&lt;/p&gt;
 &lt;p&gt;Our initial analysis suggests that sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslim migrants.&lt;/p&gt;
 &lt;p&gt;All analysis was done in &lt;code&gt;R&lt;/code&gt; using the awesome package &lt;code&gt;tidytext&lt;/code&gt; and following &lt;a href=&#34;http://tidytextmining.com/&#34;&gt;‘Text Mining in R: A tidy approach’&lt;/a&gt; by Julia Silge and David Robinson. Code can be found &lt;a href=&#34;https://github.com/lesliejroot/migration-news&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div id=&#34;data&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Data&lt;/h2&gt;
 &lt;p&gt;We searched &lt;a href=&#34;https://search.proquest.com&#34;&gt;ProQuest&lt;/a&gt; for newspaper articles that included the terms ‘population’ and ’immigra*’. This resulting in a total of 9,869 articles in the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn’t collect for the whole year.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/source_year.png&#34; alt=&#34;number of articles by year&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/source_year.png&#34; alt=&#34;number of articles by year&#34;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;important-words-and-combinations&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Important words and combinations&lt;/h2&gt;
 &lt;p&gt;The plots below show the most ‘important words’ for articles in each year. We define important words based on the term frequency–inverse document frequency, or &lt;a href=&#34;%5Bhttp://tidytextmining.com/tfidf.html&#34;&gt;tf-idf&lt;/a&gt; measure. This measures the number of times a word appears in the document, but adjusts for the fact that some words appear more frequently in general.&lt;/p&gt;
 &lt;p&gt;Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words ‘police’ and ‘muslim’ have become important.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/tf_idf_year_barplot.png&#34; alt=&#34;important words&#34;, height=&#34;4000&#34;&gt;&lt;/p&gt;
 &lt;p&gt;We also looked at words preceding the words ‘immigrant’ and ‘migrant’ to see what the most important combinations were. In general the most common preceding word was ‘illegal’. However, looking at changes over time suggests a shift to using alternative words such as ‘undocumented’ and ‘unauthorized’. The number of instances of ‘undocumented immigrant/migrant’ overtook ‘illegal immigrant/migrant’ in 2017. Various ethnicities were also important preceding words, including Mexican, Latino, Hispanic, Asian and Muslim.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceding immigrant&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/bigram_immigration_year_barplot.png&#34; alt=&#34;words preceding immigrant&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Focusing on the types of ethnicities/religions most commonly mentioned preceding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/bigram_immigration_eth_year.png&#34; alt=&#34;ethnicities mentioned&#34;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;sentiment&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Sentiment&lt;/h2&gt;
 &lt;p&gt;We also looked at how sentiment in migration news articles is changing over time. The plot below shows sentiment for all articles in each year, using the &lt;a href=&#34;http://tidytextmining.com/sentiment.html#the-sentiments-dataset&#34;&gt;AFINN&lt;/a&gt; measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.&lt;/p&gt;
 &lt;p&gt;Sentiment is negative for all years, but the level has been changing. After initially dropping, sentiment increased during Obama’s second term, but has since decreased. This year’s news articles display the most negative sentiment of the whole period.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sentiment_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/sentiment_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of ‘illegal’ towards the use of ‘undocumented’. The use of ‘attack’ peaked in 2015, corresponding to the Paris attacks.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/sent_neg_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/sent_neg_year.png&#34; alt=&#34;sentiment over time&#34;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;topics&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Topics&lt;/h2&gt;
@@ -55,9 +125,9 @@
 &lt;li&gt;Illegal, border, law enforcement&lt;/li&gt;
 &lt;li&gt;Elections&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_8topic.png&#34; alt=&#34;eight topics&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/tm_8topic.png&#34; alt=&#34;eight topics&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/migration_plots/tm_doc_year_5.png&#34; alt=&#34;topics over time&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/migration_plots/tm_doc_year_5.png&#34; alt=&#34;topics over time&#34;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Summary&lt;/h2&gt;
@@ -69,14 +139,14 @@
     
     <item>
       <title>Opioid mortality by race: from divergence to convergence</title>
-      <link>/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/</link>
+      <link>https://monicaalexander.com/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/</guid>
+      <guid>https://monicaalexander.com/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/</guid>
       <description>&lt;p&gt;Opioid-related mortality in the United States has been rising steadily since 2000. The opioid mortality rate has more than tripled since over the fifteen year period 2000–2015, and shows no signs of declining — in fact, the rate of increase has accelerated in recent years. This is unique to opioid-related drug deaths, with the non-opioid mortality rate remaining fairly level since 2005. The so-called ‘opioid epidemic’ has gained national attention and become an important part of the &lt;a href=&#34;https://www.vox.com/policy-and-politics/2017/3/29/15089618/trump-opioid-epidemic-executive-order&#34;&gt;political agenda&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;While the epidemic has also gained widespread media attention, coverage tends to focus on overall trends in deaths or for the &lt;a href=&#34;https://www.nytimes.com/2016/01/17/science/drug-overdoses-propel-rise-in-mortality-rates-of-young-whites.html&#34;&gt;white population only&lt;/a&gt;. In a recent paper presented at &lt;a href=&#34;https://paa.confex.com/paa/2017/webprogrampreliminary/Paper16497.html&#34;&gt;PAA 2017&lt;/a&gt;, we focused on differences in opioid mortality by race, to see how trends in underlying cause of death, opioid types and age patterns differ.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/opiod_plots/fig1_nood_v_ci.png&#34; /&gt;
+&lt;img src=&#34;https://monicaalexander.com/img/opiod_plots/fig1_nood_v_ci.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;div id=&#34;a-story-in-two-stages&#34; class=&#34;section level2&#34;&gt;
@@ -89,7 +159,7 @@
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Since 2010&lt;/strong&gt; the opioid mortality rate has been increasing at a similar pace for both the white and black populations. As a consequence, the relative risk of opioid mortality in the white to black populations reached a peak in 2010 at around 2.5, but has since declined.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/opiod_plots/paa_2017_fig.png&#34; /&gt;
+&lt;img src=&#34;https://monicaalexander.com/img/opiod_plots/paa_2017_fig.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -99,20 +169,20 @@
 &lt;p&gt;Since 2010, however, there has been a noticeable shift in the relative importance of deaths from heroin and other synthetic opioids. This is true for both races. Other synthetic opioids largely consist of fentanyl. Pharmaceutical fentanyl is a synthetic painkiller that is 50–100 times more powerful than morphine and is used for treating severe pain. However, the presence of illicitly-made fentanyl in the form of acetyl- and furanyl-fentanyl has increased in recent years. These products are often mixed with heroin or cocaine to increase potency.&lt;/p&gt;
 &lt;p&gt;In 2010 OxyContin was reformulated to be less easily abused, making it harder to crush (and therefore be snorted or dissolved and injected). This reformulation may explain some of the leveling-off in the white death rate since 2010. In addition, &lt;a href=&#34;http://www.nber.org/papers/w23031&#34;&gt;previous research&lt;/a&gt; has found strong evidence to suggest that much of the increase in heroin overdoses is due a substitution effect since the reformulation of OxyContin.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/opiod_plots/fig4_t40_adjusted_race_lines_v_ci.png&#34; /&gt;
+&lt;img src=&#34;https://monicaalexander.com/img/opiod_plots/fig4_t40_adjusted_race_lines_v_ci.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;p&gt;Compared to earlier years, a larger proportion of opioid deaths now involve more than one type of opioid. In 2015, the proportion of all opioid deaths that involved two or more types of opioids was more than 25% for the black population and around 22% for the white population. This was an increase from around 12% of all deaths for both races in 2010.&lt;/p&gt;
 &lt;p&gt;Looking specifically at heroin deaths, the proportion of deaths involving other types has increased across the board since 2010 for both races. In particular, since 2012 there has been a ten-fold increase in the proportion of heroin deaths also involving other synthetic opioids, namely fentanyl. In 2015, around 35% of all heroin deaths in the black population involved other synthetic opioids.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/opiod_plots/fig9_t401_combos_v_ci.png&#34; /&gt;
+&lt;img src=&#34;https://monicaalexander.com/img/opiod_plots/fig9_t401_combos_v_ci.png&#34; /&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;black-opioid-deaths-tend-to-occur-at-older-ages&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Black opioid deaths tend to occur at older ages&lt;/h2&gt;
 &lt;p&gt;Since 2000, the age distribution of opioid deaths in the white population has been shifting to younger ages, with the highest mortality rate occurring in the 30-39 age group. In contrast, the age distribution for the black population has been shifting to older ages, and the peak mortality rate occurs in the 50-59 age group. This somewhat surprising observation is true for deaths relating to all types of opioids. Focusing specifically on the heroin mortality rate, the differences in age distributions creates a mortality ‘cross-over’, where black heroin mortality rates are higher at older ages.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/opiod_plots/fig5_asmr_race_all_errorbars.png&#34; /&gt; &lt;img src=&#34;/img/opiod_plots/fig7_t40_heroin_ci.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/opiod_plots/fig5_asmr_race_all_errorbars.png&#34; /&gt; &lt;img src=&#34;https://monicaalexander.com/img/opiod_plots/fig7_t40_heroin_ci.png&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;an-issue-for-both-races&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;An issue for both races&lt;/h2&gt;
@@ -127,10 +197,10 @@
     
     <item>
       <title>Distinguishing between real differences and model artefacts in mortality inequality research</title>
-      <link>/2016/04/26/distinguishing-between-real-differences-and-model-artefacts-in-mortality-inequality-research/</link>
+      <link>https://monicaalexander.com/2016/04/26/distinguishing-between-real-differences-and-model-artefacts-in-mortality-inequality-research/</link>
       <pubDate>Tue, 26 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2016/04/26/distinguishing-between-real-differences-and-model-artefacts-in-mortality-inequality-research/</guid>
+      <guid>https://monicaalexander.com/2016/04/26/distinguishing-between-real-differences-and-model-artefacts-in-mortality-inequality-research/</guid>
       <description>&lt;p&gt;A couple of weeks ago, &lt;a href=&#34;http://jama.jamanetwork.com/article.aspx?articleId=2513561&amp;amp;guestAccessKey=4023ce75-d0fb-44de-bb6c-8a10a30a6173&#34;&gt;a paper&lt;/a&gt; was published in the JAMA detailing income inequalities in mortality across cities in the United States. The research, which was led by Raj Chetty at Stanford University, received &lt;a href=&#34;http://www.nytimes.com/interactive/2016/04/11/upshot/for-the-poor-geography-is-life-and-death.html&#34;&gt;wide attention&lt;/a&gt;. It is an important contribution to the literature, utilizing detailed income and mortality data from the IRS and SSA to estimate adult mortality by income at the city level.&lt;/p&gt;
 &lt;p&gt;The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography. The standard deviation of the average age at death for those in the bottom income quartile was found to be 1.39 years; the standard deviation for those in the top income quartile was only 0.7 years.&lt;/p&gt;
 &lt;p&gt;Although the authors had access to a rich, longitudinal dataset, there were some data limitations which meant that some assumptions had to be made. Here I want to draw attention to one assumption in particular – that differences in mortality across race/ethnic groups are constant across the whole of the United States.&lt;/p&gt;
@@ -170,10 +240,10 @@
     
     <item>
       <title>The Cost of NBA Games</title>
-      <link>/2016/02/05/the-cost-of-nba-games/</link>
+      <link>https://monicaalexander.com/2016/02/05/the-cost-of-nba-games/</link>
       <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2016/02/05/the-cost-of-nba-games/</guid>
+      <guid>https://monicaalexander.com/2016/02/05/the-cost-of-nba-games/</guid>
       <description>&lt;p&gt;I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got &lt;a href=&#34;https://www.youtube.com/watch?v=UdvA9w3Tmoc&#34;&gt;really, really, good&lt;/a&gt;. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, &lt;a href=&#34;http://www.cnn.com/2012/04/13/health/side-effects-sports-fan/&#34;&gt;while healthier than drugs&lt;/a&gt;, may not be any cheaper.&lt;/p&gt;
 &lt;p&gt;I grabbed all data on resale tickets from &lt;a href=&#34;https://www.stubhub.com/&#34;&gt;StubHub&lt;/a&gt; for all remaining games of the 2015-16 season. As at 1 Feb, there were around 264,200 tickets for sale on StubHub. Note that these do not represent all tickets available, but the large sample size means that the prices are fairly representative of what you could expect to pay.&lt;/p&gt;
 &lt;p&gt;For those who don’t follow basketball: The NBA is made up of 30 teams, all of whom play each other at some point during the 82-game season. The teams are roughly geographically divided into either the Eastern Conference or the Western Conference. The Golden State Warriors are the number one ranked team in the Western Conference and won the Grand Final last season. Their star player is Stephen Curry, who has revolutionized basketball in the past few years with the &lt;a href=&#34;http://basketball-players.pointafter.com/stories/10645/stephen-curry-three-point-shooting&#34;&gt;efficacy of his 3 point throws&lt;/a&gt;. The Warriors are followed by the San Antonio Spurs, and the Oklahoma City Thunder. The number one team in the Eastern Conference is the Cleveland Cavaliers, whose star player is LeBron James. They are followed by the Toronto Raptors and the Boston Celtics.&lt;/p&gt;
@@ -212,14 +282,14 @@ Median ticket price for remaining 15/16 home games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chart22e75341c44d&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;charte244a8dfdfc&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchart22e75341c44d()
+      drawcharte244a8dfdfc()
     });
-    function drawchart22e75341c44d(){  
+    function drawcharte244a8dfdfc(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart22e75341c44d&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;charte244a8dfdfc&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;standing&amp;quot;,
@@ -227,7 +297,7 @@ Median ticket price for remaining 15/16 home games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chart22e75341c44d&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;charte244a8dfdfc&amp;quot; 
 },
         data = [
  {
@@ -576,7 +646,7 @@ Median ticket price for remaining 15/16 home games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart22e75341c44d&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-charte244a8dfdfc&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
@@ -614,14 +684,14 @@ Median ticket price, home games versus away games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chart22e73496ecf3&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;charte24607b14c7&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchart22e73496ecf3()
+      drawcharte24607b14c7()
     });
-    function drawchart22e73496ecf3(){  
+    function drawcharte24607b14c7(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart22e73496ecf3&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;charte24607b14c7&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;away.med.price&amp;quot;,
@@ -629,7 +699,7 @@ Median ticket price, home games versus away games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chart22e73496ecf3&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;charte24607b14c7&amp;quot; 
 },
         data = [
  {
@@ -978,7 +1048,7 @@ Median ticket price, home games versus away games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart22e73496ecf3&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-charte24607b14c7&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
