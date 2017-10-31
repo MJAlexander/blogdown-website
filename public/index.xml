@@ -31,7 +31,7 @@
 &lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_t\)&lt;/span&gt; is an error term.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;While the inclusion of covariates and regression framework is often well justified, the choice for modeling the distortions &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; is often more arbitrary. However, models for &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; are important: they allow for data-driven trends that may not be captured by simple regression models; they express these distortions in a smooth way, accounting for error in data observations; they incorporate uncertainty in the underlying processes; and allow for a temporal mechanism to be projected into the future. Different model choice can sometimes lead to vastly different estimates.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/smoothing_plots/compbol.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;compbol.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This project aimed to compare three main families of models for temporal distortions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ARMA models&lt;/li&gt;
@@ -327,14 +327,14 @@ Median ticket price for remaining 15/16 home games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;charte244a8dfdfc&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chartf8488c0c71&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawcharte244a8dfdfc()
+      drawchartf8488c0c71()
     });
-    function drawcharte244a8dfdfc(){  
+    function drawchartf8488c0c71(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;charte244a8dfdfc&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chartf8488c0c71&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;standing&amp;quot;,
@@ -342,7 +342,7 @@ Median ticket price for remaining 15/16 home games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;charte244a8dfdfc&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chartf8488c0c71&amp;quot; 
 },
         data = [
  {
@@ -691,7 +691,7 @@ Median ticket price for remaining 15/16 home games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-charte244a8dfdfc&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chartf8488c0c71&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
@@ -729,14 +729,14 @@ Median ticket price, home games versus away games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;charte24607b14c7&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chartf84224ec4e2&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawcharte24607b14c7()
+      drawchartf84224ec4e2()
     });
-    function drawcharte24607b14c7(){  
+    function drawchartf84224ec4e2(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;charte24607b14c7&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chartf84224ec4e2&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;away.med.price&amp;quot;,
@@ -744,7 +744,7 @@ Median ticket price, home games versus away games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;charte24607b14c7&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chartf84224ec4e2&amp;quot; 
 },
         data = [
  {
@@ -1093,7 +1093,7 @@ Median ticket price, home games versus away games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-charte24607b14c7&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chartf84224ec4e2&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;

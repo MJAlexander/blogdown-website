@@ -1,0 +1,57 @@
+---
+title: "Text analysis of migration news articles"
+author: "Monica Alexander"
+date: "2017-10-08"
+output: html_document
+---
+
+
+
+<p><a href="https://leslieroot.net/">Leslie Root</a> and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed.</p>
+<p>Our initial analysis suggests that sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump. Topics and language appears to be influenced by election cycles. Additionally, in recent years there has been increased focus on Mexican and Muslim migrants.</p>
+<p>All analysis was done in <code>R</code> using the awesome package <code>tidytext</code> and following <a href="http://tidytextmining.com/">‘Text Mining in R: A tidy approach’</a> by Julia Silge and David Robinson. Code can be found <a href="https://github.com/lesliejroot/migration-news">here</a>.</p>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>We searched <a href="https://search.proquest.com">ProQuest</a> for newspaper articles that included the terms ‘population’ and ’immigra*’. This resulting in a total of 9,869 articles in the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn’t collect for the whole year.</p>
+<p><img src="/img/migration_plots/source_year.png" alt="number of articles by year"></p>
+</div>
+<div id="important-words-and-combinations" class="section level2">
+<h2>Important words and combinations</h2>
+<p>The plots below show the most ‘important words’ for articles in each year. We define important words based on the term frequency–inverse document frequency, or <a href="%5Bhttp://tidytextmining.com/tfidf.html">tf-idf</a> measure. This measures the number of times a word appears in the document, but adjusts for the fact that some words appear more frequently in general.</p>
+<p>Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words ‘police’ and ‘muslim’ have become important.</p>
+<p><img src="/img/migration_plots/tf_idf_year_barplot.png" alt="important words", height="4000"></p>
+<p>We also looked at words preceding the words ‘immigrant’ and ‘migrant’ to see what the most important combinations were. In general the most common preceding word was ‘illegal’. However, looking at changes over time suggests a shift to using alternative words such as ‘undocumented’ and ‘unauthorized’. The number of instances of ‘undocumented immigrant/migrant’ overtook ‘illegal immigrant/migrant’ in 2017. Various ethnicities were also important preceding words, including Mexican, Latino, Hispanic, Asian and Muslim.</p>
+<p><img src="/img/migration_plots/bigram_immigration_year_barplot.png" alt="words preceding immigrant"></p>
+<p>Focusing on the types of ethnicities/religions most commonly mentioned preceding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.</p>
+<p><img src="/img/migration_plots/bigram_immigration_eth_year.png" alt="ethnicities mentioned"></p>
+</div>
+<div id="sentiment" class="section level2">
+<h2>Sentiment</h2>
+<p>We also looked at how sentiment in migration news articles is changing over time. The plot below shows sentiment for all articles in each year, using the <a href="http://tidytextmining.com/sentiment.html#the-sentiments-dataset">AFINN</a> measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.</p>
+<p>Sentiment is negative for all years, but the level has been changing. After initially dropping, sentiment increased during Obama’s second term, but has since decreased. This year’s news articles display the most negative sentiment of the whole period.</p>
+<p><img src="/img/migration_plots/sentiment_year.png" alt="sentiment over time"></p>
+<p>Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of ‘illegal’ towards the use of ‘undocumented’. The use of ‘attack’ peaked in 2015, corresponding to the Paris attacks.</p>
+<p><img src="/img/migration_plots/sent_neg_year.png" alt="sentiment over time"></p>
+</div>
+<div id="topics" class="section level2">
+<h2>Topics</h2>
+<p>We used <a href="http://tidytextmining.com/topicmodeling.html">LDA</a> to create an eight-topic model for all migration articles. The plots below show the terms that are most common with each topic. Broadly, the topics can be thought of as covering</p>
+<ul>
+<li>Hispanic/ Latinos in LA</li>
+<li>Europe</li>
+<li>Art and museums</li>
+<li>Workers, growth and the economy</li>
+<li>Communities</li>
+<li>Trump-related politics</li>
+<li>Illegal, border, law enforcement</li>
+<li>Elections</li>
+</ul>
+<p><img src="/img/migration_plots/tm_8topic.png" alt="eight topics"></p>
+<p>Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.</p>
+<p><img src="/img/migration_plots/tm_doc_year_5.png" alt="topics over time"></p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>Coverage of migration issues in major news outlets in the US is generally negative, however it seems to have become even more negative over the past few years. Coverage is driven by the election cycles, and while many of the articles focus on illegal immigrants, there appears to have been a shift in terminology in recent years from ‘illegal’ to ‘undocumented’ and ‘unauthorized’.</p>
+<p>In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.</p>
+</div>
