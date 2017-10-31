@@ -11,16 +11,16 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Comparing methods for smoothing temporal demographic data, and the `distortr` package</title>
+      <title>Comparing methods for smoothing temporal demographic data, and the distortr package</title>
       <link>https://monicaalexander.com/2017/10/31/comparing-methods-for-smoothing-temporal-demographic-data-and-the-distortr-package/</link>
       <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://monicaalexander.com/2017/10/31/comparing-methods-for-smoothing-temporal-demographic-data-and-the-distortr-package/</guid>
-      <description>&lt;p&gt;At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I presented work on comparing different methods from smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package &lt;code&gt;distortr&lt;/code&gt; which accompanies the project.&lt;/p&gt;
+      <description>&lt;p&gt;At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods from smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package &lt;code&gt;distortr&lt;/code&gt; which accompanies the project.&lt;/p&gt;
 &lt;div id=&#34;motivation&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data. In these cases, the underlying trends may be unclear due to missing data or overly messy data.&lt;/p&gt;
-&lt;p&gt;In such sitations, demographers often employ statistical models to help estimate and understand underlying trends. Often, these statistical models have the same general form:&lt;/p&gt;
+&lt;p&gt;In such situations, demographers often employ statistical models to help estimate and understand underlying trends. Often, these statistical models have the same general form:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \theta_t = f(X_t) + Z_t + \varepsilon_t
 \]&lt;/span&gt; where&lt;/p&gt;
@@ -31,7 +31,7 @@
 &lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_t\)&lt;/span&gt; is an error term.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;While the inclusion of covariates and regression framework is often well justified, the choice for modeling the distortions &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; is often more arbitrary. However, models for &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; are important: they allow for data-driven trends that may not be captured by simple regression models; they express these distortions in a smooth way, accounting for error in data observations; they incorporate uncertainty in the underlying processes; and allow for a temporal mechanism to be projected into the future. Different model choice can sometimes lead to vastly different estimates.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;compbol.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://monicaalexander.com/img/compbol.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This project aimed to compare three main families of models for temporal distortions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ARMA models&lt;/li&gt;
@@ -61,15 +61,15 @@
 &lt;div id=&#34;fit-bayesian-hierarchical-models-to-datasets-with-observations-from-multiple-areas&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;2. Fit Bayesian hierarchical models to datasets with observations from multiple areas&lt;/h3&gt;
 &lt;p&gt;Given data are often sparse or unreliable, especially in the case of developing countries, models that estimate demographic indicators for multiple areas/countries are often hierarchical, incorporating pooling of information across geographies. This part of the package has the infrastructure to fit Bayesian hierarchical models using one of the temporal smoothing methods. The user can specify whether or not to include a linear trend, and the type of temporal smoother to fit to the data.&lt;/p&gt;
-&lt;p&gt;Datasets with observations from multiple countries/areas can be used, with the following columns requred:&lt;/p&gt;
+&lt;p&gt;Datasets with observations from multiple countries/areas can be used, with the following columns required:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;country/area name or code (e.g. country iso code)&lt;/li&gt;
+&lt;li&gt;country/area name or code (e.g. country ISO code)&lt;/li&gt;
 &lt;li&gt;value of observation&lt;/li&gt;
 &lt;li&gt;year of observation&lt;/li&gt;
 &lt;li&gt;sampling error of observation&lt;/li&gt;
 &lt;li&gt;data source (e.g. survey, administrative)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In addition, a region column may also be included (e.g. World Bank region). By default the builtin models include a region heirarchy (i.e. a country within a region within the world). However, models can also be run without the region level.&lt;/p&gt;
+&lt;p&gt;In addition, a region column may also be included (e.g. World Bank region). By default the built-in models include a region hierarchy (i.e. a country within a region within the world). However, models can also be run without the region level.&lt;/p&gt;
 &lt;p&gt;For an example using real data, refer to the file &lt;a href=&#34;https://github.com/MJAlexander/distortr/blob/master/real_data_anc4_example.R&#34;&gt;real_data_anc4_example.R&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -327,14 +327,14 @@ Median ticket price for remaining 15/16 home games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chartf8488c0c71&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chart1048300359bc&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchartf8488c0c71()
+      drawchart1048300359bc()
     });
-    function drawchartf8488c0c71(){  
+    function drawchart1048300359bc(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chartf8488c0c71&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chart1048300359bc&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;standing&amp;quot;,
@@ -342,7 +342,7 @@ Median ticket price for remaining 15/16 home games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chartf8488c0c71&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chart1048300359bc&amp;quot; 
 },
         data = [
  {
@@ -691,7 +691,7 @@ Median ticket price for remaining 15/16 home games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chartf8488c0c71&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart1048300359bc&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
@@ -729,14 +729,14 @@ Median ticket price, home games versus away games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chartf84224ec4e2&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chart10483cccc949&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchartf84224ec4e2()
+      drawchart10483cccc949()
     });
-    function drawchartf84224ec4e2(){  
+    function drawchart10483cccc949(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chartf84224ec4e2&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chart10483cccc949&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;away.med.price&amp;quot;,
@@ -744,7 +744,7 @@ Median ticket price, home games versus away games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chartf84224ec4e2&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chart10483cccc949&amp;quot; 
 },
         data = [
  {
@@ -1093,7 +1093,7 @@ Median ticket price, home games versus away games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chartf84224ec4e2&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart10483cccc949&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
