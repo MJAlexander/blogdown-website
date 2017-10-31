@@ -13,7 +13,7 @@ url_code = "https://github.com/MJAlexander/distortr"
 # url_dataset = "#"
 url_pdf = "pdf/temporal_smoothing.pdf"
 # url_project = ""
-# url_slides = ""
+url_slides = "https://github.com/MJAlexander/distortr/blob/master/IUSSP_011117.pdf"
 # url_video = "#"
 
 # [[url_custom]]
