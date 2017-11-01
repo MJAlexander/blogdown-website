@@ -4,13 +4,13 @@ author: "Monica Alexander"
 date: "2017-10-31"
 output: html_document
 ---
-At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods from smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package `distortr` which accompanies the project. 
+At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods for smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package `distortr` which accompanies the project. 
 
 
 ## Motivation
 An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data. In these cases, the underlying trends may be unclear due to missing data or overly messy data.
 
-In such situations, demographers often employ statistical models to help estimate and understand underlying trends. Often, these statistical models have the same general form:
+In such situations, demographers often employ statistical models to help estimate and understand underlying trends. Often, these statistical models have the general form:
 
 $$
 \theta_t = f(X_t) + Z_t + \varepsilon_t
@@ -22,9 +22,9 @@ where
 - $Z_t$ are temporal distortions, which capture data-driven non-linear trends over time, not otherwise captured in $f(X_t)$
 - $\varepsilon_t$ is an error term. 
 
-While the inclusion of covariates and regression framework is often well justified, the choice for modeling the distortions $Z_t$ is often more arbitrary. However, models for $Z_t$ are important: they allow for data-driven trends that may not be captured by simple regression models; they express these distortions in a smooth way, accounting for error in data observations; they incorporate uncertainty in the underlying processes; and allow for a temporal mechanism to be projected into the future. Different model choice can sometimes lead to vastly different estimates.
+While the inclusion of covariates in the regression framework is often well justified, the choice for modeling the distortions $Z_t$ is often more arbitrary. However, models for $Z_t$ are important: they allow for data-driven trends that may not be captured by simple regression models; they smooth distortions, accounting for error in data observations; they incorporate uncertainty in the underlying processes; and allow for a temporal mechanism to be projected into the future. Different model choice can sometimes lead to vastly different estimates.
 
-This project aimed to compare three main families of models for temporal distortions: 
+This project aims to compare three main families of temporal models: 
 
 - ARMA models
 - Gaussian Process regression
@@ -40,8 +40,8 @@ As part of this project, I am developing an R package to aid in comparing and fi
 
 The package consists of two main parts:
 
-### 1. Simulate time series of distortions and fit and validate models
-This part of the package contains tools to investigate how different models performed in different simulation settings and how much it matters if we pick the 'wrong' model. 
+### 1. Simulate time series of distortions, and fit and validate models
+This part of the package contains tools to investigate how different models perform in different simulation settings and how much it matters if the 'wrong' model is chosen. 
 
 Simulated time series of data can be created from any of the following processes:
 
