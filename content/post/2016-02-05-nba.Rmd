@@ -141,7 +141,7 @@ Despite the high price of Warrior away-games in general,  it could still be chea
 
 <center> <h4>Median ticket price, all remaining NBA games</h4> </center>
 ```{r, echo=FALSE, cache = FALSE, fig.width=12}
-knitr::include_app("http://shiny.demog.berkeley.edu/monicah/nba_app", height = "600px")
+knitr::include_app("http://shiny.demog.berkeley.edu/monicah/nba_app/", height = "600px")
 
 ```
 

@@ -276,7 +276,7 @@
 &lt;p&gt;How might this assumption affect the race-adjusted life expectancy measure? Look at the equation for black log-mortality rates above. What if, in a particular city, the proportion of the black population was higher than the national average, and additionally the mortality differences were higher and black mortality was worse than assumed. Then the &lt;span class=&#34;math inline&#34;&gt;\((\delta, \Delta)\)&lt;/span&gt; values would be too small, and so &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; would be too low. But because all race-specific mortality rates are constrained to equal the average mortality rate &lt;span class=&#34;math inline&#34;&gt;\(\log(m_x)\)&lt;/span&gt;, if the &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,black})\)&lt;/span&gt; is too low, then, all else equal, &lt;span class=&#34;math inline&#34;&gt;\(\log(m_{x,white})\)&lt;/span&gt; is too high. As a consequence, the race-adjusted mortality will be too high, so race-adjusted life expectancy will be too low.&lt;/p&gt;
 &lt;p&gt;The graph below illustrates this effect. The underlying race distribution is roughly equal to females in Detroit in the lowest income quartile. The mortality rates are made up using a Gompertz model, but with a life expectancy roughly equal to that published in the paper for females in Detroit in the lowest income quartile.&lt;/p&gt;
 &lt;p&gt;With &lt;span class=&#34;math inline&#34;&gt;\((\delta_{black}, \Delta_{black}) = (0.53, -0.0012)\)&lt;/span&gt;, the race adjusted life expectancy is 80.4 years. These shifters are approximately equal to those used in the paper; I say approximately, because the values weren’t actually published anywhere, so I had to eye-ball figure e6/7 in the &lt;a href=&#34;https://healthinequality.org/documents/paper/healthineq_supplement.pdf&#34;&gt;supplementary information&lt;/a&gt;. If you change the values to &lt;span class=&#34;math inline&#34;&gt;\((\delta_{black}, \Delta_{black}) = (0.8, 0)\)&lt;/span&gt;, the race adjusted life expectancy is 81.3 years.&lt;/p&gt;
-&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/mortality_app?showcase=0&#34; width=&#34;1152&#34; height=&#34;600px&#34;&gt;
+&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/mortality_app/?showcase=0&#34; width=&#34;1152&#34; height=&#34;600px&#34;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;div id=&#34;section-summary&#34; class=&#34;section level3&#34;&gt;
@@ -335,14 +335,14 @@ Median ticket price for remaining 15/16 home games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chart325c582aa8fa&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chart34531c285e2e&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchart325c582aa8fa()
+      drawchart34531c285e2e()
     });
-    function drawchart325c582aa8fa(){  
+    function drawchart34531c285e2e(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart325c582aa8fa&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chart34531c285e2e&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;standing&amp;quot;,
@@ -350,7 +350,7 @@ Median ticket price for remaining 15/16 home games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chart325c582aa8fa&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chart34531c285e2e&amp;quot; 
 },
         data = [
  {
@@ -699,7 +699,7 @@ Median ticket price for remaining 15/16 home games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart325c582aa8fa&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart34531c285e2e&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
@@ -737,14 +737,14 @@ Median ticket price, home games versus away games
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &#39;chart325c3305b6b2&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &#39;chart345325a76b5d&#39; class = &#39;rChart nvd3&#39;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&#39;text/javascript&#39;&amp;gt;
  $(document).ready(function(){
-      drawchart325c3305b6b2()
+      drawchart345325a76b5d()
     });
-    function drawchart325c3305b6b2(){  
+    function drawchart345325a76b5d(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart325c3305b6b2&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chart345325a76b5d&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;away.med.price&amp;quot;,
@@ -752,7 +752,7 @@ Median ticket price, home games versus away games
 &amp;quot;group&amp;quot;: &amp;quot;team&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;scatterChart&amp;quot;,
 &amp;quot;showLegend&amp;quot;: false,
-&amp;quot;id&amp;quot;: &amp;quot;chart325c3305b6b2&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chart345325a76b5d&amp;quot; 
 },
         data = [
  {
@@ -1101,7 +1101,7 @@ Median ticket price, home games versus away games
     }
     &amp;lt;/style&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart325c3305b6b2&#34;&gt;
+&amp;lt;/html&amp;gt; &#34; scrolling=&#34;no&#34; frameBorder=&#34;0&#34; seamless class=&#34;rChart  nvd3  &#34; id=&#34;iframe-chart345325a76b5d&#34;&gt;
 &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 &lt;/div&gt;
@@ -1115,7 +1115,7 @@ Median ticket price, home games versus away games
 Median ticket price, all remaining NBA games
 &lt;/h4&gt;
 &lt;/center&gt;
-&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/nba_app?showcase=0&#34; width=&#34;1152&#34; height=&#34;600px&#34;&gt;
+&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/nba_app/?showcase=0&#34; width=&#34;1152&#34; height=&#34;600px&#34;&gt;
 &lt;/iframe&gt;
 &lt;div id=&#34;section-notes&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Notes:&lt;/h4&gt;

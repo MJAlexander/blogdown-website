@@ -50,10 +50,10 @@ The graph below illustrates this effect. The underlying race distribution is rou
 
 With $(\delta_{black}, \Delta_{black}) = (0.53, -0.0012)$, the race adjusted life expectancy is 80.4 years. These shifters are approximately equal to those used in the paper; I say approximately, because the values weren't actually published anywhere, so I had to eye-ball figure e6/7 in the [supplementary information](https://healthinequality.org/documents/paper/healthineq_supplement.pdf). If you change the values to $(\delta_{black}, \Delta_{black}) = (0.8, 0)$, the race adjusted life expectancy is 81.3 years. 
 
-```{r tabsets, echo=FALSE, fig.width= 12}
+```{r, echo=FALSE, fig.width= 12}
 
 
-knitr::include_app("http://shiny.demog.berkeley.edu/monicah/mortality_app", height = "600px")
+knitr::include_app("http://shiny.demog.berkeley.edu/monicah/mortality_app/", height = "600px")
 
 ```
 
