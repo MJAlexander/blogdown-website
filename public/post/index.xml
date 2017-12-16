@@ -7,8 +7,78 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Monica Alexander</copyright>
-    <lastBuildDate>Tue, 31 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 Dec 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using SVD in demographic modeling</title>
+      <link>/2017/12/16/using-svd-in-demographic-modeling/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/16/using-svd-in-demographic-modeling/</guid>
+      <description>&lt;p&gt;A core objective of demographic modeling is finding empirical regularities in age patterns in fertility, mortality and migration. One method to achieve this goal is using Singular Value Decomposition (SVD) to extract characteristic age patterns in demographic indicators over time. This post describes how SVD can be used in demographic research, and in particular, mortality estimation.&lt;/p&gt;
+&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;The SVD of matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is &lt;span class=&#34;math display&#34;&gt;\[
+X = UDV^T
+\]&lt;/span&gt; The three matrices resulting from the decomposition have special properties:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The columns of &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(V\)&lt;/span&gt; are orthonormal, i.e. they are orthogonal to each other and unit vectors. These are called the left and right singular vectors, respectively.&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt; is a diagonal matrix with positive real entries.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In practice, the components obtained from SVD help to summarize some characteristics of the matrix that we are interested in, &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. In particular, the first right singular vector (i.e. the first column of &lt;span class=&#34;math inline&#34;&gt;\(V\)&lt;/span&gt;) gives the direction of the maximum variation of the data contained in &lt;span class=&#34;math inline&#34;&gt;\(X.\)&lt;/span&gt; The second right singular vector, which is orthogonal to the first, gives the direction of the second-most variation of the data, and so on. The &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt; elements represent additional rotation and scaling transformations to get back the original data in &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;SVD is useful as a dimensionality reduction technique: it allows us to describe our dataset using fewer dimensions than implied by the original data. For example, often a large majority of variation in the data is captured by the direction of the first singular vector, and so even just looking at this dimension can capture key patterns in the data. SVD is closely related to Principal Components Analysis: principal components are derived by projecting data &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; onto principal axes, which are the right singular vectors &lt;span class=&#34;math inline&#34;&gt;\(V\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;use-in-demographic-modeling&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Use in demographic modeling&lt;/h2&gt;
+&lt;p&gt;Using SVD for demographic modeling and forecasting first gained popularity after &lt;a href=&#34;https://www.jstor.org/stable/2290201&#34;&gt;Lee and Carter&lt;/a&gt; used the technique as a basis for forecasting US mortality rates. They modeled age-specific mortality on the log scale as&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\log m_x = a_x + b_x \cdot k_t
+\]&lt;/span&gt; where&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(a_x\)&lt;/span&gt; is the mean age-specific mortality schedule across all years of analysis,&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(b_x\)&lt;/span&gt; is the average contribution of age group &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; to overall mortality change over the period, and&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(k_t\)&lt;/span&gt; is the incremental change in period &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The latter two quantities are obtained via SVD of a time x age matrix of demeaned, logged mortality rates: &lt;span class=&#34;math inline&#34;&gt;\(b_x\)&lt;/span&gt; is the first right singular vector, while &lt;span class=&#34;math inline&#34;&gt;\(k_t\)&lt;/span&gt; is the first left singular vector multiplied the first element of &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;More recently, SVD has become increasingly used in demographic modeling; for example &lt;a href=&#34;http://www.tandfonline.com/doi/abs/10.1080/01621459.2014.881738&#34;&gt;Carl Schmertmann et al.&lt;/a&gt; used it to model and forecast cohort fertility, &lt;a href=&#34;https://arxiv.org/abs/1612.01408&#34;&gt;Sam Clark&lt;/a&gt; to estimate age schedules of mortality with limited data, and &lt;a href=&#34;https://link.springer.com/article/10.1007/s13524-017-0618-7&#34;&gt;Emilio Zagheni, Magali Barbieri and myself&lt;/a&gt; to model subnational age-specific mortality.&lt;/p&gt;
+&lt;div id=&#34;example-age-specific-mortality&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Example: age-specific mortality&lt;/h3&gt;
+&lt;p&gt;Imagine you have observations of age-specific mortality rates in multiple years. Create a matrix, &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, where each row represents the age-specific mortality rates in a particular year. Modeling of mortality rates is often done on the log scale (to ensure rates are positive), so you may want to take the log of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. Then do a SVD on this matrix - in &lt;code&gt;R&lt;/code&gt; this is as easy as &lt;code&gt;svd(x)&lt;/code&gt;. The age patterns of interest are then contained in the resulting &lt;code&gt;v&lt;/code&gt; matrix; so for example &lt;code&gt;svd(x)$v[,1:3]&lt;/code&gt; would give you the first three age ‘principal components’ of your matrix.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/svd_plots/svd.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;For example, the first three principal components of US male mortality by state over the years 1980-2010 are plotted below. Each component has a demographic interpretation - the first represents baseline mortality, the second represents higher-than-baseline child mortality, and the third represents higher-than-baseline adult mortality.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/svd_plots/3pcs_states_neg.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;For modeling, the idea is that different linear combinations of these components allow you to flexibly represent a wide range of different mortality curves. For example, log-mortality rates could be modeled as&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\log m_x = \beta_1 Y_{1x} + \beta_2 Y_{2x} + \beta_3 Y_{3x}
+\]&lt;/span&gt; where the &lt;span class=&#34;math inline&#34;&gt;\(Y_{.x}\)&lt;/span&gt;’s are the principal components above and the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;’s are to be estimated. Using the sliders below you can see how different coefficients and linear combinations of the principal components above lead to different shaped mortality curves.&lt;/p&gt;
+&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/mort/?showcase=0&#34; width=&#34;960&#34; height=&#34;600px&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-race-specific-opioid-mortality&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Example: race-specific opioid mortality&lt;/h3&gt;
+&lt;p&gt;This technique of representing and modeling underlying age patterns need not be restricted to modeling all-cause mortality. For example, SVD proves useful when looking at deaths due to opioid overdoses by race and state in the US. Even though &lt;a href=&#34;https://www.monicaalexander.com/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/&#34;&gt;opioid overdoses are rapidly increasing for both the black and white population&lt;/a&gt;, overdoses are still a relatively rare event, and so death rates calculated from the raw data suffer from large stochastic/random variation.&lt;/p&gt;
+&lt;p&gt;For example, the chart below shows age-specific opioid mortality rates by race for North Carolina in 2004.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; As you can see, for the black population there are quite a few age groups were there are zero observed deaths, so the observed mortality rate is zero. However, given what we know about how mortality evolves over age, the zero observed death rates are likely due to random variation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/svd_plots/NC_age.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Even though age patterns are noisy at the state level, we have an idea of age patterns by race in opioid mortality in the national level. So we can use these national age patterns - via information captured in a SVD - to help model underlying mortality rates at the state level.&lt;/p&gt;
+&lt;p&gt;The figure below shows the first two principal components derived using SVD from race-specific opioid mortality in the US over the years 1999-2015. The first principal component again represents a baseline mortality schedule for opioid-related deaths for each race. The second principal component represents the contribution of each age group to mortality change over time. Notice the ‘double-humped’ shape for the white population - this is driven by heroin deaths being concentrated at younger ages, and prescription opioid-related deaths being concentrated at older ages.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/svd_plots/opioid_pcs.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Similar to the example above, we can use these principal components as a basis of a regression framework to estimate underlying age-specific mortality rates by age. Results from such a model for North Carolina in 2004 are shown below. The dots represent mortality rates calculated from the raw data, as above. The lines and associated shaded area represent estimates of the underlying mortality rates with 95% uncertainty intervals. These were obtained from a model that utilized information from the principal components. Instead of dealing with zero observed deaths, we now have estimates that give more plausible values for the underlying mortality rates.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/svd_plots/NC_agefit.png&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;SVD is a useful technique to extract the main characteristics of age patterns in demographic indictors. These structural age patterns are useful to get a better idea of underlying processes when available data are sparse or noisy. Age patterns derived from SVD can be flexibly shifted and adjusted based on available data. Built-in functions in &lt;code&gt;R&lt;/code&gt; make it relatively easy to use SVD to better understand, model and project demographic indicators.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;cross-promotional plug: you can play with this data yourself with the help of the &lt;a href=&#34;https://github.com/mkiang/narcan&#34;&gt;narcan&lt;/a&gt; &lt;code&gt;R&lt;/code&gt; package, which &lt;a href=&#34;http://mathewkiang.com&#34;&gt;Mathew Kiang&lt;/a&gt; and I are working on.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Comparing methods for smoothing temporal demographic data, and the distortr package</title>
