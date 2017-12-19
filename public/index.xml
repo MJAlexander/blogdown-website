@@ -51,9 +51,8 @@ X = UDV^T
 &lt;p&gt;For modeling, the idea is that different linear combinations of these components allow you to flexibly represent a wide range of different mortality curves. For example, log-mortality rates could be modeled as&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
 \log m_x = \beta_1 Y_{1x} + \beta_2 Y_{2x} + \beta_3 Y_{3x}
-\]&lt;/span&gt; where the &lt;span class=&#34;math inline&#34;&gt;\(Y_{.x}\)&lt;/span&gt;’s are the principal components above and the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;’s are to be estimated. Using the sliders below you can see how different coefficients and linear combinations of the principal components above lead to different shaped mortality curves.&lt;/p&gt;
-&lt;iframe src=&#34;http://shiny.demog.berkeley.edu/monicah/mort/?showcase=0&#34; width=&#34;960&#34; height=&#34;600px&#34;&gt;
-&lt;/iframe&gt;
+\]&lt;/span&gt; where the &lt;span class=&#34;math inline&#34;&gt;\(Y_{.x}\)&lt;/span&gt;’s are the principal components above and the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;’s are to be estimated. The plot below shows four different mortality curves derived from the US male principal components with different coefficient settings. You can also play with different settings interactively &lt;a href=&#34;http://shiny.demog.berkeley.edu/monicah/mort/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/svd_plots/coeff.png&#34;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;example-race-specific-opioid-mortality&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Example: race-specific opioid mortality&lt;/h3&gt;

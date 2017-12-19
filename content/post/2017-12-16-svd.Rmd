@@ -60,16 +60,9 @@ For modeling, the idea is that different linear combinations of these components
 $$
 \log m_x = \beta_1 Y_{1x} + \beta_2 Y_{2x} + \beta_3 Y_{3x}
 $$
-where the $Y_{.x}$'s are the principal components above and the $\beta$'s are to be estimated. Using the sliders below you can see how different coefficients and linear combinations of the principal components above lead to different shaped mortality curves. 
+where the $Y_{.x}$'s are the principal components above and the $\beta$'s are to be estimated. The plot below shows four different mortality curves derived from the US male principal components with different coefficient settings. You can also play with different settings interactively [here](http://shiny.demog.berkeley.edu/monicah/mort/).
 
-
-```{r, echo=FALSE, fig.width= 10}
-
-
-knitr::include_app("http://shiny.demog.berkeley.edu/monicah/mort/",  height = "600px")
-
-```
-
+<img src="/img/svd_plots/coeff.png">
 
 
 ### Example: race-specific opioid mortality

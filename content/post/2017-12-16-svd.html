@@ -42,9 +42,8 @@ X = UDV^T
 <p>For modeling, the idea is that different linear combinations of these components allow you to flexibly represent a wide range of different mortality curves. For example, log-mortality rates could be modeled as</p>
 <p><span class="math display">\[
 \log m_x = \beta_1 Y_{1x} + \beta_2 Y_{2x} + \beta_3 Y_{3x}
-\]</span> where the <span class="math inline">\(Y_{.x}\)</span>’s are the principal components above and the <span class="math inline">\(\beta\)</span>’s are to be estimated. Using the sliders below you can see how different coefficients and linear combinations of the principal components above lead to different shaped mortality curves.</p>
-<iframe src="http://shiny.demog.berkeley.edu/monicah/mort/?showcase=0" width="960" height="600px">
-</iframe>
+\]</span> where the <span class="math inline">\(Y_{.x}\)</span>’s are the principal components above and the <span class="math inline">\(\beta\)</span>’s are to be estimated. The plot below shows four different mortality curves derived from the US male principal components with different coefficient settings. You can also play with different settings interactively <a href="http://shiny.demog.berkeley.edu/monicah/mort/">here</a>.</p>
+<p><img src="/img/svd_plots/coeff.png"></p>
 </div>
 <div id="example-race-specific-opioid-mortality" class="section level3">
 <h3>Example: race-specific opioid mortality</h3>
