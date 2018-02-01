@@ -45,7 +45,7 @@ weight = 1
 
 I am a PhD candidate in the [Demography Department](http://demog.berkeley.edu/) at the University of California, Berkeley. My research interests include statistical demography, mortality and health inequalities, and small-area population issues. I expect to graduate in May 2018 and am currently on the job market.
 
-This semester (Fall 2017) I am a visiting student in the [Demography School](http://demography.anu.edu.au/) at the Australian National University. I have worked on research projects with the World Health Organization, UNICEF, the Bill and Melinda Gates Foundation, and the [Human Mortality Database](http://mortality.org/). Professionally, I have been a Fellow at [Data Science for Social Good](https://dssg.uchicago.edu/), and a research officer at the ANU's [Centre for Aboriginal Economic Policy Research](http://caepr.anu.edu.au/).
+I have worked on research projects with the World Health Organization, UNICEF, the Bill and Melinda Gates Foundation, and the [Human Mortality Database](http://mortality.org/). Professionally, I have been a Fellow at [Data Science for Social Good](https://dssg.uchicago.edu/), and a research officer at the ANU's [Centre for Aboriginal Economic Policy Research](http://caepr.anu.edu.au/).
 
 Outside of work and study I am interested in photography, cycling, and music.
 

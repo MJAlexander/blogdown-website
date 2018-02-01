@@ -1,11 +1,11 @@
 +++
 abstract = "We present a model for estimating neonatal mortality rates for all countries. Neonatal mortality is an important indicator to track progess towards the Sustainable Development Goals. The model is used by the United Nations Inter-agency Group for Child Mortality Estimation."
 authors = ["Monica Alexander", "Leontine Alkema"]
-date = "2017-09-15"
+date = "2018-01-25"
 image_preview = ""
 math = true
 publication_types = ["2"]
-publication = "Forthcoming in *Demographic Research*"
+publication = "*Demographic Research*"
 publication_short = ""
 selected = true
 title = "Global Estimation of Neonatal Mortality using a Bayesian Hierarchical Splines Regression Model"
