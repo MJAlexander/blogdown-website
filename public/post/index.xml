@@ -7,8 +7,70 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Monica Alexander</copyright>
-    <lastBuildDate>Sat, 16 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Feb 2018 00:00:00 +0000</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gompertz mortality models: the relationship between alpha, beta and mode age</title>
+      <link>/2018/02/18/gompertz-mortality-models-the-relationship-between-alpha-beta-and-mode-age/</link>
+      <pubDate>Sun, 18 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/18/gompertz-mortality-models-the-relationship-between-alpha-beta-and-mode-age/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The Gompertz model is one of the most well-known mortality models. It does remarkably well at explaining mortality rates at adult ages across a wide range of populations with just two parameters. This post briefly reviews the Gompertz model, highlighting the relationship between the two Gompertz parameters, &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; and the implied mode age at death. I focus on the situation where we only observe death counts by age (rather than mortality rates), so estimation of the Gompertz model requires choosing &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; to maximize the (log) density of deaths.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;gompertz-mortality&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Gompertz mortality&lt;/h2&gt;
+&lt;p&gt;Here are a few important equations related to the Gompertz model.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; The Gompertz hazard (or force of mortality) at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mu(x)\)&lt;/span&gt;, has the exponential form &lt;span class=&#34;math display&#34;&gt;\[
+\mu(x) = \alpha e^{\beta x}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; parameter captures some starting level of mortality and the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; gives the rate of mortality increase over age. Note here that &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; refers to the starting age of analysis and not necessarily age = 0. Indeed, Gompertz models don’t do a very good job at younger ages (roughly &lt;span class=&#34;math inline&#34;&gt;\(&amp;lt;40\)&lt;/span&gt; years).&lt;/p&gt;
+&lt;p&gt;Given the relationship between hazard rates and survivorship at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(l(x)\)&lt;/span&gt;, &lt;span class=&#34;math display&#34;&gt;\[
+\mu(x) = -\frac{d}{dx} \log l(x)
+\]&lt;/span&gt; the expression for &lt;span class=&#34;math inline&#34;&gt;\(l(x)\)&lt;/span&gt; is &lt;span class=&#34;math display&#34;&gt;\[
+l(x) = \exp\left(-\frac{\alpha}{\beta}\left(\exp(\beta x) - 1\right)\right)
+\]&lt;/span&gt; It then follows that the density of deaths at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; is &lt;span class=&#34;math display&#34;&gt;\[
+d(x) = \mu(x) l(x) = \alpha \exp(\beta x) \exp\left(-\frac{\alpha}{\beta}\left(\exp(\beta x) - 1\right)\right)
+\]&lt;/span&gt; which probably looks worse than it is. &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; tells us about the distribution of deaths by age. It is a density, so &lt;span class=&#34;math display&#34;&gt;\[
+\int d(x) = 1
+\]&lt;/span&gt; Say we observe death counts by age, &lt;span class=&#34;math inline&#34;&gt;\(y(x)\)&lt;/span&gt;, which implies a total number of deaths of &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt;. If we multiply the total number of deaths &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt;, then that gives the number of deaths at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;. In terms of fitting a model, we want to find values for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; that correspond to the density &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; which best describes the data we observe, &lt;span class=&#34;math inline&#34;&gt;\(y(x)\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;parameterization-in-terms-of-the-mode-age&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Parameterization in terms of the mode age&lt;/h2&gt;
+&lt;p&gt;Under a Gompertz model, the mode age at death, &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; is&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+M = \frac{1}{\beta}\log \left(\frac{\beta}{\alpha}\right)
+\]&lt;/span&gt; Given a set of plausible mode ages, we can work out the relevant combinations of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; based on the equation above. For example, the chart belows shows all combinations of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; that result in a mode age between 60 and 90.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/plausible_values.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This chart suggests that plausible values of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; for human populations are pretty restricted. In addition, it shows the strong correlation between these two parameters: in general, the smaller the value of &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, the larger the value of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;. This sort of correlation between parameters can cause issues with estimation. However, given we know the relationship between &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; and the mode age, the Gompertz model can be reparameterized in terms of &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\mu(x) = \beta \exp\left(\beta (x - M)\right)
+\]&lt;/span&gt; As &lt;a href=&#34;https://www.demographic-research.org/volumes/vol32/36/&#34;&gt;this paper&lt;/a&gt; notes, &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; are much less correlated than &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;. In addition, the modal age has a much more intuitive interpretation than &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;implications-for-fitting&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Implications for fitting&lt;/h2&gt;
+&lt;p&gt;Given the reparameterization, we now want to find estimates for &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; such that the resulting deaths density &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; best reflects the data. If we assume that the number of deaths observed at a particular age, &lt;span class=&#34;math inline&#34;&gt;\(y_x\)&lt;/span&gt;, are Poisson distributed, and the total number of deaths observed is &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt;, then we get the following hierarchical set up:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+y(x) \sim \text{Poisson} (\lambda(x))\\
+\lambda(x) = D \cdot d(x)\\
+d(x) = \mu(x) \cdot l(x)\\
+\mu(x) = \beta \exp\left(\beta (x - M)\right) \\
+l(x) = \exp \left( -\exp \left(-\beta M \right) \left(\exp(\beta x)-1 \right)\right)
+\]&lt;/span&gt; This can be fit in a Bayesian framework, with relevant priors put on &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div id=&#34;end-notes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;End notes&lt;/h3&gt;
+&lt;p&gt;This is part of an ongoing project with &lt;a href=&#34;http://www.site.demog.berkeley.edu/josh-goldstein&#34;&gt;Josh Goldstein&lt;/a&gt; on modeling mortality rates for a dataset of censored death observations. Thanks to &lt;a href=&#34;http://www.robertempickett.com/&#34;&gt;Robert Pickett&lt;/a&gt; who told me about the Tissov et al. paper and generally has interesting things to say about demography.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;A good reference for this is &lt;a href=&#34;http://www.hup.harvard.edu/catalog.php?isbn=9780674045576&#34;&gt;Essential Demographic Methods, Chapter 3&lt;/a&gt;.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Using SVD in demographic modeling</title>
