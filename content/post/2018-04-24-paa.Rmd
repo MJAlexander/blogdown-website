@@ -1,0 +1,56 @@
+---
+title: "Berkeley Demography at PAA 2018"
+author: "Monica Alexander"
+date: "2018-04-24"
+output: html_document
+---
+
+
+Berkeley Demography and Population Center affiliates will be presenting their work at PAA 2018. Check out some of their great work!
+
+- [Magali Barbieri](https://paa.confex.com/paa/2018/webprogrampreliminary/Person11604.html)
+    + Session 6-2: [Contribution of drug poisonings to divergence in life expectancy](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20592.html)
+    + Session 45-3: [Cause-specific mortality data at the subnational level](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23025.html)
+- [Boroka Bo](https://paa.confex.com/paa/2018/webprogrampreliminary/Person4688.html)
+    + Poster (Health and Mortality 1): [Time poverty by ethnicity](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21393.html)
+- [Gabriel Borges](https://paa.confex.com/paa/2018/webprogrampreliminary/Person2557.html)
+    + Session 68-4: [Mortality rates from sibling histories](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23921.html)
+    + Session 83-2: [Bayesian melding to estimate census coverage](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20223.html)
+- [Stephanie Child](https://paa.confex.com/paa/2018/webprogrampreliminary/Person11985.html)
+    + Poster (Health and Mortality 1): [Social networks and stress](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper19876.html)
+- [Will Dow](https://paa.confex.com/paa/2018/webprogrampreliminary/Person264.html)
+    + Session 72-3: [Cuba's cardiovascual risk factors](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20106.html)
+    + Poster (Children and Youth): [Parenting and Early Childhood Development in Indigenous and Non-Indigenous Mexican Communities](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper18486.html)
+    + Poster (Health and Mortality 2): [Incentive-Based Interventions for Smoking Cessation](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21504.html)
+    + Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): [Paid parental leave](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23528.html)
+- [Denys Dukhovnov](https://paa.confex.com/paa/2018/webprogrampreliminary/Person13558.html)
+    + Poster (Marriage, Families, Households, and Unions 1): [Stress coping strategies](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21415.html)
+    + Poster (Health and Mortality 1): [Time poverty by ethnicity](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21393.html)
+- [Dennis Feehan](https://paa.confex.com/paa/2018/webprogrampreliminary/Person14546.html)
+    + Session 68-4: [Mortality rates from sibling histories](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23921.html)
+    + Session 167-3: [Estimating internet adoption using Facebook](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23912.html)
+- [Joshua Goldstein](https://paa.confex.com/paa/2018/webprogrampreliminary/Session2138.html):
+    + Organizer, Mathematical demography session
+- [Ron Lee](https://paa.confex.com/paa/2018/webprogrampreliminary/Person255.html)
+    + Session 95-2: [Life expectancy, pension outcomes and income](paa/2018/webprogrampreliminary/Paper21830.html)
+    + Session 140-3: [Aging and intergenerational flows](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20137.html)
+- [Hayley Pierce](https://paa.confex.com/paa/2018/webprogrampreliminary/Person6435.html)
+    + Session 160-4: [Risk and Protective Factors for Generational Refugee Children](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper18645.html)
+- [Danny Schneider](https://paa.confex.com/paa/2018/webprogrampreliminary/Person2766.html)
+    + Session 167-2: [Facebook as a Tool for Survey Data Collection](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23984.html)
+    + Session 174-4: [Inequalities in parental time](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper24054.html)
+- [Ruijie (Mia) Zhong](https://paa.confex.com/paa/2018/webprogrampreliminary/Person9219.html)
+    + Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): [Education and marriage in Japan](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23830.html)
+    
+...and me!
+
+- [Monica Alexander](https://paa.confex.com/paa/2018/webprogrampreliminary/Person6437.html):
+    + Session 89-2: [Spatial distribution of opioid mortality](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper22264.html), presented by [Mathew Kiang](https://paa.confex.com/paa/2018/webprogrampreliminary/Person15557.html)
+    + Session 113-2: [Estimating subnational populations](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21488.html), joint work with [Leontine Alkema](https://paa.confex.com/paa/2018/webprogrampreliminary/Person16520.html)
+    + Session 207-3: [Using Facebook and ACS to predict migration stocks](https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23641.html), presented by [Emilio Zagheni](https://paa.confex.com/paa/2018/webprogrampreliminary/Person1727.html)
+    
+
+
+<center>
+<img src="/img/demogseal2.png", width = 200>
+</center>
