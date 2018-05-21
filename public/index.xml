@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Deaths without denominators: using a matched dataset to study mortality patterns in the United States</title>
+      <link>/publication/censoc/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/censoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Berkeley Demography at PAA 2018</title>
       <link>/2018/04/24/berkeley-demography-at-paa-2018/</link>
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
@@ -89,6 +98,15 @@
 &lt;img src=&#34;/img/demogseal2.png&#34;, width = 200&gt;
 &lt;/center&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Estimating Regional Populations of Women of Reproductive Age</title>
+      <link>/publication/kenya_subnational/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/kenya_subnational/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -372,15 +390,6 @@ X = UDV^T
       <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/publication/temporal_smoothing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Estimating Regional Populations of Women of Reproductive Age</title>
-      <link>/publication/kenya_subnational/</link>
-      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/kenya_subnational/</guid>
       <description></description>
     </item>
     
@@ -1335,15 +1344,6 @@ Median ticket price, all remaining NBA games
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>The Economic Impact of the Mining Boom on Indigenous and Non-Indigenous Australians</title>
-      <link>/publication/economic_impact_of_the_mining/</link>
-      <pubDate>Mon, 17 Aug 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/economic_impact_of_the_mining/</guid>
-      <description></description>
     </item>
     
   </channel>

@@ -1,7 +1,7 @@
 +++
 abstract = "Estimates of the number of women of reproductive age affect measures of maternal mortality, contraceptive prevalence and fertility. However, in many developing countries, data on population counts are limited and are of poor quality, and so levels are unclear. This extended abstract introduces a Bayesian hierarchical model to estimate female populations at the subnational level. The model incorporates available data on population counts, builds on characteristic mortality schedules and estimates migration patterns to obtain robust population estimates, projections and uncertainty levels. The model is applied to estimate subnational populations in Kenya from 1969-2015, with initial testing showing promising results."
 authors = ["Monica Alexander", "Leontine Alkema"]
-date = "2017-08-01"
+date = "2018-04-01"
 image_preview = ""
 math = true
 publication_types = ["3"]
