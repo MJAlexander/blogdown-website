@@ -22,7 +22,7 @@ weight = 1
 [[education.courses]]
   course = "PhD (Demography)"
   institution = "University of California, Berkeley"
-  year = "Expected May 2018"
+  year = 2018
 
 [[education.courses]]
   course = "M.Arts (Statistics)"
