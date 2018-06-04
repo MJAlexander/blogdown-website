@@ -1,0 +1,95 @@
+---
+title: "Thoughts after finishing a Demography PhD"
+author: "Monica Alexander"
+date: "2018-06-04"
+output: html_document
+---
+
+PhDs are hard. They are incredibly fulfilling, but mentally challenging and emotionally draining. You meet some amazing people, but also have to deal with some difficult people and difficult situations. During my time as a PhD student, a lot of things went better than I imagined, but I also made a fair few mistakes. 
+
+The following are a few thoughts after my experience. They are based on being involved in the demographic research field --- a relatively small and supportive academic community --- but the comments are pretty general. I'm writing this not so much to offer advice, but more in the hope that others read it and see similarities with their own experience. 
+
+## __Good mentors make a huge difference__
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1002535988248416256')
+```
+</center>
+
+Do not underestimate the effect of mentorship on your PhD experience: perhaps more than anyone, mentors influence your learning trajectory, research output and self confidence. 
+
+Mentors need not be constrained to those on your formal advisory panel. In my own experience, I had a great panel, but the most invaluable mentorship came from people who were not formally associated with my committee or university. 
+
+Find mentors who you feel comfortable around: there is huge value in being able to email or talk to someone about your research without being worried about making mistakes or saying something stupid. Good mentors listen, know about your research, introduce you to people, and think of you when they see opportunities. They do exist :)
+
+## __The peer review process can be LONG__
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '520318869819252736')
+```
+</center>
+
+It's well known that the peer review process can take a long time. Journal articles can take 6-12 months from the time of submission to publication. In hindsight, I didn't really think about this in terms of what it meant for my own timeline. 
+
+Having R&Rs or publications can be very valuable when you go on the job market. If you want to be at this stage, you need to think about submitting a year before you go on the market, i.e. two years before you finish your PhD. This is a huge lead time.
+
+## __Doing a few extra projects is good, but don't do too many__
+<center>
+<img src="/img/distraction.jpg", width = 500>
+</center>
+
+There will probably be opportunities to be involved in side projects in addition to your dissertation. Side projects are a great way of learning new skills, collaborating with new researchers, and getting a little bit of extra income. However, it's easy for side projects to end up taking most of your time: deadlines are often more imminent, which means it's easy to put off the dissertation work for another day. Try not to fall into this trap. 
+
+## __Submit and go to conferences__
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '766336056539029504')
+```
+</center>
+
+Conferences are a great way of getting your work out there. If you're like me, they are also a great way of forcing yourself to have a deadline to get a working paper finished. Conferences are also a good opportunity to try and meet other researchers in your field. Introduce yourself to people who you might be interested in working with, so they can put a face to the name in future.
+
+## __Write a little bit everyday__
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '996526193510899712')
+```
+</center>
+
+
+
+Demographers often like to play with data and graph things instead of writing. Trying to write a little bit most days helps immensely later on. Sometimes Past Monica was surprisingly clever, sometimes Past Monica was talking rubbish, but Present Monica was generally glad Past Monica had put some thoughts to paper. 
+
+## __Try not to compare yourself to others too much__
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '999307291873574913')
+```
+</center>
+
+It's hard to not suffer from imposter syndrome. It's hard to not compare yourself to others and their achievements. It's hard not worry about whether you're doing the right topic, selling your work enough, publishing in the right places. And you will likely come across really competitive people that want to put you down to make themselves feel better. 
+
+But in the end, it's important to focus on yourself: define your own research interests, know what your goals are and work to achieve them. Back yourself, and be proud of your work. And don't worry about the passive aggressors: surround yourself with fun, supportive and interesting people.
+
+
+## __It's okay to feel overwhelmed__
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1002242560633573377')
+```
+</center>
+
+Most people feel overwhelmed at some point, and it's okay. It's not a personal failing. Sometimes, it's part of the learning process. You're doing something you've never done before, at the limit of your knowledge, and there's no guarantee it will work (and it often doesn't). That said, [many graduate students suffer from mental health issues](https://www.nature.com/articles/nbt.4089) and it's important to surround yourself with supportive people and seek help when you need it. 
+
+## __Final thoughts __
+
+### Good research is important, but so is working hard and being nice to people.
+
+
+In the end, PhDs (and academia) are similar to any other job. Being successful is not just a function of how good your topic is. You have to put in the hours. You also have to learn to deal with people you disagree with in a professional manner. Be supportive of your peers and promote other people's work, not just your own. This helps to build a productive and supportive network for the future. 
+
+Around six years ago, [Rohan](https://www.rohanalexander.com/) convinced me to take the GRE and apply for some PhD programs. "If you don't try, you'll never know, and then you'll always wonder if you could have." This was right, of course. One year later we were on a plane, moving from Australia to the US.
+
+I graduated about three weeks ago and it still hasn't really sunk in. I feel very lucky to have had this opportunity. 
