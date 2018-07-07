@@ -24,13 +24,13 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
   name = "Monica Alexander"
-  role = "PhD Graduate"
-  organization = "University of California, Berkeley"
+  role = "Assistant Professor"
+  organization = "University of Toronto"
   organization_url = ""
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "monicaalexander@berkeley.edu"
-  address = "2232 Piedmont Ave, Berkeley, CA"
+  email = "monica.j.alexander@gmail.com"
+  address = "725 Spadina Avenue, Toronto, ON"
   office_hours = ""
   phone = ""
   skype = ""
@@ -171,7 +171,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[menu.main]]
   name = "Professional"
   url = "#professional"
-  weight = 5
+  weight = 6
 
 [[menu.main]]
   name = "Teaching"
@@ -181,7 +181,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[menu.main]]
   name = "Posts"
   url = "#posts"
-  weight = 6
+  weight = 5
 
 [[menu.main]]
   name = "Contact"

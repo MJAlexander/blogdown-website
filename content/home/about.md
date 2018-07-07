@@ -43,7 +43,7 @@ weight = 1
 
 # Biography
 
-I received my PhD in Demography at the [University of California, Berkeley](http://demog.berkeley.edu/). My research interests include statistical demography, mortality and health inequalities, and small-area population issues. In July 2018, I will be joining the University of Toronto as an Assistant Professor in Statistical Sciences and Sociology.
+I am an Assistant Professor in [Statistical Sciences](http://www.utstat.utoronto.ca/) and [Sociology](http://sociology.utoronto.ca/) at the University of Toronto. I received my PhD in Demography at the [University of California, Berkeley](http://demog.berkeley.edu/). My research interests include statistical demography, mortality and health inequalities, and small-area population issues. 
 
 I have worked on research projects with the World Health Organization, UNICEF, the Bill and Melinda Gates Foundation, and the [Human Mortality Database](http://mortality.org/). Professionally, I have been a Fellow at [Data Science for Social Good](https://dssg.uchicago.edu/), and a research officer at the ANU's [Centre for Aboriginal Economic Policy Research](http://caepr.anu.edu.au/).
 

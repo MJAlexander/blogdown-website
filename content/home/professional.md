@@ -10,12 +10,12 @@ subtitle = ""
 widget = "custom"
 
 # Order that this section will appear in.
-weight = 5
+weight = 6
 
 +++
 
 ## University of Massachusetts, Amherst
-**Graduate Student Researcher**, January 2017 -- *Current*
+**Graduate Student Researcher**, January 2017 -- June 2018
 
 ## World Health Organization
 **Consultant**, September 2016 -- June 2017
