@@ -1,6 +1,6 @@
 baseurl = "https://monicaalexander.com/"
 title = "Monica Alexander"
-copyright = "&copy; 2017 Monica Alexander"
+copyright = "&copy; 2018 Monica Alexander"
 theme = "hugo-academic"
 enableEmoji = true
 footnotereturnlinkcontents = "<sup>^</sup>"
