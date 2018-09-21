@@ -4,6 +4,7 @@ author: "Monica Alexander"
 date: "2018-09-21"
 output: html_document
 ---
+
 # Introduction
 
 This is a tutorial on estimating age-specific mortality rates at the subnational level, using a model similar to that described in our [Demography paper](https://link.springer.com/article/10.1007/s13524-017-0618-7). There are four main steps, which will be described below:
