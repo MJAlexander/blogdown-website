@@ -30,15 +30,13 @@ output: html_document
 <h1>1. Preparing the data</h1>
 <p>The first step is to obtain data on death counts and population by age (and potentially sex) groups, and get it in the right format for modeling purposes. Note that you need counts, not just the mortality rates, as inputs into the model.</p>
 <p>In this example, I downloaded data on death and population counts by county (the files <code>CA.csv</code> and <code>CA_pop.csv</code> in the data folder). Because these two data sources had different age groups available, I had to a bit of cleaning up to make sure everything was consistent. The resulting deaths data has the following form:</p>
-<pre><code>## # A tibble: 6 x 8
-##   county              code age_group  year deaths   pop   age      mx
-##   &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;dbl&gt;
-## 1 Alameda County, CA  6001 &lt; 1 year   1999    110 19336     0 0.00569
-## 2 Alameda County, CA  6001 &lt; 1 year   2000    104 19397     0 0.00536
-## 3 Alameda County, CA  6001 &lt; 1 year   2001    133 22044     0 0.00603
-## 4 Alameda County, CA  6001 &lt; 1 year   2002     91 21316     0 0.00427
-## 5 Alameda County, CA  6001 &lt; 1 year   2003     97 21091     0 0.00460
-## 6 Alameda County, CA  6001 &lt; 1 year   2004    111 20339     0 0.00546</code></pre>
+<pre><code>##               county code age_group year deaths   pop age          mx
+## 1 Alameda County, CA 6001  &lt; 1 year 1999    110 19336   0 0.005688871
+## 2 Alameda County, CA 6001  &lt; 1 year 2000    104 19397   0 0.005361654
+## 3 Alameda County, CA 6001  &lt; 1 year 2001    133 22044   0 0.006033388
+## 4 Alameda County, CA 6001  &lt; 1 year 2002     91 21316   0 0.004269094
+## 5 Alameda County, CA 6001  &lt; 1 year 2003     97 21091   0 0.004599118
+## 6 Alameda County, CA 6001  &lt; 1 year 2004    111 20339   0 0.005457495</code></pre>
 <p>For the JAGS model, the data has to has to be in the form of an array. The notation used throughout the JAGS model is referring to age <span class="math inline">\(x\)</span>, time <span class="math inline">\(t\)</span>, area <span class="math inline">\(a\)</span> and state <span class="math inline">\(s\)</span>. So both the deaths and population data need to be in the form of an array with dimensions age x time x area x state. I did this in quite an ugly way combining loops and tidyverse, which probably isn’t the most elegant way, but it works :) The resulting deaths data for the first county (Alameda) looks like this:</p>
 <pre class="r"><code>y.xtas[,,1,1]</code></pre>
 <pre><code>##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
@@ -75,22 +73,20 @@ output: html_document
 <p>The other main inputs to the mortality model are the principal components derived from the mortality standard. Which mortality standard you choose to derive your principal components from depends on your specific problem. In the case of this example, I decided to use state-level mortality schedules for all states in the US over the period 1959–2015. These data are available through the <a href="https://usa.mortality.org/">United States Mortality Database</a>.</p>
 <p>The code I used to create the principal components using these data are <a href="https://github.com/MJAlexander/states-mortality/blob/master/CA_county_example/code/pcs.R">here</a>. Again note that for this particular example, I had to alter the data so that the age groups were consistent.</p>
 <p>Once the principal components are obtained, they can be input into the model based on being in a matrix with dimension age x component. Note that the model fitted here uses three components. The inputs are below:</p>
-<pre><code>## # A tibble: 13 x 3
-##        V1       V2       V3
-##     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
-##  1 0.209   0.630    0.288  
-##  2 0.353   0.300   -0.163  
-##  3 0.387   0.252   -0.287  
-##  4 0.381  -0.0178  -0.404  
-##  5 0.330  -0.252   -0.353  
-##  6 0.315  -0.360   -0.0257 
-##  7 0.309  -0.384    0.307  
-##  8 0.282  -0.191    0.454  
-##  9 0.244  -0.00387  0.401  
-## 10 0.205   0.0990   0.221  
-## 11 0.166   0.139    0.0858 
-## 12 0.127   0.117    0.0530 
-## 13 0.0933 -0.170   -0.00409</code></pre>
+<pre><code>##            V1           V2           V3
+## 1  0.20853194  0.630214628  0.287652535
+## 2  0.35264710  0.300256735 -0.162737410
+## 3  0.38660035  0.252316283 -0.287091193
+## 4  0.38118755 -0.017848623 -0.403974070
+## 5  0.32970586 -0.252356450 -0.352528704
+## 6  0.31523511 -0.359905277 -0.025726734
+## 7  0.30949609 -0.383953991  0.306658736
+## 8  0.28246520 -0.191162991  0.454141280
+## 9  0.24350004 -0.003865125  0.401059537
+## 10 0.20458378  0.099035872  0.221135219
+## 11 0.16646980  0.139019421  0.085803340
+## 12 0.12715285  0.116507026  0.052966450
+## 13 0.09332889 -0.169677526 -0.004089363</code></pre>
 </div>
 <div id="running-the-model" class="section level1">
 <h1>3. Running the model</h1>

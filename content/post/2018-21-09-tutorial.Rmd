@@ -31,8 +31,7 @@ The first step is to obtain data on death counts and population by age (and pote
 In this example, I downloaded data on death and population counts by county (the files `CA.csv` and `CA_pop.csv` in the data folder). Because these two data sources had different age groups available, I had to a bit of cleaning up to make sure everything was consistent. The resulting deaths data has the following form:
 
 ```{r, echo = F, message=F, warning=F}
-library(tidyverse)
-d <- read_csv("deaths.csv")
+d <- read.csv("deaths.csv")
 head(d)
 ```
 
@@ -56,7 +55,7 @@ The code I used to create the principal components using these data are [here](h
 Once the principal components are obtained, they can be input into the model based on being in a matrix with dimension age x component. Note that the model fitted here uses three components. The inputs are below:
 
 ```{r, echo = F, message=F, warning=F}
-pcs <- read_csv("US_state.csv")[,1:3]
+pcs <- read.csv("US_state.csv")[,1:3]
 pcs
 ```
 
