@@ -3,6 +3,7 @@ title: "Estimating age-specific mortality rates at the subnational level"
 author: "Monica Alexander"
 date: "2018-09-21"
 output: html_document
+draft: false
 ---
 
 # Introduction
