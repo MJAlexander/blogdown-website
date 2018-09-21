@@ -7,8 +7,143 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Monica Alexander</copyright>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 00:00:00 +0000</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Estimating age-specific mortality rates at the subnational level</title>
+      <link>/2018/09/21/estimating-age-specific-mortality-rates-at-the-subnational-level/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/09/21/estimating-age-specific-mortality-rates-at-the-subnational-level/</guid>
+      <description>&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This is a tutorial on estimating age-specific mortality rates at the subnational level, using a model similar to that described in our &lt;a href=&#34;https://link.springer.com/article/10.1007/s13524-017-0618-7&#34;&gt;Demography paper&lt;/a&gt;. There are four main steps, which will be described below:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Prepare data and get it in the right format&lt;/li&gt;
+&lt;li&gt;Choose and create a mortality standard&lt;/li&gt;
+&lt;li&gt;Fit the model&lt;/li&gt;
+&lt;li&gt;Analyze results from the model&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A few notes on this particular example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I’ll be fitting the model to county-level mortality rates in California over the years 1999 to 2016. These are age-specific mortality rates for both sexes for the age groups &amp;lt;1, 1-4, 5-9, 10-14, 15-19, 20-24, 25-34, 35-44, 45-54, 55-64, 65-74, 75-84, 85+.&lt;/li&gt;
+&lt;li&gt;Data on deaths and populations are publicly available through &lt;a href=&#34;https://wonder.cdc.gov/&#34;&gt;CDC WONDER&lt;/a&gt;. However, age groups where death counts are less than 10 are suppressed, and so for some age group/year/county combinations, there are missing data. Also note that there are no observations for any years for two counties, Sierra and Alpine.&lt;/li&gt;
+&lt;li&gt;All analysis was done in R and the model was fit using JAGS. Other MCMC options such as Stan, WinBUGS or PyMC would probably work just as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All the code to reproduce this example can be found here: &lt;a href=&#34;https://github.com/MJAlexander/states-mortality/tree/master/CA_county_example&#34; class=&#34;uri&#34;&gt;https://github.com/MJAlexander/states-mortality/tree/master/CA_county_example&lt;/a&gt;. Please see the R file &lt;code&gt;CA.R&lt;/code&gt; in the &lt;code&gt;code&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;A note on modeling: there are many adaptions that can be made to this broad model set up, which may be more suitable in different situations. When estimating mortality in your own work, make sure to undergo a suitable validation process to see that the estimates are sensible, and fully test alternatives.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preparing-the-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;1. Preparing the data&lt;/h1&gt;
+&lt;p&gt;The first step is to obtain data on death counts and population by age (and potentially sex) groups, and get it in the right format for modeling purposes. Note that you need counts, not just the mortality rates, as inputs into the model.&lt;/p&gt;
+&lt;p&gt;In this example, I downloaded data on death and population counts by county (the files &lt;code&gt;CA.csv&lt;/code&gt; and &lt;code&gt;CA_pop.csv&lt;/code&gt; in the data folder). Because these two data sources had different age groups available, I had to a bit of cleaning up to make sure everything was consistent. The resulting deaths data has the following form:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 8
+##   county              code age_group  year deaths   pop   age      mx
+##   &amp;lt;chr&amp;gt;              &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;int&amp;gt;  &amp;lt;int&amp;gt; &amp;lt;int&amp;gt; &amp;lt;int&amp;gt;   &amp;lt;dbl&amp;gt;
+## 1 Alameda County, CA  6001 &amp;lt; 1 year   1999    110 19336     0 0.00569
+## 2 Alameda County, CA  6001 &amp;lt; 1 year   2000    104 19397     0 0.00536
+## 3 Alameda County, CA  6001 &amp;lt; 1 year   2001    133 22044     0 0.00603
+## 4 Alameda County, CA  6001 &amp;lt; 1 year   2002     91 21316     0 0.00427
+## 5 Alameda County, CA  6001 &amp;lt; 1 year   2003     97 21091     0 0.00460
+## 6 Alameda County, CA  6001 &amp;lt; 1 year   2004    111 20339     0 0.00546&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For the JAGS model, the data has to has to be in the form of an array. The notation used throughout the JAGS model is referring to age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, time &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;, area &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; and state &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;. So both the deaths and population data need to be in the form of an array with dimensions age x time x area x state. I did this in quite an ugly way combining loops and tidyverse, which probably isn’t the most elegant way, but it works :) The resulting deaths data for the first county (Alameda) looks like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y.xtas[,,1,1]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+##  [1,]  110  104  133   91   97  111  105   91  105    89    77    94    79
+##  [2,]   17   22   15   13   13   16   10   21   18    15    18    12    12
+##  [3,]   14   14   16   15   10   13   NA   15   11    NA    NA    NA    NA
+##  [4,]   16   19   17   13   19   13   22   13   NA    15    13    11    11
+##  [5,]   48   36   41   57   51   50   51   66   54    47    43    51    34
+##  [6,]   71   71   83   76   89   75   72   94   99    89    89    73    69
+##  [7,]  194  193  179  195  187  201  171  194  167   169   156   120   173
+##  [8,]  426  435  401  396  419  345  343  337  329   310   292   253   262
+##  [9,]  779  799  783  836  827  825  812  758  768   735   708   629   677
+## [10,] 1078 1069 1009 1066 1130 1064 1084 1106 1211  1176  1141  1159  1319
+## [11,] 1779 1645 1531 1517 1445 1452 1362 1385 1368  1341  1333  1348  1353
+## [12,] 2748 2792 2841 2714 2719 2517 2512 2395 2316  2271  2103  2088  2137
+## [13,] 2629 2687 2720 2617 2748 2586 2782 2831 2874  2974  2922  3064  3041
+##       [,14] [,15] [,16] [,17] [,18]
+##  [1,]    75    86    76    75    71
+##  [2,]    15    10    11    NA    10
+##  [3,]    NA    NA    NA    NA    NA
+##  [4,]    NA    12    NA    NA    NA
+##  [5,]    49    43    38    46    37
+##  [6,]    84    74    87    82    77
+##  [7,]   163   159   180   178   214
+##  [8,]   263   260   261   279   273
+##  [9,]   675   647   549   598   603
+## [10,]  1283  1273  1301  1291  1274
+## [11,]  1528  1599  1624  1698  1750
+## [12,]  2019  2040  2015  2059  2137
+## [13,]  3253  3376  3276  3476  3462&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preparing-the-mortality-standard&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;2. Preparing the mortality standard&lt;/h1&gt;
+&lt;p&gt;The other main inputs to the mortality model are the principal components derived from the mortality standard. Which mortality standard you choose to derive your principal components from depends on your specific problem. In the case of this example, I decided to use state-level mortality schedules for all states in the US over the period 1959–2015. These data are available through the &lt;a href=&#34;https://usa.mortality.org/&#34;&gt;United States Mortality Database&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The code I used to create the principal components using these data are &lt;a href=&#34;https://github.com/MJAlexander/states-mortality/blob/master/CA_county_example/code/pcs.R&#34;&gt;here&lt;/a&gt;. Again note that for this particular example, I had to alter the data so that the age groups were consistent.&lt;/p&gt;
+&lt;p&gt;Once the principal components are obtained, they can be input into the model based on being in a matrix with dimension age x component. Note that the model fitted here uses three components. The inputs are below:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 13 x 3
+##        V1       V2       V3
+##     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;
+##  1 0.209   0.630    0.288  
+##  2 0.353   0.300   -0.163  
+##  3 0.387   0.252   -0.287  
+##  4 0.381  -0.0178  -0.404  
+##  5 0.330  -0.252   -0.353  
+##  6 0.315  -0.360   -0.0257 
+##  7 0.309  -0.384    0.307  
+##  8 0.282  -0.191    0.454  
+##  9 0.244  -0.00387  0.401  
+## 10 0.205   0.0990   0.221  
+## 11 0.166   0.139    0.0858 
+## 12 0.127   0.117    0.0530 
+## 13 0.0933 -0.170   -0.00409&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;running-the-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;3. Running the model&lt;/h1&gt;
+&lt;p&gt;Now that we have the required data inputs, the JAGS model can be run. You need to create an input list of all the data required by JAGS, and specify the names of the parameters you would like to monitor and get posterior samples for.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jags.data &amp;lt;- list(y.xtas = y.xtas, 
+                  pop.xtas = pop.xtas, 
+                  Yx = pcs,
+                  S = 1, X= length(age_groups), T = length(years), 
+                  n.a=length(counties), n.amax=length(counties), P=3 )
+
+parnames &amp;lt;- c(&amp;quot;beta.tas&amp;quot;, &amp;quot;mu.beta&amp;quot; ,&amp;quot;sigma.beta&amp;quot;, &amp;quot;tau.mu&amp;quot;, &amp;quot;u.xtas&amp;quot;, &amp;quot;mx.xtas&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once that is done, the model can be run. Please look at the model text file in reference to the paper to see which variables refer to what aspects. The notation used in the JAGS model is (I hope) fairly consistent with the notation in the paper.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod &amp;lt;- jags(data = jags.data, 
+            parameters.to.save=parnames, 
+            n.iter = 30000,
+            model.file = &amp;quot;../code/model.txt&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This may take a while to run, so be patient. You can look at a summary of the model estimates like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod$BUGSoutput$summary&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the values of all Rhats should be less than 1.1, otherwise the estimates are unreliable and should not be interpreted. If you have Rhats that are greater than 1.1, try running the model for more iterations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# check all Rhats are less than 1.1
+max(mod$BUGSoutput$summary[,&amp;quot;Rhat&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extract-results&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;4. Extract results&lt;/h1&gt;
+&lt;p&gt;Now that we have model estimates, we need to be able to extract them and look at the results. You can get the posterior samples for all parameters by extracting the &lt;code&gt;sims.array&lt;/code&gt; from the model object:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mcmc.array &amp;lt;- mod$BUGSoutput$sims.array&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Unless you’re interested in the underlying mechanics of the model, you’re probably most interested in the estimates for the age-specific mortality rates, &lt;code&gt;mx.xtas&lt;/code&gt;. The &lt;code&gt;sims.array&lt;/code&gt; has dimensions number iterations (default 1,000) x number of chains (default 3) x number of parameters. So to look at the posterior samples for &lt;code&gt;mx.xtas[1,1,1,1]&lt;/code&gt; for example, you would type:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mcmc.array[,,&amp;quot;mx.xtas[1,1,1,1]&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once the posterior samples are obtained, these are used to obtain the best estimate of the parameter (usually the median) and Bayesian credible intervals. For example, a 95% credible interval can be calculated by getting the 2.5th and 97.5th quantile of the posterior samples. Below is a chart that illustrates some of the age-specific mortality estimates for six Californian counties in 2016. Code to generate this chart is included in &lt;code&gt;CA.R&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/img/select_counties_mx.png&#34; width=&#34;800&#34; /&gt;
+
+&lt;/div&gt;
+&lt;p&gt;Once the estimate for mortality rates are extracted, you can also convert these into other mortality measures, such as life expectancy, using standard life table relationships. The code on GitHub includes a function which derives life expectancy from the mx’s, called &lt;code&gt;derive_ex_values&lt;/code&gt;. This function is loaded in at the beginning of the &lt;code&gt;CA.R&lt;/code&gt;. Code to generate this chart is included at the end of &lt;code&gt;CA.R&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/img/e0_alameda.png&#34; width=&#34;600&#34; /&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Summary&lt;/h1&gt;
+&lt;p&gt;This document gives a brief introduction into the practicalities of fitting a Bayesian subnational mortality model in R using JAGS. There are many different layers to the model and assumptions associated with it, so it is recommended that the user of this code and model is familiar with &lt;a href=&#34;https://link.springer.com/article/10.1007/s13524-017-0618-7&#34;&gt;the paper&lt;/a&gt; and the assumptions outlined in it. Good luck! :)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Thoughts after finishing a Demography PhD</title>

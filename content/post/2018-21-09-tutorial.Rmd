@@ -1,0 +1,128 @@
+---
+title: "Estimating age-specific mortality rates at the subnational level"
+author: "Monica Alexander"
+date: "2018-09-21"
+output: html_document
+---
+# Introduction
+
+This is a tutorial on estimating age-specific mortality rates at the subnational level, using a model similar to that described in our [Demography paper](https://link.springer.com/article/10.1007/s13524-017-0618-7). There are four main steps, which will be described below:
+
+1. Prepare data and get it in the right format
+2. Choose and create a mortality standard
+3. Fit the model
+4. Analyze results from the model
+
+A few notes on this particular example: 
+
+- I'll be fitting the model to county-level mortality rates in California over the years 1999 to 2016. These are age-specific mortality rates for both sexes for the age groups <1, 1-4, 5-9, 10-14, 15-19, 20-24, 25-34, 35-44, 45-54, 55-64, 65-74, 75-84, 85+. 
+- Data on deaths and populations are publicly available through [CDC WONDER](https://wonder.cdc.gov/). However, age groups where death counts are less than 10 are suppressed, and so for some age group/year/county combinations, there are missing data. Also note that there are no observations for any years for two counties, Sierra and Alpine. 
+- All analysis was done in R and the model was fit using JAGS. Other MCMC options such as Stan, WinBUGS or PyMC would probably work just as well. 
+
+All the code to reproduce this example can be found here: https://github.com/MJAlexander/states-mortality/tree/master/CA_county_example. Please see the R file `CA.R` in the `code` folder. 
+
+
+A note on modeling: there are many adaptions that can be made to this broad model set up, which may be more suitable in different situations. When estimating mortality in your own work, make sure to undergo a suitable validation process to see that the estimates are sensible, and fully test alternatives. 
+
+# 1. Preparing the data
+
+The first step is to obtain data on death counts and population by age (and potentially sex) groups, and get it in the right format for modeling purposes. Note that you need counts, not just the mortality rates, as inputs into the model. 
+
+In this example, I downloaded data on death and population counts by county (the files `CA.csv` and `CA_pop.csv` in the data folder). Because these two data sources had different age groups available, I had to a bit of cleaning up to make sure everything was consistent. The resulting deaths data has the following form:
+
+```{r, echo = F, message=F, warning=F}
+library(tidyverse)
+d <- read_csv("subnat/deaths.csv")
+head(d)
+```
+
+For the JAGS model, the data has to has to be in the form of an array. The notation used throughout the JAGS model is referring to age $x$, time $t$, area $a$ and state $s$. So both the deaths and population data need to be in the form of an array with dimensions age x time x area x state. I did this in quite an ugly way combining loops and tidyverse, which probably isn't the most elegant way, but it works :) The resulting deaths data for the first county (Alameda) looks like this:
+
+```{r, echo = F, message=F, warning=F}
+load("subnat/y.xtas.Rda")
+```
+
+
+```{r}
+y.xtas[,,1,1]
+```
+
+# 2. Preparing the mortality standard
+
+The other main inputs to the mortality model are the principal components derived from the mortality standard. Which mortality standard you choose to derive your principal components from depends on your specific problem. In the case of this example, I decided to use state-level mortality schedules for all states in the US over the period 1959--2015. These data are available through the [United States Mortality Database](https://usa.mortality.org/). 
+
+The code I used to create the principal components using these data are [here](https://github.com/MJAlexander/states-mortality/blob/master/CA_county_example/code/pcs.R). Again note that for this particular example, I had to alter the data so that the age groups were consistent.
+
+Once the principal components are obtained, they can be input into the model based on being in a matrix with dimension age x component. Note that the model fitted here uses three components. The inputs are below:
+
+```{r, echo = F, message=F, warning=F}
+pcs <- read_csv("subnat/US_state.csv")[,1:3]
+pcs
+```
+
+
+# 3. Running the model
+
+Now that we have the required data inputs, the JAGS model can be run. You need to create an input list of all the data required by JAGS, and specify the names of the parameters you would like to monitor and get posterior samples for. 
+
+```{r, eval=F}
+jags.data <- list(y.xtas = y.xtas, 
+                  pop.xtas = pop.xtas, 
+                  Yx = pcs,
+                  S = 1, X= length(age_groups), T = length(years), 
+                  n.a=length(counties), n.amax=length(counties), P=3 )
+
+parnames <- c("beta.tas", "mu.beta" ,"sigma.beta", "tau.mu", "u.xtas", "mx.xtas")
+```
+
+
+Once that is done, the model can be run. Please look at the model text file in reference to the paper to see which variables refer to what aspects. The notation used in the JAGS model is (I hope) fairly consistent with the notation in the paper. 
+
+```{r, eval=F}
+mod <- jags(data = jags.data, 
+            parameters.to.save=parnames, 
+            n.iter = 30000,
+            model.file = "../code/model.txt")
+```
+
+
+This may take a while to run, so be patient. You can look at a summary of the model estimates like this:
+
+```{r, eval=F}
+mod$BUGSoutput$summary
+```
+
+
+Note that the values of all Rhats should be less than 1.1, otherwise the estimates are unreliable and should not be interpreted. If you have Rhats that are greater than 1.1, try running the model for more iterations. 
+
+```{r, eval=F}
+# check all Rhats are less than 1.1
+max(mod$BUGSoutput$summary[,"Rhat"])
+```
+
+
+# 4. Extract results
+
+Now that we have model estimates, we need to be able to extract them and look at the results. You can get the posterior samples for all parameters by extracting the `sims.array` from the model object:
+
+```{r, eval=F}
+mcmc.array <- mod$BUGSoutput$sims.array
+```
+
+Unless you're interested in the underlying mechanics of the model, you're probably most interested in the estimates for the age-specific mortality rates, `mx.xtas`. The `sims.array` has dimensions number iterations (default 1,000) x number of chains (default 3) x number of parameters. So to look at the posterior samples for `mx.xtas[1,1,1,1]` for example, you would type:
+
+```{r, eval = F}
+mcmc.array[,,"mx.xtas[1,1,1,1]"]
+```
+
+Once the posterior samples are obtained, these are used to obtain the best estimate of the parameter (usually the median) and Bayesian credible intervals. For example, a 95% credible interval can be calculated by getting the 2.5th and 97.5th quantile of the posterior samples. Below is a chart that illustrates some of the age-specific mortality estimates for six Californian counties in 2016. Code to generate this chart is included in `CA.R`.
+
+![](/img/select_counties_mx.png){width=800px}
+
+Once the estimate for mortality rates are extracted, you can also convert these into other mortality measures, such as life expectancy, using standard life table relationships. The code on GitHub includes a function which derives life expectancy from the mx's, called `derive_ex_values`. This function is loaded in at the beginning of the `CA.R`. Code to generate this chart is included at the end of `CA.R`.
+
+![](/img/e0_alameda.png){width=600px}
+
+# Summary
+
+This document gives a brief introduction into the practicalities of fitting a Bayesian subnational mortality model in R using JAGS. There are many different layers to the model and assumptions associated with it, so it is recommended that the user of this code and model is familiar with [the paper](https://link.springer.com/article/10.1007/s13524-017-0618-7) and the assumptions outlined in it. Good luck! :)
