@@ -38,12 +38,12 @@ head(d)
 For the JAGS model, the data has to has to be in the form of an array. The notation used throughout the JAGS model is referring to age $x$, time $t$, area $a$ and state $s$. So both the deaths and population data need to be in the form of an array with dimensions age x time x area x state. I did this in quite an ugly way combining loops and tidyverse, which probably isn't the most elegant way, but it works :) The resulting deaths data for the first county (Alameda) looks like this:
 
 ```{r, echo = F, message=F, warning=F}
-#load("y.xtas.Rda")
+load("y.xtas.Rda")
 ```
 
 
 ```{r}
-#y.xtas[,,1,1]
+y.xtas[,,1,1]
 ```
 
 # 2. Preparing the mortality standard
