@@ -32,14 +32,14 @@ In this example, I downloaded data on death and population counts by county (the
 
 ```{r, echo = F, message=F, warning=F}
 library(tidyverse)
-d <- read_csv("subnat/deaths.csv")
+d <- read_csv("deaths.csv")
 head(d)
 ```
 
 For the JAGS model, the data has to has to be in the form of an array. The notation used throughout the JAGS model is referring to age $x$, time $t$, area $a$ and state $s$. So both the deaths and population data need to be in the form of an array with dimensions age x time x area x state. I did this in quite an ugly way combining loops and tidyverse, which probably isn't the most elegant way, but it works :) The resulting deaths data for the first county (Alameda) looks like this:
 
 ```{r, echo = F, message=F, warning=F}
-load("subnat/y.xtas.Rda")
+load("y.xtas.Rda")
 ```
 
 
@@ -56,7 +56,7 @@ The code I used to create the principal components using these data are [here](h
 Once the principal components are obtained, they can be input into the model based on being in a matrix with dimension age x component. Note that the model fitted here uses three components. The inputs are below:
 
 ```{r, echo = F, message=F, warning=F}
-pcs <- read_csv("subnat/US_state.csv")[,1:3]
+pcs <- read_csv("US_state.csv")[,1:3]
 pcs
 ```
 
