@@ -37,7 +37,7 @@ There are many other options to calculate, including: standard deviation from ag
 
 ## Lifespan variation in the US
 
-The plot below shows life expectancy at birth and lifespan variation for the United States (data from [HMD](www.mortality.org)). The recent decline in life expectancy in the United States has gained a lot of [attention](https://www.washingtonpost.com/national/health-science/us-life-expectancy-declines-again-a-dismal-trend-not-seen-since-world-war-i/2018/11/28/ae58bc8c-f28c-11e8-bc79-68604ed88993_story.html?noredirect=on&utm_term=.9fc59cc5fb08). However, note that lifespan variation started to increase before life expectancy started to plateau/decrease. 
+The plot below shows life expectancy at birth and lifespan variation for the United States (data from [HMD](https://www.mortality.org)). The recent decline in life expectancy in the United States has gained a lot of [attention](https://www.washingtonpost.com/national/health-science/us-life-expectancy-declines-again-a-dismal-trend-not-seen-since-world-war-i/2018/11/28/ae58bc8c-f28c-11e8-bc79-68604ed88993_story.html?noredirect=on&utm_term=.9fc59cc5fb08). However, note that lifespan variation started to increase before life expectancy started to plateau/decrease. 
 
 ![](/img/USA.png){width=600px}
 
