@@ -1,5 +1,7 @@
 +++
 abstract = "Despite concurrent increases in opioid- and pregnancy-associated mortality in the United States, little is known about the contribution of opioids to pregnancy-associated deaths. We describe levels and trends of pregnancy-associated mortality from any cause in which the death also involved opioids."
+
+authors = ["Alison Gemmill", "Mathew Kiang", "Monica Alexander"]
 date = "2018-09-28"
 image_preview = ""
 math = true
