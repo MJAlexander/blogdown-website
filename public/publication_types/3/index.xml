@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3 on Monica Alexander</title>
+    <link>/publication_types/3/</link>
+    <description>Recent content in 3 on Monica Alexander</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018 Monica Alexander</copyright>
+    <lastBuildDate>Tue, 01 May 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/publication_types/3/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deaths without denominators: using a matched dataset to study mortality patterns in the United States</title>
+      <link>/publication/censoc/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/censoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Estimating Subnational Populations of Women of Reproductive Age</title>
+      <link>/publication/kenya_subnational/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/kenya_subnational/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Comparing Temporal Smoothers for use in Demographic Estimation and Projection</title>
+      <link>/publication/temporal_smoothing/</link>
+      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/temporal_smoothing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Opioid deaths by race in the United States, 2000–2015</title>
+      <link>/publication/opioid_deaths_by_race/</link>
+      <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/opioid_deaths_by_race/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Modelling Exposure to Risk of Experiencing Discrimination in the Context of Endogenous Ethnic Identification</title>
+      <link>/publication/model_discrimination/</link>
+      <pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/model_discrimination/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Indigenous employment: A story of continuing growth</title>
+      <link>/publication/employment_growth/</link>
+      <pubDate>Sun, 20 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/employment_growth/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

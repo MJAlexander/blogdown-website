@@ -1,121 +1,205 @@
 baseurl = "https://monicaalexander.com/"
 title = "Monica Alexander"
+copyright = "&copy; 2018 Monica Alexander"
+theme = "hugo-academic"
+enableEmoji = true
+footnotereturnlinkcontents = "<sup>^</sup>"
 
-theme = "hugo-coder"
+# Enable comments by entering your Disqus shortname
+disqusShortname = ""
 
+# Enable analytics by entering your Google Analytics tracking ID
+googleAnalytics = "UA-61981092-1"
+
+# Default language to use (if you setup multilingual support)
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+# Add an ignore file based on the warning
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
-languagecode = "en"
 
-paginate = 20
-canonifyurls = true
-
-
-pygmentsstyle = "b2"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-
-# disqusShortname = "yourdiscussshortname"
+[blackfriday]
+  hrefTargetBlank = true
 
 [params]
-    author = "Monica Alexander"
-    description = "Monica Alexander's personal website"
-    keywords = "blog,developer,personal"
-    info = "Assistant Professor"
-    avatarurl = "images/Monica4crop.png"
-    footercontent = ""
-    
-    math = true
+  name = "Monica Alexander"
+  role = "Assistant Professor"
+  organization = "University of Toronto"
+  organization_url = ""
+  gravatar = false  # Get your avatar from Gravatar.com? (true/false)
+  avatar = "Monica4crop.png"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
+  email = "monica.alexander@utoronto.ca"
+  address = "725 Spadina Avenue, Toronto, ON"
+  office_hours = ""
+  phone = ""
+  skype = ""
+  telegram = ""
 
-    dateformat = "January 2, 2006"
+  # Enable Keybase in Contact section by entering your keybase.io username.
+  keybase = ""
 
-    hideCredits = true
-    hideCopyright = true
+  # Date format (refer to Go's date format: http://flippinggodateformat.com )
+  #   Examples: "Mon, Jan 2, 2006" or "2006-01-02"
+  date_format = "02 January 2006"
 
-    # Git Commit in Footer, uncomment the line below to enable it.
-    
+  # Enable global LaTeX math rendering?
+  #   If false, you can enable it locally on a per page basis.
+  math = true
 
-    rtl = false
+  # Highlight.js options
+  #   highlight
+  #     Enable global source code highlighting?  If false, you can
+  #     override it for a particular page in that page's preamble.
+  #
+  #     Example: highlight = true
+  #
+  #   highlight_languages
+  #     Add support for highlighting additional languages. Support for
+  #     languages mentioned here will be included in all pages. You
+  #     can also set this variable for a particular page in that
+  #     page's preamble.
+  #
+  #     Example: highlight_languages = ["go", "lisp", "ocaml"]
+  #
+  #   highlight_style
+  #     Choose a different CSS style for highlighting source
+  #     code. Setting this option in a page's preamble has no
+  #     effect.
+  #
+  #     Example: highlight_style = "github-gist"
+  #
+  #   highlight_version
+  #     Choose the version of highlight.js you want. Setting this
+  #     option in a page's preamble has no effect.
+  #
+  #     Example: highlight_version = "9.9.0"
+  #
+  #   For the list of supported languages, styles, and versions, see:
+  #   https://cdnjs.com/libraries/highlight.js/
+  #
+  #   For more info on the highlighting options, see:
+  #   https://gcushen.github.io/hugo-academic-demo/post/writing-markdown-latex/#highlighting-options
+  highlight = true
+  highlight_languages = []
+  # highlight_style = "github"
+  # highlight_version = "9.9.0"
 
-    # Custom CSS
-    custom_css = []
+  # Enable native social sharing buttons?
+  sharing = false
 
-[[params.social]]
-    name = "Github"
-    icon = "fab fa-github"
-    weight = 1
-    url = "https://github.com/MJAlexander"
-[[params.social]]
-    name = "Twitter"
-    icon = "fab fa-twitter"
-    weight = 2
-    url = "https://twitter.com/monjalexander"
-[[params.social]]
-    name = "Mail"
-    icon = "fas fa-envelope"
-    weight = 3
-    url = "mailto:monica.alexander@utoronto.ca"
+  # Link custom CSS and JS assets
+  #   (relative to /static/css and /static/js respectively)
+  custom_css = ["blue.css"]
+  custom_js  = []
+
+  # Publication types.
+  #   Used to categorize publications.
+  #   The index of the publication type in the list is used as its unique numerical identifier.
+  #   The numeric ID is used in a publication's frontmatter to categorize it.
+  #   The language can be edited below.
+  #   For multi-lingual sites, copy this block to each language section at the end of this file.
+  publication_types = [
+    'Uncategorized',  # 0
+    'Conference proceedings',  # 1
+    'Journal',  # 2
+    'Work in progress',  # 3
+    'Technical report',  # 4
+    'Book',  # 5
+    'Book chapter'  # 6
+  ]
+
+  # Social/Academic Networking
+  #
+  # Icon pack "fa" includes the following social network icons:
+  #
+  #   twitter, weibo, linkedin, github, facebook, pinterest, google-plus,
+  #   youtube, instagram, soundcloud
+  #
+  #   For email icon, use "fa" icon pack, "envelope" icon, and
+  #   "mailto:your@email.com" as the link.
+  #
+  #   Full list: https://fortawesome.github.io/Font-Awesome/icons/
+  #
+  # Icon pack "ai" includes the following academic network icons:
+  #
+  #   google-scholar, arxiv, orcid, researchgate, mendeley
+  #
+  #   Full list: https://jpswalsh.github.io/academicons/
+
+  [[params.social]]
+    icon = "envelope"
+    icon_pack = "fa"
+    link = "mailto:monica.alexander@utoronto.ca"
+
+  [[params.social]]
+    icon = "twitter"
+    icon_pack = "fa"
+    link = "//twitter.com/monjalexander"
+
+#  [[params.social]]
+#    icon = "google-scholar"
+#    icon_pack = "ai"
+#    link = "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ"
+
+  [[params.social]]
+    icon = "github"
+    icon_pack = "fa"
+    link = "//github.com/MJAlexander"
+
+
+# Navigation Links
+#   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
+#     desired widget in your `content/home/` folder.
+#   The weight parameter defines the order that the links will appear in.
 
 [[menu.main]]
-    name = "Blog"
-    weight = 2
-    url  = "/posts/"
+  name = "Home"
+  url = "#about"
+  weight = 1
+
 [[menu.main]]
-    name = "About"
-    weight = 1
-    url = "/about/"
+  name = "Publications"
+  url = "#publications"
+  weight = 3
+
+#[[menu.main]]
+#  name = "Projects"
+#  url = "#projects"
+#  weight = 3
+
 [[menu.main]]
-    name = "Research"
-    weight = 3
-    url = "/research/"
+  name = "Professional"
+  url = "#professional"
+  weight = 6
+
 [[menu.main]]
-    name = "Teaching"
-    weight = 4
-    url = "/teaching/"
+  name = "Teaching"
+  url = "#teaching"
+  weight = 4
+
 [[menu.main]]
-    name = "Contact"
-    weight = 5
-    url = "/contact/"
+  name = "Posts"
+  url = "#posts"
+  weight = 5
 
+[[menu.main]]
+  name = "Contact"
+  url = "#contact"
+  weight = 7
 
-[languages]
-    [languages.en]
-        languagename = "English" # The language name to be displayed in the selector.
-        title = "Monica Alexander"
+# Taxonomies.
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  publication_type = "publication_types"
 
-        # You can configure the theme parameter for each language.
-        [languages.en.params]
-        author = "Monica Alexander"
-        info = "Assistant Professor, Statistics and Sociology, University of Toronto"
-        description = "Monica Alexander's personal website"
-        keywords = "blog,developer,personal"
+# Languages
+#   Create a [languages.X] block for each language you want, where X is the language ID.
 
-        [languages.en.menu] # It is possible to change the menu too.
+# Configure the English version of the website.
+[languages.en]
+  languageCode = "en-us"
 
-        [[languages.en.menu.main]]
-        name = "About"
-        weight = 1.0
-        url = "/about/"
-
-        [[languages.en.menu.main]]
-        name = "Blog"
-        weight = 2.0
-        url = "/posts/"
-
-        [[languages.en.menu.main]]
-        name = "Research"
-        weight = 3
-        url = "/research/"
-        
-        [[languages.en.menu.main]]
-        name = "Teaching"
-        weight = 4
-        url = "/teaching/"
-        
-        [[languages.en.menu.main]]
-        name = "Contact"
-        weight = 5
-        url = "/contact/"        
-
-
-
+[permalinks]
+      post = "/:year/:month/:day/:slug/"
