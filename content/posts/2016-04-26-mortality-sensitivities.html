@@ -1,0 +1,46 @@
+---
+title: "Real differences and model artefacts in mortality inequality research"
+author: "Monica Alexander"
+date: "2016-04-26"
+output: 
+  html_document: 
+    theme: spacelab
+runtime: shiny
+---
+
+
+
+<p>A couple of weeks ago, <a href="http://jama.jamanetwork.com/article.aspx?articleId=2513561&amp;guestAccessKey=4023ce75-d0fb-44de-bb6c-8a10a30a6173">a paper</a> was published in the JAMA detailing income inequalities in mortality across cities in the United States. The research, which was led by Raj Chetty at Stanford University, received <a href="http://www.nytimes.com/interactive/2016/04/11/upshot/for-the-poor-geography-is-life-and-death.html">wide attention</a>. It is an important contribution to the literature, utilizing detailed income and mortality data from the IRS and SSA to estimate adult mortality by income at the city level.</p>
+<p>The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography. The standard deviation of the average age at death for those in the bottom income quartile was found to be 1.39 years; the standard deviation for those in the top income quartile was only 0.7 years.</p>
+<p>Although the authors had access to a rich, longitudinal dataset, there were some data limitations which meant that some assumptions had to be made. Here I want to draw attention to one assumption in particular – that differences in mortality across race/ethnic groups are constant across the whole of the United States.</p>
+<div id="section-producing-race-adjusted-life-expectancy-estimates" class="section level3">
+<h3>Producing race-adjusted life expectancy estimates</h3>
+<p>The main metric of mortality used in the paper is a race-adjusted measure of life expectancy. (An aside: although it is referred to as life expectancy in the paper, it is actually life expectancy at age 40 + 40 years, i.e. <span class="math inline">\(e_{40} + 40\)</span> years, which is the average age at death having reached age 40).</p>
+<p>On the log scale, the average mortality rate at age <span class="math inline">\(x\)</span> for a particular sex, area and income group is the weighted sum of the mortality rates of the white, black, Asian and Hispanic populations:</p>
+<p><span class="math display">\[ \log(m_x) = p_{white} \log(m_{x,white}) +  p_{black} \log(m_{x,black}) +  p_{Hispanic} \log(m_{x,Hispanic}) +  p_{Asian} \log(m_{x,Asian}) \]</span></p>
+<p>where <span class="math inline">\(p_{group}\)</span> is the proportion of the total population in that group. Once the race-specific mortality rates are found and life expectancies calculated, the aggregate life expectancy is reweighted based on national values of <span class="math inline">\(p_{group}\)</span> to produce a race-adjusted life expectancy measure.</p>
+<p>The average mortality rate, <span class="math inline">\(\log(m_x)\)</span> comes from the main dataset. But in this dataset information on race or ethnicity is not available, so the authors use information from the National Longitudinal Mortality Study (NLMS). Mortality rates for a particular race group are assumed to follow a Gompertz model, which models age-specific mortality as a function of two parameters, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>; i.e. for age <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[ \log(m_{x,white}) = \alpha + \beta x \]</span></p>
+<p>Now mortality rates for the other race groups can be represented in terms of the difference between that group and white mortality. For example, for the black population:</p>
+<p><span class="math display">\[ \log(m_{x,black}) = \log(m_{x,white}) + \delta_{black} + \Delta_{black}x \]</span></p>
+<p>The <span class="math inline">\((\delta, \Delta)\)</span> are race shifters: the <span class="math inline">\(\delta\)</span> term is the difference in the intercept parameter and the <span class="math inline">\(\Delta\)</span> term is the difference in the slope for a particular race group. The key assumption made is that, for each group (black, Hispanic and Asian) those race shifters are <strong>constant</strong> across all areas and income groups. For example, the <span class="math inline">\(\delta_{black}\)</span> equals around 0.53, irrespective of location or income group.</p>
+<p>This is implicitly assuming that mortality differences by race are constant across geography and income. This seems strange given the main finding of the paper was that overall mortality varies greatly by geography and income.</p>
+<p>The authors <a href="https://healthinequality.org/documents/paper/healthineq_supplement.pdf">justify this assumption</a> by showing that, in the NLMS, these race shifters do not differ significantly across broad Census regions (Northeast, Midwest, South, West). But just because there are no significant differences at the aggregate level does not mean that it holds when comparing one city to another, say, Detroit and Salt Lake City.</p>
+</div>
+<div id="section-sensitivities" class="section level3">
+<h3>Sensitivities</h3>
+<p>How might this assumption affect the race-adjusted life expectancy measure? Look at the equation for black log-mortality rates above. What if, in a particular city, the proportion of the black population was higher than the national average, and additionally the mortality differences were higher and black mortality was worse than assumed. Then the <span class="math inline">\((\delta, \Delta)\)</span> values would be too small, and so <span class="math inline">\(\log(m_{x,black})\)</span> would be too low. But because all race-specific mortality rates are constrained to equal the average mortality rate <span class="math inline">\(\log(m_x)\)</span>, if the <span class="math inline">\(\log(m_{x,black})\)</span> is too low, then, all else equal, <span class="math inline">\(\log(m_{x,white})\)</span> is too high. As a consequence, the race-adjusted mortality will be too high, so race-adjusted life expectancy will be too low.</p>
+<p>The graph below illustrates this effect. The underlying race distribution is roughly equal to females in Detroit in the lowest income quartile. The mortality rates are made up using a Gompertz model, but with a life expectancy roughly equal to that published in the paper for females in Detroit in the lowest income quartile.</p>
+<p>With <span class="math inline">\((\delta_{black}, \Delta_{black}) = (0.53, -0.0012)\)</span>, the race adjusted life expectancy is 80.4 years. These shifters are approximately equal to those used in the paper; I say approximately, because the values weren’t actually published anywhere, so I had to eye-ball figure e6/7 in the <a href="https://healthinequality.org/documents/paper/healthineq_supplement.pdf">supplementary information</a>. If you change the values to <span class="math inline">\((\delta_{black}, \Delta_{black}) = (0.8, 0)\)</span>, the race adjusted life expectancy is 81.3 years.</p>
+<iframe src="http://shiny.demog.berkeley.edu/monicah/mortality_app/?showcase=0" width="1152" height="600px">
+</iframe>
+</div>
+<div id="section-summary" class="section level3">
+<h3>Summary</h3>
+<p>Demographic estimation usually involves using some sort of model process or set of assumptions, no matter how detailed or high-quality the data are. As data availability increases, we are producing estimates at more granular levels of geography, with disaggregation into smaller subpopulations. As this continues, it becomes even more important to be aware of how modeling assumptions may affect results.</p>
+<p>The main conclusions in the Chetty et. al paper are most likely right, and it is a great paper. But without access to the raw data, it is difficult for other researchers to disentangle how much are real differences, versus model artefacts, with any confidence.</p>
+<div id="section-code" class="section level4">
+<h4>Code</h4>
+<p>Code for this is <a href="https://github.com/MJAlexander">here</a>.</p>
+</div>
+</div>

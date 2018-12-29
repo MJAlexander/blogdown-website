@@ -1,0 +1,62 @@
+---
+title: "Gompertz mortality models"
+author: "Monica Alexander"
+date: "2018-02-18"
+output: html_document
+---
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>The Gompertz model is one of the most well-known mortality models. It does remarkably well at explaining mortality rates at adult ages across a wide range of populations with just two parameters. This post briefly reviews the Gompertz model, highlighting the relationship between the two Gompertz parameters, <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, and the implied mode age at death. I focus on the situation where we only observe death counts by age (rather than mortality rates), so estimation of the Gompertz model requires choosing <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> to maximize the (log) density of deaths.</p>
+</div>
+<div id="gompertz-mortality" class="section level2">
+<h2>Gompertz mortality</h2>
+<p>Here are a few important equations related to the Gompertz model.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> The Gompertz hazard (or force of mortality) at age <span class="math inline">\(x\)</span>, <span class="math inline">\(\mu(x)\)</span>, has the exponential form <span class="math display">\[
+\mu(x) = \alpha e^{\beta x}
+\]</span></p>
+<p>The <span class="math inline">\(\alpha\)</span> parameter captures some starting level of mortality and the <span class="math inline">\(\beta\)</span> gives the rate of mortality increase over age. Note here that <span class="math inline">\(x\)</span> refers to the starting age of analysis and not necessarily age = 0. Indeed, Gompertz models don’t do a very good job at younger ages (roughly <span class="math inline">\(&lt;40\)</span> years).</p>
+<p>Given the relationship between hazard rates and survivorship at age <span class="math inline">\(x\)</span>, <span class="math inline">\(l(x)\)</span>, <span class="math display">\[
+\mu(x) = -\frac{d}{dx} \log l(x)
+\]</span> the expression for <span class="math inline">\(l(x)\)</span> is <span class="math display">\[
+l(x) = \exp\left(-\frac{\alpha}{\beta}\left(\exp(\beta x) - 1\right)\right)
+\]</span> It then follows that the density of deaths at age <span class="math inline">\(x\)</span>, <span class="math inline">\(d(x)\)</span> is <span class="math display">\[
+d(x) = \mu(x) l(x) = \alpha \exp(\beta x) \exp\left(-\frac{\alpha}{\beta}\left(\exp(\beta x) - 1\right)\right)
+\]</span> which probably looks worse than it is. <span class="math inline">\(d(x)\)</span> tells us about the distribution of deaths by age. It is a density, so <span class="math display">\[
+\int d(x) = 1
+\]</span> Say we observe death counts by age, <span class="math inline">\(y(x)\)</span>, which implies a total number of deaths of <span class="math inline">\(D\)</span>. If we multiply the total number of deaths <span class="math inline">\(D\)</span> by <span class="math inline">\(d(x)\)</span>, then that gives the number of deaths at age <span class="math inline">\(x\)</span>. In terms of fitting a model, we want to find values for <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> that correspond to the density <span class="math inline">\(d(x)\)</span> which best describes the data we observe, <span class="math inline">\(y(x)\)</span>.</p>
+</div>
+<div id="parameterization-in-terms-of-the-mode-age" class="section level2">
+<h2>Parameterization in terms of the mode age</h2>
+<p>Under a Gompertz model, the mode age at death, <span class="math inline">\(M\)</span> is</p>
+<p><span class="math display">\[
+M = \frac{1}{\beta}\log \left(\frac{\beta}{\alpha}\right)
+\]</span> Given a set of plausible mode ages, we can work out the relevant combinations of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> based on the equation above. For example, the chart belows shows all combinations of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> that result in a mode age between 60 and 90.</p>
+<p><img src="/img/plausible_values.png"></p>
+<p>This chart suggests that plausible values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> for human populations are pretty restricted. In addition, it shows the strong correlation between these two parameters: in general, the smaller the value of <span class="math inline">\(\beta\)</span>, the larger the value of <span class="math inline">\(\alpha\)</span>. This sort of correlation between parameters can cause issues with estimation. However, given we know the relationship between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> and the mode age, the Gompertz model can be reparameterized in terms of <span class="math inline">\(M\)</span> and <span class="math inline">\(\beta\)</span>:</p>
+<p><span class="math display">\[
+\mu(x) = \beta \exp\left(\beta (x - M)\right)
+\]</span> As <a href="https://www.demographic-research.org/volumes/vol32/36/">this paper</a> notes, <span class="math inline">\(M\)</span> and <span class="math inline">\(\beta\)</span> are much less correlated than <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. In addition, the modal age has a much more intuitive interpretation than <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div id="implications-for-fitting" class="section level2">
+<h2>Implications for fitting</h2>
+<p>Given the reparameterization, we now want to find estimates for <span class="math inline">\(M\)</span> and <span class="math inline">\(\beta\)</span> such that the resulting deaths density <span class="math inline">\(d(x)\)</span> best reflects the data. If we assume that the number of deaths observed at a particular age, <span class="math inline">\(y_x\)</span>, are Poisson distributed, and the total number of deaths observed is <span class="math inline">\(D\)</span>, then we get the following hierarchical set up:</p>
+<p><span class="math display">\[
+y(x) \sim \text{Poisson} (\lambda(x))\\
+\lambda(x) = D \cdot d(x)\\
+d(x) = \mu(x) \cdot l(x)\\
+\mu(x) = \beta \exp\left(\beta (x - M)\right) \\
+l(x) = \exp \left( -\exp \left(-\beta M \right) \left(\exp(\beta x)-1 \right)\right)
+\]</span> This can be fit in a Bayesian framework, with relevant priors put on <span class="math inline">\(\beta\)</span> and <span class="math inline">\(M\)</span>.</p>
+<div id="end-notes" class="section level3">
+<h3>End notes</h3>
+<p>This is part of an ongoing project with <a href="http://www.site.demog.berkeley.edu/josh-goldstein">Josh Goldstein</a> on modeling mortality rates for a dataset of censored death observations. Thanks to <a href="http://www.robertempickett.com/">Robert Pickett</a> who told me about the Tissov et al. paper and generally has interesting things to say about demography.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>A good reference for this is <a href="http://www.hup.harvard.edu/catalog.php?isbn=9780674045576">Essential Demographic Methods, Chapter 3</a>.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>

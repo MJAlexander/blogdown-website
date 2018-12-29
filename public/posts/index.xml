@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Monica Alexander</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Monica Alexander</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 21 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lifespan variation as a measure of mortality progress and inequality</title>
+      <link>/posts/2018-21-12-lifespan/</link>
+      <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2018-21-12-lifespan/</guid>
+      <description>Introduction This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest paper on the topic.
+One of the most common aggregate measure of mortality we tend to look at is life expectancy.</description>
+    </item>
+    
+    <item>
+      <title>Estimating age-specific mortality rates at the subnational level</title>
+      <link>/posts/2018-21-09-tutorial/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2018-21-09-tutorial/</guid>
+      <description>Introduction This is a tutorial on estimating age-specific mortality rates at the subnational level, using a model similar to that described in our Demography paper. There are four main steps, which will be described below:
+Prepare data and get it in the right format Choose and create a mortality standard Fit the model Analyze results from the model  A few notes on this particular example:
+ I’ll be fitting the model to county-level mortality rates in California over the years 1999 to 2016.</description>
+    </item>
+    
+    <item>
+      <title>Thoughts after finishing a Demography PhD</title>
+      <link>/posts/2018-23-05-demog_phd/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2018-23-05-demog_phd/</guid>
+      <description>PhDs are hard. They are incredibly fulfilling, but mentally challenging and emotionally draining. You meet some amazing people, but also have to deal with some difficult people and difficult situations. During my time as a PhD student, a lot of things went better than I imagined, but I also made a fair few mistakes.
+The following are a few thoughts after my experience. They are based on being involved in the demographic research field — a relatively small and supportive academic community — but the comments are pretty general.</description>
+    </item>
+    
+    <item>
+      <title>Berkeley Demography at PAA 2018</title>
+      <link>/posts/2018-04-24-paa/</link>
+      <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2018-04-24-paa/</guid>
+      <description>Berkeley Demography and Population Center affiliates will be presenting their work at PAA 2018. Check out some of their great work!
+ Magali Barbieri  Session 6-2: Contribution of drug poisonings to divergence in life expectancy Session 45-3: Cause-specific mortality data at the subnational level  Boroka Bo  Poster (Health and Mortality 1): Time poverty by ethnicity  Gabriel Borges  Session 68-4: Mortality rates from sibling histories Session 83-2: Bayesian melding to estimate census coverage  Stephanie Child  Poster (Health and Mortality 1): Social networks and stress  Will Dow  Session 72-3: Cuba’s cardiovascual risk factors Poster (Children and Youth): Parenting and Early Childhood Development in Indigenous and Non-Indigenous Mexican Communities Poster (Health and Mortality 2): Incentive-Based Interventions for Smoking Cessation Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): Paid parental leave  Denys Dukhovnov  Poster (Marriage, Families, Households, and Unions 1): Stress coping strategies Poster (Health and Mortality 1): Time poverty by ethnicity  Dennis Feehan  Session 68-4: Mortality rates from sibling histories Session 167-3: Estimating internet adoption using Facebook  Joshua Goldstein:  Organizer, Mathematical demography session  Ron Lee  Session 95-2: Life expectancy, pension outcomes and income Session 140-3: Aging and intergenerational flows  Hayley Pierce  Session 160-4: Risk and Protective Factors for Generational Refugee Children  Danny Schneider  Session 167-2: Facebook as a Tool for Survey Data Collection Session 174-4: Inequalities in parental time  Ruijie (Mia) Zhong  Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): Education and marriage in Japan   …and me!</description>
+    </item>
+    
+    <item>
+      <title>Gompertz mortality models</title>
+      <link>/posts/2018-02-15-gompertz/</link>
+      <pubDate>Sun, 18 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2018-02-15-gompertz/</guid>
+      <description>Introduction The Gompertz model is one of the most well-known mortality models. It does remarkably well at explaining mortality rates at adult ages across a wide range of populations with just two parameters. This post briefly reviews the Gompertz model, highlighting the relationship between the two Gompertz parameters, \(\alpha\) and \(\beta\), and the implied mode age at death. I focus on the situation where we only observe death counts by age (rather than mortality rates), so estimation of the Gompertz model requires choosing \(\alpha\) and \(\beta\) to maximize the (log) density of deaths.</description>
+    </item>
+    
+    <item>
+      <title>Using SVD in demographic modeling</title>
+      <link>/posts/2017-12-16-svd/</link>
+      <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-12-16-svd/</guid>
+      <description>A core objective of demographic modeling is finding empirical regularities in age patterns in fertility, mortality and migration. One method to achieve this goal is using Singular Value Decomposition (SVD) to extract characteristic age patterns in demographic indicators over time. This post describes how SVD can be used in demographic research, and in particular, mortality estimation.
+Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulting from the decomposition have special properties:</description>
+    </item>
+    
+    <item>
+      <title>Comparing methods for smoothing temporal demographic data</title>
+      <link>/posts/2017-10-31-smoothing/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-10-31-smoothing/</guid>
+      <description>At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods for smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package distortr which accompanies the project.
+Motivation An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data.</description>
+    </item>
+    
+    <item>
+      <title>Text analysis of migration news articles</title>
+      <link>/posts/2017-10-08-migration-text/</link>
+      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-10-08-migration-text/</guid>
+      <description>Leslie Root and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed.
+Our initial analysis suggests that sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump.</description>
+    </item>
+    
+    <item>
+      <title>Opioid mortality by race: from divergence to convergence</title>
+      <link>/posts/2017-05-02-opioid-mortality-by-race/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-05-02-opioid-mortality-by-race/</guid>
+      <description>Opioid-related mortality in the United States has been rising steadily since 2000. The opioid mortality rate has more than tripled since over the fifteen year period 2000–2015, and shows no signs of declining — in fact, the rate of increase has accelerated in recent years. This is unique to opioid-related drug deaths, with the non-opioid mortality rate remaining fairly level since 2005. The so-called ‘opioid epidemic’ has gained national attention and become an important part of the political agenda.</description>
+    </item>
+    
+    <item>
+      <title>Real differences and model artefacts in mortality inequality research</title>
+      <link>/posts/2016-04-26-mortality-sensitivities/</link>
+      <pubDate>Tue, 26 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2016-04-26-mortality-sensitivities/</guid>
+      <description>A couple of weeks ago, a paper was published in the JAMA detailing income inequalities in mortality across cities in the United States. The research, which was led by Raj Chetty at Stanford University, received wide attention. It is an important contribution to the literature, utilizing detailed income and mortality data from the IRS and SSA to estimate adult mortality by income at the city level.
+The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography.</description>
+    </item>
+    
+    <item>
+      <title>The Cost of NBA Games</title>
+      <link>/posts/2016-02-05-nba/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2016-02-05-nba/</guid>
+      <description>I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got really, really, good. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, while healthier than drugs, may not be any cheaper.
+I grabbed all data on resale tickets from StubHub for all remaining games of the 2015-16 season.</description>
+    </item>
+    
+  </channel>
+</rss>
