@@ -14,6 +14,11 @@ weight = 4
 
 +++
 
+## University of Toronto
+
+- STA4525H Demographic Methods, Winter 2019. 
+Course materials are here: https://github.com/MJAlexander/demographic-methods
+
 ## University of California, Berkeley
 
 - Instructor, [Formal Demography Workshop](http://courses.demog.berkeley.edu/formaldemography/), June 2017
