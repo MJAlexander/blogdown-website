@@ -11,6 +11,130 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>The concentration and uniqueness of baby names in Australia and the US</title>
+      <link>/2019/01/21/the-concentration-and-uniqueness-of-baby-names-in-australia-and-the-us/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/21/the-concentration-and-uniqueness-of-baby-names-in-australia-and-the-us/</guid>
+      <description>
+
+
+&lt;p&gt;Some great people have compiled historical data on baby names into R packages for both the US &lt;a href=&#34;https://github.com/hadley/babynames&#34;&gt;(thanks to Hadley Wickham)&lt;/a&gt; and Australia &lt;a href=&#34;https://github.com/ropenscilabs/ozbabynames&#34;&gt;(thanks to the Monash group)&lt;/a&gt;. This makes answering all manner of baby-name-related questions easy.&lt;/p&gt;
+&lt;p&gt;I was interested in looking at the distribution of baby names in these populations over time — that is, how concentrated are name choices in the most popular baby names? Is there a big difference between the number of babies that are called the most popular names compared to other names, or is the distribution more evenly spread?&lt;/p&gt;
+&lt;p&gt;The summary: names are very concentrated — the majority of babies are called a name from a relatively small subset. However, baby name concentration is declining over time, and additionally, the number of unique names is increasing.&lt;/p&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Data&lt;/h1&gt;
+&lt;p&gt;I used the used the &lt;code&gt;babynames&lt;/code&gt; and &lt;code&gt;ozbabynames&lt;/code&gt; packages to look at names in the US and Australia. You will need to install the Australian version from &lt;a href=&#34;https://github.com/ropenscilabs/ozbabynames&#34;&gt;GitHub&lt;/a&gt;. I restricted the period to be 1960-2015 where both datasets had data. For the Australian baby names, I restricted the dataset to only include South Australia, Western Australia and New South Wales, as the other states did not have full coverage over the specified time period.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Each dataset gives us the name, sex, year and count of number of babies. The following code loads them in and creates one tibble with both countries.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load in the packages required
+library(ozbabynames)
+library(babynames)
+library(tidyverse)
+library(reldist) 
+
+# get the Australian and US data in one big tibble
+
+da &amp;lt;- ozbabynames %&amp;gt;% 
+  filter(state %in% c(&amp;quot;New South Wales&amp;quot;, &amp;quot;South Australia&amp;quot;, &amp;quot;Western Australia&amp;quot;),
+         year&amp;gt;1959, year&amp;lt;2016) %&amp;gt;% 
+  mutate(sex = ifelse(sex==&amp;quot;Female&amp;quot;, &amp;quot;F&amp;quot;, &amp;quot;M&amp;quot;)) %&amp;gt;% 
+  group_by(sex, year, name) %&amp;gt;% 
+  summarise(count = sum(count)) %&amp;gt;% 
+  arrange(sex, year, count) %&amp;gt;% 
+  mutate(country = &amp;quot;AUS&amp;quot;) %&amp;gt;% 
+  filter(count&amp;gt;4) # remove weird stuff with really low counts
+
+du &amp;lt;- babynames %&amp;gt;% 
+  mutate(country = &amp;quot;USA&amp;quot;) %&amp;gt;% 
+  rename(count = n) %&amp;gt;% 
+  arrange(sex, year, count) %&amp;gt;% 
+  filter(count&amp;gt;4, year&amp;gt;1959, year&amp;lt;2016) %&amp;gt;% 
+  select(-prop)
+
+db &amp;lt;- da %&amp;gt;% 
+  bind_rows(du)
+
+head(db)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+## # Groups:   sex, year [1]
+##   sex    year name    count country
+##   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;  
+## 1 F      1960 Alana       5 AUS    
+## 2 F      1960 Alice       5 AUS    
+## 3 F      1960 Antonia     5 AUS    
+## 4 F      1960 Beth        5 AUS    
+## 5 F      1960 Briony      5 AUS    
+## 6 F      1960 Bronwen     5 AUS&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that the US is much larger than Australia — there are around 60 times more babies in the US dataset. For example, in 2015 there were 3.7 million births in the US, compared to around 57,000 in Australia. This means the trends and patterns will be nosier for Australia.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
+  group_by(year, country) %&amp;gt;% 
+  summarise(n = sum(count)) %&amp;gt;%
+  filter(year==2015)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 3
+## # Groups:   year [1]
+##    year country       n
+##   &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;int&amp;gt;
+## 1  2015 AUS       56810
+## 2  2015 USA     3668183&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;baby-names-are-concentrated-in-a-small-subset-of-names&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Baby names are concentrated in a small subset of names&lt;/h1&gt;
+&lt;p&gt;To look at the concentration of baby names, let’s calculate the Gini coefficient for each country, sex and year. The Gini coefficient measures dispersion or inequality among values of a frequency distribution. It can take any value between 0 and 1. In the case of income distributions, a Gini coefficient of 1 would mean one person has all the income. In this case, a Gini coefficient of 1 would mean that all babies have the same name. In contrast, a Gini coefficient of 0 would mean names are evenly distributed across all babies.&lt;/p&gt;
+&lt;p&gt;The plot below shows the Gini coefficients by country and sex for the period 1960-2015. We can see that, in general, the Gini coefficients are high, meaning that most babies have similar names. Concentration of names is higher in the US compared to Australia and coefficients are generally decreasing over time, particularly for the US. In the US, concentration of names is higher for boys, while in Australia, the sex difference is less clear.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
+  group_by(country, sex, year) %&amp;gt;% 
+  summarise(gini = gini(count)) %&amp;gt;% 
+  ggplot(aes(year, gini, color = sex, lty = country)) + 
+  geom_line(lwd = 1.1) +
+  scale_color_brewer(palette = &amp;quot;Set1&amp;quot;) +
+  ggtitle(&amp;quot;Gini coefficients for baby names \nAustralia and USA, 1960-2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-20-01-babynames_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can plot this concentration a different way: let’s look at the proportion of babies who have a name in the top 5% most popular names.&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note that the trends and patterns are pretty much identical to those above. The levels are quite high: in 1960 in the US, almost 90% of all babies born were called a name that was in the top 5% most popular names (note that this corresponds to the around the 250 most popular names).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
+  group_by(sex, year, country) %&amp;gt;% 
+  mutate(id = row_number()-1,
+         cumul_count = cumsum(count)/max(cumsum(count))) %&amp;gt;% # get cumulative proportion of babies with each name
+  mutate(rank = ntile(id, 20)) %&amp;gt;%  # find the top 5th percentile
+  filter(rank==20) %&amp;gt;% 
+  slice(1) %&amp;gt;% 
+  ggplot(aes(year, 1-cumul_count, color = sex, lty = country)) + 
+  geom_line(lwd = 1.1) +
+  scale_color_brewer(palette = &amp;quot;Set1&amp;quot;) +
+  ylab(&amp;quot;proportion&amp;quot;) + 
+  ggtitle(&amp;quot;Proportion of babies that have one of the top 5% names \nAustralia and USA, 1960 -2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-20-01-babynames_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;names-are-getting-more-unique&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Names are getting more unique&lt;/h1&gt;
+&lt;p&gt;Is the distribution of baby names become less concentrated because there are more unique names being used over time, or just because people are opting to choose less popular but already existing names?&lt;/p&gt;
+&lt;p&gt;It seems that there is an increase in unique names being used over time in both countries. However, there has been a slight decrease in uniqueness in the US since 2010. (Perhaps people are finally running out of alternative ways of spelling ‘Jackson’.) Interestingly, the number of unique girls names is higher as a proportion of total births compared to boys. This is consistent with the observation above that Gini coefficients are higher for boys.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
+  group_by(sex, year, country) %&amp;gt;% 
+  summarise(prop_uniq = n()/sum(count)) %&amp;gt;% 
+  ggplot(aes(year, prop_uniq, color = sex, lty = country)) + 
+  geom_line(lwd = 1.1) +
+  scale_color_brewer(palette = &amp;quot;Set1&amp;quot;) +
+  ylab(&amp;quot;proportion&amp;quot;) + 
+  ggtitle(&amp;quot;Unique baby names as a proportion of total births \nAustralia and USA, 1960 -2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-20-01-babynames_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary-notes&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Summary notes&lt;/h1&gt;
+&lt;p&gt;People tend to choose a baby name from a relatively small subset of popular names, although name uniqueness is increasing slightly over time. Concentration of baby names is generally higher for boys, and higher in the US compared to Australia. So even though there are many more interesting sounding names in the US, a larger proportion of the population just stick to the more usual names.&lt;/p&gt;
+&lt;p&gt;Changes in popular baby names and how people choose to name their baby are influenced by underlying social processes, such as era-specific events, country-specific cultural norms, and fertility intentions. Sociologists and demographers such as &lt;a href=&#34;https://www.theatlantic.com/sexes/archive/2012/12/why-dont-parents-name-their-daughters-mary-anymore/265881/&#34;&gt;Phillip Cohen&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/abs/10.1177/0003122415621910&#34;&gt;Josh Goldstein&lt;/a&gt; have done some interesting work in this area.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;For those who are a bit rusty on Australian geography, it’s a shame we don’t have Victoria and Queensland in particular, the two other big states.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Note that I chose the top 5% rather than the top 5 because of the large difference in the number of unique names across the two countries.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Lifespan variation as a measure of mortality progress and inequality</title>
       <link>/2018/12/21/lifespan-variation-as-a-measure-of-mortality-progress-and-inequality/</link>
       <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
@@ -705,15 +829,6 @@ X = UDV^T
 &lt;p&gt;In future work we want to build on this initial analysis by gathering a more complete dataset of US news, and look at sentiment in public opinion surveys to see how it relates to changes in coverage in the media.&lt;/p&gt;
 &lt;/div&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Comparing Temporal Smoothers for use in Demographic Estimation and Projection</title>
-      <link>/publication/temporal_smoothing/</link>
-      <pubDate>Sat, 30 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/temporal_smoothing/</guid>
-      <description></description>
     </item>
     
   </channel>

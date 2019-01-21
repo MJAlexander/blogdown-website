@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018 Monica Alexander</copyright>
-    <lastBuildDate>Fri, 21 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jan 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The concentration and uniqueness of baby names in Australia and the US</title>
+      <link>/2019/01/21/the-concentration-and-uniqueness-of-baby-names-in-australia-and-the-us/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/21/the-concentration-and-uniqueness-of-baby-names-in-australia-and-the-us/</guid>
+      <description>Some great people have compiled historical data on baby names into R packages for both the US (thanks to Hadley Wickham) and Australia (thanks to the Monash group). This makes answering all manner of baby-name-related questions easy.
+I was interested in looking at the distribution of baby names in these populations over time — that is, how concentrated are name choices in the most popular baby names? Is there a big difference between the number of babies that are called the most popular names compared to other names, or is the distribution more evenly spread?</description>
+    </item>
     
     <item>
       <title>Lifespan variation as a measure of mortality progress and inequality</title>
