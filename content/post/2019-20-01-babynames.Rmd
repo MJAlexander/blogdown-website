@@ -57,7 +57,7 @@ head(db)
 
 ```
 
-Note that the US is much larger than Australia --- there are around 60 times more babies in the US dataset. For example, in 2015 there were 3.7 million births in the US, compared to around 57,000 in Australia. This means the trends and patterns will be nosier for Australia. 
+Note that the US is much larger than Australia --- there are around 60 times more babies in the US dataset. For example, in 2015 there were 3.7 million births in the US, compared to around 57,000 in Australia. This means the trends and patterns will be noisier for Australia. 
 
 ```{r}
 db %>% 

@@ -243,7 +243,7 @@ head(db)</code></pre>
 ## 4 F      1960 Beth        5 AUS    
 ## 5 F      1960 Briony      5 AUS    
 ## 6 F      1960 Bronwen     5 AUS</code></pre>
-<p>Note that the US is much larger than Australia — there are around 60 times more babies in the US dataset. For example, in 2015 there were 3.7 million births in the US, compared to around 57,000 in Australia. This means the trends and patterns will be nosier for Australia.</p>
+<p>Note that the US is much larger than Australia — there are around 60 times more babies in the US dataset. For example, in 2015 there were 3.7 million births in the US, compared to around 57,000 in Australia. This means the trends and patterns will be noisier for Australia.</p>
 <pre class="r"><code>db %&gt;% 
   group_by(year, country) %&gt;% 
   summarise(n = sum(count)) %&gt;%
