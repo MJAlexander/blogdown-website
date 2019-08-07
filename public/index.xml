@@ -11,6 +11,186 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Analyzing name changes after marriage using a non-representative survey</title>
+      <link>/2019/08/07/analyzing-name-changes-after-marriage-using-a-non-representative-survey/</link>
+      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/08/07/analyzing-name-changes-after-marriage-using-a-non-representative-survey/</guid>
+      <description>
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Recently on Twitter, sociologist &lt;a href=&#34;https://socy.umd.edu/facultyprofile/cohen/philip-n&#34;&gt;Phil Cohen&lt;/a&gt; put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable &lt;a href=&#34;https://osf.io/uzqdn/&#34;&gt;here&lt;/a&gt; for anyone to do their own analysis.&lt;/p&gt;
+&lt;p&gt;However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average. As such, if we looked at the raw estimates from the data, on indicators like the proportion of women who kept their name after marriage, it is unlikely to be a reasonable estimate for the broader population.&lt;/p&gt;
+&lt;p&gt;This is a very common problem for social scientists: trying to come up with representative estimates using non-representative data. In this post I’ll introduce one particular technique of trying to do this: multilevel regression and post-stratification (MRP). In particular, I’ll use data from the marital name change survey to estimate the proportion of women in the US who kept their maiden name after marriage.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-is-mrp&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;What is MRP?&lt;/h1&gt;
+&lt;p&gt;First, a very brief outline of MRP. Imagine we run a survey asking people if they like olives. We have a survey with 1000 respondents, 500 of which are aged 21+ and 500 of which are under 21. We could use the survey results to calculate the proportion of people who like olives. However, &lt;a href=&#34;https://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf&#34;&gt;we know&lt;/a&gt; that the population distribution below and above age 21 is closer to 30%/70%, rather than 50/50 implied by our survey. So just taking the raw result from our survey over-represents the opinions of young people.&lt;/p&gt;
+&lt;div id=&#34;the-p-bit-post-stratification&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The ‘P’ bit: post-stratification&lt;/h2&gt;
+&lt;p&gt;Given we know the age distribution of the broader population, we can reweight (post-stratify) our results: so in this example, an estimate of the proportion of people who like olives would be&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+0.3 \times \text{Proportion of those &amp;lt;21} + 0.7 \times \text{Proportion of those 21+}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This technique is called post-stratification. All we need is a reliable data source (such as a census, or the ACS in the US) that gives us the population weights. Data can be re-weighted based on many different categories, not just one: for example, we could post-stratify based on age, education, state of residence, etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-mr-bit-multilevel-regression&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The ‘MR’ bit: multilevel regression&lt;/h2&gt;
+&lt;p&gt;Now imagine that instead of the survey above, we had a different survey, still with 1000 respondents, but 995 were aged less than 21 and 5 were 21+. That is, our survey respondents are even more biased. We could still post-stratify in exactly the same way as above to get a more representative estimate of liking olives. However, our estimate for those aged 21+ is based only on 5 people. We are putting a huge amount of weight on only 5 people.&lt;/p&gt;
+&lt;p&gt;Using multilevel regression as a first step before post-stratification tries to adjust for this by regressing the outcome on different variables of interest. So instead of using the proportion of people in each subgroup who like olives calculated from the survey, we would estimate this proportion based on a regression. We could include covariates like age, sex, education and income, and end up with an estimate of the proportion in each of these [age/sex/education/income] subgroups. The key is that we have another reliable data source (such as a census or survey) that allows us to get the actual population counts in order to post-stratify on.&lt;/p&gt;
+&lt;p&gt;The multilevel part refers to a set-up where information across different age groups (or education groups, or state groups, etc) is ‘pooled’ such that the responses in one group are partially informed by responses in other groups. The fewer observations in a particular subgroup, the more they are ‘pulled’ towards the mean outcome based on other subgroups. In this way, subgroups that have a small number of responses are in a sense weighted downwards in determining the overall outcome.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;example-retaining-maiden-names-after-marriage&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Example: retaining maiden names after marriage&lt;/h1&gt;
+&lt;p&gt;Here’s an explicit example with the marriage name change survey.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://osf.io/uzqdn/&#34;&gt;marital change name survey (MCNS)&lt;/a&gt; asks lots of interesting questions, but for starters let’s just look at estimating the proportion of heterosexual women who kept their maiden name after marriage. The survey collects this information as well as other characteristics that we would expect to be associated with a woman’s propensity to keep their maiden name, including age at marriage, year of marriage, education of respondent and state of residence.&lt;/p&gt;
+&lt;p&gt;The goal of our analysis is to perform two steps:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Do a multilevel regression relating maiden name retention to age, year of marriage, state and education. In particular, for individual &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; let &lt;span class=&#34;math inline&#34;&gt;\(y_i\)&lt;/span&gt; equal 1 if the respondent did not change their name after marriage, and 0 otherwise. The model is&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+Pr(y_i = 1) = \text{logit}^{-1}\left( \alpha^{age}_{a[i]} + \alpha^{educ}_{e[i]} + \alpha^{state}_{s[i]} + \alpha^{dec}_{d[i]}\right)
+\]&lt;/span&gt; where the &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;s are age group, education group, state and decade married effects and the notation &lt;span class=&#34;math inline&#34;&gt;\(a[i]\)&lt;/span&gt; refers to the age group &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; to which individual &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; belongs to, etc. These are modeled in the form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+\alpha^{age}_{a} \sim N(0, \sigma_{age}) \text{ for } a=1,2\dots A 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is the total number of age groups. There are similar set ups for the other &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;s.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Using the estimates from the regression, post-stratify based on population weights in each age, year of marriage, education and state group, derived from the American Community Survey.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;mrp-in-r-using-brms&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;MRP in R using &lt;code&gt;brms&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Now to work through the example in &lt;code&gt;R&lt;/code&gt;. A few code snippets are included in this post, but the full code file is available &lt;a href=&#34;https://github.com/MJAlexander/marriage-name-change&#34;&gt;here&lt;/a&gt;. In order to reproduce the results, you will need to download the MNCS file from &lt;a href=&#34;https://osf.io/uzqdn/&#34;&gt;OSF&lt;/a&gt;, and also grab the 2017 5-year ACS data from &lt;a href=&#34;https://usa.ipums.org/usa/index.shtml&#34;&gt;IPUMS-USA&lt;/a&gt;.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data&lt;/h3&gt;
+&lt;p&gt;First, I loaded in the MNCS data and did a bit of tidying up. I made a binary outcome variable &lt;code&gt;kept_name&lt;/code&gt;, which indicates whether or not the respondent kept their original name after marriage. I also created a five year age group variable, a decade married variable (1979-1988, 1989-1998, … 2009-2018), and a three-group education variable (&lt;BA, BA, &gt;BA)&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. The resulting data looks like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_mncs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4,413 x 5
+##    kept_name state_name     age_group decade_married educ_group
+##        &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;     
+##  1         0 ohio           50        1979           &amp;gt;BA       
+##  2         0 virginia       35        1999           &amp;gt;BA       
+##  3         1 new york       35        2009           &amp;gt;BA       
+##  4         0 rhode island   55        1999           &amp;gt;BA       
+##  5         0 illinois       35        2009           &amp;gt;BA       
+##  6         0 north carolina 25        2009           &amp;gt;BA       
+##  7         1 iowa           35        1999           &amp;gt;BA       
+##  8         1 texas          35        2009           &amp;gt;BA       
+##  9         0 south dakota   35        1999           &amp;gt;BA       
+## 10         0 texas          35        2009           &amp;gt;BA       
+## # … with 4,403 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, I loaded in the ACS data that I got from IPUMS-USA. I extracted information on sex, age, marital status, year married, state, and education. I then restricted the data to just be ever-married women, and calculated new age, decade married and education variables to be consistent with those in the MNCS data. I then summed up to get the population counts in each age, education, decade married and state group. The data look like this:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cell_counts&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6,058 x 5
+##    state_name age_group decade_married educ_group     n
+##    &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt;
+##  1 alabama    25        1999           &amp;lt;BA        19012
+##  2 alabama    25        2009           &amp;lt;BA        37488
+##  3 alabama    25        1999           &amp;gt;BA          959
+##  4 alabama    25        2009           &amp;gt;BA         5319
+##  5 alabama    25        1999           BA          2986
+##  6 alabama    25        2009           BA         14261
+##  7 alaska     25        1999           &amp;lt;BA         3320
+##  8 alaska     25        2009           &amp;lt;BA         7001
+##  9 alaska     25        1999           &amp;gt;BA          159
+## 10 alaska     25        2009           &amp;gt;BA          435
+## # … with 6,048 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;These counts can be used to get proportions by group, which are in turn used in the post-stratification step. For example, to get the proportions in each age group:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;age_prop &amp;lt;- cell_counts %&amp;gt;% 
+  group_by(age_group) %&amp;gt;% 
+  mutate(prop = n/sum(n)) %&amp;gt;% 
+  ungroup()
+
+age_prop&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6,058 x 6
+##    state_name age_group decade_married educ_group     n      prop
+##    &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+##  1 alabama    25        1999           &amp;lt;BA        19012 0.00414  
+##  2 alabama    25        2009           &amp;lt;BA        37488 0.00816  
+##  3 alabama    25        1999           &amp;gt;BA          959 0.000209 
+##  4 alabama    25        2009           &amp;gt;BA         5319 0.00116  
+##  5 alabama    25        1999           BA          2986 0.000650 
+##  6 alabama    25        2009           BA         14261 0.00310  
+##  7 alaska     25        1999           &amp;lt;BA         3320 0.000723 
+##  8 alaska     25        2009           &amp;lt;BA         7001 0.00152  
+##  9 alaska     25        1999           &amp;gt;BA          159 0.0000346
+## 10 alaska     25        2009           &amp;gt;BA          435 0.0000947
+## # … with 6,048 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;model&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Model&lt;/h3&gt;
+&lt;p&gt;Now we use the MNCS data to model the association between keeping name and age, education, state and decade married. I’m using the &lt;code&gt;brms&lt;/code&gt; package, which is a wrapper to easily run models in Stan. The model is estimated in a Bayesian set up, which essentially means we put priors on the &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; terms in the model above.&lt;a href=&#34;#fn3&#34; class=&#34;footnoteRef&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; You could also run this model in a maximum likelihood setting using &lt;code&gt;glmer&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod &amp;lt;- brm(kept_name ~ (1|age_group) + (1|educ_group) + (1|state_name) + (1|decade_married), data = d_mncs, family=bernoulli())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;results&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;p&gt;Now we can use the results of the regression to predict the outcome (whether or not a woman retained her name after marriage) for each of the age/education/state/decade married groups. We can make this prediction many, many times and then look at the resulting distribution to get the mean and 95% prediction intervals for whichever group of interest. For example, to get the estimated proportions and associated 95% PIs by age group:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res_age &amp;lt;- mod %&amp;gt;%
+  add_predicted_draws(newdata=age_prop %&amp;gt;% 
+                        filter(age_group&amp;gt;20, 
+                               age_group&amp;lt;80, 
+                               decade_married&amp;gt;1969),
+                      allow_new_levels=TRUE) %&amp;gt;%
+  rename(kept_name_predict = .prediction) %&amp;gt;% 
+  mutate(kept_name_predict_prop = kept_name_predict*prop) %&amp;gt;% 
+  group_by(age_group, .draw) %&amp;gt;% 
+  summarise(kept_name_predict = sum(kept_name_predict_prop)) %&amp;gt;% 
+  group_by(age_group) %&amp;gt;% 
+  summarise(mean = mean(kept_name_predict), 
+            lower = quantile(kept_name_predict, 0.025), 
+            upper = quantile(kept_name_predict, 0.975))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s plot these and include the raw MNCS proportions for comparison:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res_age %&amp;gt;% 
+  ggplot(aes(y = mean, x = forcats::fct_inorder(age_group), color = &amp;quot;MRP estimate&amp;quot;)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0) + 
+  ylab(&amp;quot;proportion keeping name&amp;quot;) + 
+  xlab(&amp;quot;age in 2019&amp;quot;) + 
+  geom_point(data = d_mncs %&amp;gt;% 
+               group_by(age_group, kept_name) %&amp;gt;%
+               summarise(n = n()) %&amp;gt;% 
+               group_by(age_group) %&amp;gt;% 
+               mutate(prop = n/sum(n)) %&amp;gt;% 
+               filter(kept_name==1, age_group&amp;lt;80, age_group&amp;gt;20), 
+             aes(age_group, prop, color = &amp;quot;MNCS raw data&amp;quot;)) +
+  scale_color_manual(name = &amp;quot;&amp;quot;, values = c(&amp;quot;MRP estimate&amp;quot; = &amp;quot;black&amp;quot;, &amp;quot;MNCS raw data&amp;quot; = &amp;quot;red&amp;quot;)) + 
+  theme_bw(base_size = 14) +
+  ggtitle(&amp;quot;Proportion of women keeping name after marriage&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/age_plot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The result is pretty interesting. Firstly, the MRP estimates are much lower than the raw – this is likely due to the fact that the survey has an over-sample of highly educated women, who are more likely to keep their name.&lt;a href=&#34;#fn4&#34; class=&#34;footnoteRef&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; There is some evidence of an upside-down U shape over age, which is consistent with past observations that there was a &lt;a href=&#34;https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html&#34;&gt;peak in name retention in the 80s and 90s&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We can calculate the results by other groups. Here, you can see the increase in name retention with education, with a particularly high estimate for those with postgraduate education:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/educ_plot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And here it is by decade; some (weak) evidence to suggest maybe an increase in name retention in the most recent decade, which would be consistent with a &lt;a href=&#34;https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html&#34;&gt;New York Times&lt;/a&gt; piece published a few years back.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/dec_plot.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Finally, here are the results by state. Utah and New York stand out as particularly low and high, respectively. Note that these proportions are not standardized with respect to age or education.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/state_plot.png&#34;&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Summary&lt;/h1&gt;
+&lt;p&gt;We often have to deal with data that, while containing interesting and useful information, are not representative of the broader population that we’re interested in. The MNCS contains a wealth of information on name changes that occur around marriage, and the reasons for doing so. This information that is important to study social and demographic change, but not readily available in official data sources. However, raw estimates from this survey are most probably biased.&lt;/p&gt;
+&lt;p&gt;In this post I highlighted how MRP can be used to try and adjust for these biases. MRP is probably most commonly used in political analysis to reweight polling data,&lt;a href=&#34;#fn5&#34; class=&#34;footnoteRef&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt; but it is a useful technique for many different survey responses. Many modeling extensions are possible. For example, the multilevel regression need not be limited to just using random effects, as was used here, and other model set ups could be investigated.&lt;a href=&#34;#fn6&#34; class=&#34;footnoteRef&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt; MRP is a relatively easy and quick way of trying to get more representative estimates out of non-representative data, while giving you a sense of the uncertainty around the estimates (unlike traditional post-stratification). The example in this post serves as an introduction to both MRP and also the MNCS survey – there is so much interesting data in there, and it’s public!&lt;a href=&#34;#fn7&#34; class=&#34;footnoteRef&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;IPUMS is a wonderful resource and free once you register. From the 2017 5-year ACS sample you will need to select the following variables: AGE, SEX, STATEFIP, MARST, YRMARR, EDUC.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;This is probably a bit coarse; the data are available to do a finer-grained split if desired.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;I just used the default priors in &lt;code&gt;brms&lt;/code&gt;, which are half student’s t distributions, see here for more info: &lt;a href=&#34;https://cran.r-project.org/web/packages/brms/brms.pdf&#34; class=&#34;uri&#34;&gt;https://cran.r-project.org/web/packages/brms/brms.pdf&lt;/a&gt;&lt;a href=&#34;#fnref3&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;FWIW, I changed my name. The Tasmania effect outweighs any education effect, it seems.&lt;a href=&#34;#fnref4&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;Shout-out to &lt;a href=&#34;https://www.petitpoll.com/&#34;&gt;Petit Poll&lt;/a&gt;!&lt;a href=&#34;#fnref5&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;Look out for the work of &lt;a href=&#34;https://arxiv.org/abs/1906.11323&#34;&gt;Lauren Kennedy&lt;/a&gt; et al. looking into the impact of different MRP set ups, particularly for age effects.&lt;a href=&#34;#fnref6&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;If you’re interested in reproducible research Phil and I are giving talks at the Rostock &lt;a href=&#34;https://www.demogr.mpg.de/en/news_press/news/news/free_access_to_demographic_research_6289.htm&#34;&gt;Open Science Workshop&lt;/a&gt; which is being held at the Max Planck Institute for Demographic Research (MPIDR) on October 10th and 11th, 2019.&lt;a href=&#34;#fnref7&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>National, regional, and global levels and trends in neonatal mortality between 1990 and 2017, with scenario-based projections to 2030: a systematic analysis</title>
       <link>/publication/lancet_neonatal/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
@@ -704,78 +884,6 @@ X = UDV^T
 &lt;ol&gt;
 &lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;cross-promotional plug: you can play with this data yourself with the help of the &lt;a href=&#34;https://github.com/mkiang/narcan&#34;&gt;narcan&lt;/a&gt; &lt;code&gt;R&lt;/code&gt; package, which &lt;a href=&#34;http://mathewkiang.com&#34;&gt;Mathew Kiang&lt;/a&gt; and I are working on.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Comparing methods for smoothing temporal demographic data, and the distortr package</title>
-      <link>/2017/10/31/comparing-methods-for-smoothing-temporal-demographic-data-and-the-distortr-package/</link>
-      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/10/31/comparing-methods-for-smoothing-temporal-demographic-data-and-the-distortr-package/</guid>
-      <description>
-
-
-&lt;p&gt;At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods for smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package &lt;code&gt;distortr&lt;/code&gt; which accompanies the project.&lt;/p&gt;
-&lt;div id=&#34;motivation&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data. In these cases, the underlying trends may be unclear due to missing data or overly messy data.&lt;/p&gt;
-&lt;p&gt;In such situations, demographers often employ statistical models to help estimate and understand underlying trends. Often, these statistical models have the general form:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\theta_t = f(X_t) + Z_t + \varepsilon_t
-\]&lt;/span&gt; where&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\theta_t\)&lt;/span&gt; is the outcome of interest (mortality rate, fertility rate, etc)&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(f(X_t)\)&lt;/span&gt; is a regression framework, a function of covariates &lt;span class=&#34;math inline&#34;&gt;\(X_t\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; are temporal distortions, which capture data-driven non-linear trends over time, not otherwise captured in &lt;span class=&#34;math inline&#34;&gt;\(f(X_t)\)&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\varepsilon_t\)&lt;/span&gt; is an error term.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;While the inclusion of covariates in the regression framework is often well justified, the choice for modeling the distortions &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; is often more arbitrary. However, models for &lt;span class=&#34;math inline&#34;&gt;\(Z_t\)&lt;/span&gt; are important: they allow for data-driven trends that may not be captured by simple regression models; they smooth distortions, accounting for error in data observations; they incorporate uncertainty in the underlying processes; and allow for a temporal mechanism to be projected into the future. Different model choice can sometimes lead to vastly different estimates.&lt;/p&gt;
-&lt;p&gt;This project aims to compare three main families of temporal models:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ARMA models&lt;/li&gt;
-&lt;li&gt;Gaussian Process regression&lt;/li&gt;
-&lt;li&gt;Penalized splines regression&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The aim is to compare the three methods theoretically and see how differences manifest into differences in estimates for different data scenarios.&lt;/p&gt;
-&lt;p&gt;The paper presented at IUSSP is available &lt;a href=&#34;https://www.monicaalexander.com/pdf/temporal_smoothing.pdf&#34;&gt;here&lt;/a&gt;, and the slides are &lt;a href=&#34;https://github.com/MJAlexander/distortr/blob/master/IUSSP_011117.pdf&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;the-distortr-package&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;The &lt;code&gt;distortr&lt;/code&gt; package&lt;/h2&gt;
-&lt;p&gt;As part of this project, I am developing an R package to aid in comparing and fitting different models for estimation of demographic time series. The &lt;code&gt;distortr&lt;/code&gt; package is available on &lt;a href=&#34;https://github.com/MJAlexander/distortr&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The package consists of two main parts:&lt;/p&gt;
-&lt;div id=&#34;simulate-time-series-of-distortions-and-fit-and-validate-models&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;1. Simulate time series of distortions, and fit and validate models&lt;/h3&gt;
-&lt;p&gt;This part of the package contains tools to investigate how different models perform in different simulation settings and how much it matters if the ‘wrong’ model is chosen.&lt;/p&gt;
-&lt;p&gt;Simulated time series of data can be created from any of the following processes:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;AR(1)&lt;/li&gt;
-&lt;li&gt;ARMA(1,1)&lt;/li&gt;
-&lt;li&gt;P-splines (first or second order penalization)&lt;/li&gt;
-&lt;li&gt;Gaussian Process (squared exponential or Matern function)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The various parameters associated with each function can be specified. The user can also specify how much of the time series is missing, and the sampling error around data. The sample autocorrelation function of the time series can also be plotted.&lt;/p&gt;
-&lt;p&gt;In terms of model fitting, any of the above models can be fit to simulated data. Projections of time series can also easily be obtained. Estimates and uncertainty around estimates can be outputted and plotted.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;fit-bayesian-hierarchical-models-to-datasets-with-observations-from-multiple-areas&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;2. Fit Bayesian hierarchical models to datasets with observations from multiple areas&lt;/h3&gt;
-&lt;p&gt;Given data are often sparse or unreliable, especially in the case of developing countries, models that estimate demographic indicators for multiple areas/countries are often hierarchical, incorporating pooling of information across geographies. This part of the package has the infrastructure to fit Bayesian hierarchical models using one of the temporal smoothing methods. The user can specify whether or not to include a linear trend, and the type of temporal smoother to fit to the data.&lt;/p&gt;
-&lt;p&gt;Datasets with observations from multiple countries/areas can be used, with the following columns required:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;country/area name or code (e.g. country ISO code)&lt;/li&gt;
-&lt;li&gt;value of observation&lt;/li&gt;
-&lt;li&gt;year of observation&lt;/li&gt;
-&lt;li&gt;sampling error of observation&lt;/li&gt;
-&lt;li&gt;data source (e.g. survey, administrative)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In addition, a region column may also be included (e.g. World Bank region). By default the built-in models include a region hierarchy (i.e. a country within a region within the world). However, models can also be run without the region level.&lt;/p&gt;
-&lt;p&gt;For an example using real data, refer to the file &lt;a href=&#34;https://github.com/MJAlexander/distortr/blob/master/real_data_anc4_example.R&#34;&gt;real_data_anc4_example.R&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;One of the aims of this project was to provide the tools to increase transparency of model choice and to help demographers and policymakers understand differences in models and sensitivities of estimates to model choice. The &lt;code&gt;distortr&lt;/code&gt; package provides some infrastructure to explore and fit different methods. It is a work in progress and any feedback is much appreciated.&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
