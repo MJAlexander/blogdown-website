@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Monica Alexander">
+    <meta name="description" content="Monica Alexander&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Lifespan variation as a measure of mortality progress and inequality"/>
+<meta name="twitter:description" content="Introduction This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest paper on the topic.
+One of the most common aggregate measure of mortality we tend to look at is life expectancy."/>
+
+    <meta property="og:title" content="Lifespan variation as a measure of mortality progress and inequality" />
+<meta property="og:description" content="Introduction This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest paper on the topic.
+One of the most common aggregate measure of mortality we tend to look at is life expectancy." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2018-21-12-lifespan/" />
+<meta property="article:published_time" content="2018-12-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-12-21T00:00:00+00:00" />
+
+
+    
+      <base href="/posts/2018-21-12-lifespan/">
+    
+    <title>
+  Lifespan variation as a measure of mortality progress and inequality · Monica Alexander
+</title>
+
+    
+      <link rel="canonical" href="/posts/2018-21-12-lifespan/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Monica Alexander
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/research/">Research</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/contact/">Contact me</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Lifespan variation as a measure of mortality progress and inequality</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-12-21T00:00:00Z'>
+                December 21, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5 minutes read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest <a href="http://science.sciencemag.org/content/362/6418/1002">paper</a> on the topic.</p>
+<p>One of the most common aggregate measure of mortality we tend to look at is life expectancy. The formal definition of (period) life expectancy at birth is the average number of years someone would live if the current age-specific mortality rates did not change in future. Given that age-specific mortality rates are generally improving over time, this isn’t really a realistic measure of longevity<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, but it’s a useful way of summarizing mortality at all ages into one number.</p>
+<p>The ‘expectancy’ part of the name comes from the fact that life expectancy is an average, or expectation. Of all the deaths that happen in a population, we are just looking at the average age at which they occur. However, there are many other ways of summarizing distributions with one number: for example, the median or mode age at death. Another such measure — lifespan variation — captures the variation in ages at death.</p>
+<p>As an example, the figure below shows the distribution of ages at deaths for Californian males in 1960 and 2010. (These data are from the <a href="https://usa.mortality.org/">HMD US states project</a>). Notice that the distribution has shifted to the right, which corresponds to improving mortality and increased life expectancy (as shown by the vertical lines). In addition, notice that the distribution in 2010 is not as spread out — the distribution of deaths is more concentrated around the mean age. That is, variation in lifespan has decreased from 1960 to 2010.</p>
+<div class="figure">
+<img src="/img/dx_CA.png" width="600" />
+
+</div>
+<p>Increases in life expectancy are usually coupled with decreases in lifespan variation. This is due to the fact that life expectancy increases usually occur because of improvements in infant mortality (which leads to a decrease in the spike observed in the first-year mortality) and decreases in premature deaths (e.g. decreases in cardiovascular diseases). However, as van Raalte and coauthors point out, this relationship of increasing life expectancy and decreasing lifespan variation is not always the case, and recently there has been a reversal of the trend for many populations.</p>
+<p>I’ll briefly describe one way to calculate lifespan variation and show trends by US state. Note that all data come from the <a href="https://usa.mortality.org/">HMD US states Project</a>.</p>
+</div>
+<div id="measuring-lifespan-variation" class="section level2">
+<h2>Measuring lifespan variation</h2>
+<p>There are several different ways of measuring lifespan variation. In this post, I use the standard deviation of age of death, which can be calculated from lifetable quantities as</p>
+<p><span class="math display">\[
+\sqrt{\sum_0^\omega \frac{\left(x - e_0 \right)^2d_x}{\sum_0^\omega d_x}}
+\]</span></p>
+<p>where <span class="math inline">\(e_0\)</span> is life expectancy at birth, <span class="math inline">\(d_x\)</span> is the lifetable deaths at age <span class="math inline">\(x\)</span> and <span class="math inline">\(\omega\)</span> is the open age interval (110+ in the case of HMD data).</p>
+<p>There are many other options to calculate, including: standard deviation from age 10 (which eliminates the effects of child mortality, see <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2005.00092.x">Edwards and Tuljapurkar</a>); interquartile range; life disparity (<span class="math inline">\(e^\dagger\)</span>) (e.g. see the new paper by <a href="https://link.springer.com/article/10.1007/s13524-018-0729-9?wt_mc=alerts.TOCjournals">Aburto and van Raalte</a>). I chose standard deviation because I find it intuitive and it’s easy to calculate based on lifetable columns. However, other measures would probably show similar trends.</p>
+</div>
+<div id="lifespan-variation-in-the-us" class="section level2">
+<h2>Lifespan variation in the US</h2>
+<p>The plot below shows life expectancy at birth and lifespan variation for the United States (data from <a href="https://www.mortality.org">HMD</a>). The recent decline in life expectancy in the United States has gained a lot of <a href="https://www.washingtonpost.com/national/health-science/us-life-expectancy-declines-again-a-dismal-trend-not-seen-since-world-war-i/2018/11/28/ae58bc8c-f28c-11e8-bc79-68604ed88993_story.html?noredirect=on&amp;utm_term=.9fc59cc5fb08">attention</a>. However, note that lifespan variation started to increase before life expectancy started to plateau/decrease.</p>
+<div class="figure">
+<img src="/img/USA.png" width="600" />
+
+</div>
+<p>Looking by state, life expectancy has increased everywhere, with recent evidence of plateauing and declining in some states (note that these data are only up to 2015, so the declines would be more apparent with more recent data). On the other hand, lifespan variation has generally declined, but plateaued much earlier than life expectancy. An increase in lifespan variation is apparent for some states, including some New England and Mid-West states.</p>
+<div class="figure">
+<img src="/img/facet.png" width="5600" />
+
+</div>
+<p>For example, the plots below show life expectancy and lifespan variation for New Hampshire and West Virginia, two states that have been <a href="https://github.com/mkiang/opioid_hotspots">hardest hit by the opioid epidemic</a>. For these states, lifespan variation has increased back up to the level it was in the 1980s-90s.</p>
+<div class="figure">
+<img src="/img/NH_WV.png" width="800" />
+
+</div>
+<p>It’s also interesting to compare trends in states that have a similar life expectancy. For instance, comparing Georgia and Ohio, the latter has experienced a much more pronounced increase in lifespan in recent years.</p>
+<div class="figure">
+<img src="/img/GA_OH.png" width="800" />
+
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>Lifespan variation is easily calculable from lifetable quantities, and is an interesting measure of mortality progress and inequality. Even if life expectancy is increasing, the variation of lifespan could also be increasing, which suggests increased inequality in death – while a proportion of the population are dying at older ages, there is also an increased proportion dying prematurely. Increased variation in the age of death means greater uncertainty around timing of death, which has implications for how people think about their future.</p>
+<p>All data are freely available and the code I used to generate plots etc is available on my <a href="https://github.com/MJAlexander/states-mortality">GitHub</a>.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Follow <a href="https://twitter.com/les_ja">Leslie Root</a> on Twitter for amusing rants on people misinterpreting life expectancies.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+      </div>
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+
+    
+    <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

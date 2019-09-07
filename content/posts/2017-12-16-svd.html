@@ -1,0 +1,73 @@
+---
+title: "Using SVD in demographic modeling"
+author: "Monica Alexander"
+date: "2017-12-16"
+output: html_document
+---
+
+
+
+<p>A core objective of demographic modeling is finding empirical regularities in age patterns in fertility, mortality and migration. One method to achieve this goal is using Singular Value Decomposition (SVD) to extract characteristic age patterns in demographic indicators over time. This post describes how SVD can be used in demographic research, and in particular, mortality estimation.</p>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>The SVD of matrix <span class="math inline">\(X\)</span> is
+<span class="math display">\[
+X = UDV^T
+\]</span>
+The three matrices resulting from the decomposition have special properties:</p>
+<ul>
+<li>The columns of <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are orthonormal, i.e. they are orthogonal to each other and unit vectors. These are called the left and right singular vectors, respectively.</li>
+<li><span class="math inline">\(D\)</span> is a diagonal matrix with positive real entries.</li>
+</ul>
+<p>In practice, the components obtained from SVD help to summarize some characteristics of the matrix that we are interested in, <span class="math inline">\(X\)</span>. In particular, the first right singular vector (i.e. the first column of <span class="math inline">\(V\)</span>) gives the direction of the maximum variation of the data contained in <span class="math inline">\(X.\)</span> The second right singular vector, which is orthogonal to the first, gives the direction of the second-most variation of the data, and so on. The <span class="math inline">\(U\)</span> and <span class="math inline">\(D\)</span> elements represent additional rotation and scaling transformations to get back the original data in <span class="math inline">\(X\)</span>.</p>
+<p>SVD is useful as a dimensionality reduction technique: it allows us to describe our dataset using fewer dimensions than implied by the original data. For example, often a large majority of variation in the data is captured by the direction of the first singular vector, and so even just looking at this dimension can capture key patterns in the data. SVD is closely related to Principal Components Analysis: principal components are derived by projecting data <span class="math inline">\(X\)</span> onto principal axes, which are the right singular vectors <span class="math inline">\(V\)</span>.</p>
+</div>
+<div id="use-in-demographic-modeling" class="section level2">
+<h2>Use in demographic modeling</h2>
+<p>Using SVD for demographic modeling and forecasting first gained popularity after <a href="https://www.jstor.org/stable/2290201">Lee and Carter</a> used the technique as a basis for forecasting US mortality rates. They modeled age-specific mortality on the log scale as</p>
+<p><span class="math display">\[
+\log m_x = a_x + b_x \cdot k_t
+\]</span>
+where</p>
+<ul>
+<li><span class="math inline">\(a_x\)</span> is the mean age-specific mortality schedule across all years of analysis,</li>
+<li><span class="math inline">\(b_x\)</span> is the average contribution of age group <span class="math inline">\(x\)</span> to overall mortality change over the period, and</li>
+<li><span class="math inline">\(k_t\)</span> is the incremental change in period <span class="math inline">\(t\)</span>.</li>
+</ul>
+<p>The latter two quantities are obtained via SVD of a time x age matrix of demeaned, logged mortality rates: <span class="math inline">\(b_x\)</span> is the first right singular vector, while <span class="math inline">\(k_t\)</span> is the first left singular vector multiplied the first element of <span class="math inline">\(D\)</span>.</p>
+<p>More recently, SVD has become increasingly used in demographic modeling; for example <a href="http://www.tandfonline.com/doi/abs/10.1080/01621459.2014.881738">Carl Schmertmann et al.</a> used it to model and forecast cohort fertility, <a href="https://arxiv.org/abs/1612.01408">Sam Clark</a> to estimate age schedules of mortality with limited data, and <a href="https://link.springer.com/article/10.1007/s13524-017-0618-7">Emilio Zagheni, Magali Barbieri and myself</a> to model subnational age-specific mortality.</p>
+<div id="example-age-specific-mortality" class="section level3">
+<h3>Example: age-specific mortality</h3>
+<p>Imagine you have observations of age-specific mortality rates in multiple years. Create a matrix, <span class="math inline">\(X\)</span>, where each row represents the age-specific mortality rates in a particular year. Modeling of mortality rates is often done on the log scale (to ensure rates are positive), so you may want to take the log of <span class="math inline">\(X\)</span>. Then do a SVD on this matrix - in <code>R</code> this is as easy as <code>svd(x)</code>. The age patterns of interest are then contained in the resulting <code>v</code> matrix; so for example <code>svd(x)$v[,1:3]</code> would give you the first three age ‘principal components’ of your matrix.</p>
+<p><img src="/img/svd_plots/svd.png"></p>
+<p>For example, the first three principal components of US male mortality by state over the years 1980-2010 are plotted below. Each component has a demographic interpretation - the first represents baseline mortality, the second represents higher-than-baseline child mortality, and the third represents higher-than-baseline adult mortality.</p>
+<p><img src="/img/svd_plots/3pcs_states_neg.png"></p>
+<p>For modeling, the idea is that different linear combinations of these components allow you to flexibly represent a wide range of different mortality curves. For example, log-mortality rates could be modeled as</p>
+<p><span class="math display">\[
+\log m_x = \beta_1 Y_{1x} + \beta_2 Y_{2x} + \beta_3 Y_{3x}
+\]</span>
+where the <span class="math inline">\(Y_{.x}\)</span>’s are the principal components above and the <span class="math inline">\(\beta\)</span>’s are to be estimated. The plot below shows four different mortality curves derived from the US male principal components with different coefficient settings. You can also play with different settings interactively <a href="http://shiny.demog.berkeley.edu/monicah/mort/">here</a>.</p>
+<p><img src="/img/svd_plots/coeff.png"></p>
+</div>
+<div id="example-race-specific-opioid-mortality" class="section level3">
+<h3>Example: race-specific opioid mortality</h3>
+<p>This technique of representing and modeling underlying age patterns need not be restricted to modeling all-cause mortality. For example, SVD proves useful when looking at deaths due to opioid overdoses by race and state in the US. Even though <a href="https://www.monicaalexander.com/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/">opioid overdoses are rapidly increasing for both the black and white population</a>, overdoses are still a relatively rare event, and so death rates calculated from the raw data suffer from large stochastic/random variation.</p>
+<p>For example, the chart below shows age-specific opioid mortality rates by race for North Carolina in 2004.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As you can see, for the black population there are quite a few age groups were there are zero observed deaths, so the observed mortality rate is zero. However, given what we know about how mortality evolves over age, the zero observed death rates are likely due to random variation.</p>
+<p><img src="/img/svd_plots/NC_age.png"></p>
+<p>Even though age patterns are noisy at the state level, we have an idea of age patterns by race in opioid mortality in the national level. So we can use these national age patterns - via information captured in a SVD - to help model underlying mortality rates at the state level.</p>
+<p>The figure below shows the first two principal components derived using SVD from race-specific opioid mortality in the US over the years 1999-2015. The first principal component again represents a baseline mortality schedule for opioid-related deaths for each race. The second principal component represents the contribution of each age group to mortality change over time. Notice the ‘double-humped’ shape for the white population - this is driven by heroin deaths being concentrated at younger ages, and prescription opioid-related deaths being concentrated at older ages.</p>
+<p><img src="/img/svd_plots/opioid_pcs.png"></p>
+<p>Similar to the example above, we can use these principal components as a basis of a regression framework to estimate underlying age-specific mortality rates by age. Results from such a model for North Carolina in 2004 are shown below. The dots represent mortality rates calculated from the raw data, as above. The lines and associated shaded area represent estimates of the underlying mortality rates with 95% uncertainty intervals. These were obtained from a model that utilized information from the principal components. Instead of dealing with zero observed deaths, we now have estimates that give more plausible values for the underlying mortality rates.</p>
+<p><img src="/img/svd_plots/NC_agefit.png"></p>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>SVD is a useful technique to extract the main characteristics of age patterns in demographic indictors. These structural age patterns are useful to get a better idea of underlying processes when available data are sparse or noisy. Age patterns derived from SVD can be flexibly shifted and adjusted based on available data. Built-in functions in <code>R</code> make it relatively easy to use SVD to better understand, model and project demographic indicators.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>cross-promotional plug: you can play with this data yourself with the help of the <a href="https://github.com/mkiang/narcan">narcan</a> <code>R</code> package, which <a href="http://mathewkiang.com">Mathew Kiang</a> and I are working on.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</div>

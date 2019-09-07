@@ -1,0 +1,69 @@
+---
+title: "Comparing methods for smoothing temporal demographic data"
+author: "Monica Alexander"
+date: "2017-10-31"
+output: html_document
+---
+
+
+
+<p>At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods for smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package <code>distortr</code> which accompanies the project.</p>
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data. In these cases, the underlying trends may be unclear due to missing data or overly messy data.</p>
+<p>In such situations, demographers often employ statistical models to help estimate and understand underlying trends. Often, these statistical models have the general form:</p>
+<p><span class="math display">\[
+\theta_t = f(X_t) + Z_t + \varepsilon_t
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(\theta_t\)</span> is the outcome of interest (mortality rate, fertility rate, etc)</li>
+<li><span class="math inline">\(f(X_t)\)</span> is a regression framework, a function of covariates <span class="math inline">\(X_t\)</span></li>
+<li><span class="math inline">\(Z_t\)</span> are temporal distortions, which capture data-driven non-linear trends over time, not otherwise captured in <span class="math inline">\(f(X_t)\)</span></li>
+<li><span class="math inline">\(\varepsilon_t\)</span> is an error term.</li>
+</ul>
+<p>While the inclusion of covariates in the regression framework is often well justified, the choice for modeling the distortions <span class="math inline">\(Z_t\)</span> is often more arbitrary. However, models for <span class="math inline">\(Z_t\)</span> are important: they allow for data-driven trends that may not be captured by simple regression models; they smooth distortions, accounting for error in data observations; they incorporate uncertainty in the underlying processes; and allow for a temporal mechanism to be projected into the future. Different model choice can sometimes lead to vastly different estimates.</p>
+<p>This project aims to compare three main families of temporal models:</p>
+<ul>
+<li>ARMA models</li>
+<li>Gaussian Process regression</li>
+<li>Penalized splines regression</li>
+</ul>
+<p>The aim is to compare the three methods theoretically and see how differences manifest into differences in estimates for different data scenarios.</p>
+<p>The paper presented at IUSSP is available <a href="https://www.monicaalexander.com/pdf/temporal_smoothing.pdf">here</a>, and the slides are <a href="https://github.com/MJAlexander/distortr/blob/master/IUSSP_011117.pdf">here</a>.</p>
+</div>
+<div id="the-distortr-package" class="section level2">
+<h2>The <code>distortr</code> package</h2>
+<p>As part of this project, I am developing an R package to aid in comparing and fitting different models for estimation of demographic time series. The <code>distortr</code> package is available on <a href="https://github.com/MJAlexander/distortr">GitHub</a>.</p>
+<p>The package consists of two main parts:</p>
+<div id="simulate-time-series-of-distortions-and-fit-and-validate-models" class="section level3">
+<h3>1. Simulate time series of distortions, and fit and validate models</h3>
+<p>This part of the package contains tools to investigate how different models perform in different simulation settings and how much it matters if the ‘wrong’ model is chosen.</p>
+<p>Simulated time series of data can be created from any of the following processes:</p>
+<ul>
+<li>AR(1)</li>
+<li>ARMA(1,1)</li>
+<li>P-splines (first or second order penalization)</li>
+<li>Gaussian Process (squared exponential or Matern function)</li>
+</ul>
+<p>The various parameters associated with each function can be specified. The user can also specify how much of the time series is missing, and the sampling error around data. The sample autocorrelation function of the time series can also be plotted.</p>
+<p>In terms of model fitting, any of the above models can be fit to simulated data. Projections of time series can also easily be obtained. Estimates and uncertainty around estimates can be outputted and plotted.</p>
+</div>
+<div id="fit-bayesian-hierarchical-models-to-datasets-with-observations-from-multiple-areas" class="section level3">
+<h3>2. Fit Bayesian hierarchical models to datasets with observations from multiple areas</h3>
+<p>Given data are often sparse or unreliable, especially in the case of developing countries, models that estimate demographic indicators for multiple areas/countries are often hierarchical, incorporating pooling of information across geographies. This part of the package has the infrastructure to fit Bayesian hierarchical models using one of the temporal smoothing methods. The user can specify whether or not to include a linear trend, and the type of temporal smoother to fit to the data.</p>
+<p>Datasets with observations from multiple countries/areas can be used, with the following columns required:</p>
+<ul>
+<li>country/area name or code (e.g. country ISO code)</li>
+<li>value of observation</li>
+<li>year of observation</li>
+<li>sampling error of observation</li>
+<li>data source (e.g. survey, administrative)</li>
+</ul>
+<p>In addition, a region column may also be included (e.g. World Bank region). By default the built-in models include a region hierarchy (i.e. a country within a region within the world). However, models can also be run without the region level.</p>
+<p>For an example using real data, refer to the file <a href="https://github.com/MJAlexander/distortr/blob/master/real_data_anc4_example.R">real_data_anc4_example.R</a>.</p>
+</div>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>One of the aims of this project was to provide the tools to increase transparency of model choice and to help demographers and policymakers understand differences in models and sensitivities of estimates to model choice. The <code>distortr</code> package provides some infrastructure to explore and fit different methods. It is a work in progress and any feedback is much appreciated.</p>
+</div>

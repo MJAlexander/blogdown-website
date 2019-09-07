@@ -1,0 +1,837 @@
+---
+title: "The Cost of NBA Games"
+author: "Monica Alexander"
+date: "2016-02-05"
+runtime: shiny
+output: 
+  html_document: 
+    theme: spacelab
+---
+
+
+
+<p>I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got <a href="https://www.youtube.com/watch?v=UdvA9w3Tmoc">really, really, good</a>. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, <a href="http://www.cnn.com/2012/04/13/health/side-effects-sports-fan/">while healthier than drugs</a>, may not be any cheaper.</p>
+<p>I grabbed all data on resale tickets from <a href="https://www.stubhub.com/">StubHub</a> for all remaining games of the 2015-16 season. As at 1 Feb, there were around 264,200 tickets for sale on StubHub. Note that these do not represent all tickets available, but the large sample size means that the prices are fairly representative of what you could expect to pay.</p>
+<p>For those who don’t follow basketball: The NBA is made up of 30 teams, all of whom play each other at some point during the 82-game season. The teams are roughly geographically divided into either the Eastern Conference or the Western Conference. The Golden State Warriors are the number one ranked team in the Western Conference and won the Grand Final last season. Their star player is Stephen Curry, who has revolutionized basketball in the past few years with the <a href="http://basketball-players.pointafter.com/stories/10645/stephen-curry-three-point-shooting">efficacy of his 3 point throws</a>. The Warriors are followed by the San Antonio Spurs, and the Oklahoma City Thunder. The number one team in the Eastern Conference is the Cleveland Cavaliers, whose star player is LeBron James. They are followed by the Toronto Raptors and the Boston Celtics.</p>
+<div id="section-home-games" class="section level3">
+<h3>Home Games</h3>
+<p>The plot below shows median ticket price for home games versus current overall standing of the team. Unsurprisingly, going to Warriors home games is generally much more expensive than for any other team. At 285 dollars, the median ticket price for remaining games at Oracle Arena is around $100 more than the next closest team, the Spurs.</p>
+<p>The median home game ticket price generally decreases as you go down the current standings. The most notable exception is the LA Lakers, where you can pay $280 to <a href="http://bleacherreport.com/articles/2613737-la-lakers-have-somehow-surpassed-philadelphia-76ers-as-nbas-worst">probably see them lose</a>. But then, how long until we see another Kobe?</p>
+<p>New York Knicks games are also more expensive than expected given their overall ranking, but is probably due to a Madison Square Garden premium and an income effect of living in New York (this income effect doesn’t stretch to Brooklyn). Another income effect – in the opposite direction – may be the Detroit Pistons, who, despite winning more than half their games and being ranked in the top half of teams, have the cheapest tickets available.</p>
+<p>Median ticket prices generally decrease with team rankings, but this observation really only holds for the top ten-ranked teams. After that, apart Lakers and the Knicks, there is not much difference between median home game prices. Maybe the <a href="http://espn.go.com/blog/truehoop/post/_/id/25914/mark-cuban-hopes-to-lose-and-lose-badly-someday">treadmill of mediocrity</a> starts turning. You could be paying the same amount of money to see, for example, the Pacers or the Suns, even though the former have won twice as many games.</p>
+<center>
+<h4>
+Median ticket price for remaining 15/16 home games
+</h4>
+</center>
+<iframe srcdoc=" &lt;!doctype HTML&gt;
+&lt;meta charset = 'utf-8'&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css'&gt;
+    
+    &lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;script src='//d3js.org/d3.v3.min.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;script src='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;script src='//nvd3.org/assets/lib/fisheye.js' type='text/javascript'&gt;&lt;/script&gt;
+    
+    &lt;style&gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    &lt;/style&gt;
+    
+  &lt;/head&gt;
+  &lt;body &gt;
+    
+    &lt;div id = 'chartecf744fb7654' class = 'rChart nvd3'&gt;&lt;/div&gt;    
+    &lt;script type='text/javascript'&gt;
+ $(document).ready(function(){
+      drawchartecf744fb7654()
+    });
+    function drawchartecf744fb7654(){  
+      var opts = {
+ &quot;dom&quot;: &quot;chartecf744fb7654&quot;,
+&quot;width&quot;:      800,
+&quot;height&quot;:      400,
+&quot;x&quot;: &quot;standing&quot;,
+&quot;y&quot;: &quot;med.price&quot;,
+&quot;group&quot;: &quot;team&quot;,
+&quot;type&quot;: &quot;scatterChart&quot;,
+&quot;showLegend&quot;: false,
+&quot;id&quot;: &quot;chartecf744fb7654&quot; 
+},
+        data = [
+ {
+ &quot;home&quot;: &quot;Golden State Warriors&quot;,
+&quot;mean.price&quot;: 746.5825573492,
+&quot;med.price&quot;:            285,
+&quot;total.tickets&quot;: 13881,
+&quot;team&quot;: &quot;Golden State Warriors&quot;,
+&quot;away.med.price&quot;:            340,
+&quot;standing&quot;: 1 
+},
+{
+ &quot;home&quot;: &quot;Los Angeles Lakers&quot;,
+&quot;mean.price&quot;: 638.9048909919,
+&quot;med.price&quot;:         279.97,
+&quot;total.tickets&quot;: 45163,
+&quot;team&quot;: &quot;Los Angeles Lakers&quot;,
+&quot;away.med.price&quot;:          267.6,
+&quot;standing&quot;: 29 
+},
+{
+ &quot;home&quot;: &quot;San Antonio Spurs&quot;,
+&quot;mean.price&quot;: 331.6622040208,
+&quot;med.price&quot;:         183.98,
+&quot;total.tickets&quot;: 26856,
+&quot;team&quot;: &quot;San Antonio Spurs&quot;,
+&quot;away.med.price&quot;:            168,
+&quot;standing&quot;: 2 
+},
+{
+ &quot;home&quot;: &quot;Oklahoma City Thunder&quot;,
+&quot;mean.price&quot;: 234.0735251129,
+&quot;med.price&quot;:         169.97,
+&quot;total.tickets&quot;: 19271,
+&quot;team&quot;: &quot;Oklahoma City Thunder&quot;,
+&quot;away.med.price&quot;:         156.86,
+&quot;standing&quot;: 4 
+},
+{
+ &quot;home&quot;: &quot;New York Knicks&quot;,
+&quot;mean.price&quot;: 264.8877804695,
+&quot;med.price&quot;:            165,
+&quot;total.tickets&quot;: 73917,
+&quot;team&quot;: &quot;New York Knicks&quot;,
+&quot;away.med.price&quot;:         119.89,
+&quot;standing&quot;: 19 
+},
+{
+ &quot;home&quot;: &quot;Cleveland Cavaliers&quot;,
+&quot;mean.price&quot;: 195.7354707026,
+&quot;med.price&quot;:            126,
+&quot;total.tickets&quot;: 12272,
+&quot;team&quot;: &quot;Cleveland Cavaliers&quot;,
+&quot;away.med.price&quot;:          271.6,
+&quot;standing&quot;: 3 
+},
+{
+ &quot;home&quot;: &quot;Los Angeles Clippers&quot;,
+&quot;mean.price&quot;: 362.9090423815,
+&quot;med.price&quot;:            125,
+&quot;total.tickets&quot;: 56796,
+&quot;team&quot;: &quot;Los Angeles Clippers&quot;,
+&quot;away.med.price&quot;:         179.05,
+&quot;standing&quot;: 6 
+},
+{
+ &quot;home&quot;: &quot;Miami Heat&quot;,
+&quot;mean.price&quot;: 212.5452275964,
+&quot;med.price&quot;:         120.37,
+&quot;total.tickets&quot;: 57184,
+&quot;team&quot;: &quot;Miami Heat&quot;,
+&quot;away.med.price&quot;:            147,
+&quot;standing&quot;: 8 
+},
+{
+ &quot;home&quot;: &quot;Chicago Bulls&quot;,
+&quot;mean.price&quot;:  183.414019484,
+&quot;med.price&quot;:         119.01,
+&quot;total.tickets&quot;: 68046,
+&quot;team&quot;: &quot;Chicago Bulls&quot;,
+&quot;away.med.price&quot;:         149.26,
+&quot;standing&quot;: 10 
+},
+{
+ &quot;home&quot;: &quot;Orlando Magic&quot;,
+&quot;mean.price&quot;: 195.5518711386,
+&quot;med.price&quot;:        117.975,
+&quot;total.tickets&quot;: 14965,
+&quot;team&quot;: &quot;Orlando Magic&quot;,
+&quot;away.med.price&quot;:             95,
+&quot;standing&quot;: 21 
+},
+{
+ &quot;home&quot;: &quot;Minnesota Timberwolves&quot;,
+&quot;mean.price&quot;: 208.1714285714,
+&quot;med.price&quot;:            117,
+&quot;total.tickets&quot;: 34,
+&quot;team&quot;: &quot;Minnesota Timberwolves&quot;,
+&quot;away.med.price&quot;:           82.5,
+&quot;standing&quot;: 27 
+},
+{
+ &quot;home&quot;: &quot;Toronto Raptors&quot;,
+&quot;mean.price&quot;: 178.9227711097,
+&quot;med.price&quot;:            112,
+&quot;total.tickets&quot;: 42429,
+&quot;team&quot;: &quot;Toronto Raptors&quot;,
+&quot;away.med.price&quot;:            110,
+&quot;standing&quot;: 5 
+},
+{
+ &quot;home&quot;: &quot;Denver Nuggets&quot;,
+&quot;mean.price&quot;:  171.964158268,
+&quot;med.price&quot;:         108.78,
+&quot;total.tickets&quot;: 11813,
+&quot;team&quot;: &quot;Denver Nuggets&quot;,
+&quot;away.med.price&quot;:           90.1,
+&quot;standing&quot;: 24 
+},
+{
+ &quot;home&quot;: &quot;Sacramento Kings&quot;,
+&quot;mean.price&quot;: 163.1164965831,
+&quot;med.price&quot;:            106,
+&quot;total.tickets&quot;: 6446,
+&quot;team&quot;: &quot;Sacramento Kings&quot;,
+&quot;away.med.price&quot;:          99.01,
+&quot;standing&quot;: 22 
+},
+{
+ &quot;home&quot;: &quot;Houston Rockets&quot;,
+&quot;mean.price&quot;: 188.0682343456,
+&quot;med.price&quot;:            105,
+&quot;total.tickets&quot;: 15255,
+&quot;team&quot;: &quot;Houston Rockets&quot;,
+&quot;away.med.price&quot;:            117,
+&quot;standing&quot;: 15 
+},
+{
+ &quot;home&quot;: &quot;Atlanta Hawks&quot;,
+&quot;mean.price&quot;: 181.6457681549,
+&quot;med.price&quot;:            100,
+&quot;total.tickets&quot;: 24650,
+&quot;team&quot;: &quot;Atlanta Hawks&quot;,
+&quot;away.med.price&quot;:          93.01,
+&quot;standing&quot;: 9 
+},
+{
+ &quot;home&quot;: &quot;Portland Trail Blazers&quot;,
+&quot;mean.price&quot;:  158.924484968,
+&quot;med.price&quot;:            100,
+&quot;total.tickets&quot;: 17844,
+&quot;team&quot;: &quot;Portland Trail Blazers&quot;,
+&quot;away.med.price&quot;:            106,
+&quot;standing&quot;: 17 
+},
+{
+ &quot;home&quot;: &quot;Brooklyn Nets&quot;,
+&quot;mean.price&quot;: 195.3687750977,
+&quot;med.price&quot;:          99.75,
+&quot;total.tickets&quot;: 31879,
+&quot;team&quot;: &quot;Brooklyn Nets&quot;,
+&quot;away.med.price&quot;:            100,
+&quot;standing&quot;: 28 
+},
+{
+ &quot;home&quot;: &quot;Memphis Grizzlies&quot;,
+&quot;mean.price&quot;: 151.0936938286,
+&quot;med.price&quot;:          87.97,
+&quot;total.tickets&quot;: 24368,
+&quot;team&quot;: &quot;Memphis Grizzlies&quot;,
+&quot;away.med.price&quot;:         114.44,
+&quot;standing&quot;: 7 
+},
+{
+ &quot;home&quot;: &quot;Boston Celtics&quot;,
+&quot;mean.price&quot;: 171.9399356711,
+&quot;med.price&quot;:          86.52,
+&quot;total.tickets&quot;: 45188,
+&quot;team&quot;: &quot;Boston Celtics&quot;,
+&quot;away.med.price&quot;:         119.89,
+&quot;standing&quot;: 11 
+},
+{
+ &quot;home&quot;: &quot;Dallas Mavericks&quot;,
+&quot;mean.price&quot;: 149.9544251852,
+&quot;med.price&quot;:          84.01,
+&quot;total.tickets&quot;: 49171,
+&quot;team&quot;: &quot;Dallas Mavericks&quot;,
+&quot;away.med.price&quot;:             91,
+&quot;standing&quot;: 12 
+},
+{
+ &quot;home&quot;: &quot;Charlotte Hornets&quot;,
+&quot;mean.price&quot;: 124.9853293496,
+&quot;med.price&quot;:          80.13,
+&quot;total.tickets&quot;: 26535,
+&quot;team&quot;: &quot;Charlotte Hornets&quot;,
+&quot;away.med.price&quot;:             80,
+&quot;standing&quot;: 16 
+},
+{
+ &quot;home&quot;: &quot;Phoenix Suns&quot;,
+&quot;mean.price&quot;:  132.971847174,
+&quot;med.price&quot;:             75,
+&quot;total.tickets&quot;: 14109,
+&quot;team&quot;: &quot;Phoenix Suns&quot;,
+&quot;away.med.price&quot;:             85,
+&quot;standing&quot;: 26 
+},
+{
+ &quot;home&quot;: &quot;Indiana Pacers&quot;,
+&quot;mean.price&quot;: 119.9811269571,
+&quot;med.price&quot;:             70,
+&quot;total.tickets&quot;: 27407,
+&quot;team&quot;: &quot;Indiana Pacers&quot;,
+&quot;away.med.price&quot;:            100,
+&quot;standing&quot;: 14 
+},
+{
+ &quot;home&quot;: &quot;Washington Wizards&quot;,
+&quot;mean.price&quot;: 132.4703064818,
+&quot;med.price&quot;:             70,
+&quot;total.tickets&quot;: 44848,
+&quot;team&quot;: &quot;Washington Wizards&quot;,
+&quot;away.med.price&quot;:         104.65,
+&quot;standing&quot;: 20 
+},
+{
+ &quot;home&quot;: &quot;Milwaukee Bucks&quot;,
+&quot;mean.price&quot;: 107.9297793939,
+&quot;med.price&quot;:           59.4,
+&quot;total.tickets&quot;: 17338,
+&quot;team&quot;: &quot;Milwaukee Bucks&quot;,
+&quot;away.med.price&quot;:          77.49,
+&quot;standing&quot;: 23 
+},
+{
+ &quot;home&quot;: &quot;Utah Jazz&quot;,
+&quot;mean.price&quot;: 143.4808084862,
+&quot;med.price&quot;:           58.2,
+&quot;total.tickets&quot;: 9412,
+&quot;team&quot;: &quot;Utah Jazz&quot;,
+&quot;away.med.price&quot;:             92,
+&quot;standing&quot;: 18 
+},
+{
+ &quot;home&quot;: &quot;New Orleans Pelicans&quot;,
+&quot;mean.price&quot;: 124.5160423474,
+&quot;med.price&quot;:           55.2,
+&quot;total.tickets&quot;: 32299,
+&quot;team&quot;: &quot;New Orleans Pelicans&quot;,
+&quot;away.med.price&quot;:          75.95,
+&quot;standing&quot;: 25 
+},
+{
+ &quot;home&quot;: &quot;Philadelphia 76ers&quot;,
+&quot;mean.price&quot;: 89.53557283465,
+&quot;med.price&quot;:          49.99,
+&quot;total.tickets&quot;: 34636,
+&quot;team&quot;: &quot;Philadelphia 76ers&quot;,
+&quot;away.med.price&quot;:          73.53,
+&quot;standing&quot;: 30 
+},
+{
+ &quot;home&quot;: &quot;Detroit Pistons&quot;,
+&quot;mean.price&quot;: 88.34122615804,
+&quot;med.price&quot;:             45,
+&quot;total.tickets&quot;: 23802,
+&quot;team&quot;: &quot;Detroit Pistons&quot;,
+&quot;away.med.price&quot;:          86.06,
+&quot;standing&quot;: 13 
+} 
+]
+  
+      if(!(opts.type===&quot;pieChart&quot; || opts.type===&quot;sparklinePlus&quot; || opts.type===&quot;bulletChart&quot;)) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != &quot;bulletChart&quot;){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .color([ &quot;#006BB6&quot;, &quot;#552582&quot;, &quot;#000000&quot;, &quot;#007DC3&quot;, &quot;#F58426&quot;, &quot;#860038&quot;, &quot;#006BB6&quot;, &quot;#F9A01B&quot;, &quot;#CE1141&quot;, &quot;#C4CED3&quot;, &quot;#00A94F&quot;, &quot;#CE1141&quot;, &quot;#4FA8FF&quot;, &quot;#724C9F&quot;, &quot;#CE1142&quot;, &quot;#E03A3E&quot;, &quot;#F0163A&quot;, &quot;#000000&quot;, &quot;#23375B&quot;, &quot;#008348&quot;, &quot;#20385B&quot;, &quot;#1D1160&quot;, &quot;#E56020&quot;, &quot;#FFC633&quot;, &quot;#002566&quot;, &quot;#00471B&quot;, &quot;#002B5C&quot;, &quot;#B4975A&quot;, &quot;#006BB6&quot;, &quot;#001F70&quot; ])
+  .tooltipContent( function(key, x, y){
+        return '&lt;h3&gt;' + key + '&lt;/h3&gt;' + 
+        '&lt;p&gt;' + 'Standing: '+ x + ' , ' + 'Price: $'+ y + '&lt;/p&gt;'
+        } )
+  .showLegend(false)
+  .sizeRange([      250,      250 ])
+  .forceY([       25,      375 ])
+  .forceX([        0,       30 ])
+          
+        chart.xAxis
+  .axisLabel(&quot;Current Team Standing&quot;)
+  .tickValues( function (x) {    
+                tickvalues = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+                return tickvalues;
+                } )
+
+        
+        
+        chart.yAxis
+  .axisLabel(&quot;Ticket price, home games ($)&quot;)
+  .width(      62)
+  .tickValues( function (x) {    
+                tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
+                return tickvalues;
+                } )
+      
+       d3.select(&quot;#&quot; + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+&lt;/script&gt;
+    
+    &lt;style&gt;
+    .tick line {
+      opacity: 0;
+    }
+    &lt;/style&gt;    
+  &lt;/body&gt;
+&lt;/html&gt; " scrolling="no" frameBorder="0" seamless class="rChart  nvd3  " id="iframe-chartecf744fb7654">
+</iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
+</div>
+<div id="section-everyone-wants-to-see-curry-lebron" class="section level3">
+<h3>Everyone wants to see Curry (+ LeBron)</h3>
+<p>Oracle is notorious for its <a href="http://abc7news.com/sports/expert-decibel-level-at-oracle-is-similar-to-jet-engine/773850/">electric atmosphere</a>, and Warriors fans are some of the most passionate in the league, so maybe there is a price premium for the home-court advantage. The plot below shows the median ticket price for each team, with the home-game price plotted against away-game price. While the home game prices for the Warriors <a href="https://www.youtube.com/watch?v=LB4rplyj3TU">are enough the make you fall over</a>, the away game prices are even worse. The median price is 340 dollars for all remaining away games for the Warriors, $55 more than their home games. Everyone wants to see <a href="https://www.youtube.com/watch?v=F8uoujg1XgE">Curry score a three from their half court logo</a>. The prospect of playing the Warriors must be daunting for any team, even at home. But the average price of tickets when the Warriors come to town must have the team and stadium owners rubbing their hands with joy.</p>
+<p>For most other teams, home and away median prices are pretty close. The notable exception is the Cleveland Cavaliers, where the away game median price more than twice the home game price. This could be explained by the LeBron Effect: the King’s Lands reach far and wide. However, the Cleveland locals aren’t so excited. The number of times the Cavs have lost a championship is too high. They don’t want to pay too much, only to get their hearts broken again.</p>
+<p>The three dots to the far right of the chart show that the Warriors, Lakers and Cavs fetch far more in away games than any other team. On the other hand, the San Antonio Spurs, despite being the second-best team in the league, having an All-Star starter, a record home-game start to the season and playing to sellout crowds at home, fail to instill any excitement in non-San Antonians. After all, Tim Duncan only dunks when necessary.</p>
+<center>
+<h4>
+Median ticket price, home games versus away games
+</h4>
+</center>
+<iframe srcdoc=" &lt;!doctype HTML&gt;
+&lt;meta charset = 'utf-8'&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css'&gt;
+    
+    &lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;script src='//d3js.org/d3.v3.min.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;script src='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js' type='text/javascript'&gt;&lt;/script&gt;
+    &lt;script src='//nvd3.org/assets/lib/fisheye.js' type='text/javascript'&gt;&lt;/script&gt;
+    
+    &lt;style&gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    &lt;/style&gt;
+    
+  &lt;/head&gt;
+  &lt;body &gt;
+    
+    &lt;div id = 'chartecf736d3529d' class = 'rChart nvd3'&gt;&lt;/div&gt;    
+    &lt;script type='text/javascript'&gt;
+ $(document).ready(function(){
+      drawchartecf736d3529d()
+    });
+    function drawchartecf736d3529d(){  
+      var opts = {
+ &quot;dom&quot;: &quot;chartecf736d3529d&quot;,
+&quot;width&quot;:      800,
+&quot;height&quot;:      400,
+&quot;x&quot;: &quot;away.med.price&quot;,
+&quot;y&quot;: &quot;med.price&quot;,
+&quot;group&quot;: &quot;team&quot;,
+&quot;type&quot;: &quot;scatterChart&quot;,
+&quot;showLegend&quot;: false,
+&quot;id&quot;: &quot;chartecf736d3529d&quot; 
+},
+        data = [
+ {
+ &quot;home&quot;: &quot;Golden State Warriors&quot;,
+&quot;mean.price&quot;: 746.5825573492,
+&quot;med.price&quot;:            285,
+&quot;total.tickets&quot;: 13881,
+&quot;team&quot;: &quot;Golden State Warriors&quot;,
+&quot;away.med.price&quot;:            340,
+&quot;standing&quot;: 1 
+},
+{
+ &quot;home&quot;: &quot;Los Angeles Lakers&quot;,
+&quot;mean.price&quot;: 638.9048909919,
+&quot;med.price&quot;:         279.97,
+&quot;total.tickets&quot;: 45163,
+&quot;team&quot;: &quot;Los Angeles Lakers&quot;,
+&quot;away.med.price&quot;:          267.6,
+&quot;standing&quot;: 29 
+},
+{
+ &quot;home&quot;: &quot;San Antonio Spurs&quot;,
+&quot;mean.price&quot;: 331.6622040208,
+&quot;med.price&quot;:         183.98,
+&quot;total.tickets&quot;: 26856,
+&quot;team&quot;: &quot;San Antonio Spurs&quot;,
+&quot;away.med.price&quot;:            168,
+&quot;standing&quot;: 2 
+},
+{
+ &quot;home&quot;: &quot;Oklahoma City Thunder&quot;,
+&quot;mean.price&quot;: 234.0735251129,
+&quot;med.price&quot;:         169.97,
+&quot;total.tickets&quot;: 19271,
+&quot;team&quot;: &quot;Oklahoma City Thunder&quot;,
+&quot;away.med.price&quot;:         156.86,
+&quot;standing&quot;: 4 
+},
+{
+ &quot;home&quot;: &quot;New York Knicks&quot;,
+&quot;mean.price&quot;: 264.8877804695,
+&quot;med.price&quot;:            165,
+&quot;total.tickets&quot;: 73917,
+&quot;team&quot;: &quot;New York Knicks&quot;,
+&quot;away.med.price&quot;:         119.89,
+&quot;standing&quot;: 19 
+},
+{
+ &quot;home&quot;: &quot;Cleveland Cavaliers&quot;,
+&quot;mean.price&quot;: 195.7354707026,
+&quot;med.price&quot;:            126,
+&quot;total.tickets&quot;: 12272,
+&quot;team&quot;: &quot;Cleveland Cavaliers&quot;,
+&quot;away.med.price&quot;:          271.6,
+&quot;standing&quot;: 3 
+},
+{
+ &quot;home&quot;: &quot;Los Angeles Clippers&quot;,
+&quot;mean.price&quot;: 362.9090423815,
+&quot;med.price&quot;:            125,
+&quot;total.tickets&quot;: 56796,
+&quot;team&quot;: &quot;Los Angeles Clippers&quot;,
+&quot;away.med.price&quot;:         179.05,
+&quot;standing&quot;: 6 
+},
+{
+ &quot;home&quot;: &quot;Miami Heat&quot;,
+&quot;mean.price&quot;: 212.5452275964,
+&quot;med.price&quot;:         120.37,
+&quot;total.tickets&quot;: 57184,
+&quot;team&quot;: &quot;Miami Heat&quot;,
+&quot;away.med.price&quot;:            147,
+&quot;standing&quot;: 8 
+},
+{
+ &quot;home&quot;: &quot;Chicago Bulls&quot;,
+&quot;mean.price&quot;:  183.414019484,
+&quot;med.price&quot;:         119.01,
+&quot;total.tickets&quot;: 68046,
+&quot;team&quot;: &quot;Chicago Bulls&quot;,
+&quot;away.med.price&quot;:         149.26,
+&quot;standing&quot;: 10 
+},
+{
+ &quot;home&quot;: &quot;Orlando Magic&quot;,
+&quot;mean.price&quot;: 195.5518711386,
+&quot;med.price&quot;:        117.975,
+&quot;total.tickets&quot;: 14965,
+&quot;team&quot;: &quot;Orlando Magic&quot;,
+&quot;away.med.price&quot;:             95,
+&quot;standing&quot;: 21 
+},
+{
+ &quot;home&quot;: &quot;Minnesota Timberwolves&quot;,
+&quot;mean.price&quot;: 208.1714285714,
+&quot;med.price&quot;:            117,
+&quot;total.tickets&quot;: 34,
+&quot;team&quot;: &quot;Minnesota Timberwolves&quot;,
+&quot;away.med.price&quot;:           82.5,
+&quot;standing&quot;: 27 
+},
+{
+ &quot;home&quot;: &quot;Toronto Raptors&quot;,
+&quot;mean.price&quot;: 178.9227711097,
+&quot;med.price&quot;:            112,
+&quot;total.tickets&quot;: 42429,
+&quot;team&quot;: &quot;Toronto Raptors&quot;,
+&quot;away.med.price&quot;:            110,
+&quot;standing&quot;: 5 
+},
+{
+ &quot;home&quot;: &quot;Denver Nuggets&quot;,
+&quot;mean.price&quot;:  171.964158268,
+&quot;med.price&quot;:         108.78,
+&quot;total.tickets&quot;: 11813,
+&quot;team&quot;: &quot;Denver Nuggets&quot;,
+&quot;away.med.price&quot;:           90.1,
+&quot;standing&quot;: 24 
+},
+{
+ &quot;home&quot;: &quot;Sacramento Kings&quot;,
+&quot;mean.price&quot;: 163.1164965831,
+&quot;med.price&quot;:            106,
+&quot;total.tickets&quot;: 6446,
+&quot;team&quot;: &quot;Sacramento Kings&quot;,
+&quot;away.med.price&quot;:          99.01,
+&quot;standing&quot;: 22 
+},
+{
+ &quot;home&quot;: &quot;Houston Rockets&quot;,
+&quot;mean.price&quot;: 188.0682343456,
+&quot;med.price&quot;:            105,
+&quot;total.tickets&quot;: 15255,
+&quot;team&quot;: &quot;Houston Rockets&quot;,
+&quot;away.med.price&quot;:            117,
+&quot;standing&quot;: 15 
+},
+{
+ &quot;home&quot;: &quot;Atlanta Hawks&quot;,
+&quot;mean.price&quot;: 181.6457681549,
+&quot;med.price&quot;:            100,
+&quot;total.tickets&quot;: 24650,
+&quot;team&quot;: &quot;Atlanta Hawks&quot;,
+&quot;away.med.price&quot;:          93.01,
+&quot;standing&quot;: 9 
+},
+{
+ &quot;home&quot;: &quot;Portland Trail Blazers&quot;,
+&quot;mean.price&quot;:  158.924484968,
+&quot;med.price&quot;:            100,
+&quot;total.tickets&quot;: 17844,
+&quot;team&quot;: &quot;Portland Trail Blazers&quot;,
+&quot;away.med.price&quot;:            106,
+&quot;standing&quot;: 17 
+},
+{
+ &quot;home&quot;: &quot;Brooklyn Nets&quot;,
+&quot;mean.price&quot;: 195.3687750977,
+&quot;med.price&quot;:          99.75,
+&quot;total.tickets&quot;: 31879,
+&quot;team&quot;: &quot;Brooklyn Nets&quot;,
+&quot;away.med.price&quot;:            100,
+&quot;standing&quot;: 28 
+},
+{
+ &quot;home&quot;: &quot;Memphis Grizzlies&quot;,
+&quot;mean.price&quot;: 151.0936938286,
+&quot;med.price&quot;:          87.97,
+&quot;total.tickets&quot;: 24368,
+&quot;team&quot;: &quot;Memphis Grizzlies&quot;,
+&quot;away.med.price&quot;:         114.44,
+&quot;standing&quot;: 7 
+},
+{
+ &quot;home&quot;: &quot;Boston Celtics&quot;,
+&quot;mean.price&quot;: 171.9399356711,
+&quot;med.price&quot;:          86.52,
+&quot;total.tickets&quot;: 45188,
+&quot;team&quot;: &quot;Boston Celtics&quot;,
+&quot;away.med.price&quot;:         119.89,
+&quot;standing&quot;: 11 
+},
+{
+ &quot;home&quot;: &quot;Dallas Mavericks&quot;,
+&quot;mean.price&quot;: 149.9544251852,
+&quot;med.price&quot;:          84.01,
+&quot;total.tickets&quot;: 49171,
+&quot;team&quot;: &quot;Dallas Mavericks&quot;,
+&quot;away.med.price&quot;:             91,
+&quot;standing&quot;: 12 
+},
+{
+ &quot;home&quot;: &quot;Charlotte Hornets&quot;,
+&quot;mean.price&quot;: 124.9853293496,
+&quot;med.price&quot;:          80.13,
+&quot;total.tickets&quot;: 26535,
+&quot;team&quot;: &quot;Charlotte Hornets&quot;,
+&quot;away.med.price&quot;:             80,
+&quot;standing&quot;: 16 
+},
+{
+ &quot;home&quot;: &quot;Phoenix Suns&quot;,
+&quot;mean.price&quot;:  132.971847174,
+&quot;med.price&quot;:             75,
+&quot;total.tickets&quot;: 14109,
+&quot;team&quot;: &quot;Phoenix Suns&quot;,
+&quot;away.med.price&quot;:             85,
+&quot;standing&quot;: 26 
+},
+{
+ &quot;home&quot;: &quot;Indiana Pacers&quot;,
+&quot;mean.price&quot;: 119.9811269571,
+&quot;med.price&quot;:             70,
+&quot;total.tickets&quot;: 27407,
+&quot;team&quot;: &quot;Indiana Pacers&quot;,
+&quot;away.med.price&quot;:            100,
+&quot;standing&quot;: 14 
+},
+{
+ &quot;home&quot;: &quot;Washington Wizards&quot;,
+&quot;mean.price&quot;: 132.4703064818,
+&quot;med.price&quot;:             70,
+&quot;total.tickets&quot;: 44848,
+&quot;team&quot;: &quot;Washington Wizards&quot;,
+&quot;away.med.price&quot;:         104.65,
+&quot;standing&quot;: 20 
+},
+{
+ &quot;home&quot;: &quot;Milwaukee Bucks&quot;,
+&quot;mean.price&quot;: 107.9297793939,
+&quot;med.price&quot;:           59.4,
+&quot;total.tickets&quot;: 17338,
+&quot;team&quot;: &quot;Milwaukee Bucks&quot;,
+&quot;away.med.price&quot;:          77.49,
+&quot;standing&quot;: 23 
+},
+{
+ &quot;home&quot;: &quot;Utah Jazz&quot;,
+&quot;mean.price&quot;: 143.4808084862,
+&quot;med.price&quot;:           58.2,
+&quot;total.tickets&quot;: 9412,
+&quot;team&quot;: &quot;Utah Jazz&quot;,
+&quot;away.med.price&quot;:             92,
+&quot;standing&quot;: 18 
+},
+{
+ &quot;home&quot;: &quot;New Orleans Pelicans&quot;,
+&quot;mean.price&quot;: 124.5160423474,
+&quot;med.price&quot;:           55.2,
+&quot;total.tickets&quot;: 32299,
+&quot;team&quot;: &quot;New Orleans Pelicans&quot;,
+&quot;away.med.price&quot;:          75.95,
+&quot;standing&quot;: 25 
+},
+{
+ &quot;home&quot;: &quot;Philadelphia 76ers&quot;,
+&quot;mean.price&quot;: 89.53557283465,
+&quot;med.price&quot;:          49.99,
+&quot;total.tickets&quot;: 34636,
+&quot;team&quot;: &quot;Philadelphia 76ers&quot;,
+&quot;away.med.price&quot;:          73.53,
+&quot;standing&quot;: 30 
+},
+{
+ &quot;home&quot;: &quot;Detroit Pistons&quot;,
+&quot;mean.price&quot;: 88.34122615804,
+&quot;med.price&quot;:             45,
+&quot;total.tickets&quot;: 23802,
+&quot;team&quot;: &quot;Detroit Pistons&quot;,
+&quot;away.med.price&quot;:          86.06,
+&quot;standing&quot;: 13 
+} 
+]
+  
+      if(!(opts.type===&quot;pieChart&quot; || opts.type===&quot;sparklinePlus&quot; || opts.type===&quot;bulletChart&quot;)) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != &quot;bulletChart&quot;){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .color([ &quot;#006BB6&quot;, &quot;#552582&quot;, &quot;#000000&quot;, &quot;#007DC3&quot;, &quot;#F58426&quot;, &quot;#860038&quot;, &quot;#006BB6&quot;, &quot;#F9A01B&quot;, &quot;#CE1141&quot;, &quot;#C4CED3&quot;, &quot;#00A94F&quot;, &quot;#CE1141&quot;, &quot;#4FA8FF&quot;, &quot;#724C9F&quot;, &quot;#CE1142&quot;, &quot;#E03A3E&quot;, &quot;#F0163A&quot;, &quot;#000000&quot;, &quot;#23375B&quot;, &quot;#008348&quot;, &quot;#20385B&quot;, &quot;#1D1160&quot;, &quot;#E56020&quot;, &quot;#FFC633&quot;, &quot;#002566&quot;, &quot;#00471B&quot;, &quot;#002B5C&quot;, &quot;#B4975A&quot;, &quot;#006BB6&quot;, &quot;#001F70&quot; ])
+  .tooltipContent( function(key, x, y){
+        return '&lt;h3&gt;' + key + '&lt;/h3&gt;' + 
+        '&lt;p&gt;' + 'Away: $'+ x + ' , ' + 'Home: $'+ y + '&lt;/p&gt;'
+        } )
+  .showLegend(false)
+  .sizeRange([      250,      250 ])
+  .forceY([       25,      375 ])
+  .forceX([       25,      375 ])
+          
+        chart.xAxis
+  .axisLabel(&quot;Ticket price, away games ($)&quot;)
+  .tickValues( function (x) {    
+    tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
+    return tickvalues;
+} )
+
+        
+        
+        chart.yAxis
+  .axisLabel(&quot;Ticket price, home games ($)&quot;)
+  .width(      62)
+  .tickValues( function (x) {    
+    tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
+    return tickvalues;
+} )
+      
+       d3.select(&quot;#&quot; + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+&lt;/script&gt;
+    
+    &lt;style&gt;
+    .tick line {
+      opacity: 0;
+    }
+    &lt;/style&gt;    
+  &lt;/body&gt;
+&lt;/html&gt; " scrolling="no" frameBorder="0" seamless class="rChart  nvd3  " id="iframe-chartecf736d3529d">
+</iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
+</div>
+<div id="section-you-pay-for-what-you-get" class="section level3">
+<h3>You pay for what you get</h3>
+<p>The plot below shows median ticket price for all remaining regular games in the 15/16 season, plotted against the average standing of the two teams playing. For example, if the game is between the Warriors and the Spurs, the average rating is (1+2)/2 = 1.5. You can select to see prices involving different games using the drop downs on the left; selections show up in red.</p>
+<p>In general, you pay for what you get: the higher the combined ranking of the two teams playing, the more expensive the tickets. Lakers games buck this trend. Note that for visibility I left the most expensive game off this chart: Kobe’s final game at the Staples Center on 13 April has a median ticket price of <a href="https://www.stubhub.com/los-angeles-lakers-tickets-los-angeles-lakers-los-angeles-staples-center-4-13-2016/event/9370774/">around $1650</a>!</p>
+<p>Despite the high price of Warrior away-games in general, it could still be cheaper to <a href="https://www.kayak.com/flights/SFO-SLC/2016-03-30/2016-03-31">fly to Utah</a> in late March to see the Jazz game, than to see any remaining home games. The most expensive games are between the Warriors and Spurs or OKC, the two teams who are most likely to threaten the Warriors chances of breaking the <a href="http://www.nba.com/history/season/19951996.html">Bull’s 72-10 record</a>. No matter what happens, Steve Kerr still may be the <a href="http://www.huffingtonpost.com/2015/06/17/steve-kerr-warriors-coach_n_7603384.html">luckiest man in NBA history</a>.</p>
+<center>
+<h4>
+Median ticket price, all remaining NBA games
+</h4>
+</center>
+<iframe src="http://shiny.demog.berkeley.edu/monicah/nba_app/?showcase=0" width="1152" height="600px">
+</iframe>
+<div id="section-notes" class="section level4">
+<h4>Notes:</h4>
+<p>These charts were made using <code>rCharts</code> (thanks Ramnath Vaidyanathan for the awesome package). Code for scraping StubHub and analysis can be found <a href="https://github.com/MJAlexander/nba">here</a>.</p>
+</div>
+</div>

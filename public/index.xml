@@ -1,890 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Monica Alexander on Monica Alexander</title>
+    <title>Monica Alexander</title>
     <link>/</link>
-    <description>Recent content in Monica Alexander on Monica Alexander</description>
+    <description>Recent content on Monica Alexander</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2018 Monica Alexander</copyright>
+    <language>en</language>
     <lastBuildDate>Wed, 07 Aug 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Professional Experience</title>
+      <link>/professional/</link>
+      <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/professional/</guid>
+      <description>University of Massachusetts, Amherst Graduate Student Researcher, January 2017 &amp;ndash; June 2018
+World Health Organization Consultant, September 2016 &amp;ndash; June 2017
+Data Science for Social Good Fellow, May 2016 &amp;ndash; September 2016
+Human Mortality Database Graduate Student Researcher, January 2015 &amp;ndash; May 2016
+UNICEF Technical Advisory Group Consultant, March 2014 &amp;ndash; December 2015
+The Centre for Aboriginal Economic Policy Research Research Officer, April 2012 &amp;ndash; December 2014
+Reserve Bank of Australia Analyst/Senior Analyst, February 2010 &amp;ndash; June 2013</description>
+    </item>
     
     <item>
       <title>Analyzing name changes after marriage using a non-representative survey</title>
-      <link>/2019/08/07/analyzing-name-changes-after-marriage-using-a-non-representative-survey/</link>
+      <link>/posts/2019-08-07-mrp/</link>
       <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/08/07/analyzing-name-changes-after-marriage-using-a-non-representative-survey/</guid>
-      <description>
-
-
-&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;Recently on Twitter, sociologist &lt;a href=&#34;https://socy.umd.edu/facultyprofile/cohen/philip-n&#34;&gt;Phil Cohen&lt;/a&gt; put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable &lt;a href=&#34;https://osf.io/uzqdn/&#34;&gt;here&lt;/a&gt; for anyone to do their own analysis.&lt;/p&gt;
-&lt;p&gt;However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average. As such, if we looked at the raw estimates from the data, on indicators like the proportion of women who kept their name after marriage, it is unlikely to be a reasonable estimate for the broader population.&lt;/p&gt;
-&lt;p&gt;This is a very common problem for social scientists: trying to come up with representative estimates using non-representative data. In this post I’ll introduce one particular technique of trying to do this: multilevel regression and post-stratification (MRP). In particular, I’ll use data from the marital name change survey to estimate the proportion of women in the US who kept their maiden name after marriage.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;what-is-mrp&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;What is MRP?&lt;/h1&gt;
-&lt;p&gt;First, a very brief outline of MRP. Imagine we run a survey asking people if they like olives. We have a survey with 1000 respondents, 500 of which are aged 21+ and 500 of which are under 21. We could use the survey results to calculate the proportion of people who like olives. However, &lt;a href=&#34;https://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf&#34;&gt;we know&lt;/a&gt; that the population distribution below and above age 21 is closer to 30%/70%, rather than 50/50 implied by our survey. So just taking the raw result from our survey over-represents the opinions of young people.&lt;/p&gt;
-&lt;div id=&#34;the-p-bit-post-stratification&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;The ‘P’ bit: post-stratification&lt;/h2&gt;
-&lt;p&gt;Given we know the age distribution of the broader population, we can reweight (post-stratify) our results: so in this example, an estimate of the proportion of people who like olives would be&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-0.3 \times \text{Proportion of those &amp;lt;21} + 0.7 \times \text{Proportion of those 21+}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;This technique is called post-stratification. All we need is a reliable data source (such as a census, or the ACS in the US) that gives us the population weights. Data can be re-weighted based on many different categories, not just one: for example, we could post-stratify based on age, education, state of residence, etc.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;the-mr-bit-multilevel-regression&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;The ‘MR’ bit: multilevel regression&lt;/h2&gt;
-&lt;p&gt;Now imagine that instead of the survey above, we had a different survey, still with 1000 respondents, but 995 were aged less than 21 and 5 were 21+. That is, our survey respondents are even more biased. We could still post-stratify in exactly the same way as above to get a more representative estimate of liking olives. However, our estimate for those aged 21+ is based only on 5 people. We are putting a huge amount of weight on only 5 people.&lt;/p&gt;
-&lt;p&gt;Using multilevel regression as a first step before post-stratification tries to adjust for this by regressing the outcome on different variables of interest. So instead of using the proportion of people in each subgroup who like olives calculated from the survey, we would estimate this proportion based on a regression. We could include covariates like age, sex, education and income, and end up with an estimate of the proportion in each of these [age/sex/education/income] subgroups. The key is that we have another reliable data source (such as a census or survey) that allows us to get the actual population counts in order to post-stratify on.&lt;/p&gt;
-&lt;p&gt;The multilevel part refers to a set-up where information across different age groups (or education groups, or state groups, etc) is ‘pooled’ such that the responses in one group are partially informed by responses in other groups. The fewer observations in a particular subgroup, the more they are ‘pulled’ towards the mean outcome based on other subgroups. In this way, subgroups that have a small number of responses are in a sense weighted downwards in determining the overall outcome.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;example-retaining-maiden-names-after-marriage&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Example: retaining maiden names after marriage&lt;/h1&gt;
-&lt;p&gt;Here’s an explicit example with the marriage name change survey.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;https://osf.io/uzqdn/&#34;&gt;marital change name survey (MCNS)&lt;/a&gt; asks lots of interesting questions, but for starters let’s just look at estimating the proportion of heterosexual women who kept their maiden name after marriage. The survey collects this information as well as other characteristics that we would expect to be associated with a woman’s propensity to keep their maiden name, including age at marriage, year of marriage, education of respondent and state of residence.&lt;/p&gt;
-&lt;p&gt;The goal of our analysis is to perform two steps:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Do a multilevel regression relating maiden name retention to age, year of marriage, state and education. In particular, for individual &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; let &lt;span class=&#34;math inline&#34;&gt;\(y_i\)&lt;/span&gt; equal 1 if the respondent did not change their name after marriage, and 0 otherwise. The model is&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-Pr(y_i = 1) = \text{logit}^{-1}\left( \alpha^{age}_{a[i]} + \alpha^{educ}_{e[i]} + \alpha^{state}_{s[i]} + \alpha^{dec}_{d[i]}\right)
-\]&lt;/span&gt; where the &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;s are age group, education group, state and decade married effects and the notation &lt;span class=&#34;math inline&#34;&gt;\(a[i]\)&lt;/span&gt; refers to the age group &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; to which individual &lt;span class=&#34;math inline&#34;&gt;\(i\)&lt;/span&gt; belongs to, etc. These are modeled in the form:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\alpha^{age}_{a} \sim N(0, \sigma_{age}) \text{ for } a=1,2\dots A 
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(A\)&lt;/span&gt; is the total number of age groups. There are similar set ups for the other &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;s.&lt;/p&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Using the estimates from the regression, post-stratify based on population weights in each age, year of marriage, education and state group, derived from the American Community Survey.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div id=&#34;mrp-in-r-using-brms&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;MRP in R using &lt;code&gt;brms&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;Now to work through the example in &lt;code&gt;R&lt;/code&gt;. A few code snippets are included in this post, but the full code file is available &lt;a href=&#34;https://github.com/MJAlexander/marriage-name-change&#34;&gt;here&lt;/a&gt;. In order to reproduce the results, you will need to download the MNCS file from &lt;a href=&#34;https://osf.io/uzqdn/&#34;&gt;OSF&lt;/a&gt;, and also grab the 2017 5-year ACS data from &lt;a href=&#34;https://usa.ipums.org/usa/index.shtml&#34;&gt;IPUMS-USA&lt;/a&gt;.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;div id=&#34;data&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Data&lt;/h3&gt;
-&lt;p&gt;First, I loaded in the MNCS data and did a bit of tidying up. I made a binary outcome variable &lt;code&gt;kept_name&lt;/code&gt;, which indicates whether or not the respondent kept their original name after marriage. I also created a five year age group variable, a decade married variable (1979-1988, 1989-1998, … 2009-2018), and a three-group education variable (&lt;BA, BA, &gt;BA)&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;. The resulting data looks like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_mncs&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 4,413 x 5
-##    kept_name state_name     age_group decade_married educ_group
-##        &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;     
-##  1         0 ohio           50        1979           &amp;gt;BA       
-##  2         0 virginia       35        1999           &amp;gt;BA       
-##  3         1 new york       35        2009           &amp;gt;BA       
-##  4         0 rhode island   55        1999           &amp;gt;BA       
-##  5         0 illinois       35        2009           &amp;gt;BA       
-##  6         0 north carolina 25        2009           &amp;gt;BA       
-##  7         1 iowa           35        1999           &amp;gt;BA       
-##  8         1 texas          35        2009           &amp;gt;BA       
-##  9         0 south dakota   35        1999           &amp;gt;BA       
-## 10         0 texas          35        2009           &amp;gt;BA       
-## # … with 4,403 more rows&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Next, I loaded in the ACS data that I got from IPUMS-USA. I extracted information on sex, age, marital status, year married, state, and education. I then restricted the data to just be ever-married women, and calculated new age, decade married and education variables to be consistent with those in the MNCS data. I then summed up to get the population counts in each age, education, decade married and state group. The data look like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;cell_counts&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 6,058 x 5
-##    state_name age_group decade_married educ_group     n
-##    &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt;
-##  1 alabama    25        1999           &amp;lt;BA        19012
-##  2 alabama    25        2009           &amp;lt;BA        37488
-##  3 alabama    25        1999           &amp;gt;BA          959
-##  4 alabama    25        2009           &amp;gt;BA         5319
-##  5 alabama    25        1999           BA          2986
-##  6 alabama    25        2009           BA         14261
-##  7 alaska     25        1999           &amp;lt;BA         3320
-##  8 alaska     25        2009           &amp;lt;BA         7001
-##  9 alaska     25        1999           &amp;gt;BA          159
-## 10 alaska     25        2009           &amp;gt;BA          435
-## # … with 6,048 more rows&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;These counts can be used to get proportions by group, which are in turn used in the post-stratification step. For example, to get the proportions in each age group:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;age_prop &amp;lt;- cell_counts %&amp;gt;% 
-  group_by(age_group) %&amp;gt;% 
-  mutate(prop = n/sum(n)) %&amp;gt;% 
-  ungroup()
-
-age_prop&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 6,058 x 6
-##    state_name age_group decade_married educ_group     n      prop
-##    &amp;lt;chr&amp;gt;      &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-##  1 alabama    25        1999           &amp;lt;BA        19012 0.00414  
-##  2 alabama    25        2009           &amp;lt;BA        37488 0.00816  
-##  3 alabama    25        1999           &amp;gt;BA          959 0.000209 
-##  4 alabama    25        2009           &amp;gt;BA         5319 0.00116  
-##  5 alabama    25        1999           BA          2986 0.000650 
-##  6 alabama    25        2009           BA         14261 0.00310  
-##  7 alaska     25        1999           &amp;lt;BA         3320 0.000723 
-##  8 alaska     25        2009           &amp;lt;BA         7001 0.00152  
-##  9 alaska     25        1999           &amp;gt;BA          159 0.0000346
-## 10 alaska     25        2009           &amp;gt;BA          435 0.0000947
-## # … with 6,048 more rows&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;model&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Model&lt;/h3&gt;
-&lt;p&gt;Now we use the MNCS data to model the association between keeping name and age, education, state and decade married. I’m using the &lt;code&gt;brms&lt;/code&gt; package, which is a wrapper to easily run models in Stan. The model is estimated in a Bayesian set up, which essentially means we put priors on the &lt;span class=&#34;math inline&#34;&gt;\(\sigma\)&lt;/span&gt; terms in the model above.&lt;a href=&#34;#fn3&#34; class=&#34;footnoteRef&#34; id=&#34;fnref3&#34;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; You could also run this model in a maximum likelihood setting using &lt;code&gt;glmer&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod &amp;lt;- brm(kept_name ~ (1|age_group) + (1|educ_group) + (1|state_name) + (1|decade_married), data = d_mncs, family=bernoulli())&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;results&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Results&lt;/h3&gt;
-&lt;p&gt;Now we can use the results of the regression to predict the outcome (whether or not a woman retained her name after marriage) for each of the age/education/state/decade married groups. We can make this prediction many, many times and then look at the resulting distribution to get the mean and 95% prediction intervals for whichever group of interest. For example, to get the estimated proportions and associated 95% PIs by age group:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res_age &amp;lt;- mod %&amp;gt;%
-  add_predicted_draws(newdata=age_prop %&amp;gt;% 
-                        filter(age_group&amp;gt;20, 
-                               age_group&amp;lt;80, 
-                               decade_married&amp;gt;1969),
-                      allow_new_levels=TRUE) %&amp;gt;%
-  rename(kept_name_predict = .prediction) %&amp;gt;% 
-  mutate(kept_name_predict_prop = kept_name_predict*prop) %&amp;gt;% 
-  group_by(age_group, .draw) %&amp;gt;% 
-  summarise(kept_name_predict = sum(kept_name_predict_prop)) %&amp;gt;% 
-  group_by(age_group) %&amp;gt;% 
-  summarise(mean = mean(kept_name_predict), 
-            lower = quantile(kept_name_predict, 0.025), 
-            upper = quantile(kept_name_predict, 0.975))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let’s plot these and include the raw MNCS proportions for comparison:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;res_age %&amp;gt;% 
-  ggplot(aes(y = mean, x = forcats::fct_inorder(age_group), color = &amp;quot;MRP estimate&amp;quot;)) + 
-  geom_point() +
-  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0) + 
-  ylab(&amp;quot;proportion keeping name&amp;quot;) + 
-  xlab(&amp;quot;age in 2019&amp;quot;) + 
-  geom_point(data = d_mncs %&amp;gt;% 
-               group_by(age_group, kept_name) %&amp;gt;%
-               summarise(n = n()) %&amp;gt;% 
-               group_by(age_group) %&amp;gt;% 
-               mutate(prop = n/sum(n)) %&amp;gt;% 
-               filter(kept_name==1, age_group&amp;lt;80, age_group&amp;gt;20), 
-             aes(age_group, prop, color = &amp;quot;MNCS raw data&amp;quot;)) +
-  scale_color_manual(name = &amp;quot;&amp;quot;, values = c(&amp;quot;MRP estimate&amp;quot; = &amp;quot;black&amp;quot;, &amp;quot;MNCS raw data&amp;quot; = &amp;quot;red&amp;quot;)) + 
-  theme_bw(base_size = 14) +
-  ggtitle(&amp;quot;Proportion of women keeping name after marriage&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/age_plot.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;The result is pretty interesting. Firstly, the MRP estimates are much lower than the raw – this is likely due to the fact that the survey has an over-sample of highly educated women, who are more likely to keep their name.&lt;a href=&#34;#fn4&#34; class=&#34;footnoteRef&#34; id=&#34;fnref4&#34;&gt;&lt;sup&gt;4&lt;/sup&gt;&lt;/a&gt; There is some evidence of an upside-down U shape over age, which is consistent with past observations that there was a &lt;a href=&#34;https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html&#34;&gt;peak in name retention in the 80s and 90s&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We can calculate the results by other groups. Here, you can see the increase in name retention with education, with a particularly high estimate for those with postgraduate education:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/educ_plot.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;And here it is by decade; some (weak) evidence to suggest maybe an increase in name retention in the most recent decade, which would be consistent with a &lt;a href=&#34;https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html&#34;&gt;New York Times&lt;/a&gt; piece published a few years back.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/dec_plot.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Finally, here are the results by state. Utah and New York stand out as particularly low and high, respectively. Note that these proportions are not standardized with respect to age or education.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/marriage_plots/state_plot.png&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Summary&lt;/h1&gt;
-&lt;p&gt;We often have to deal with data that, while containing interesting and useful information, are not representative of the broader population that we’re interested in. The MNCS contains a wealth of information on name changes that occur around marriage, and the reasons for doing so. This information that is important to study social and demographic change, but not readily available in official data sources. However, raw estimates from this survey are most probably biased.&lt;/p&gt;
-&lt;p&gt;In this post I highlighted how MRP can be used to try and adjust for these biases. MRP is probably most commonly used in political analysis to reweight polling data,&lt;a href=&#34;#fn5&#34; class=&#34;footnoteRef&#34; id=&#34;fnref5&#34;&gt;&lt;sup&gt;5&lt;/sup&gt;&lt;/a&gt; but it is a useful technique for many different survey responses. Many modeling extensions are possible. For example, the multilevel regression need not be limited to just using random effects, as was used here, and other model set ups could be investigated.&lt;a href=&#34;#fn6&#34; class=&#34;footnoteRef&#34; id=&#34;fnref6&#34;&gt;&lt;sup&gt;6&lt;/sup&gt;&lt;/a&gt; MRP is a relatively easy and quick way of trying to get more representative estimates out of non-representative data, while giving you a sense of the uncertainty around the estimates (unlike traditional post-stratification). The example in this post serves as an introduction to both MRP and also the MNCS survey – there is so much interesting data in there, and it’s public!&lt;a href=&#34;#fn7&#34; class=&#34;footnoteRef&#34; id=&#34;fnref7&#34;&gt;&lt;sup&gt;7&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;IPUMS is a wonderful resource and free once you register. From the 2017 5-year ACS sample you will need to select the following variables: AGE, SEX, STATEFIP, MARST, YRMARR, EDUC.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;This is probably a bit coarse; the data are available to do a finer-grained split if desired.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn3&#34;&gt;&lt;p&gt;I just used the default priors in &lt;code&gt;brms&lt;/code&gt;, which are half student’s t distributions, see here for more info: &lt;a href=&#34;https://cran.r-project.org/web/packages/brms/brms.pdf&#34; class=&#34;uri&#34;&gt;https://cran.r-project.org/web/packages/brms/brms.pdf&lt;/a&gt;&lt;a href=&#34;#fnref3&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn4&#34;&gt;&lt;p&gt;FWIW, I changed my name. The Tasmania effect outweighs any education effect, it seems.&lt;a href=&#34;#fnref4&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn5&#34;&gt;&lt;p&gt;Shout-out to &lt;a href=&#34;https://www.petitpoll.com/&#34;&gt;Petit Poll&lt;/a&gt;!&lt;a href=&#34;#fnref5&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn6&#34;&gt;&lt;p&gt;Look out for the work of &lt;a href=&#34;https://arxiv.org/abs/1906.11323&#34;&gt;Lauren Kennedy&lt;/a&gt; et al. looking into the impact of different MRP set ups, particularly for age effects.&lt;a href=&#34;#fnref6&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn7&#34;&gt;&lt;p&gt;If you’re interested in reproducible research Phil and I are giving talks at the Rostock &lt;a href=&#34;https://www.demogr.mpg.de/en/news_press/news/news/free_access_to_demographic_research_6289.htm&#34;&gt;Open Science Workshop&lt;/a&gt; which is being held at the Max Planck Institute for Demographic Research (MPIDR) on October 10th and 11th, 2019.&lt;a href=&#34;#fnref7&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>National, regional, and global levels and trends in neonatal mortality between 1990 and 2017, with scenario-based projections to 2030: a systematic analysis</title>
-      <link>/publication/lancet_neonatal/</link>
-      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/lancet_neonatal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Assessment of Changes in the Geographical Distribution of Opioid-Related Mortality Across the United States by Opioid Type, 1999-2016</title>
-      <link>/publication/opioid_geographic/</link>
-      <pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/opioid_geographic/</guid>
-      <description></description>
+      <guid>/posts/2019-08-07-mrp/</guid>
+      <description>Introduction Recently on Twitter, sociologist Phil Cohen put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable here for anyone to do their own analysis.
+However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average.</description>
     </item>
     
     <item>
       <title>The concentration and uniqueness of baby names in Australia and the US</title>
-      <link>/2019/01/21/the-concentration-and-uniqueness-of-baby-names-in-australia-and-the-us/</link>
+      <link>/posts/2019-20-01-babynames/</link>
       <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/01/21/the-concentration-and-uniqueness-of-baby-names-in-australia-and-the-us/</guid>
-      <description>
-
-
-&lt;p&gt;Some great people have compiled historical data on baby names into R packages for both the US &lt;a href=&#34;https://github.com/hadley/babynames&#34;&gt;(thanks to Hadley Wickham)&lt;/a&gt; and Australia &lt;a href=&#34;https://github.com/ropenscilabs/ozbabynames&#34;&gt;(thanks to the Monash group)&lt;/a&gt;. This makes answering all manner of baby-name-related questions easy.&lt;/p&gt;
-&lt;p&gt;I was interested in looking at the distribution of baby names in these populations over time — that is, how concentrated are name choices in the most popular baby names? Is there a big difference between the number of babies that are called the most popular names compared to other names, or is the distribution more evenly spread?&lt;/p&gt;
-&lt;p&gt;The summary: names are very concentrated — the majority of babies are called a name from a relatively small subset. However, baby name concentration is declining over time, and additionally, the number of unique names is increasing.&lt;/p&gt;
-&lt;div id=&#34;data&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Data&lt;/h1&gt;
-&lt;p&gt;I used the used the &lt;code&gt;babynames&lt;/code&gt; and &lt;code&gt;ozbabynames&lt;/code&gt; packages to look at names in the US and Australia. You will need to install the Australian version from &lt;a href=&#34;https://github.com/ropenscilabs/ozbabynames&#34;&gt;GitHub&lt;/a&gt;. I restricted the period to be 1960-2015 where both datasets had data. For the Australian baby names, I restricted the dataset to only include South Australia, Western Australia and New South Wales, as the other states did not have full coverage over the specified time period.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Each dataset gives us the name, sex, year and count of number of babies. The following code loads them in and creates one tibble with both countries.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load in the packages required
-library(ozbabynames)
-library(babynames)
-library(tidyverse)
-library(reldist) 
-
-# get the Australian and US data in one big tibble
-
-da &amp;lt;- ozbabynames %&amp;gt;% 
-  filter(state %in% c(&amp;quot;New South Wales&amp;quot;, &amp;quot;South Australia&amp;quot;, &amp;quot;Western Australia&amp;quot;),
-         year&amp;gt;1959, year&amp;lt;2016) %&amp;gt;% 
-  mutate(sex = ifelse(sex==&amp;quot;Female&amp;quot;, &amp;quot;F&amp;quot;, &amp;quot;M&amp;quot;)) %&amp;gt;% 
-  group_by(sex, year, name) %&amp;gt;% 
-  summarise(count = sum(count)) %&amp;gt;% 
-  arrange(sex, year, count) %&amp;gt;% 
-  mutate(country = &amp;quot;AUS&amp;quot;) %&amp;gt;% 
-  filter(count&amp;gt;4) # remove weird stuff with really low counts
-
-du &amp;lt;- babynames %&amp;gt;% 
-  mutate(country = &amp;quot;USA&amp;quot;) %&amp;gt;% 
-  rename(count = n) %&amp;gt;% 
-  arrange(sex, year, count) %&amp;gt;% 
-  filter(count&amp;gt;4, year&amp;gt;1959, year&amp;lt;2016) %&amp;gt;% 
-  select(-prop)
-
-db &amp;lt;- da %&amp;gt;% 
-  bind_rows(du)
-
-head(db)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
-## # Groups:   sex, year [1]
-##   sex    year name    count country
-##   &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;  
-## 1 F      1960 Alana       5 AUS    
-## 2 F      1960 Alice       5 AUS    
-## 3 F      1960 Antonia     5 AUS    
-## 4 F      1960 Beth        5 AUS    
-## 5 F      1960 Briony      5 AUS    
-## 6 F      1960 Bronwen     5 AUS&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that the US is much larger than Australia — there are around 60 times more babies in the US dataset. For example, in 2015 there were 3.7 million births in the US, compared to around 57,000 in Australia. This means the trends and patterns will be noisier for Australia.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
-  group_by(year, country) %&amp;gt;% 
-  summarise(n = sum(count)) %&amp;gt;%
-  filter(year==2015)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 3
-## # Groups:   year [1]
-##    year country       n
-##   &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;int&amp;gt;
-## 1  2015 AUS       56810
-## 2  2015 USA     3668183&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;baby-names-are-concentrated-in-a-small-subset-of-names&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Baby names are concentrated in a small subset of names&lt;/h1&gt;
-&lt;p&gt;To look at the concentration of baby names, let’s calculate the Gini coefficient for each country, sex and year. The Gini coefficient measures dispersion or inequality among values of a frequency distribution. It can take any value between 0 and 1. In the case of income distributions, a Gini coefficient of 1 would mean one person has all the income. In this case, a Gini coefficient of 1 would mean that all babies have the same name. In contrast, a Gini coefficient of 0 would mean names are evenly distributed across all babies.&lt;/p&gt;
-&lt;p&gt;The plot below shows the Gini coefficients by country and sex for the period 1960-2015. We can see that, in general, the Gini coefficients are high, meaning that most babies have similar names. Concentration of names is higher in the US compared to Australia and coefficients are generally decreasing over time, particularly for the US. In the US, concentration of names is higher for boys, while in Australia, the sex difference is less clear.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
-  group_by(country, sex, year) %&amp;gt;% 
-  summarise(gini = gini(count)) %&amp;gt;% 
-  ggplot(aes(year, gini, color = sex, lty = country)) + 
-  geom_line(lwd = 1.1) +
-  scale_color_brewer(palette = &amp;quot;Set1&amp;quot;) +
-  ggtitle(&amp;quot;Gini coefficients for baby names \nAustralia and USA, 1960-2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2019-20-01-babynames_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;We can plot this concentration a different way: let’s look at the proportion of babies who have a name in the top 5% most popular names.&lt;a href=&#34;#fn2&#34; class=&#34;footnoteRef&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Note that the trends and patterns are pretty much identical to those above. The levels are quite high: in 1960 in the US, almost 90% of all babies born were called a name that was in the top 5% most popular names (note that this corresponds to the around the 250 most popular names).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
-  group_by(sex, year, country) %&amp;gt;% 
-  mutate(id = row_number()-1,
-         cumul_count = cumsum(count)/max(cumsum(count))) %&amp;gt;% # get cumulative proportion of babies with each name
-  mutate(rank = ntile(id, 20)) %&amp;gt;%  # find the top 5th percentile
-  filter(rank==20) %&amp;gt;% 
-  slice(1) %&amp;gt;% 
-  ggplot(aes(year, 1-cumul_count, color = sex, lty = country)) + 
-  geom_line(lwd = 1.1) +
-  scale_color_brewer(palette = &amp;quot;Set1&amp;quot;) +
-  ylab(&amp;quot;proportion&amp;quot;) + 
-  ggtitle(&amp;quot;Proportion of babies that have one of the top 5% names \nAustralia and USA, 1960 -2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2019-20-01-babynames_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;names-are-getting-more-unique&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Names are getting more unique&lt;/h1&gt;
-&lt;p&gt;Is the distribution of baby names become less concentrated because there are more unique names being used over time, or just because people are opting to choose less popular but already existing names?&lt;/p&gt;
-&lt;p&gt;It seems that there is an increase in unique names being used over time in both countries. However, there has been a slight decrease in uniqueness in the US since 2010. (Perhaps people are finally running out of alternative ways of spelling ‘Jackson’.) Interestingly, the number of unique girls names is higher as a proportion of total births compared to boys. This is consistent with the observation above that Gini coefficients are higher for boys.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db %&amp;gt;% 
-  group_by(sex, year, country) %&amp;gt;% 
-  summarise(prop_uniq = n()/sum(count)) %&amp;gt;% 
-  ggplot(aes(year, prop_uniq, color = sex, lty = country)) + 
-  geom_line(lwd = 1.1) +
-  scale_color_brewer(palette = &amp;quot;Set1&amp;quot;) +
-  ylab(&amp;quot;proportion&amp;quot;) + 
-  ggtitle(&amp;quot;Unique baby names as a proportion of total births \nAustralia and USA, 1960 -2015&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2019-20-01-babynames_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary-notes&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Summary notes&lt;/h1&gt;
-&lt;p&gt;People tend to choose a baby name from a relatively small subset of popular names, although name uniqueness is increasing slightly over time. Concentration of baby names is generally higher for boys, and higher in the US compared to Australia. So even though there are many more interesting sounding names in the US, a larger proportion of the population just stick to the more usual names.&lt;/p&gt;
-&lt;p&gt;Changes in popular baby names and how people choose to name their baby are influenced by underlying social processes, such as era-specific events, country-specific cultural norms, and fertility intentions. Sociologists and demographers such as &lt;a href=&#34;https://www.theatlantic.com/sexes/archive/2012/12/why-dont-parents-name-their-daughters-mary-anymore/265881/&#34;&gt;Phillip Cohen&lt;/a&gt; and &lt;a href=&#34;https://journals.sagepub.com/doi/abs/10.1177/0003122415621910&#34;&gt;Josh Goldstein&lt;/a&gt; have done some interesting work in this area.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;For those who are a bit rusty on Australian geography, it’s a shame we don’t have Victoria and Queensland in particular, the two other big states.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;Note that I chose the top 5% rather than the top 5 because of the large difference in the number of unique names across the two countries.&lt;a href=&#34;#fnref2&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <guid>/posts/2019-20-01-babynames/</guid>
+      <description>Some great people have compiled historical data on baby names into R packages for both the US (thanks to Hadley Wickham) and Australia (thanks to the Monash group). This makes answering all manner of baby-name-related questions easy.
+I was interested in looking at the distribution of baby names in these populations over time — that is, how concentrated are name choices in the most popular baby names? Is there a big difference between the number of babies that are called the most popular names compared to other names, or is the distribution more evenly spread?</description>
     </item>
     
     <item>
       <title>Lifespan variation as a measure of mortality progress and inequality</title>
-      <link>/2018/12/21/lifespan-variation-as-a-measure-of-mortality-progress-and-inequality/</link>
+      <link>/posts/2018-21-12-lifespan/</link>
       <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/12/21/lifespan-variation-as-a-measure-of-mortality-progress-and-inequality/</guid>
-      <description>
-
-
-&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest &lt;a href=&#34;http://science.sciencemag.org/content/362/6418/1002&#34;&gt;paper&lt;/a&gt; on the topic.&lt;/p&gt;
-&lt;p&gt;One of the most common aggregate measure of mortality we tend to look at is life expectancy. The formal definition of (period) life expectancy at birth is the average number of years someone would live if the current age-specific mortality rates did not change in future. Given that age-specific mortality rates are generally improving over time, this isn’t really a realistic measure of longevity&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, but it’s a useful way of summarizing mortality at all ages into one number.&lt;/p&gt;
-&lt;p&gt;The ‘expectancy’ part of the name comes from the fact that life expectancy is an average, or expectation. Of all the deaths that happen in a population, we are just looking at the average age at which they occur. However, there are many other ways of summarizing distributions with one number: for example, the median or mode age at death. Another such measure — lifespan variation — captures the variation in ages at death.&lt;/p&gt;
-&lt;p&gt;As an example, the figure below shows the distribution of ages at deaths for Californian males in 1960 and 2010. (These data are from the &lt;a href=&#34;https://usa.mortality.org/&#34;&gt;HMD US states project&lt;/a&gt;). Notice that the distribution has shifted to the right, which corresponds to improving mortality and increased life expectancy (as shown by the vertical lines). In addition, notice that the distribution in 2010 is not as spread out — the distribution of deaths is more concentrated around the mean age. That is, variation in lifespan has decreased from 1960 to 2010.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/dx_CA.png&#34; width=&#34;600&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;Increases in life expectancy are usually coupled with decreases in lifespan variation. This is due to the fact that life expectancy increases usually occur because of improvements in infant mortality (which leads to a decrease in the spike observed in the first-year mortality) and decreases in premature deaths (e.g. decreases in cardiovascular diseases). However, as van Raalte and coauthors point out, this relationship of increasing life expectancy and decreasing lifespan variation is not always the case, and recently there has been a reversal of the trend for many populations.&lt;/p&gt;
-&lt;p&gt;I’ll briefly describe one way to calculate lifespan variation and show trends by US state. Note that all data come from the &lt;a href=&#34;https://usa.mortality.org/&#34;&gt;HMD US states Project&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;measuring-lifespan-variation&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Measuring lifespan variation&lt;/h2&gt;
-&lt;p&gt;There are several different ways of measuring lifespan variation. In this post, I use the standard deviation of age of death, which can be calculated from lifetable quantities as&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\sqrt{\sum_0^\omega \frac{\left(x - e_0 \right)^2d_x}{\sum_0^\omega d_x}}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;where &lt;span class=&#34;math inline&#34;&gt;\(e_0\)&lt;/span&gt; is life expectancy at birth, &lt;span class=&#34;math inline&#34;&gt;\(d_x\)&lt;/span&gt; is the lifetable deaths at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\omega\)&lt;/span&gt; is the open age interval (110+ in the case of HMD data).&lt;/p&gt;
-&lt;p&gt;There are many other options to calculate, including: standard deviation from age 10 (which eliminates the effects of child mortality, see &lt;a href=&#34;https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2005.00092.x&#34;&gt;Edwards and Tuljapurkar&lt;/a&gt;); interquartile range; life disparity (&lt;span class=&#34;math inline&#34;&gt;\(e^\dagger\)&lt;/span&gt;) (e.g. see the new paper by &lt;a href=&#34;https://link.springer.com/article/10.1007/s13524-018-0729-9?wt_mc=alerts.TOCjournals&#34;&gt;Aburto and van Raalte&lt;/a&gt;). I chose standard deviation because I find it intuitive and it’s easy to calculate based on lifetable columns. However, other measures would probably show similar trends.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lifespan-variation-in-the-us&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Lifespan variation in the US&lt;/h2&gt;
-&lt;p&gt;The plot below shows life expectancy at birth and lifespan variation for the United States (data from &lt;a href=&#34;https://www.mortality.org&#34;&gt;HMD&lt;/a&gt;). The recent decline in life expectancy in the United States has gained a lot of &lt;a href=&#34;https://www.washingtonpost.com/national/health-science/us-life-expectancy-declines-again-a-dismal-trend-not-seen-since-world-war-i/2018/11/28/ae58bc8c-f28c-11e8-bc79-68604ed88993_story.html?noredirect=on&amp;amp;utm_term=.9fc59cc5fb08&#34;&gt;attention&lt;/a&gt;. However, note that lifespan variation started to increase before life expectancy started to plateau/decrease.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/USA.png&#34; width=&#34;600&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;Looking by state, life expectancy has increased everywhere, with recent evidence of plateauing and declining in some states (note that these data are only up to 2015, so the declines would be more apparent with more recent data). On the other hand, lifespan variation has generally declined, but plateaued much earlier than life expectancy. An increase in lifespan variation is apparent for some states, including some New England and Mid-West states.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/facet.png&#34; width=&#34;5600&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;For example, the plots below show life expectancy and lifespan variation for New Hampshire and West Virginia, two states that have been &lt;a href=&#34;https://github.com/mkiang/opioid_hotspots&#34;&gt;hardest hit by the opioid epidemic&lt;/a&gt;. For these states, lifespan variation has increased back up to the level it was in the 1980s-90s.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/NH_WV.png&#34; width=&#34;800&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;It’s also interesting to compare trends in states that have a similar life expectancy. For instance, comparing Georgia and Ohio, the latter has experienced a much more pronounced increase in lifespan in recent years.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/GA_OH.png&#34; width=&#34;800&#34; /&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;Lifespan variation is easily calculable from lifetable quantities, and is an interesting measure of mortality progress and inequality. Even if life expectancy is increasing, the variation of lifespan could also be increasing, which suggests increased inequality in death – while a proportion of the population are dying at older ages, there is also an increased proportion dying prematurely. Increased variation in the age of death means greater uncertainty around timing of death, which has implications for how people think about their future.&lt;/p&gt;
-&lt;p&gt;All data are freely available and the code I used to generate plots etc is available on my &lt;a href=&#34;https://github.com/MJAlexander/states-mortality&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;Follow &lt;a href=&#34;https://twitter.com/les_ja&#34;&gt;Leslie Root&lt;/a&gt; on Twitter for amusing rants on people misinterpreting life expectancies.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Trends in pregnancy-associated mortality involving opioids in the United States, 2007–2016</title>
-      <link>/publication/opioid_maternal/</link>
-      <pubDate>Fri, 28 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/opioid_maternal/</guid>
-      <description></description>
+      <guid>/posts/2018-21-12-lifespan/</guid>
+      <description>Introduction This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest paper on the topic.
+One of the most common aggregate measure of mortality we tend to look at is life expectancy.</description>
     </item>
     
     <item>
       <title>Estimating age-specific mortality rates at the subnational level</title>
-      <link>/2018/09/21/estimating-age-specific-mortality-rates-at-the-subnational-level/</link>
+      <link>/posts/2018-21-09-tutorial/</link>
       <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/09/21/estimating-age-specific-mortality-rates-at-the-subnational-level/</guid>
-      <description>
-
-
-&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;This is a tutorial on estimating age-specific mortality rates at the subnational level, using a model similar to that described in our &lt;a href=&#34;https://link.springer.com/article/10.1007/s13524-017-0618-7&#34;&gt;Demography paper&lt;/a&gt;. There are four main steps, which will be described below:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Prepare data and get it in the right format&lt;/li&gt;
-&lt;li&gt;Choose and create a mortality standard&lt;/li&gt;
-&lt;li&gt;Fit the model&lt;/li&gt;
-&lt;li&gt;Analyze results from the model&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;A few notes on this particular example:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;I’ll be fitting the model to county-level mortality rates in California over the years 1999 to 2016. These are age-specific mortality rates for both sexes for the age groups &amp;lt;1, 1-4, 5-9, 10-14, 15-19, 20-24, 25-34, 35-44, 45-54, 55-64, 65-74, 75-84, 85+.&lt;/li&gt;
-&lt;li&gt;Data on deaths and populations are publicly available through &lt;a href=&#34;https://wonder.cdc.gov/&#34;&gt;CDC WONDER&lt;/a&gt;. However, age groups where death counts are less than 10 are suppressed, and so for some age group/year/county combinations, there are missing data. Also note that there are no observations for any years for two counties, Sierra and Alpine.&lt;/li&gt;
-&lt;li&gt;All analysis was done in R and the model was fit using JAGS. Other MCMC options such as Stan, WinBUGS or PyMC would probably work just as well.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;All the code to reproduce this example can be found here: &lt;a href=&#34;https://github.com/MJAlexander/states-mortality/tree/master/CA_county_example&#34; class=&#34;uri&#34;&gt;https://github.com/MJAlexander/states-mortality/tree/master/CA_county_example&lt;/a&gt;. Please see the R file &lt;code&gt;CA.R&lt;/code&gt; in the &lt;code&gt;code&lt;/code&gt; folder.&lt;/p&gt;
-&lt;p&gt;A note on modeling: there are many adaptions that can be made to this broad model set up, which may be more suitable in different situations. When estimating mortality in your own work, make sure to undergo a suitable validation process to see that the estimates are sensible, and fully test alternatives.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;preparing-the-data&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;1. Preparing the data&lt;/h1&gt;
-&lt;p&gt;The first step is to obtain data on death counts and population by age (and potentially sex) groups, and get it in the right format for modeling purposes. Note that you need counts, not just the mortality rates, as inputs into the model.&lt;/p&gt;
-&lt;p&gt;In this example, I downloaded data on death and population counts by county (the files &lt;code&gt;CA.csv&lt;/code&gt; and &lt;code&gt;CA_pop.csv&lt;/code&gt; in the data folder). Because these two data sources had different age groups available, I had to a bit of cleaning up to make sure everything was consistent. The resulting deaths data has the following form:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;##               county code age_group year deaths   pop age          mx
-## 1 Alameda County, CA 6001  &amp;lt; 1 year 1999    110 19336   0 0.005688871
-## 2 Alameda County, CA 6001  &amp;lt; 1 year 2000    104 19397   0 0.005361654
-## 3 Alameda County, CA 6001  &amp;lt; 1 year 2001    133 22044   0 0.006033388
-## 4 Alameda County, CA 6001  &amp;lt; 1 year 2002     91 21316   0 0.004269094
-## 5 Alameda County, CA 6001  &amp;lt; 1 year 2003     97 21091   0 0.004599118
-## 6 Alameda County, CA 6001  &amp;lt; 1 year 2004    111 20339   0 0.005457495&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the JAGS model, the data has to has to be in the form of an array. The notation used throughout the JAGS model is referring to age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, time &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;, area &lt;span class=&#34;math inline&#34;&gt;\(a\)&lt;/span&gt; and state &lt;span class=&#34;math inline&#34;&gt;\(s\)&lt;/span&gt;. So both the deaths and population data need to be in the form of an array with dimensions age x time x area x state. I did this in quite an ugly way combining loops and tidyverse, which probably isn’t the most elegant way, but it works :) The resulting deaths data for the first county (Alameda) looks like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;y.xtas[,,1,1]&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
-##  [1,]  110  104  133   91   97  111  105   91  105    89    77    94    79
-##  [2,]   17   22   15   13   13   16   10   21   18    15    18    12    12
-##  [3,]   14   14   16   15   10   13   NA   15   11    NA    NA    NA    NA
-##  [4,]   16   19   17   13   19   13   22   13   NA    15    13    11    11
-##  [5,]   48   36   41   57   51   50   51   66   54    47    43    51    34
-##  [6,]   71   71   83   76   89   75   72   94   99    89    89    73    69
-##  [7,]  194  193  179  195  187  201  171  194  167   169   156   120   173
-##  [8,]  426  435  401  396  419  345  343  337  329   310   292   253   262
-##  [9,]  779  799  783  836  827  825  812  758  768   735   708   629   677
-## [10,] 1078 1069 1009 1066 1130 1064 1084 1106 1211  1176  1141  1159  1319
-## [11,] 1779 1645 1531 1517 1445 1452 1362 1385 1368  1341  1333  1348  1353
-## [12,] 2748 2792 2841 2714 2719 2517 2512 2395 2316  2271  2103  2088  2137
-## [13,] 2629 2687 2720 2617 2748 2586 2782 2831 2874  2974  2922  3064  3041
-##       [,14] [,15] [,16] [,17] [,18]
-##  [1,]    75    86    76    75    71
-##  [2,]    15    10    11    NA    10
-##  [3,]    NA    NA    NA    NA    NA
-##  [4,]    NA    12    NA    NA    NA
-##  [5,]    49    43    38    46    37
-##  [6,]    84    74    87    82    77
-##  [7,]   163   159   180   178   214
-##  [8,]   263   260   261   279   273
-##  [9,]   675   647   549   598   603
-## [10,]  1283  1273  1301  1291  1274
-## [11,]  1528  1599  1624  1698  1750
-## [12,]  2019  2040  2015  2059  2137
-## [13,]  3253  3376  3276  3476  3462&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;preparing-the-mortality-standard&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;2. Preparing the mortality standard&lt;/h1&gt;
-&lt;p&gt;The other main inputs to the mortality model are the principal components derived from the mortality standard. Which mortality standard you choose to derive your principal components from depends on your specific problem. In the case of this example, I decided to use state-level mortality schedules for all states in the US over the period 1959–2015. These data are available through the &lt;a href=&#34;https://usa.mortality.org/&#34;&gt;United States Mortality Database&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The code I used to create the principal components using these data are &lt;a href=&#34;https://github.com/MJAlexander/states-mortality/blob/master/CA_county_example/code/pcs.R&#34;&gt;here&lt;/a&gt;. Again note that for this particular example, I had to alter the data so that the age groups were consistent.&lt;/p&gt;
-&lt;p&gt;Once the principal components are obtained, they can be input into the model based on being in a matrix with dimension age x component. Note that the model fitted here uses three components. The inputs are below:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;##            V1           V2           V3
-## 1  0.20853194  0.630214628  0.287652535
-## 2  0.35264710  0.300256735 -0.162737410
-## 3  0.38660035  0.252316283 -0.287091193
-## 4  0.38118755 -0.017848623 -0.403974070
-## 5  0.32970586 -0.252356450 -0.352528704
-## 6  0.31523511 -0.359905277 -0.025726734
-## 7  0.30949609 -0.383953991  0.306658736
-## 8  0.28246520 -0.191162991  0.454141280
-## 9  0.24350004 -0.003865125  0.401059537
-## 10 0.20458378  0.099035872  0.221135219
-## 11 0.16646980  0.139019421  0.085803340
-## 12 0.12715285  0.116507026  0.052966450
-## 13 0.09332889 -0.169677526 -0.004089363&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;running-the-model&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;3. Running the model&lt;/h1&gt;
-&lt;p&gt;Now that we have the required data inputs, the JAGS model can be run. You need to create an input list of all the data required by JAGS, and specify the names of the parameters you would like to monitor and get posterior samples for.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;jags.data &amp;lt;- list(y.xtas = y.xtas, 
-                  pop.xtas = pop.xtas, 
-                  Yx = pcs,
-                  S = 1, X= length(age_groups), T = length(years), 
-                  n.a=length(counties), n.amax=length(counties), P=3 )
-
-parnames &amp;lt;- c(&amp;quot;beta.tas&amp;quot;, &amp;quot;mu.beta&amp;quot; ,&amp;quot;sigma.beta&amp;quot;, &amp;quot;tau.mu&amp;quot;, &amp;quot;u.xtas&amp;quot;, &amp;quot;mx.xtas&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once that is done, the model can be run. Please look at the model text file in reference to the paper to see which variables refer to what aspects. The notation used in the JAGS model is (I hope) fairly consistent with the notation in the paper.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod &amp;lt;- jags(data = jags.data, 
-            parameters.to.save=parnames, 
-            n.iter = 30000,
-            model.file = &amp;quot;../code/model.txt&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This may take a while to run, so be patient. You can look at a summary of the model estimates like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mod$BUGSoutput$summary&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that the values of all Rhats should be less than 1.1, otherwise the estimates are unreliable and should not be interpreted. If you have Rhats that are greater than 1.1, try running the model for more iterations.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# check all Rhats are less than 1.1
-max(mod$BUGSoutput$summary[,&amp;quot;Rhat&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;extract-results&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;4. Extract results&lt;/h1&gt;
-&lt;p&gt;Now that we have model estimates, we need to be able to extract them and look at the results. You can get the posterior samples for all parameters by extracting the &lt;code&gt;sims.array&lt;/code&gt; from the model object:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mcmc.array &amp;lt;- mod$BUGSoutput$sims.array&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Unless you’re interested in the underlying mechanics of the model, you’re probably most interested in the estimates for the age-specific mortality rates, &lt;code&gt;mx.xtas&lt;/code&gt;. The &lt;code&gt;sims.array&lt;/code&gt; has dimensions number iterations (default 1,000) x number of chains (default 3) x number of parameters. So to look at the posterior samples for &lt;code&gt;mx.xtas[1,1,1,1]&lt;/code&gt; for example, you would type:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mcmc.array[,,&amp;quot;mx.xtas[1,1,1,1]&amp;quot;]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once the posterior samples are obtained, these are used to obtain the best estimate of the parameter (usually the median) and Bayesian credible intervals. For example, a 95% credible interval can be calculated by getting the 2.5th and 97.5th quantile of the posterior samples. Below is a chart that illustrates some of the age-specific mortality estimates for six Californian counties in 2016. Code to generate this chart is included in &lt;code&gt;CA.R&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/select_counties_mx.png&#34; width=&#34;800&#34; /&gt;
-
-&lt;/div&gt;
-&lt;p&gt;Once the estimate for mortality rates are extracted, you can also convert these into other mortality measures, such as life expectancy, using standard life table relationships. The code on GitHub includes a function which derives life expectancy from the mx’s, called &lt;code&gt;derive_ex_values&lt;/code&gt;. This function is loaded in at the beginning of the &lt;code&gt;CA.R&lt;/code&gt;. Code to generate this chart is included at the end of &lt;code&gt;CA.R&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/img/e0_alameda.png&#34; width=&#34;600&#34; /&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Summary&lt;/h1&gt;
-&lt;p&gt;This document gives a brief introduction into the practicalities of fitting a Bayesian subnational mortality model in R using JAGS. There are many different layers to the model and assumptions associated with it, so it is recommended that the user of this code and model is familiar with &lt;a href=&#34;https://link.springer.com/article/10.1007/s13524-017-0618-7&#34;&gt;the paper&lt;/a&gt; and the assumptions outlined in it. Good luck! :)&lt;/p&gt;
-&lt;/div&gt;
-</description>
+      <guid>/posts/2018-21-09-tutorial/</guid>
+      <description>Introduction This is a tutorial on estimating age-specific mortality rates at the subnational level, using a model similar to that described in our Demography paper. There are four main steps, which will be described below:
+Prepare data and get it in the right format Choose and create a mortality standard Fit the model Analyze results from the model  A few notes on this particular example:
+ I’ll be fitting the model to county-level mortality rates in California over the years 1999 to 2016.</description>
     </item>
     
     <item>
       <title>Thoughts after finishing a Demography PhD</title>
-      <link>/2018/06/04/thoughts-after-finishing-a-demography-phd/</link>
+      <link>/posts/2018-23-05-demog_phd/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/04/thoughts-after-finishing-a-demography-phd/</guid>
-      <description>
-
-
-&lt;p&gt;PhDs are hard. They are incredibly fulfilling, but mentally challenging and emotionally draining. You meet some amazing people, but also have to deal with some difficult people and difficult situations. During my time as a PhD student, a lot of things went better than I imagined, but I also made a fair few mistakes.&lt;/p&gt;
-&lt;p&gt;The following are a few thoughts after my experience. They are based on being involved in the demographic research field — a relatively small and supportive academic community — but the comments are pretty general. I’m writing this not so much to offer advice, but more in the hope that others read it and see similarities with their own experience.&lt;/p&gt;
-&lt;div id=&#34;good-mentors-make-a-huge-difference&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Good mentors make a huge difference&lt;/strong&gt;&lt;/h2&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Guess **Hey, join our book project: &lt;a href=&#34;https://t.co/po9FQ1j6ZQ&#34;&gt;https://t.co/po9FQ1j6ZQ&lt;/a&gt; &lt;a href=&#34;https://t.co/XS51temnki&#34;&gt;pic.twitter.com/XS51temnki&lt;/a&gt;&lt;/p&gt;&amp;mdash; PHD Comics (@PHDcomics) &lt;a href=&#34;https://twitter.com/PHDcomics/status/1002535988248416256?ref_src=twsrc%5Etfw&#34;&gt;June 1, 2018&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;p&gt;Do not underestimate the effect of mentorship on your PhD experience: perhaps more than anyone, mentors influence your learning trajectory, research output and self confidence.&lt;/p&gt;
-&lt;p&gt;Mentors need not be constrained to those on your formal advisory panel. In my own experience, I had a great panel, but the most invaluable mentorship came from people who were not formally associated with my committee or university.&lt;/p&gt;
-&lt;p&gt;Find mentors who you feel comfortable around: there is huge value in being able to email or talk to someone about your research without being worried about making mistakes or saying something stupid. Good mentors listen, know about your research, introduce you to people, and think of you when they see opportunities. They do exist :)&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;the-peer-review-process-can-be-long&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;The peer review process can be LONG&lt;/strong&gt;&lt;/h2&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Most scientists regarded the new streamlined peer-review process as &amp;quot;quite an improvement&amp;quot; &lt;a href=&#34;http://t.co/XEBcp2VavD&#34;&gt;pic.twitter.com/XEBcp2VavD&lt;/a&gt;&lt;/p&gt;&amp;mdash; The Sociological Review (@TheSocReview) &lt;a href=&#34;https://twitter.com/TheSocReview/status/520318869819252736?ref_src=twsrc%5Etfw&#34;&gt;October 9, 2014&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;p&gt;It’s well known that the peer review process can take a long time. Journal articles can take 6-12 months from the time of submission to publication. In hindsight, I didn’t really think about this in terms of what it meant for my own timeline.&lt;/p&gt;
-&lt;p&gt;Having R&amp;amp;Rs or publications can be very valuable when you go on the job market. If you want to be at this stage, you need to think about submitting a year before you go on the market, i.e. two years before you finish your PhD. This is a huge lead time.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;doing-a-few-extra-projects-is-good-but-dont-do-too-many&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Doing a few extra projects is good, but don’t do too many&lt;/strong&gt;&lt;/h2&gt;
-&lt;center&gt;
-&lt;img src=&#34;/img/distraction.jpg&#34;, width = 500&gt;
-&lt;/center&gt;
-&lt;p&gt;There will probably be opportunities to be involved in side projects in addition to your dissertation. Side projects are a great way of learning new skills, collaborating with new researchers, and getting a little bit of extra income. However, it’s easy for side projects to end up taking most of your time: deadlines are often more imminent, which means it’s easy to put off the dissertation work for another day. Try not to fall into this trap.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;submit-and-go-to-conferences&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Submit and go to conferences&lt;/strong&gt;&lt;/h2&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Flying to a conference, the grad student loses the ability to finish some last-minute work. &lt;a href=&#34;https://twitter.com/hashtag/flying?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#flying&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/work?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#work&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/TRexArms?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#TRexArms&lt;/a&gt; &lt;a href=&#34;https://t.co/teyPbAVjt6&#34;&gt;pic.twitter.com/teyPbAVjt6&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lego Grad Student (@legogradstudent) &lt;a href=&#34;https://twitter.com/legogradstudent/status/766336056539029504?ref_src=twsrc%5Etfw&#34;&gt;August 18, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;p&gt;Conferences are a great way of getting your work out there. If you’re like me, they are also a great way of forcing yourself to have a deadline to get a working paper finished. Conferences are also a good opportunity to try and meet other researchers in your field. Introduce yourself to people who you might be interested in working with, so they can put a face to the name in future.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;write-a-little-bit-everyday&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Write a little bit everyday&lt;/strong&gt;&lt;/h2&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;und&#34; dir=&#34;ltr&#34;&gt;&lt;a href=&#34;https://t.co/rL9oCvRBr2&#34;&gt;pic.twitter.com/rL9oCvRBr2&lt;/a&gt;&lt;/p&gt;&amp;mdash; Shit Academics Say (@AcademicsSay) &lt;a href=&#34;https://twitter.com/AcademicsSay/status/996526193510899712?ref_src=twsrc%5Etfw&#34;&gt;May 15, 2018&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;p&gt;Demographers often like to play with data and graph things instead of writing. Trying to write a little bit most days helps immensely later on. Sometimes Past Monica was surprisingly clever, sometimes Past Monica was talking rubbish, but Present Monica was generally glad Past Monica had put some thoughts to paper.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;try-not-to-compare-yourself-to-others-too-much&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Try not to compare yourself to others too much&lt;/strong&gt;&lt;/h2&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;The continued popularity of both the &amp;quot;PhD students literally never stop working&amp;quot; genre and the &amp;quot;lol I wrote one sentence today, good job me&amp;quot; genre on the ol&amp;#39; TL is a great reminder not to take people&amp;#39;s assertions about their productivity at face value&lt;/p&gt;&amp;mdash; Leslie Root (@les_ja) &lt;a href=&#34;https://twitter.com/les_ja/status/999307291873574913?ref_src=twsrc%5Etfw&#34;&gt;May 23, 2018&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;p&gt;It’s hard to not suffer from imposter syndrome. It’s hard to not compare yourself to others and their achievements. It’s hard not worry about whether you’re doing the right topic, selling your work enough, publishing in the right places. And you will likely come across really competitive people that want to put you down to make themselves feel better.&lt;/p&gt;
-&lt;p&gt;But in the end, it’s important to focus on yourself: define your own research interests, know what your goals are and work to achieve them. Back yourself, and be proud of your work. And don’t worry about the passive aggressors: surround yourself with fun, supportive and interesting people.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;its-okay-to-feel-overwhelmed&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;It’s okay to feel overwhelmed&lt;/strong&gt;&lt;/h2&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Gotta tape this up somewhere &lt;a href=&#34;https://t.co/5tCZBHtUuw&#34;&gt;pic.twitter.com/5tCZBHtUuw&lt;/a&gt;&lt;/p&gt;&amp;mdash; Emily Silverman (@ESilvermanMD) &lt;a href=&#34;https://twitter.com/ESilvermanMD/status/1002242560633573377?ref_src=twsrc%5Etfw&#34;&gt;May 31, 2018&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;p&gt;Most people feel overwhelmed at some point, and it’s okay. It’s not a personal failing. Sometimes, it’s part of the learning process. You’re doing something you’ve never done before, at the limit of your knowledge, and there’s no guarantee it will work (and it often doesn’t). That said, &lt;a href=&#34;https://www.nature.com/articles/nbt.4089&#34;&gt;many graduate students suffer from mental health issues&lt;/a&gt; and it’s important to surround yourself with supportive people and seek help when you need it.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;final-thoughts&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;strong&gt;Final thoughts &lt;/strong&gt;&lt;/h2&gt;
-&lt;div id=&#34;good-research-is-important-but-so-is-working-hard-and-being-nice-to-people.&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Good research is important, but so is working hard and being nice to people.&lt;/h3&gt;
-&lt;p&gt;In the end, PhDs (and academia) are similar to any other job. Being successful is not just a function of how good your topic is. You have to put in the hours. You also have to learn to deal with people you disagree with in a professional manner. Be supportive of your peers and promote other people’s work, not just your own. This helps to build a productive and supportive network for the future.&lt;/p&gt;
-&lt;p&gt;Around six years ago, &lt;a href=&#34;https://www.rohanalexander.com/&#34;&gt;Rohan&lt;/a&gt; convinced me to take the GRE and apply for some PhD programs. “If you don’t try, you’ll never know, and then you’ll always wonder if you could have.” This was right, of course. One year later we were on a plane, moving from Australia to the US.&lt;/p&gt;
-&lt;p&gt;I graduated about three weeks ago and it still hasn’t really sunk in. I feel very lucky to have had this opportunity.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Trends in Black and White Opioid Mortality in the United States, 1979–2015</title>
-      <link>/publication/opioid_trends/</link>
-      <pubDate>Tue, 29 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/opioid_trends/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deaths without denominators: using a matched dataset to study mortality patterns in the United States</title>
-      <link>/publication/censoc/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/censoc/</guid>
-      <description></description>
+      <guid>/posts/2018-23-05-demog_phd/</guid>
+      <description>PhDs are hard. They are incredibly fulfilling, but mentally challenging and emotionally draining. You meet some amazing people, but also have to deal with some difficult people and difficult situations. During my time as a PhD student, a lot of things went better than I imagined, but I also made a fair few mistakes.
+The following are a few thoughts after my experience. They are based on being involved in the demographic research field — a relatively small and supportive academic community — but the comments are pretty general.</description>
     </item>
     
     <item>
       <title>Berkeley Demography at PAA 2018</title>
-      <link>/2018/04/24/berkeley-demography-at-paa-2018/</link>
+      <link>/posts/2018-04-24-paa/</link>
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/04/24/berkeley-demography-at-paa-2018/</guid>
-      <description>
-
-
-&lt;p&gt;Berkeley Demography and Population Center affiliates will be presenting their work at PAA 2018. Check out some of their great work!&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person11604.html&#34;&gt;Magali Barbieri&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Session 6-2: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20592.html&#34;&gt;Contribution of drug poisonings to divergence in life expectancy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Session 45-3: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23025.html&#34;&gt;Cause-specific mortality data at the subnational level&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person4688.html&#34;&gt;Boroka Bo&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Poster (Health and Mortality 1): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21393.html&#34;&gt;Time poverty by ethnicity&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person2557.html&#34;&gt;Gabriel Borges&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Session 68-4: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23921.html&#34;&gt;Mortality rates from sibling histories&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Session 83-2: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20223.html&#34;&gt;Bayesian melding to estimate census coverage&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person11985.html&#34;&gt;Stephanie Child&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Poster (Health and Mortality 1): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper19876.html&#34;&gt;Social networks and stress&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person264.html&#34;&gt;Will Dow&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Session 72-3: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20106.html&#34;&gt;Cuba’s cardiovascual risk factors&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Poster (Children and Youth): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper18486.html&#34;&gt;Parenting and Early Childhood Development in Indigenous and Non-Indigenous Mexican Communities&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Poster (Health and Mortality 2): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21504.html&#34;&gt;Incentive-Based Interventions for Smoking Cessation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23528.html&#34;&gt;Paid parental leave&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person13558.html&#34;&gt;Denys Dukhovnov&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Poster (Marriage, Families, Households, and Unions 1): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21415.html&#34;&gt;Stress coping strategies&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Poster (Health and Mortality 1): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21393.html&#34;&gt;Time poverty by ethnicity&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person14546.html&#34;&gt;Dennis Feehan&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Session 68-4: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23921.html&#34;&gt;Mortality rates from sibling histories&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Session 167-3: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23912.html&#34;&gt;Estimating internet adoption using Facebook&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Session2138.html&#34;&gt;Joshua Goldstein&lt;/a&gt;:
-&lt;ul&gt;
-&lt;li&gt;Organizer, Mathematical demography session&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person255.html&#34;&gt;Ron Lee&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Session 95-2: &lt;a href=&#34;paa/2018/webprogrampreliminary/Paper21830.html&#34;&gt;Life expectancy, pension outcomes and income&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Session 140-3: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper20137.html&#34;&gt;Aging and intergenerational flows&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person6435.html&#34;&gt;Hayley Pierce&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Session 160-4: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper18645.html&#34;&gt;Risk and Protective Factors for Generational Refugee Children&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person2766.html&#34;&gt;Danny Schneider&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Session 167-2: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23984.html&#34;&gt;Facebook as a Tool for Survey Data Collection&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Session 174-4: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper24054.html&#34;&gt;Inequalities in parental time&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person9219.html&#34;&gt;Ruijie (Mia) Zhong&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23830.html&#34;&gt;Education and marriage in Japan&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;…and me!&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person6437.html&#34;&gt;Monica Alexander&lt;/a&gt;:
-&lt;ul&gt;
-&lt;li&gt;Session 89-2: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper22264.html&#34;&gt;Spatial distribution of opioid mortality&lt;/a&gt;, presented by &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person15557.html&#34;&gt;Mathew Kiang&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Session 113-2: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper21488.html&#34;&gt;Estimating subnational populations&lt;/a&gt;, joint work with &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person16520.html&#34;&gt;Leontine Alkema&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Session 207-3: &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Paper23641.html&#34;&gt;Using Facebook and ACS to predict migration stocks&lt;/a&gt;, presented by &lt;a href=&#34;https://paa.confex.com/paa/2018/webprogrampreliminary/Person1727.html&#34;&gt;Emilio Zagheni&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;center&gt;
-&lt;img src=&#34;/img/demogseal2.png&#34;, width = 200&gt;
-&lt;/center&gt;
-</description>
+      <guid>/posts/2018-04-24-paa/</guid>
+      <description>Berkeley Demography and Population Center affiliates will be presenting their work at PAA 2018. Check out some of their great work!
+ Magali Barbieri  Session 6-2: Contribution of drug poisonings to divergence in life expectancy Session 45-3: Cause-specific mortality data at the subnational level  Boroka Bo  Poster (Health and Mortality 1): Time poverty by ethnicity  Gabriel Borges  Session 68-4: Mortality rates from sibling histories Session 83-2: Bayesian melding to estimate census coverage  Stephanie Child  Poster (Health and Mortality 1): Social networks and stress  Will Dow  Session 72-3: Cuba’s cardiovascual risk factors Poster (Children and Youth): Parenting and Early Childhood Development in Indigenous and Non-Indigenous Mexican Communities Poster (Health and Mortality 2): Incentive-Based Interventions for Smoking Cessation Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): Paid parental leave  Denys Dukhovnov  Poster (Marriage, Families, Households, and Unions 1): Stress coping strategies Poster (Health and Mortality 1): Time poverty by ethnicity  Dennis Feehan  Session 68-4: Mortality rates from sibling histories Session 167-3: Estimating internet adoption using Facebook  Joshua Goldstein:  Organizer, Mathematical demography session  Ron Lee  Session 95-2: Life expectancy, pension outcomes and income Session 140-3: Aging and intergenerational flows  Hayley Pierce  Session 160-4: Risk and Protective Factors for Generational Refugee Children  Danny Schneider  Session 167-2: Facebook as a Tool for Survey Data Collection Session 174-4: Inequalities in parental time  Ruijie (Mia) Zhong  Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): Education and marriage in Japan   …and me!</description>
     </item>
     
     <item>
-      <title>Estimating Subnational Populations of Women of Reproductive Age</title>
-      <link>/publication/kenya_subnational/</link>
-      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/kenya_subnational/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gompertz mortality models: the relationship between alpha, beta and mode age</title>
-      <link>/2018/02/18/gompertz-mortality-models-the-relationship-between-alpha-beta-and-mode-age/</link>
+      <title>Gompertz mortality models</title>
+      <link>/posts/2018-02-15-gompertz/</link>
       <pubDate>Sun, 18 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/02/18/gompertz-mortality-models-the-relationship-between-alpha-beta-and-mode-age/</guid>
-      <description>
-
-
-&lt;div id=&#34;introduction&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;The Gompertz model is one of the most well-known mortality models. It does remarkably well at explaining mortality rates at adult ages across a wide range of populations with just two parameters. This post briefly reviews the Gompertz model, highlighting the relationship between the two Gompertz parameters, &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, and the implied mode age at death. I focus on the situation where we only observe death counts by age (rather than mortality rates), so estimation of the Gompertz model requires choosing &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; to maximize the (log) density of deaths.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;gompertz-mortality&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Gompertz mortality&lt;/h2&gt;
-&lt;p&gt;Here are a few important equations related to the Gompertz model.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; The Gompertz hazard (or force of mortality) at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(\mu(x)\)&lt;/span&gt;, has the exponential form &lt;span class=&#34;math display&#34;&gt;\[
-\mu(x) = \alpha e^{\beta x}
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; parameter captures some starting level of mortality and the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; gives the rate of mortality increase over age. Note here that &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; refers to the starting age of analysis and not necessarily age = 0. Indeed, Gompertz models don’t do a very good job at younger ages (roughly &lt;span class=&#34;math inline&#34;&gt;\(&amp;lt;40\)&lt;/span&gt; years).&lt;/p&gt;
-&lt;p&gt;Given the relationship between hazard rates and survivorship at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(l(x)\)&lt;/span&gt;, &lt;span class=&#34;math display&#34;&gt;\[
-\mu(x) = -\frac{d}{dx} \log l(x)
-\]&lt;/span&gt; the expression for &lt;span class=&#34;math inline&#34;&gt;\(l(x)\)&lt;/span&gt; is &lt;span class=&#34;math display&#34;&gt;\[
-l(x) = \exp\left(-\frac{\alpha}{\beta}\left(\exp(\beta x) - 1\right)\right)
-\]&lt;/span&gt; It then follows that the density of deaths at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;, &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; is &lt;span class=&#34;math display&#34;&gt;\[
-d(x) = \mu(x) l(x) = \alpha \exp(\beta x) \exp\left(-\frac{\alpha}{\beta}\left(\exp(\beta x) - 1\right)\right)
-\]&lt;/span&gt; which probably looks worse than it is. &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; tells us about the distribution of deaths by age. It is a density, so &lt;span class=&#34;math display&#34;&gt;\[
-\int d(x) = 1
-\]&lt;/span&gt; Say we observe death counts by age, &lt;span class=&#34;math inline&#34;&gt;\(y(x)\)&lt;/span&gt;, which implies a total number of deaths of &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt;. If we multiply the total number of deaths &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt; by &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt;, then that gives the number of deaths at age &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt;. In terms of fitting a model, we want to find values for &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; that correspond to the density &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; which best describes the data we observe, &lt;span class=&#34;math inline&#34;&gt;\(y(x)\)&lt;/span&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;parameterization-in-terms-of-the-mode-age&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Parameterization in terms of the mode age&lt;/h2&gt;
-&lt;p&gt;Under a Gompertz model, the mode age at death, &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; is&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-M = \frac{1}{\beta}\log \left(\frac{\beta}{\alpha}\right)
-\]&lt;/span&gt; Given a set of plausible mode ages, we can work out the relevant combinations of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; based on the equation above. For example, the chart belows shows all combinations of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; that result in a mode age between 60 and 90.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/plausible_values.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This chart suggests that plausible values of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; for human populations are pretty restricted. In addition, it shows the strong correlation between these two parameters: in general, the smaller the value of &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;, the larger the value of &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;. This sort of correlation between parameters can cause issues with estimation. However, given we know the relationship between &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; and the mode age, the Gompertz model can be reparameterized in terms of &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\mu(x) = \beta \exp\left(\beta (x - M)\right)
-\]&lt;/span&gt; As &lt;a href=&#34;https://www.demographic-research.org/volumes/vol32/36/&#34;&gt;this paper&lt;/a&gt; notes, &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; are much less correlated than &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;. In addition, the modal age has a much more intuitive interpretation than &lt;span class=&#34;math inline&#34;&gt;\(\alpha\)&lt;/span&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;implications-for-fitting&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Implications for fitting&lt;/h2&gt;
-&lt;p&gt;Given the reparameterization, we now want to find estimates for &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; such that the resulting deaths density &lt;span class=&#34;math inline&#34;&gt;\(d(x)\)&lt;/span&gt; best reflects the data. If we assume that the number of deaths observed at a particular age, &lt;span class=&#34;math inline&#34;&gt;\(y_x\)&lt;/span&gt;, are Poisson distributed, and the total number of deaths observed is &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt;, then we get the following hierarchical set up:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-y(x) \sim \text{Poisson} (\lambda(x))\\
-\lambda(x) = D \cdot d(x)\\
-d(x) = \mu(x) \cdot l(x)\\
-\mu(x) = \beta \exp\left(\beta (x - M)\right) \\
-l(x) = \exp \left( -\exp \left(-\beta M \right) \left(\exp(\beta x)-1 \right)\right)
-\]&lt;/span&gt; This can be fit in a Bayesian framework, with relevant priors put on &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(M\)&lt;/span&gt;.&lt;/p&gt;
-&lt;div id=&#34;end-notes&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;End notes&lt;/h3&gt;
-&lt;p&gt;This is part of an ongoing project with &lt;a href=&#34;http://www.site.demog.berkeley.edu/josh-goldstein&#34;&gt;Josh Goldstein&lt;/a&gt; on modeling mortality rates for a dataset of censored death observations. Thanks to &lt;a href=&#34;http://www.robertempickett.com/&#34;&gt;Robert Pickett&lt;/a&gt; who told me about the Tissov et al. paper and generally has interesting things to say about demography.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;A good reference for this is &lt;a href=&#34;http://www.hup.harvard.edu/catalog.php?isbn=9780674045576&#34;&gt;Essential Demographic Methods, Chapter 3&lt;/a&gt;.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Global Estimation of Neonatal Mortality using a Bayesian Hierarchical Splines Regression Model</title>
-      <link>/publication/estimating_neonatal_mortality/</link>
-      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/publication/estimating_neonatal_mortality/</guid>
-      <description></description>
+      <guid>/posts/2018-02-15-gompertz/</guid>
+      <description>Introduction The Gompertz model is one of the most well-known mortality models. It does remarkably well at explaining mortality rates at adult ages across a wide range of populations with just two parameters. This post briefly reviews the Gompertz model, highlighting the relationship between the two Gompertz parameters, \(\alpha\) and \(\beta\), and the implied mode age at death. I focus on the situation where we only observe death counts by age (rather than mortality rates), so estimation of the Gompertz model requires choosing \(\alpha\) and \(\beta\) to maximize the (log) density of deaths.</description>
     </item>
     
     <item>
       <title>Using SVD in demographic modeling</title>
-      <link>/2017/12/16/using-svd-in-demographic-modeling/</link>
+      <link>/posts/2017-12-16-svd/</link>
       <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/12/16/using-svd-in-demographic-modeling/</guid>
-      <description>
-
-
-&lt;p&gt;A core objective of demographic modeling is finding empirical regularities in age patterns in fertility, mortality and migration. One method to achieve this goal is using Singular Value Decomposition (SVD) to extract characteristic age patterns in demographic indicators over time. This post describes how SVD can be used in demographic research, and in particular, mortality estimation.&lt;/p&gt;
-&lt;div id=&#34;background&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Background&lt;/h2&gt;
-&lt;p&gt;The SVD of matrix &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; is &lt;span class=&#34;math display&#34;&gt;\[
-X = UDV^T
-\]&lt;/span&gt; The three matrices resulting from the decomposition have special properties:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The columns of &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(V\)&lt;/span&gt; are orthonormal, i.e. they are orthogonal to each other and unit vectors. These are called the left and right singular vectors, respectively.&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt; is a diagonal matrix with positive real entries.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In practice, the components obtained from SVD help to summarize some characteristics of the matrix that we are interested in, &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. In particular, the first right singular vector (i.e. the first column of &lt;span class=&#34;math inline&#34;&gt;\(V\)&lt;/span&gt;) gives the direction of the maximum variation of the data contained in &lt;span class=&#34;math inline&#34;&gt;\(X.\)&lt;/span&gt; The second right singular vector, which is orthogonal to the first, gives the direction of the second-most variation of the data, and so on. The &lt;span class=&#34;math inline&#34;&gt;\(U\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt; elements represent additional rotation and scaling transformations to get back the original data in &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;SVD is useful as a dimensionality reduction technique: it allows us to describe our dataset using fewer dimensions than implied by the original data. For example, often a large majority of variation in the data is captured by the direction of the first singular vector, and so even just looking at this dimension can capture key patterns in the data. SVD is closely related to Principal Components Analysis: principal components are derived by projecting data &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt; onto principal axes, which are the right singular vectors &lt;span class=&#34;math inline&#34;&gt;\(V\)&lt;/span&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;use-in-demographic-modeling&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Use in demographic modeling&lt;/h2&gt;
-&lt;p&gt;Using SVD for demographic modeling and forecasting first gained popularity after &lt;a href=&#34;https://www.jstor.org/stable/2290201&#34;&gt;Lee and Carter&lt;/a&gt; used the technique as a basis for forecasting US mortality rates. They modeled age-specific mortality on the log scale as&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\log m_x = a_x + b_x \cdot k_t
-\]&lt;/span&gt; where&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(a_x\)&lt;/span&gt; is the mean age-specific mortality schedule across all years of analysis,&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(b_x\)&lt;/span&gt; is the average contribution of age group &lt;span class=&#34;math inline&#34;&gt;\(x\)&lt;/span&gt; to overall mortality change over the period, and&lt;/li&gt;
-&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(k_t\)&lt;/span&gt; is the incremental change in period &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The latter two quantities are obtained via SVD of a time x age matrix of demeaned, logged mortality rates: &lt;span class=&#34;math inline&#34;&gt;\(b_x\)&lt;/span&gt; is the first right singular vector, while &lt;span class=&#34;math inline&#34;&gt;\(k_t\)&lt;/span&gt; is the first left singular vector multiplied the first element of &lt;span class=&#34;math inline&#34;&gt;\(D\)&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;More recently, SVD has become increasingly used in demographic modeling; for example &lt;a href=&#34;http://www.tandfonline.com/doi/abs/10.1080/01621459.2014.881738&#34;&gt;Carl Schmertmann et al.&lt;/a&gt; used it to model and forecast cohort fertility, &lt;a href=&#34;https://arxiv.org/abs/1612.01408&#34;&gt;Sam Clark&lt;/a&gt; to estimate age schedules of mortality with limited data, and &lt;a href=&#34;https://link.springer.com/article/10.1007/s13524-017-0618-7&#34;&gt;Emilio Zagheni, Magali Barbieri and myself&lt;/a&gt; to model subnational age-specific mortality.&lt;/p&gt;
-&lt;div id=&#34;example-age-specific-mortality&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Example: age-specific mortality&lt;/h3&gt;
-&lt;p&gt;Imagine you have observations of age-specific mortality rates in multiple years. Create a matrix, &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;, where each row represents the age-specific mortality rates in a particular year. Modeling of mortality rates is often done on the log scale (to ensure rates are positive), so you may want to take the log of &lt;span class=&#34;math inline&#34;&gt;\(X\)&lt;/span&gt;. Then do a SVD on this matrix - in &lt;code&gt;R&lt;/code&gt; this is as easy as &lt;code&gt;svd(x)&lt;/code&gt;. The age patterns of interest are then contained in the resulting &lt;code&gt;v&lt;/code&gt; matrix; so for example &lt;code&gt;svd(x)$v[,1:3]&lt;/code&gt; would give you the first three age ‘principal components’ of your matrix.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/svd_plots/svd.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;For example, the first three principal components of US male mortality by state over the years 1980-2010 are plotted below. Each component has a demographic interpretation - the first represents baseline mortality, the second represents higher-than-baseline child mortality, and the third represents higher-than-baseline adult mortality.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/svd_plots/3pcs_states_neg.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;For modeling, the idea is that different linear combinations of these components allow you to flexibly represent a wide range of different mortality curves. For example, log-mortality rates could be modeled as&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
-\log m_x = \beta_1 Y_{1x} + \beta_2 Y_{2x} + \beta_3 Y_{3x}
-\]&lt;/span&gt; where the &lt;span class=&#34;math inline&#34;&gt;\(Y_{.x}\)&lt;/span&gt;’s are the principal components above and the &lt;span class=&#34;math inline&#34;&gt;\(\beta\)&lt;/span&gt;’s are to be estimated. The plot below shows four different mortality curves derived from the US male principal components with different coefficient settings. You can also play with different settings interactively &lt;a href=&#34;http://shiny.demog.berkeley.edu/monicah/mort/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/svd_plots/coeff.png&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;example-race-specific-opioid-mortality&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Example: race-specific opioid mortality&lt;/h3&gt;
-&lt;p&gt;This technique of representing and modeling underlying age patterns need not be restricted to modeling all-cause mortality. For example, SVD proves useful when looking at deaths due to opioid overdoses by race and state in the US. Even though &lt;a href=&#34;https://www.monicaalexander.com/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/&#34;&gt;opioid overdoses are rapidly increasing for both the black and white population&lt;/a&gt;, overdoses are still a relatively rare event, and so death rates calculated from the raw data suffer from large stochastic/random variation.&lt;/p&gt;
-&lt;p&gt;For example, the chart below shows age-specific opioid mortality rates by race for North Carolina in 2004.&lt;a href=&#34;#fn1&#34; class=&#34;footnoteRef&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; As you can see, for the black population there are quite a few age groups were there are zero observed deaths, so the observed mortality rate is zero. However, given what we know about how mortality evolves over age, the zero observed death rates are likely due to random variation.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/svd_plots/NC_age.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Even though age patterns are noisy at the state level, we have an idea of age patterns by race in opioid mortality in the national level. So we can use these national age patterns - via information captured in a SVD - to help model underlying mortality rates at the state level.&lt;/p&gt;
-&lt;p&gt;The figure below shows the first two principal components derived using SVD from race-specific opioid mortality in the US over the years 1999-2015. The first principal component again represents a baseline mortality schedule for opioid-related deaths for each race. The second principal component represents the contribution of each age group to mortality change over time. Notice the ‘double-humped’ shape for the white population - this is driven by heroin deaths being concentrated at younger ages, and prescription opioid-related deaths being concentrated at older ages.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/svd_plots/opioid_pcs.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Similar to the example above, we can use these principal components as a basis of a regression framework to estimate underlying age-specific mortality rates by age. Results from such a model for North Carolina in 2004 are shown below. The dots represent mortality rates calculated from the raw data, as above. The lines and associated shaded area represent estimates of the underlying mortality rates with 95% uncertainty intervals. These were obtained from a model that utilized information from the principal components. Instead of dealing with zero observed deaths, we now have estimates that give more plausible values for the underlying mortality rates.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/svd_plots/NC_agefit.png&#34;&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;summary&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;SVD is a useful technique to extract the main characteristics of age patterns in demographic indictors. These structural age patterns are useful to get a better idea of underlying processes when available data are sparse or noisy. Age patterns derived from SVD can be flexibly shifted and adjusted based on available data. Built-in functions in &lt;code&gt;R&lt;/code&gt; make it relatively easy to use SVD to better understand, model and project demographic indicators.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;cross-promotional plug: you can play with this data yourself with the help of the &lt;a href=&#34;https://github.com/mkiang/narcan&#34;&gt;narcan&lt;/a&gt; &lt;code&gt;R&lt;/code&gt; package, which &lt;a href=&#34;http://mathewkiang.com&#34;&gt;Mathew Kiang&lt;/a&gt; and I are working on.&lt;a href=&#34;#fnref1&#34;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-</description>
+      <guid>/posts/2017-12-16-svd/</guid>
+      <description>A core objective of demographic modeling is finding empirical regularities in age patterns in fertility, mortality and migration. One method to achieve this goal is using Singular Value Decomposition (SVD) to extract characteristic age patterns in demographic indicators over time. This post describes how SVD can be used in demographic research, and in particular, mortality estimation.
+Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulting from the decomposition have special properties:</description>
+    </item>
+    
+    <item>
+      <title>Comparing methods for smoothing temporal demographic data</title>
+      <link>/posts/2017-10-31-smoothing/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-10-31-smoothing/</guid>
+      <description>At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods for smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package distortr which accompanies the project.
+Motivation An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data.</description>
+    </item>
+    
+    <item>
+      <title>Text analysis of migration news articles</title>
+      <link>/posts/2017-10-08-migration-text/</link>
+      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-10-08-migration-text/</guid>
+      <description>Leslie Root and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed.
+Our initial analysis suggests that sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump.</description>
+    </item>
+    
+    <item>
+      <title>Opioid mortality by race: from divergence to convergence</title>
+      <link>/posts/2017-05-02-opioid-mortality-by-race/</link>
+      <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2017-05-02-opioid-mortality-by-race/</guid>
+      <description>Opioid-related mortality in the United States has been rising steadily since 2000. The opioid mortality rate has more than tripled since over the fifteen year period 2000–2015, and shows no signs of declining — in fact, the rate of increase has accelerated in recent years. This is unique to opioid-related drug deaths, with the non-opioid mortality rate remaining fairly level since 2005. The so-called ‘opioid epidemic’ has gained national attention and become an important part of the political agenda.</description>
+    </item>
+    
+    <item>
+      <title>Real differences and model artefacts in mortality inequality research</title>
+      <link>/posts/2016-04-26-mortality-sensitivities/</link>
+      <pubDate>Tue, 26 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2016-04-26-mortality-sensitivities/</guid>
+      <description>A couple of weeks ago, a paper was published in the JAMA detailing income inequalities in mortality across cities in the United States. The research, which was led by Raj Chetty at Stanford University, received wide attention. It is an important contribution to the literature, utilizing detailed income and mortality data from the IRS and SSA to estimate adult mortality by income at the city level.
+The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography.</description>
+    </item>
+    
+    <item>
+      <title>The Cost of NBA Games</title>
+      <link>/posts/2016-02-05-nba/</link>
+      <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2016-02-05-nba/</guid>
+      <description>I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got really, really, good. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, while healthier than drugs, may not be any cheaper.
+I grabbed all data on resale tickets from StubHub for all remaining games of the 2015-16 season.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>I am an Assistant Professor in Statistical Sciences and Sociology at the University of Toronto. I received my PhD in Demography from the University of California, Berkeley. My research interests include statistical demography, mortality and health inequalities, and computational social science.
+I have worked on research projects with the World Health Organization, UNICEF, the Bill and Melinda Gates Foundation, and the Human Mortality Database. I was a 2016 Fellow at Data Science for Social Good, and have worked at the ANU&amp;rsquo;s Centre for Aboriginal Economic Policy Research.</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>I have offices in both the Statistical Sciences Department (Level 6, Sidney Smith Hall, 100 St George St, Toronto) and the Sociology Department (Level 3, 725 Spadina Avenue, Toronto).
+My email is monica.alexander@utoronto.ca.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/research/</guid>
+      <description>My research interests broadly fall into three areas:
+Statistical demography: I develop methods to improve estimates and forecasts of demographic and health indicators in situations where the available data are sparse or unreliable. This work involves combining demographic and statistical methods to estimate outcomes in developing countries, minority populations, and in small geographic areas.
+Health and mortality inequalities: I research how disparities in health and mortality outcomes are changing over time.</description>
+    </item>
+    
+    <item>
+      <title>Teaching</title>
+      <link>/teaching/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/teaching/</guid>
+      <description> University of Toronto  Demographic Methods (STA4525H Winter 2019). All materials for the course are here. In Winter 2020 I will be teaching Methods of Applied Statistics II (STA2201H)  </description>
     </item>
     
   </channel>
