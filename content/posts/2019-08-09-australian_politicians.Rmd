@@ -65,7 +65,7 @@ deaths <- all %>%
 deaths
 ```
 
-So what proportion of all politicians have died? 55%:
+So what proportion of all politicians have died? Almost 56%:
 
 ```{r}
 sum(!is.na(deaths$age_at_death))/nrow(deaths)
@@ -83,7 +83,7 @@ deaths %>%
   ggtitle("Proportion of politicians who are dead by birth year")
 ```
 
-So all politicians born before 1916 are now dead. The oldest politician is George Pearce, who is almost 102. 
+So all politicians born before 1916 are now dead. In contrast, no politicans born after 1963 has died so far. The oldest politician is George Pearce, who is almost 102: 
 
 ```{r, message=F}
 deaths %>% 
@@ -91,8 +91,7 @@ deaths %>%
   arrange(birth_year) %>% 
   filter(row_number()==1) %>% 
   mutate(age = interval(birth_final, today())/years(1)) %>% 
-  select(displayName, age) %>% 
-  top_n(10)
+  select(displayName, age) 
 ```
 
 
@@ -134,7 +133,7 @@ deaths %>%
   theme_bw(base_size = 12) 
 ```
 
-So the average age of death for politicians is generally well above the national average. There's a steep drop in the later years, from about 1935 onwards, as these cohorts are still fairly young. The youngest ten are listed below:
+So the average age of death for politicians is generally well above the national average. There's a steep drop in the later years, from about 1935 onwards, as these cohorts are still fairly young. The youngest ten are listed below, along with their reason for leaving parliament:
 
 ```{r, message=F}
 deaths %>% 

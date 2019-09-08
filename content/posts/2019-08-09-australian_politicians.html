@@ -64,7 +64,7 @@ deaths</code></pre>
 ## #   mpsEnteredAtByElection &lt;chr&gt;, mpsFrom &lt;date&gt;, mpsTo &lt;date&gt;,
 ## #   mpsEndReason &lt;chr&gt;, mpsChangedSeat &lt;int&gt;, mpsComments &lt;chr&gt;,
 ## #   year_first_active &lt;dbl&gt;, age_active &lt;dbl&gt;, birth_year &lt;dbl&gt;</code></pre>
-<p>So what proportion of all politicians have died? 55%:</p>
+<p>So what proportion of all politicians have died? Almost 56%:</p>
 <pre class="r"><code>sum(!is.na(deaths$age_at_death))/nrow(deaths)</code></pre>
 <pre><code>## [1] 0.5579955</code></pre>
 <p>Let’s look at the proportion of politicians who have died by birth year:</p>
@@ -76,14 +76,13 @@ deaths</code></pre>
   theme_bw(base_size = 12) + 
   ggtitle(&quot;Proportion of politicians who are dead by birth year&quot;)</code></pre>
 <p><img src="/posts/2019-08-09-australian_politicians_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>So all politicians born before 1916 are now dead. The oldest politician is George Pearce, who is almost 102.</p>
+<p>So all politicians born before 1916 are now dead. In contrast, no politicans born after 1963 has died so far. The oldest politician is George Pearce, who is almost 102:</p>
 <pre class="r"><code>deaths %&gt;% 
   filter(is.na(age_at_death)) %&gt;% 
   arrange(birth_year) %&gt;% 
   filter(row_number()==1) %&gt;% 
   mutate(age = interval(birth_final, today())/years(1)) %&gt;% 
-  select(displayName, age) %&gt;% 
-  top_n(10)</code></pre>
+  select(displayName, age) </code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##   displayName      age
 ##   &lt;chr&gt;          &lt;dbl&gt;
@@ -138,7 +137,7 @@ e45</code></pre>
   ggtitle(&quot;Average age at death of Australian politicians by birth year&quot;) + 
   theme_bw(base_size = 12) </code></pre>
 <p><img src="/posts/2019-08-09-australian_politicians_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p>So the average age of death for politicians is generally well above the national average. There’s a steep drop in the later years, from about 1935 onwards, as these cohorts are still fairly young. The youngest ten are listed below:</p>
+<p>So the average age of death for politicians is generally well above the national average. There’s a steep drop in the later years, from about 1935 onwards, as these cohorts are still fairly young. The youngest ten are listed below, along with their reason for leaving parliament:</p>
 <pre class="r"><code>deaths %&gt;% 
   filter(!is.na(age_at_death), birth_year&gt;1935) %&gt;% 
   arrange(age_at_death) %&gt;% 
