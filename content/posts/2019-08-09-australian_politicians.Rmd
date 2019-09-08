@@ -1,0 +1,150 @@
+---
+title: "Exploring the AustralianPoliticans R Package"
+author: "Monica Alexander"
+date: "2019-09-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Australia federated in 1901.[^1] [Rohan Alexander](https://rohanalexander.com/) is unusually interested in the history of Australian politicians, and he decided to convert some of his knowledge into an R package, the appropriately named, [`AustralianPoliticians`](https://github.com/RohanAlexander/AustralianPoliticians). In brief, the package has datasets that contain information on every person who has ever sat in the House of Representatives (MPs) or the Senate since 1901. This post is a shameless plug for that package,[^2] and shows you how to read in and play around with the data.
+
+[^1]: "Our nation was created with a vote, not a war": h/t to [this](https://www.youtube.com/watch?v=wkGEMYSgIo0&feature=youtu.be) ad for teaching me the name of Australia's first Prime Minister.
+[^2]: Because why else is one in a relationship if not to have someone advertise your R package. 
+
+# Install the package and load in the data
+
+First, let's load in some packages we need and install the `AustralianPoliticians` package. It's not on CRAN so you'll need to install it from GitHub. 
+
+```{r, message=F, warning=F}
+library(tidyverse)
+library(lubridate)
+devtools::install_github("RohanAlexander/AustralianPoliticians")
+
+```
+
+The `AustralianPoliticians` package has a series of datasets built into it. Let's read in the main dataset `all` and the MP and Senate datasets:
+
+```{r}
+all <- AustralianPoliticians::all %>% as_tibble()
+by_division_mps <- AustralianPoliticians::by_division_mps %>% as_tibble()
+by_state_senators <- AustralianPoliticians::by_state_senators %>% as_tibble()
+```
+
+The [README](https://github.com/RohanAlexander/AustralianPoliticians) on GitHub has good explanations of what each dataset contains. Briefly, the `all` dataset contains one row for each politician, and has information on their name, gender, date of birth, date of death, Wikipedia page etc. The `by_division_mps` and `by_state_senators` datasets have info on which electoral divisions / states each politician held. Note, these can change over time, so there can be more than one row/observation per politician. There's dates the positions were held, the reason why the position ended (defeated, resigned, died etc), and other interesting info. The tables are easily joined the the `all` dataset based on the `uniqueID` column. There are other datasets available based on party and whether or not the person was a Prime Minister. 
+
+## Deaths of Australian politicians
+
+Because I'm a demographer, and a fun sort of person, I wanted to look at the mortality of politicians. The following bit of code calculates the age of death for all those who have died, as well as the year and age they were first elected:
+
+```{r, warning=F, message=F}
+deaths <- all %>% 
+  rowwise() %>% 
+  # some people only have a birth year available, let's arbitrarily say they were born in the middle of the year
+  mutate(birth_final = as_date(ifelse(is.na(birthDate),
+                                      ymd(paste(birthYear, 06, 30, sep="-")), 
+                                      birthDate))) %>% 
+  select(uniqueID, displayName, deathDate, birth_final) %>%  
+  # calculate age at death
+  mutate(age_at_death = interval(birth_final, deathDate)/years(1)) %>% 
+  # filter(!is.na(age_at_death)) %>% 
+  # join on MP and senate info
+  left_join(by_state_senators) %>% 
+  left_join(by_division_mps) %>% 
+  group_by(uniqueID) %>% 
+  # just keep the initial election
+  filter(row_number()==1) %>% 
+  mutate(year_first_active = ifelse(is.na(senatorsFrom), year(mpsFrom), year(senatorsFrom)), 
+         age_active = ifelse(is.na(senatorsFrom), 
+                            interval(birth_final, mpsFrom)/years(1), 
+                            interval(birth_final, senatorsFrom)/years(1)),
+         birth_year = year(birth_final)) %>% 
+  ungroup()
+deaths
+```
+
+So what proportion of all politicians have died? 55%:
+
+```{r}
+sum(!is.na(deaths$age_at_death))/nrow(deaths)
+```
+
+Let's look at the proportion of politicians who have died by birth year:
+
+```{r, warning=F}
+deaths %>% 
+  group_by(birth_year) %>% 
+  summarise(proportion = sum(!is.na(age_at_death))/n()) %>% 
+  ggplot(aes(birth_year, proportion)) + 
+  geom_point() + 
+  theme_bw(base_size = 12) + 
+  ggtitle("Proportion of politicians who are dead by birth year")
+```
+
+So all politicians born before 1916 are now dead. The oldest politician is George Pearce, who is almost 102. 
+
+```{r, message=F}
+deaths %>% 
+  filter(is.na(age_at_death)) %>% 
+  arrange(birth_year) %>% 
+  filter(row_number()==1) %>% 
+  mutate(age = interval(birth_final, today())/years(1)) %>% 
+  select(displayName, age) %>% 
+  top_n(10)
+```
+
+
+### Average age at death by cohort
+
+Let's look at the average age of death of these politicians and compare it to the national average. I got the national data from the [Australian Institute of Health and Welfare's website](https://www.aihw.gov.au/reports/life-expectancy-death/deaths-in-australia/data). The indicator is $e45+45$ for males, which is the expected age at death for those who lived at least until age 45. I didn't want to compare to the usual life expectancy at birth, because we know that politicians already have to survive long enough to become politicians. Looking at the average age that people entered parliament, 45 is not too far off:
+
+```{r}
+deaths %>%  
+  summarise(mean(age_active, na.rm = T))
+```
+I use males because there's been hardly any women in parliament (:( ). Let's read in the national data and calculate a year mid-point:
+
+```{r}
+e45 <- read_csv("e45.csv")    
+
+e45 <- e45 %>% 
+  mutate(start_year = as.numeric(str_sub(Year, 1,4)),
+         end_year = as.numeric(str_sub(Year, 6,9)),
+         year = floor((start_year+end_year)/2))
+e45
+```
+
+Now graph the average age at death for politicians and the national data that we have. The size of the dot represents the number of people who died from that cohort.
+
+```{r, message=F, warning=F}
+deaths %>% 
+  full_join(e45 %>% rename(birth_year = year)) %>% 
+  filter(age_at_death>0) %>% 
+  group_by(birth_year, e45) %>% 
+  summarise(mean_age = mean(age_at_death), 
+            deaths = n()) %>% 
+  ggplot(aes(birth_year, mean_age)) + geom_point(aes(size = deaths)) +
+  geom_point(aes(birth_year, e45, color = 'National average'), size = 4, pch = 10) +
+  scale_color_manual(name = "", values = c("National average" = "red")) + 
+  scale_size_continuous(name = "number of deaths") +
+  ylab("average age at death (years)") + xlab("birth year") + 
+  ggtitle("Average age at death of Australian politicians by birth year") + 
+  theme_bw(base_size = 12) 
+```
+
+So the average age of death for politicians is generally well above the national average. There's a steep drop in the later years, from about 1935 onwards, as these cohorts are still fairly young. The youngest ten are listed below:
+
+```{r, message=F}
+deaths %>% 
+  filter(!is.na(age_at_death), birth_year>1935) %>% 
+  arrange(age_at_death) %>% 
+  mutate(reason_leaving = ifelse(is.na(senatorsEndReason), mpsEndReason, senatorsEndReason)) %>% 
+  select(displayName, birth_year, age_at_death, reason_leaving) %>% 
+  filter(row_number() %in% 1:10)
+```
+
+## Summary
+
+If you've ever wanted to know about Australian Politicians, this is the package for you. These data could be combined with data from other sources, for example Twitter data to study more recent politicians, Hansard data, or data from other countries for international comparisons. This is also a great dataset to study a relatively privledged group of society.
