@@ -16,7 +16,7 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 
 
 # Peer-reviewed publications
-- **Alexander, M.**, Polimis, K., and Zagheni, E., 'The impact of Hurricane Maria on out-migration from Puerto Rico: Evidence from Facebook data', *Population and Development Review*, accepted. [Preprint on SocArxiv.](https://osf.io/preprints/socarxiv/39s6c/) 
+- **Alexander, M.**, Polimis, K., and Zagheni, E., 'The impact of Hurricane Maria on out-migration from Puerto Rico: Evidence from Facebook data', *Population and Development Review*, 2019, published online, DOI:  https://doi.org/10.1111/padr.12289.  
 - Hug, L., **Alexander, M.**, You, D., and Alkema, L. '[National, regional, and global levels and trends in neonatal mortality between 1990 and 2017, with scenario-based projections to 2030: a systematic analysis by the United Nations Inter-agency Group for Child Mortality Estimation](https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30163-9/fulltext)', *Lancet Global Health*, 2019, 7(6): 710--720. 
 - Kiang, M.V., Basu S., Chen J., and **Alexander, M**. `[Assessment of Changes in the Geographical Distribution of Opioid-Related Mortality Across the United States by Opioid Type, 1999-2016](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2725487)'. *JAMA Network Open*. 2019, 2(2):e190040.
 - Gemmill, A, Kiang, M.V., and **Alexander, M.**, '[Trends in pregnancy-associated mortality involving opioids in the United States, 2007–2016](https://www.ajog.org/article/S0002-9378(18)30820-2/fulltext)', *American Journal of Obstetrics and Gynecology*, 2019, 220(1): 115-116.
