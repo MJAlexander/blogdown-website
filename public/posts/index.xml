@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Monica Alexander</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 08 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reproducibility in demographic research</title>
+      <link>/posts/2019-10-20-reproducibility/</link>
+      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-10-20-reproducibility/</guid>
+      <description>On October 10-11, I attended the Open Science Workshop at the Max Planck Institute for Demographic Research. Phil Cohen and I gave keynote presentations. Phil, who was one of the driving forces behind SocArxiv, gave a great talk on the importance of open science and practical ways to make it happen.
+My presentation focused more specifically on reproducibility in demographic research, why it’s important, and gave an overview of some tools that may be useful.</description>
+    </item>
     
     <item>
       <title>Exploring the AustralianPoliticans R Package</title>
