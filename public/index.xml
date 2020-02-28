@@ -6,7 +6,7 @@
     <description>Recent content on Monica Alexander</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -24,6 +24,16 @@ Human Mortality Database Graduate Student Researcher, January 2015 &amp;ndash; M
 UNICEF Technical Advisory Group Consultant, March 2014 &amp;ndash; December 2015
 The Centre for Aboriginal Economic Policy Research Research Officer, April 2012 &amp;ndash; December 2014
 Reserve Bank of Australia Analyst/Senior Analyst, February 2010 &amp;ndash; June 2013</description>
+    </item>
+    
+    <item>
+      <title>Visualizing the Bayesian workflow in R</title>
+      <link>/posts/2020-28-02-bayes_viz/</link>
+      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-28-02-bayes_viz/</guid>
+      <description>Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
+The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age.</description>
     </item>
     
     <item>
@@ -211,7 +221,7 @@ Health and mortality inequalities: I research how disparities in health and mort
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/teaching/</guid>
-      <description> University of Toronto  Demographic Methods (STA4525H Winter 2019). All materials for the course are here. In Winter 2020 I will be teaching Methods of Applied Statistics II (STA2201H)  </description>
+      <description> University of Toronto  Applied Statistics II (STA2201H Winter 2020). All materials for the course are here. Demographic Methods (STA4525H Winter 2019). All materials for the course are here. In Winter 2021 I will also be teaching Intermediate Data Analysis (SOC6707H).  </description>
     </item>
     
   </channel>

@@ -6,5 +6,6 @@ slug = "teaching"
 
 
 # University of Toronto
+- Applied Statistics II (STA2201H Winter 2020). All materials for the course are [here](https://github.com/MJAlexander/applied-stats).
 - Demographic Methods (STA4525H Winter 2019). All materials for the course are [here](https://github.com/MJAlexander/demographic-methods).
-- In Winter 2020 I will be teaching [Methods of Applied Statistics II](https://www.statistics.utoronto.ca/curriculum-courses/winter-term-2019-20#sta2201h-accordion-1) (STA2201H)
+- In Winter 2021 I will also be teaching Intermediate Data Analysis (SOC6707H).

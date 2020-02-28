@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Monica Alexander">
+    <meta name="description" content="Monica Alexander&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Visualizing the Bayesian workflow in R"/>
+<meta name="twitter:description" content="Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
+The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age."/>
+
+    <meta property="og:title" content="Visualizing the Bayesian workflow in R" />
+<meta property="og:description" content="Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
+The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2020-28-02-bayes_viz/" />
+<meta property="article:published_time" content="2020-02-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-28T00:00:00+00:00" />
+
+
+    
+      <base href="/posts/2020-28-02-bayes_viz/">
+    
+    <title>
+  Visualizing the Bayesian workflow in R · Monica Alexander
+</title>
+
+    
+      <link rel="canonical" href="/posts/2020-28-02-bayes_viz/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.57.2" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Monica Alexander
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/research/">Research</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/contact/">Contact me</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Visualizing the Bayesian workflow in R</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-02-28T00:00:00Z'>
+                February 28, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              15 minutes read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading <a href="https://arxiv.org/abs/1709.01449">‘Visualizing the Bayesian Workflow’</a> and writing lecture notes<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> incorporating ideas in this paper.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.</p>
+<p>The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age. It’s a bit of a choose your own adventure in some parts, because as is usually the case in R, there’s about 100 different ways of doing the same thing. I show how to run things using both Stan and with the package <code>brms</code>, which is a wrapper for Stan that allows you to specify models in a similar way to <code>glm</code> or <code>lme4</code>. Using Stan for this example is a bit of overkill because the models are simple, but I find it useful to see what’s going on (and also it’s useful to build up more complex models in Stan from simple ones).</p>
+</div>
+<div id="the-data" class="section level1">
+<h1>The data</h1>
+<p>I’m using (a sample of) the publicly available dataset of all births in the United States in 2017, available on the <a href="https://data.nber.org/data/vital-statistics-natality-data.html">NBER website</a>. For the purposes of this exercise, I’m just using a 0.1% sample of the births, which leads to 3842 observations. Details on how I got the data are <a href="https://github.com/MJAlexander/applied-stats/blob/master/code/births_2017_prep.R">here</a>.</p>
+<p>Let’s load in the packages we need and the dataset:</p>
+<pre class="r"><code>library(tidyverse)
+library(rstan)
+library(brms)
+library(bayesplot)
+library(loo)
+library(tidybayes)
+
+ds &lt;- read_rds(&quot;births_2017_sample.RDS&quot;)
+head(ds)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##   mager mracehisp meduc   bmi sex   combgest  dbwt ilive
+##   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1    16         2     2  23   M           39  3.18 Y    
+## 2    25         7     2  43.6 M           40  4.14 Y    
+## 3    27         2     3  19.5 F           41  3.18 Y    
+## 4    26         1     3  21.5 F           36  3.40 Y    
+## 5    28         7     2  40.6 F           34  2.71 Y    
+## 6    31         7     3  29.3 M           35  3.52 Y</code></pre>
+<p>The dataset contains a few different variables, but for the purposes of this exercise I’m going to focus on birth weight and gestational age. Let’s rename these variables, make a <code>preterm</code> variable (which indicates whether or not gestational length was less than 32 weeks)<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> and filter out unknown observations, and any babies that died.</p>
+<pre class="r"><code>ds &lt;- ds %&gt;% 
+  rename(birthweight = dbwt, gest = combgest) %&gt;% 
+  mutate(preterm = ifelse(gest&lt;32, &quot;Y&quot;, &quot;N&quot;)) %&gt;% 
+  filter(ilive==&quot;Y&quot;,gest&lt; 99, birthweight&lt;9.999)</code></pre>
+</div>
+<div id="super-brief-eda" class="section level1">
+<h1>Super brief EDA</h1>
+<p>An important first step to model building is exploratory data analysis, which should help to inform potential variables or functional forms of the model. Here’s some EDA in the most brief sense.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> Below is a scatter plot of gestational age (weeks) and birth weight (kg) on the log scale, which appears to show some relationship:</p>
+<pre class="r"><code>ds %&gt;% 
+  ggplot(aes(log(gest), log(birthweight))) + 
+  geom_point() + geom_smooth(method = &quot;lm&quot;) + 
+  scale_color_brewer(palette = &quot;Set1&quot;) + 
+  theme_bw(base_size = 14) +
+  ggtitle(&quot;birthweight v gestational age&quot;)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>It may be reasonable to allow for the relationship between weight and gestational age to vary by whether or not the baby was premature. If we split by prematurity, there is some evidence to suggest a different relationship between the two variables, which may lead us to consider interaction terms:</p>
+<pre class="r"><code>ds %&gt;% 
+  ggplot(aes(log(gest), log(birthweight), color = preterm)) + 
+  geom_point() + geom_smooth(method = &quot;lm&quot;) + 
+  scale_color_brewer(palette = &quot;Set1&quot;) + 
+  theme_bw(base_size = 14) + 
+  ggtitle(&quot;birthweight v gestational age&quot;)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="some-simple-candidate-models" class="section level1">
+<h1>Some simple candidate models</h1>
+<p>Based on my super-brief-EDA(tm) I’ve come up with two candidate models. Model 1 has log birth weight as a function of log gestational age</p>
+<p><span class="math display">\[
+\log(y_i) \sim N(\beta_0 + \beta_1\log(x_i), \sigma^2)
+\]</span> Model 2 has an interaction term between gestation and prematurity</p>
+<p><span class="math display">\[
+\log(y_i) \sim N(\beta_0 + \beta_1\log(x_i) + \gamma_0 z_i + \gamma_1\log(x_i) z_i, \sigma^2)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(y_i\)</span> is weight in kg</li>
+<li><span class="math inline">\(x_i\)</span> is gestational age in weeks</li>
+<li><span class="math inline">\(z_i\)</span> is preterm (0 or 1, if gestational age is less than 32 weeks)</li>
+</ul>
+</div>
+<div id="prior-predictive-checks" class="section level1">
+<h1>Prior predictive checks</h1>
+<p>Now we have some candidate models in terms of the likelihood, we need to set some priors for our coefficients (<span class="math inline">\(\beta\)</span>s and <span class="math inline">\(\gamma\)</span>s) and for the <span class="math inline">\(\sigma\)</span> term.</p>
+<p>With prior predictive checks, we are essentially looking at the situation where we do not have any data on birthweights at all, and seeing what distribution of weights are implied by the choice of priors and likelihood. Ideally this distribution would have at least some mass around all plausible data sets.</p>
+<p>To do this in R, we simulate from the priors and likelihood, and plot the resulting distribution.</p>
+<div id="vague-priors" class="section level2">
+<h2>Vague priors</h2>
+<p>For example, the following plots the prior predictive distribution with vague priors on sigma, and the betas for Model 1. For reference, my current weight is marked with the purple line. While I can attest to babies feeling like they have the mass of a small planet once you’ve been carrying them for 9 months, it’s highly implausible that my current adult weight should have so much probability mass assigned to it.</p>
+<pre class="r"><code>set.seed(182)
+nsims &lt;- 100
+sigma &lt;- 1 / sqrt(rgamma(nsims, 1, rate = 100))
+beta0 &lt;- rnorm(nsims, 0, 100)
+beta1 &lt;- rnorm(nsims, 0, 100)
+
+dsims &lt;- tibble(log_gest_c = (log(ds$gest)-mean(log(ds$gest)))/sd(log(ds$gest)))
+
+for(i in 1:nsims){
+  this_mu &lt;- beta0[i] + beta1[i]*dsims$log_gest_c 
+  dsims[paste0(i)] &lt;- this_mu + rnorm(nrow(dsims), 0, sigma[i])
+}
+
+dsl &lt;- dsims %&gt;% 
+  pivot_longer(`1`:`10`, names_to = &quot;sim&quot;, values_to = &quot;sim_weight&quot;)
+
+dsl %&gt;% 
+  ggplot(aes(sim_weight)) + geom_histogram(aes(y = ..density..), bins = 20, fill = &quot;turquoise&quot;, color = &quot;black&quot;) + 
+  xlim(c(-1000, 1000)) + 
+  geom_vline(xintercept = log(60), color = &quot;purple&quot;, lwd = 1.2, lty = 2) + 
+  theme_bw(base_size = 16) + 
+  annotate(&quot;text&quot;, x=300, y=0.0022, label= &quot;Monica&#39;s\ncurrent weight&quot;, 
+           color = &quot;purple&quot;, size = 5) </code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="weakly-informative-priors" class="section level2">
+<h2>Weakly informative priors</h2>
+<p>Let’s try this exercise again, but now with some <a href="https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations">weakly informative priors</a>. The distribution is much less spread out, and my current weight is now much further to the right of the distribution. Remember that these are the distributions before we look at any data, and we are doing so just to make sure that any plausible values have some probability of showing up. The picture will look much different once we take the observations into account.</p>
+<pre class="r"><code>sigma &lt;- abs(rnorm(nsims, 0, 1))
+beta0 &lt;- rnorm(nsims, 0, 1)
+beta1 &lt;- rnorm(nsims, 0, 1)
+
+dsims &lt;- tibble(log_gest_c = (log(ds$gest)-mean(log(ds$gest)))/sd(log(ds$gest)))
+
+for(i in 1:nsims){
+  this_mu &lt;- beta0[i] + beta1[i]*dsims$log_gest_c 
+  dsims[paste0(i)] &lt;- this_mu + rnorm(nrow(dsims), 0, sigma[i])
+}
+
+dsl &lt;- dsims %&gt;% 
+  pivot_longer(`1`:`10`, names_to = &quot;sim&quot;, values_to = &quot;sim_weight&quot;)
+
+dsl %&gt;% 
+  ggplot(aes(sim_weight)) + geom_histogram(aes(y = ..density..), bins = 20, fill = &quot;turquoise&quot;, color = &quot;black&quot;) + 
+  geom_vline(xintercept = log(60), color = &quot;purple&quot;, lwd = 1.2, lty = 2) + 
+  theme_bw(base_size = 16) + 
+  annotate(&quot;text&quot;, x=7, y=0.2, label= &quot;Monica&#39;s\ncurrent weight&quot;, color = &quot;purple&quot;, size = 5)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+</div>
+<div id="run-the-models" class="section level1">
+<h1>Run the models</h1>
+<p>Now let’s run the models described above. I will illustrate how to do this in both <code>stan</code> and <code>brms</code>.</p>
+<div id="running-the-models-in-stan" class="section level2">
+<h2>Running the models in Stan</h2>
+<p>The Stan code for model 1 is below. You can view the stan code for model 2 <a href="https://github.com/MJAlexander/applied-stats/blob/master/code/models/simple_weight_preterm_int.stan">here</a>. It’s worth noticing the <code>generated quantities</code> block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using <code>brms</code> we don’t have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<pre class="stan"><code>data {
+  int&lt;lower=1&gt; N;       // number of observations
+  vector[N] log_gest;    // log gestational age
+  vector[N] log_weight;     // log birth weight
+}
+parameters {
+  vector[2] beta;           // coefs
+  real&lt;lower=0&gt; sigma;  // error sd for Gaussian likelihood
+}
+model {
+  // Log-likelihood
+  target += normal_lpdf(log_weight | beta[1] + beta[2] * log_gest, sigma);
+
+  // Log-priors
+  target += normal_lpdf(sigma | 0, 1)
+          + normal_lpdf(beta | 0, 1);
+}
+generated quantities {
+  vector[N] log_lik;    // pointwise log-likelihood for LOO
+  vector[N] log_weight_rep; // replications from posterior predictive dist
+
+  for (n in 1:N) {
+    real log_weight_hat_n = beta[1] + beta[2] * log_gest[n];
+    log_lik[n] = normal_lpdf(log_weight[n] | log_weight_hat_n, sigma);
+    log_weight_rep[n] = normal_rng(log_weight_hat_n, sigma);
+  }
+}</code></pre>
+<p>Calculate the transformed variables, and put the data into a list for Stan.</p>
+<pre class="r"><code>ds$log_weight &lt;- log(ds$birthweight)
+ds$log_gest_c &lt;- (log(ds$gest) - mean(log(ds$gest)))/sd(log(ds$gest))
+
+N &lt;- nrow(ds)
+log_weight &lt;- ds$log_weight
+log_gest_c &lt;- ds$log_gest_c 
+preterm &lt;- ifelse(ds$preterm==&quot;Y&quot;, 1, 0)
+
+# put into a list
+stan_data &lt;- list(N = N,
+                  log_weight = log_weight,
+                  log_gest = log_gest_c, 
+                  preterm = preterm)</code></pre>
+<p>Running the models in Stan looks like this:</p>
+<pre class="r"><code>mod1 &lt;- stan(data = stan_data, 
+             file = &quot;models/simple_weight.stan&quot;,
+             iter = 500,
+             seed = 243)
+
+mod2 &lt;- stan(data = stan_data, 
+             file = &quot;models/simple_weight_preterm_int.stan&quot;,
+             iter = 500,
+             seed = 263)</code></pre>
+<p>Take a look at the estimates of parameters of interest. Note that I centered and standardized the gestation variable, so the interpretation in Model 1 for example is that a 1 standard deviation increase in the gestation weeks leads to a 0.14% increase in birth weight.</p>
+<pre class="r"><code>summary(mod1)[[&quot;summary&quot;]][c(paste0(&quot;beta[&quot;,1:2, &quot;]&quot;), &quot;sigma&quot;),]</code></pre>
+<pre><code>##              mean      se_mean          sd      2.5%       25%       50%
+## beta[1] 1.1624438 1.064120e-04 0.002811842 1.1570794 1.1606196 1.1623062
+## beta[2] 0.1439831 9.066275e-05 0.002617224 0.1388411 0.1421880 0.1439459
+## sigma   0.1690629 1.952945e-04 0.001996376 0.1646983 0.1679532 0.1690067
+##               75%     97.5%    n_eff      Rhat
+## beta[1] 1.1642252 1.1687179 698.2338 0.9997474
+## beta[2] 0.1457571 0.1492866 833.3437 1.0007247
+## sigma   0.1703736 0.1730148 104.4972 1.0432960</code></pre>
+<p>For Model 2, the third <span class="math inline">\(\beta\)</span> relates to the effect of prematury, and the fourth <span class="math inline">\(\beta\)</span> is the interaction. The interaction effect suggests that the increase in birthweight with increased gestational age is more steep from premature babies.</p>
+<pre class="r"><code>summary(mod2)[[&quot;summary&quot;]][c(paste0(&quot;beta[&quot;,1:4, &quot;]&quot;), &quot;sigma&quot;),]</code></pre>
+<pre><code>##              mean      se_mean          sd       2.5%        25%       50%
+## beta[1] 1.1695780 1.098568e-04 0.002644516 1.16468175 1.16781334 1.1697444
+## beta[2] 0.1016943 1.466149e-04 0.003430911 0.09486125 0.09943203 0.1016294
+## beta[3] 0.5602261 8.680419e-03 0.068807739 0.42911843 0.51286040 0.5558835
+## beta[4] 0.1983536 1.635249e-03 0.014126383 0.17212096 0.18833129 0.1975351
+## sigma   0.1613039 9.611339e-05 0.001818344 0.15803181 0.15991605 0.1612618
+##               75%     97.5%     n_eff      Rhat
+## beta[1] 1.1712703 1.1745931 579.47951 1.0026436
+## beta[2] 0.1037481 0.1085696 547.59919 0.9940805
+## beta[3] 0.6111351 0.6989987  62.83378 1.0631488
+## beta[4] 0.2081473 0.2260562  74.62672 1.0439166
+## sigma   0.1626634 0.1651492 357.91841 1.0083042</code></pre>
+</div>
+<div id="running-the-models-in-brms" class="section level2">
+<h2>Running the models in <code>brms</code></h2>
+<p>Running the models in <code>brms</code> looks like this:</p>
+<pre class="r"><code>mod1b &lt;- brm(log_weight~log_gest_c, data = ds)
+mod2b &lt;- brm(log_weight~log_gest_c*preterm, data = ds)</code></pre>
+</div>
+</div>
+<div id="posterior-predictive-checks" class="section level1">
+<h1>Posterior predictive checks</h1>
+<p>Now we’ve run the models, let’s do some posterior predictive checks. The idea of posterior predictive checks is to compare our observed data to replicated data from the model. If our model is a good fit, we should be able to use it to generate a dataset that resembles the observed data.</p>
+<div id="ppcs-with-stan-output" class="section level2">
+<h2>PPCs with Stan output</h2>
+<p>For the Stan models, we want to extract the samples from the posterior predictive distribution and can then use <code>ppc_dens_overlay</code> to compare the densities of 100 sampled datasets to the actual data:</p>
+<pre class="r"><code>set.seed(1856)
+y &lt;- log_weight
+yrep1 &lt;- extract(mod1)[[&quot;log_weight_rep&quot;]]
+samp100 &lt;- sample(nrow(yrep1), 100)
+ppc_dens_overlay(y, yrep1[samp100, ])  </code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Model 2 is a bit better:</p>
+<pre class="r"><code>yrep2 &lt;- extract(mod2)[[&quot;log_weight_rep&quot;]]
+ppc_dens_overlay(y, yrep2[samp100, ])  </code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>If you would like to convince yourself you know what’s going on with <code>ppc_dens_overlay</code> or would like to format your graphs from scratch, you can do the density plots yourself:</p>
+<pre class="r"><code># first, get into a tibble
+rownames(yrep1) &lt;- 1:nrow(yrep1)
+dr &lt;- as_tibble(t(yrep1))
+dr &lt;- dr %&gt;% bind_cols(i = 1:N, log_weight_obs = log(ds$birthweight))
+
+# turn into long format; easier to plot
+dr &lt;- dr %&gt;% 
+  pivot_longer(-(i:log_weight_obs), names_to = &quot;sim&quot;, values_to =&quot;y_rep&quot;)
+
+# filter to just include 100 draws and plot!
+dr %&gt;% 
+  filter(sim %in% samp100) %&gt;% 
+  ggplot(aes(y_rep, group = sim)) + 
+  geom_density(alpha = 0.2, aes(color = &quot;y_rep&quot;)) + 
+  geom_density(data = ds %&gt;% mutate(sim = 1), 
+               aes(x = log(birthweight), col = &quot;y&quot;)) + 
+  scale_color_manual(name = &quot;&quot;, 
+                     values = c(&quot;y&quot; = &quot;darkblue&quot;, 
+                                &quot;y_rep&quot; = &quot;lightblue&quot;)) + 
+  ggtitle(&quot;Distribution of observed and replicated birthweights&quot;) + 
+  theme_bw(base_size = 16)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div id="test-statistics" class="section level3">
+<h3>Test statistics</h3>
+<p>As well as looking at the overall distributions of the replicated datasets versus the data, we can decide on a test statistic(s) that is a summary of interest, calculate the statistic for each replicated dataset, and compare the distribution of these values with the value of the statistic observed in the data.</p>
+<p>For example, we can look at the distribution of the median (log) birth weight across the replicated data sets in comparison to the median in the data, and plot using <code>ppc_stat</code>. For both models, the predicted median birth weight is too low.</p>
+<pre class="r"><code>ppc_stat(log_weight, yrep1, stat = &#39;median&#39;)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<pre class="r"><code>ppc_stat(log_weight, yrep2, stat = &#39;median&#39;)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<p>As before, we can also construct these plots ourselves. Here I’m calculating the proportion of babies who have a weight less than 2.5kg (considered low birth weight) in each of the replicated datasets, and comparing to the proportion in the data. Model 2 seems to do a better job here:</p>
+<pre class="r"><code>t_y &lt;- mean(y&lt;=log(2.5))
+t_y_rep &lt;- sapply(1:nrow(yrep1), function(i) mean(yrep1[i,]&lt;=log(2.5)))
+t_y_rep_2 &lt;- sapply(1:nrow(yrep2), function(i) mean(yrep2[i,]&lt;=log(2.5)))
+
+ggplot(data = as_tibble(t_y_rep), aes(value)) + 
+    geom_histogram(aes(fill = &quot;replicated&quot;)) + 
+    geom_vline(aes(xintercept = t_y, color = &quot;observed&quot;), lwd = 1.5) + 
+  ggtitle(&quot;Model 1: proportion of births less than 2.5kg&quot;) + 
+  theme_bw(base_size = 16) + 
+  scale_color_manual(name = &quot;&quot;, 
+                     values = c(&quot;observed&quot; = &quot;darkblue&quot;))+
+  scale_fill_manual(name = &quot;&quot;, 
+                     values = c(&quot;replicated&quot; = &quot;lightblue&quot;)) </code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = as_tibble(t_y_rep_2), aes(value)) + 
+    geom_histogram(aes(fill = &quot;replicated&quot;)) + 
+    geom_vline(aes(xintercept = t_y, color = &quot;observed&quot;), lwd = 1.5) + 
+  ggtitle(&quot;Model 2: proportion of births less than 2.5kg&quot;) + 
+  theme_bw(base_size = 16) + 
+  scale_color_manual(name = &quot;&quot;, 
+                     values = c(&quot;observed&quot; = &quot;darkblue&quot;))+
+  scale_fill_manual(name = &quot;&quot;, 
+                     values = c(&quot;replicated&quot; = &quot;lightblue&quot;)) </code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+</div>
+</div>
+<div id="ppcs-with-brms-output" class="section level2">
+<h2>PPCs with <code>brms</code> output</h2>
+<p>With the models built in brms, we can use the <code>posterior_predict</code> function to get samples from the posterior predictive distribution:</p>
+<pre class="r"><code>yrep1b &lt;- posterior_predict(mod1b)</code></pre>
+<p>Alterantively, you can use the <code>tidybayes</code> package to add predicted draws to the original <code>ds</code> data tibble. This option is nice if you want to do a lot of ggplotting later on, because the data is already in tidy format.</p>
+<pre class="r"><code>ds_yrep1 &lt;- ds %&gt;% 
+  select(log_weight, log_gest_c) %&gt;% 
+  add_predicted_draws(mod1b)
+head(ds_yrep1)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+## # Groups:   log_weight, log_gest_c, .row [1]
+##   log_weight log_gest_c  .row .chain .iteration .draw .prediction
+##        &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;int&gt;       &lt;dbl&gt;
+## 1       1.16      0.188     1     NA         NA     1        1.43
+## 2       1.16      0.188     1     NA         NA     2        1.10
+## 3       1.16      0.188     1     NA         NA     3        1.00
+## 4       1.16      0.188     1     NA         NA     4        1.32
+## 5       1.16      0.188     1     NA         NA     5        1.28
+## 6       1.16      0.188     1     NA         NA     6        1.20</code></pre>
+<p>Once you have the posterior predictive samples, you can use the <code>bayesplot</code> package as we did above with the Stan output, or do the plots yourself in <code>ggplot</code>.</p>
+<p>Another quick alternative with <code>brms</code> that avoids manually getting the posterior predictive samples altogether is to use the <code>pp_check</code> function, which is a wrapper for all the <code>bayesplot</code> options. e.g. density overlays:</p>
+<pre class="r"><code>pp_check(mod1b, type = &quot;dens_overlay&quot;, nsamples = 100)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>e.g. test statistics:</p>
+<pre class="r"><code>pp_check(mod1b, type = &quot;stat&quot;, stat = &#39;median&#39;, nsamples = 100)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+</div>
+</div>
+<div id="loo-cv" class="section level1">
+<h1>LOO-CV</h1>
+<p>The last piece of this workflow is comparing models using leave-one-out cross validation. We are interested in estimating the out-of-sample predictive accuracy at each point <span class="math inline">\(i\)</span>, when all we have to fit the model is data that without point <span class="math inline">\(i\)</span>. We want to estimate the leave-one-out (LOO) posterior predictive densities <span class="math inline">\(p(y_i|\boldsymbol{y_{-i}})\)</span> and a summary of these across all points, which is called the LOO expected log pointwise predictive density (<span class="math inline">\(\text{elpd}_{LOO}\)</span>). The bigger the numbers, the better we are at predicting the left out point <span class="math inline">\(i\)</span>.</p>
+<p>By comparing the (<span class="math inline">\(\text{elpd}_{LOO}\)</span>) across models, we can choose the model that has the higher value. By looking at values for the individual points, we can see which observations are particularly hard to predict.</p>
+<p>To calculate the (<span class="math inline">\(\text{elpd}_{LOO}\)</span>) in R, we will use the <code>loo</code> package. This estimates the LOO posterior predictive densities using Pareto Smoothed Importance Sampling (PSIS)<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>, and requires point estimates of the log likelihood.</p>
+<div id="loo-cv-with-stan-output" class="section level2">
+<h2>LOO-CV with Stan output</h2>
+<p>For the Stan models, we need to extract the log-likelihood, and then run <code>loo</code>. (The <code>save_psis = TRUE</code> is needed for the LOO-PIT graphs below).</p>
+<pre class="r"><code>loglik1 &lt;- extract(mod1)[[&quot;log_lik&quot;]]
+loglik2 &lt;- extract(mod2)[[&quot;log_lik&quot;]]
+loo1 &lt;- loo(loglik1, save_psis = TRUE)
+loo2 &lt;- loo(loglik2, save_psis = TRUE)</code></pre>
+<p>We can look at the summaries of these and also compare across models. The <span class="math inline">\(\text{elpd}_{LOO}\)</span> is higher for Model 2, so it is preferred.</p>
+<pre class="r"><code>loo1</code></pre>
+<pre><code>## 
+## Computed from 500 by 3842 log-likelihood matrix
+## 
+##          Estimate    SE
+## elpd_loo   1377.5  72.3
+## p_loo         9.0   1.3
+## looic     -2755.0 144.6
+## ------
+## Monte Carlo SE of elpd_loo is 0.1.
+## 
+## All Pareto k estimates are good (k &lt; 0.5).
+## See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
+<pre class="r"><code>loo2</code></pre>
+<pre><code>## 
+## Computed from 500 by 3842 log-likelihood matrix
+## 
+##          Estimate    SE
+## elpd_loo   1552.0  69.8
+## p_loo        16.2   2.6
+## looic     -3104.0 139.7
+## ------
+## Monte Carlo SE of elpd_loo is 0.2.
+## 
+## All Pareto k estimates are good (k &lt; 0.5).
+## See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
+<pre class="r"><code>compare(loo1, loo2)</code></pre>
+<pre><code>## elpd_diff        se 
+##     174.5      36.3</code></pre>
+<p>The output mentions Pareto k estimates, which give an indication of how ‘influential’ each point is. The higher the value of <span class="math inline">\(k\)</span>, the more influential the point. <a href="https://mc-stan.org/loo/reference/pareto-k-diagnostic.html">Values of <span class="math inline">\(k\)</span> over 0.7 are not good</a>, and suggest the need for model re-specification. The values of <span class="math inline">\(k\)</span> can be extracted from the <code>loo</code> object like this:</p>
+<pre class="r"><code>head(loo1$diagnostics$pareto_k)</code></pre>
+<pre><code>## [1] -0.05329232  0.05934065 -0.20993121 -0.19775285 -0.13801892 -0.02027345</code></pre>
+<p>or plotted easily like this:</p>
+<pre class="r"><code>plot(loo1)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div id="loo-pit" class="section level3">
+<h3>LOO-PIT</h3>
+<p>Another useful model diagnostic is the LOO <a href="https://en.wikipedia.org/wiki/Probability_integral_transform">probability integral transform</a> (PIT). This essentially looks to see where each point <span class="math inline">\(y_i\)</span> falls in its predictive distribution <span class="math inline">\(p(y_i|\boldsymbol{y_{-i}})\)</span>. If the model is well calibrated these should look like Uniform distributions. We can use <code>bayesplot</code> to plot these against 100 simulate standard Uniforms. The results in this case aren’t too bad.</p>
+<pre class="r"><code>ppc_loo_pit_overlay(yrep = yrep1, y = y, lw = weights(loo1$psis_object)) + ggtitle(&quot;LOO-PIT Model 1&quot;)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre class="r"><code>ppc_loo_pit_overlay(yrep = yrep2, y = y, lw = weights(loo2$psis_object)) + ggtitle(&quot;LOO-PIT Model 2&quot;)</code></pre>
+<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+</div>
+</div>
+<div id="loo-cv-with-brms-output" class="section level2">
+<h2>LOO-CV with <code>brms</code> output</h2>
+<p>With <code>brms</code>, the log likelihood is calculated automatically, and we can just pass the model objects directly to <code>loo</code>, for example:</p>
+<pre class="r"><code>loo1b &lt;- loo(mod1b, save_psis = TRUE)</code></pre>
+<p>Once we have the <code>loo</code> object, the rest of the plots etc can be done as above with the Stan output.</p>
+</div>
+</div>
+<div id="summary" class="section level1">
+<h1>Summary</h1>
+<p>Visualization is a powerful tool in assessing model assumptions and performance. For Bayesian models, it’s important to think about how priors interplay with the likelihood (even before we observe data), to see how newly predicted data line up with the observed data, and to see how the model performs out of sample. For Bayesian models there are potentially an overwhelming number of different outputs, and in R there are a million different ways to do the same thing, so hopefully this post helps someone wade through these depths, towards a more structured Bayesian workflow.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>If any students are reading this, it contains answers for most of the lab questions, lol.<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>I am very lucky to work with one of the authors, <a href="https://twitter.com/dan_p_simpson">Dan Simpson</a>, who listens to my questions and comments at length with an admirable level of patience, usually in exchange for coffee.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Technically this is whether or not the birth was ‘very preterm’ according to WHO definitions: <a href="https://www.who.int/news-room/fact-sheets/detail/preterm-birth" class="uri">https://www.who.int/news-room/fact-sheets/detail/preterm-birth</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Someone I <a href="www.rohanalexander.com">know</a> was recently asked “when do you know that your EDA is done?” Their response was, EDA is never done, you just die.<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>It’s also possible / easy to get posterior predictive samples in R after running the model, <a href="https://github.com/MJAlexander/applied-stats/blob/master/code/yrep_birthweight_example.R">here</a> is some example code. Doing everything in Stan is neater, but it might be clearer to see what’s going on doing it yourself in R.<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>More details <a href="https://arxiv.org/abs/1507.04544">here</a>.<a href="#fnref6">↩</a></p></li>
+</ol>
+</div>
+
+      </div>
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+
+    
+    <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
