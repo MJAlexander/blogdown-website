@@ -37,6 +37,7 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 - **Alexander, M.**, and Alexander, R., '[The Effect of Events on Discussion in the Australian
 Federal Parliament (1901-2017)](https://rohanalexander.com/pdf/2018-10-22-first_page.pdf)'.
 - Chung, P.H., and **Alexander, M.**, '[Kin Dependency Ratios: An Extension and Application of the Goodman Method for Estimating the Availability of Kin](https://p-chung.com/paa/2019/abstract/)'.
+- Root, L.R, and **Alexander, M.** '[Competing effects on the average age of infant death](/pdf/a0.pdf)'.
 
 
 
