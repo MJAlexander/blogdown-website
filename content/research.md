@@ -9,13 +9,14 @@ My research interests broadly fall into three areas:
 
 __Statistical demography:__ I develop methods to improve estimates and forecasts of demographic and health indicators in situations where the available data are sparse or unreliable. This work involves combining demographic and statistical methods to estimate outcomes in developing countries, minority populations, and in small geographic areas. 
 
-__Health and mortality inequalities:__ I research how disparities in health and mortality outcomes are changing over time. Recent and current work involves studying the evolution of the opioid epidemic in the United States and Canada, with a particular focus on at-risk populations, such as minorities and new mothers. 
+__Health and mortality inequalities:__ I research how disparities in health and mortality outcomes are changing over time. Recent and current work involves studying the evolution of the opioid epidemic in the United States and Canada. 
 
-__Using non-traditional data sources in demographic research:__ I focus on developing methods to overcome biases and data quality issues to take advantage of new data sources such as web and social media data, and text data. Two current projects include developing methods to estimate migration from Facebook data, and understanding the effect of external events on topics discussed in the Australian parliament.
+__Using non-traditional data sources in demographic research:__ I focus on developing methods to overcome biases and data quality issues to take advantage of new data sources such as web and social media data, and text data. 
 
 
 
 # Peer-reviewed publications
+- **Alexander, M.**, Polimis, K., and Zagheni, E., 'Combining social media and survey data to nowcast migrant stocks in the United States', *Population Research and Policy Review*, accepted. Preprint: https://arxiv.org/abs/2003.02895
 - **Alexander, M.**, Polimis, K., and Zagheni, E., 'The impact of Hurricane Maria on out-migration from Puerto Rico: Evidence from Facebook data', *Population and Development Review*, 2019, published online, DOI:  https://doi.org/10.1111/padr.12289.  
 - Hug, L., **Alexander, M.**, You, D., and Alkema, L. '[National, regional, and global levels and trends in neonatal mortality between 1990 and 2017, with scenario-based projections to 2030: a systematic analysis by the United Nations Inter-agency Group for Child Mortality Estimation](https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30163-9/fulltext)', *Lancet Global Health*, 2019, 7(6): 710--720. 
 - Kiang, M.V., Basu S., Chen J., and **Alexander, M**. `[Assessment of Changes in the Geographical Distribution of Opioid-Related Mortality Across the United States by Opioid Type, 1999-2016](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2725487)'. *JAMA Network Open*. 2019, 2(2):e190040.
@@ -33,7 +34,6 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 - **Alexander, M.**, '[Temporal smoothers for use in demographic estimation and projection](/pdf/temporal_smoothing.pdf)'.
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](/pdf/bayesian_censoc.pdf)'.
 - **Alexander, M.**, and Alkema, L., '[A Bayesian hierarchical model for estimating subnational female populations in developing countries](/pdf/bayesian_kenya.pdf)' .
-- **Alexander, M.**, Polimis, K., and Zagheni, E., '[Combining Social Media Data and Traditional Surveys to Estimate and Predict Migration Stocks](https://paa.confex.com/paa/2018/meetingapp.cgi/Paper/23641)'.
 - **Alexander, M.**, and Alexander, R., '[The Effect of Events on Discussion in the Australian
 Federal Parliament (1901-2017)](https://rohanalexander.com/pdf/2018-10-22-first_page.pdf)'.
 - Chung, P.H., and **Alexander, M.**, '[Kin Dependency Ratios: An Extension and Application of the Goodman Method for Estimating the Availability of Kin](https://p-chung.com/paa/2019/abstract/)'.
