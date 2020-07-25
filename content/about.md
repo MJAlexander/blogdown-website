@@ -7,6 +7,8 @@ I am an Assistant Professor in [Statistical Sciences](http://www.utstat.utoronto
 
 I have worked on research projects with the World Health Organization, UNICEF, the Bill and Melinda Gates Foundation, and the [Human Mortality Database](http://mortality.org/). I was a 2016 Fellow at [Data Science for Social Good](https://dssg.uchicago.edu/), and have worked at the ANU's [Centre for Aboriginal Economic Policy Research](http://caepr.anu.edu.au/).
 
-Outside of work and study I am interested in photography, cycling, and music.
+I am passionate about increasing the representation of women in STEM and other quantitative fields. I co-organize [RLadies Toronto](https://www.meetup.com/rladies-toronto/) and maintain a list of [women scholars in demography](https://www.monicaalexander.com/women_scholars/).
+
+Outside of work I am interested in photography, cycling, and music.
 
 A full CV can be found [here](/pdf/cv.pdf).
