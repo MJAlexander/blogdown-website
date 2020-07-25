@@ -248,6 +248,10 @@ Jump to:
 - [Educational selectivity in US immigration: How do immigrants compare to those left behind?](https://link.springer.com/article/10.1353/dem.2005.0001)
 - [Does Selective Migration Matter? Explaining Ethnic Disparities in Educational Attainment among Immigrants' Children](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2005.tb00291.x)
 
+### [Alexia Fürnkranz-Prskawetz](https://www.oeaw.ac.at/vid/people/staff/alexia-fuernkranz-prskawetz/)
+- [A brain gain with a brain drain](https://www.sciencedirect.com/science/article/abs/pii/S0165176597000852)
+- [Human capital depletion, human capital formation, and migration: a blessing or a “curse”?](https://www.sciencedirect.com/science/article/abs/pii/S0165176598001256)
+
 ### [Elizabeth Fussell](https://www.brown.edu/academics/population-studies/people/person/elizabeth-fussell)
 - [The limits to cumulative causation: International migration from Mexican Urban Areas](https://link.springer.com/article/10.1353/dem.2004.0003)
 - [The Long-Term Recovery of New Orleans Population After Hurricane Katrina](https://journals.sagepub.com/doi/abs/10.1177/0002764215591181)
@@ -307,6 +311,10 @@ Jump to:
 ### [Heather Randell](https://www.heatherrandell.com/)
 - [Structure and agency in development-induced forced migration: the case of Brazilís Belo Monte Dam](https://link.springer.com/content/pdf/10.1007/s11111-015-0245-4.pdf)
 - [Climate change and educational attainment in the global tropics](10.1073/pnas.1817480116)
+
+### [Helga de Valk](https://nidi.nl/en/employees/helga-de-valk/)
+- [Co-residence of adult children with their parents: differences by migration background explored and explained](https://www.tandfonline.com/doi/abs/10.1080/1369183X.2018.1485207)
+- [Intergenerational discrepancies in fertility preferences among immigrant and Dutch families](https://www.tandfonline.com/doi/abs/10.1080/1081602X.2013.826591)
 
 ### [Jennifer Van Hook](https://sociology.la.psu.edu/people/jxv21)
 - [Immigration and living arrangements: Moving beyond economic need versus acculturation](https://link.springer.com/article/10.1353/dem.2007.0019)
