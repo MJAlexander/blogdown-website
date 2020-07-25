@@ -142,6 +142,11 @@ Jump to:
 
 ## Fertility
 
+### [Eva Beaujouan](http://www.wittgensteincentre.org/en/staff/member/beaujouan.htm)
+- [Repartnering in France: The role of gender, age and past fertility](https://www.sciencedirect.com/science/article/abs/pii/S1040260812000184)
+- [Cohabitation and marriage in Britain since the 1970s](https://link.springer.com/article/10.1057/pt.2011.16)
+
+
 ### [Sarah Brauner-Otto](https://www.mcgill.ca/sociology/contact-us/faculty/brauner-otto)
 - [The spread of health services and fertility transition](https://link.springer.com/article/10.1353/dem.2007.0041)
 - [Parental family experiences, the timing of first sex, and contraception](https://www.sciencedirect.com/science/article/abs/pii/S0049089X10001316)
