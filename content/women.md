@@ -297,6 +297,10 @@ Jump to:
 ### [Eileen Crimmins](https://gero.usc.edu/faculty/crimmins/)
 - [Change in cognitively healthy and cognitively impaired life expectancy in the United States: 2000–2010](https://www.sciencedirect.com/science/article/pii/S2352827316301148)
 - [Aging populations, mortality, and life expectancy](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-073117-041351)
+
+### [Vanessa Di Lego](https://www.oeaw.ac.at/vid/people/staff/vanessa-di-lego/)
+- [Gender differences in healthy and unhealthy life years](https://link.springer.com/chapter/10.1007/978-3-030-37668-0_11#:~:text=Not%20surprisingly%2C%20women%20expect%20to,from%20ages%2065%20and%20over.)
+- [Mortality selection among adults in Brazil: The survival advantage of Air Force officers](https://www.demographic-research.org/volumes/vol37/41/default.htm)
   
 ### [Jennifer Dowd](https://www.jenndowd.com/)
 -  [Demographic science aids in understanding the spread and fatality rates of COVID-19](https://www.pnas.org/content/117/18/9696.short)
