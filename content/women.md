@@ -108,6 +108,10 @@ Jump to:
 - [The Demography of Multigenerational Caregiving: A Critical Aspect of the Gendered Life Course](https://journals.sagepub.com/doi/full/10.1177/2378023119862737)
 - [Educational Attainment Differences in Attitudes toward Provisions of IADL Care for Older Adults in the US](https://www.tandfonline.com/doi/abs/10.1080/08959420.2020.1722898)
 
+### [Yue Qian](https://sociology.ubc.ca/profile/yue-qian/)
+- [Gender Asymmetry in Educational and Income Assortative Marriage](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12372)
+- [Women's Fertility Autonomy in Urban China: The Role of Couple Dynamics Under the Universal Two-Child Policy](https://www.tandfonline.com/doi/abs/10.1080/21620555.2018.1428895)
+
 ### [R. Kelly Raley](https://liberalarts.utexas.edu/sociology/faculty/kraley)
 - [The topography of the divorce plateau: Levels and trends in union stability in the United States after 1980](https://www.jstor.org/stable/26348083?seq=1#metadata_info_tab_contents)
 - [Cohabitation and children's family instability](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-2445.2004.00014.x-i1)
@@ -178,6 +182,11 @@ Jump to:
 ### [Heini Väisänen](https://heinivaisanen.com/)
 - [Social Inequalities in Teenage Fertility Outcomes: Childbearing and Abortion Trends of Three Birth Cohorts In Finland](https://onlinelibrary.wiley.com/doi/abs/10.1363/46e1314)
 - [The association between education and induced abortion for three cohorts of adults in Finland](https://www.tandfonline.com/doi/full/10.1080/00324728.2015.1083608)
+
+### [Laura Wright](https://artsandscience.usask.ca/profile/LWright#/profile)
+- [Union Transitions and Fertility within First Premarital Cohahitations in Canada: Diverging Trends by Education](https://crdcn.org/union-transitions-and-fertility-within-first-premarital-cohabitations-canada-diverging-patterns)
+- [Healthy Grandparenthood: How long is it and how has it Changed?](https://www.niussp.org/article/healthy-grandparenthood-how-long-is-it-and-how-has-it-changed/)
+- []()
 
 ## Mathematical, statistical, digital demography
 
