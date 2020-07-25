@@ -68,6 +68,10 @@ Jump to:
 - [Care in context: Men's unpaid work in 20 countries, 1965–2003](https://journals.sagepub.com/doi/abs/10.1177/000312240607100406)
 - [Gender inequality in the welfare state: Sex segregation in housework, 1965–2003](https://www.journals.uchicago.edu/doi/abs/10.1086/651384)
 
+### [Tahu Kukutai](https://www.waikato.ac.nz/nidea/people/tahuk)
+- [In search of ethnic New Zealanders: National naming in the 2006 census](https://www.msd.govt.nz/documents/about-msd-and-our-work/publications-resources/journals-and-magazines/social-policy-journal/spj36/social-policy-journal-36.pdf#page=51)
+- [White Mothers, Brown Children: Ethnic Identification of Maori‐European Children in New Zealand](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2007.00438.x)
+
 ### [Danya Lagos](https://danyalagos.com/)
 - [Hearing Gender: Voice-Based Gender Classification Processes and Transgender Health Inequality](https://journals.sagepub.com/doi/abs/10.1177/0003122419872504)
 - [Looking at population health beyond “male” and “female”: Implications of transgender identity and gender nonconformity for population health](https://link.springer.com/content/pdf/10.1007/s13524-018-0714-3.pdf)
