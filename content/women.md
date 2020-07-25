@@ -370,6 +370,10 @@ Jump to:
 - [Recent trends in life expectancy across high income countries: retrospective observational study](https://www.bmj.com/content/362/bmj.k2562.full)
 - [The contribution of smoking to black-white differences in US mortality](https://link.springer.com/content/pdf/10.1007/s13524-012-0159-z.pdf)
 
+### [Fanny Janssen](https://nidi.nl/en/employees/fanny-janssen/)
+- [ICD coding changes and discontinuities in trends in cause-specific mortality in six European countries, 1950-99](https://www.scielosp.org/article/bwho/2004.v82n12/904-913/en/)
+- [Trends in old-age mortality in seven European countries, 1950–1999](https://www.sciencedirect.com/science/article/abs/pii/S0895435603002907)
+
 ### [Lucie Kalousová](http://www.luciekalousova.com/)
 - [Increase in frailty of older workers and retirees predicted by negative psychosocial working conditions on the job](https://www.sciencedirect.com/science/article/abs/pii/S0277953614007874)
 - [Debt and Foregone Medical Care](https://journals.sagepub.com/doi/abs/10.1177/0022146513483772)
