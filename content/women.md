@@ -45,6 +45,10 @@ Jump to:
 - [The impact of childcare on poor urban Women’s economic empowerment in Africa](https://link.springer.com/article/10.1007/s13524-019-00793-3#:~:text=This%20randomized%20control%20trial%20study,women's%20participation%20in%20paid%20work.&text=These%20findings%20demonstrate%20that%20the,marital%20status%20and%20across%20outcomes.)
 - [Divorce in Sub-Saharan Africa: Are Unions Becoming Less Stable?](https://www.jstor.org/stable/24638576#metadata_info_tab_contents)
 
+### [Ann Evans](https://researchers.anu.edu.au/researchers/evans-aa)
+- [Negotiating the Life Course: Stability and Change in Life Pathways](https://books.google.ca/books?hl=en&lr=&id=Tnq9aOqsJ6EC&oi=fnd&pg=PR5&dq=info:5eeNfNsOTjEJ:scholar.google.com&ots=XPUErOyzV-&sig=360RlSD9LFOnqOq_et_FM6QVpuM&redir_esc=y#v=onepage&q&f=false)
+- [The influence of significant others on Australian teenagers' decisions about pregnancy resolution](https://www.jstor.org/stable/2673786?seq=1#metadata_info_tab_contents)
+
 ### [Maggie Frye](https://lsa.umich.edu/soc/people/faculty/margaret-frye.html)
 
 - [Bright futures in Malawi’s new dawn: Educational aspirations as assertions of identity](https://www.journals.uchicago.edu/doi/abs/10.1086/664542)
@@ -144,6 +148,11 @@ Jump to:
 - [If all we knew about women was what we read in Demography, what would we know?](https://link.springer.com/article/10.2307/2061806)
 - [Demographic Foundations of Family Change](https://www.jstor.org/stable/2095354?seq=1#metadata_info_tab_contents)
 
+### [Laura Wright](https://artsandscience.usask.ca/profile/LWright#/profile)
+- [Union Transitions and Fertility within First Premarital Cohahitations in Canada: Diverging Trends by Education](https://crdcn.org/union-transitions-and-fertility-within-first-premarital-cohabitations-canada-diverging-patterns)
+- [Healthy Grandparenthood: How long is it and how has it Changed?](https://www.niussp.org/article/healthy-grandparenthood-how-long-is-it-and-how-has-it-changed/)
+
+
 ## Fertility
 
 ### [Eva Beaujouan](http://www.wittgensteincentre.org/en/staff/member/beaujouan.htm)
@@ -183,10 +192,7 @@ Jump to:
 - [Social Inequalities in Teenage Fertility Outcomes: Childbearing and Abortion Trends of Three Birth Cohorts In Finland](https://onlinelibrary.wiley.com/doi/abs/10.1363/46e1314)
 - [The association between education and induced abortion for three cohorts of adults in Finland](https://www.tandfonline.com/doi/full/10.1080/00324728.2015.1083608)
 
-### [Laura Wright](https://artsandscience.usask.ca/profile/LWright#/profile)
-- [Union Transitions and Fertility within First Premarital Cohahitations in Canada: Diverging Trends by Education](https://crdcn.org/union-transitions-and-fertility-within-first-premarital-cohabitations-canada-diverging-patterns)
-- [Healthy Grandparenthood: How long is it and how has it Changed?](https://www.niussp.org/article/healthy-grandparenthood-how-long-is-it-and-how-has-it-changed/)
-- []()
+
 
 ## Mathematical, statistical, digital demography
 
