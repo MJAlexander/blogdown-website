@@ -331,6 +331,9 @@ Jump to:
 
 ## Mortality, health, aging, biodemography
 
+### [Elizabeth Barbi](https://www.dss.uniroma1.it/it/dipartimento/persone/barbi-elisabetta)
+- [The plateau of human mortality: Demography of longevity pioneers](https://science.sciencemag.org/content/360/6396/1459.full?ijkey=7YwUWtPpfqk9A&keytype=ref&siteid=sci)
+
 ### [Magali Barbieri](https://www.site.demog.berkeley.edu/barbieri-profile-page)
 - [The contribution of drug-related deaths to the US disadvantage in mortality](https://academic.oup.com/ije/article-abstract/48/3/945/5265302)
 - [Data Resource Profile: The Human Mortality Database (HMD) ](https://academic.oup.com/ije/article/44/5/1549/2594557)
@@ -414,4 +417,8 @@ Jump to:
 ### [Emma Zang](http://www.emmazang.net/)
 - [Recent trends in US mortality in early and middle adulthood: racial/ethnic disparities in inter-cohort patterns](https://academic.oup.com/ije/article-abstract/48/3/934/5224527)
 - [Frustrated achievers or satisfied losers? Inter-and intragenerational social mobility and happiness in China](https://www.sociologicalscience.com/download/vol-3/september/SocSci_v3_779to800.pdf)
+
+### [Virginia Zarulli](https://portal.findresearcher.sdu.dk/en/persons/vzarulli)
+- [Women live longer than men even during severe famines and epidemics](https://www.pnas.org/content/115/4/E832?xid=PS_smithsonian)
+- [Mortality by education level at late-adult ages in Turin: a survival analysis using frailty models with period and cohort approaches ](https://bmjopen.bmj.com/content/3/7/e002841.short)
 
