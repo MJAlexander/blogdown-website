@@ -25,7 +25,7 @@ Jump to:
 - [Doing it All? Mothers’ College Enrollment, Time Use, and Affective Well-Being](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12477)
 - [Can Increased Educational Attainment among Lower Educated Mothers Reduce Inequalities in the Skill Development of Children? ](https://link.springer.com/article/10.1007/s13524-017-0637-4)
 
-### [Christin Bachrach](https://www.popcenter.umd.edu/mprc-associates/chrisbachrach)
+### [Christine Bachrach](https://www.popcenter.umd.edu/mprc-associates/chrisbachrach)
 - [A Cognitive-Social Model of Fertility Intentions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4132897/)
 - [Culture and Demography: From Reluctant Bedfellows to Committed Partners](https://link.springer.com/content/pdf/10.1007/s13524-013-0257-6.pdf)
 
@@ -221,9 +221,17 @@ Jump to:
 - [Gender inequality in labor markets: The role of motherhood and segregation](https://academic.oup.com/sp/article-abstract/12/2/264/1685513)
 - [Households, employment, and gender: A social, economic, and demographic view](https://books.google.ca/books?hl=en&lr=&id=KmZQDwAAQBAJ&oi=fnd&pg=PP1&dq=info:94IYgM3TQQ8J:scholar.google.com&ots=j3j1WlRtkz&sig=rM321rrLCZOd99RaevAagNBJLXc&redir_esc=y#v=onepage&q&f=false)
 
+### [Barbara Entwisle](https://www.cpc.unc.edu/people/fellows/barbara-entwisle/)
+- [Putting people into place](https://link.springer.com/article/10.1353/dem.2007.0045)
+- [Multilevel effects of socioeconomic development and family planning programs on children ever born](https://www.journals.uchicago.edu/doi/abs/10.1086/228316)
+
 ### [Cynthia Feliciano](https://sociology.wustl.edu/people/cynthia-feliciano)
 - [Educational selectivity in US immigration: How do immigrants compare to those left behind?](https://link.springer.com/article/10.1353/dem.2005.0001)
 - [Does Selective Migration Matter? Explaining Ethnic Disparities in Educational Attainment among Immigrants' Children](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2005.tb00291.x)
+
+### [Filiz Garip](https://sociology.cornell.edu/filiz-garip)
+- [Social capital and migration: How do similar resources lead to divergent outcomes?](https://link.springer.com/article/10.1353/dem.0.0016)
+- [Discovering Diverse Mechanisms of Migration: The Mexico- U.S. Stream from 1970 to 2000](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2012.00510.x)
 
 ### [Jennifer Glick](https://sociology.la.psu.edu/people/jeg115)
 - [Post-secondary school participation of immigrant and native youth: The role of familial resources and educational expectations](https://www.sciencedirect.com/science/article/abs/pii/S0049089X03000590)
@@ -236,6 +244,10 @@ Jump to:
 ### [Mao-Mei Liu](https://www.site.demog.berkeley.edu/liu-profile-page)
 - [Migrant networks and international migration: Testing weak ties](https://link.springer.com/content/pdf/10.1007/s13524-013-0213-5.pdf)
 - [Prospects for the comparative study of international migration using quasi-longitudinal micro-data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5739584/)
+
+### [Yao Lu](http://www.columbia.edu/~yl2479/)
+- [Test of the ‘healthy migrant hypothesis’: a longitudinal analysis of health selectivity of internal migration in Indonesia](https://www.sciencedirect.com/science/article/abs/pii/S0277953608003225) 
+- [Education of children left behind in rural China](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00951.x)
 
 ### [Ayesha Mahmud](https://ayeshamahmud.github.io/)
 - [Comparative dynamics, seasonality in transmission, and predictability of childhood infections in Mexico](https://www.cambridge.org/core/journals/epidemiology-and-infection/article/comparative-dynamics-seasonality-in-transmission-and-predictability-of-childhood-infections-in-mexico/D42E1AE52EAEAED56EFD55EFE7A8D2A6)
