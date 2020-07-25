@@ -84,6 +84,10 @@ Jump to:
 - [Adolescent well‐being in cohabiting, married, and single‐parent families](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2003.00876.x)
 - [Measuring and modeling cohabitation: New perspectives from qualitative data](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2005.00189.x)
 
+### [Vida Maralani](https://sociology.cornell.edu/vida-maralani)
+- [The Changing Relationship between Family Size and Educational Attainment over the Course of Socioeconomic Development: Evidence from Indonesia](https://link.springer.com/article/10.1353/dem.0.0013)
+- [From GED to College: Age Trajectories of Nontraditional Educational Paths](https://journals.sagepub.com/doi/abs/10.3102/0002831211405836)
+
 ### [Rachel Margolis](https://www.rachelmargolis.net/)
 - [A global perspective on happiness and fertility](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2011.00389.x)
 - [The Changing Demography of Grandparenthood](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12286)
