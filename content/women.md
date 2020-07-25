@@ -10,6 +10,13 @@ An ever-growing list of active scholars in demography who identify as women or a
 
 If you know of someone who should be on this list and isn't, or if you are on this list and would like different papers highlighted, email me!
 
+Jump to:
+
+- [Family, social demography](#family-social-demography)
+- [Fertility](#fertility)
+- [Mathematical, statistical, digital demography](#mathematical-statistical-digital-demography)
+- [Migration, environment, economic demography](#migration-environment-economic-demography)
+- [Mortality, health, aging, biodemography](#mortality-health-aging-biodemography)
 
 
 ## Family, social demography
