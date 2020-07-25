@@ -222,6 +222,10 @@ If you know of someone who should be on this list and isn't, or if you are on th
 - [Is Occupational Licensing a Barrier to Interstate Migration?](https://www.nber.org/papers/w24107)
 - [The long run health consequences of rural‐urban migration](https://onlinelibrary.wiley.com/doi/full/10.3982/QE962)
 
+### [Ayesha Mahmud](https://ayeshamahmud.github.io/)
+- [Comparative dynamics, seasonality in transmission, and predictability of childhood infections in Mexico](https://www.cambridge.org/core/journals/epidemiology-and-infection/article/comparative-dynamics-seasonality-in-transmission-and-predictability-of-childhood-infections-in-mexico/D42E1AE52EAEAED56EFD55EFE7A8D2A6)
+- [Drivers of measles mortality: the historic fatality burden of famine in Bangladesh](https://www.cambridge.org/core/journals/epidemiology-and-infection/article/drivers-of-measles-mortality-the-historic-fatality-burden-of-famine-in-bangladesh/3DED1784C1B25607693B2C6B29C6D090)
+
 ### [Jennifer Van Hook](https://sociology.la.psu.edu/people/jxv21)
 - [Immigration and living arrangements: Moving beyond economic need versus acculturation](https://link.springer.com/article/10.1353/dem.2007.0019)
 - [Ineligible parents, eligible children: Food stamps receipt, allotments, and food insecurity among children of immigrants](https://www.sciencedirect.com/science/article/abs/pii/S0049089X04000869)
