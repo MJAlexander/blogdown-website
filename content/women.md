@@ -252,6 +252,10 @@ Jump to:
 - [Post-secondary school participation of immigrant and native youth: The role of familial resources and educational expectations](https://www.sciencedirect.com/science/article/abs/pii/S0049089X03000590)
 - [Academic trajectories of immigrant youths: Analysis within and across cohorts](https://link.springer.com/article/10.1353/dem.2003.0034)
 
+### [Kathryn Grace](https://kathryn-grace.dash.umn.edu/about/)
+- [Child malnutrition and climate in Sub-Saharan Africa: An analysis of recent trends in Kenya](https://doi-org.proxy.lib.fsu.edu/10.1016/j.apgeog.2012.06.017)
+- [Using satellite remote sensing and household survey data to assess human health and nutrition response to environmental change](https://link.springer.com/article/10.1007%252Fs11111-013-0201-0)
+
 ### [Lori Hunter](https://www.colorado.edu/sociology/lori-hunter)
 - [Migration and Environmental Hazards](https://link.springer.com/content/pdf/10.1007/s11111-005-3343-x.pdf)
 - [Environmental Dimensions of Migration](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-073014-112223)
@@ -287,6 +291,10 @@ Jump to:
 ### [Jennifer Van Hook](https://sociology.la.psu.edu/people/jxv21)
 - [Immigration and living arrangements: Moving beyond economic need versus acculturation](https://link.springer.com/article/10.1353/dem.2007.0019)
 - [Ineligible parents, eligible children: Food stamps receipt, allotments, and food insecurity among children of immigrants](https://www.sciencedirect.com/science/article/abs/pii/S0049089X04000869)
+
+### [Leah VanWey](https://www.brown.edu/academics/sociology/people/leah-vanwey)
+- [Household demographic change and land use/land cover change in the Brazilian Amazon](https://link.springer.com/content/pdf/10.1007/s11111-007-0040-y.pdf)
+- [Theories Underlying the Study of Human-Environmenta Interactions](https://books.google.com/books?hl=en&lr=&id=rkplSGlHJmwC&oi=fnd&pg=PA23&dq=info:dYXZktdAhpUJ:scholar.google.com&ots=fPv6O7khoo&sig=TKdNE3zfkJOiKchUo71n03I0M4w#v=onepage&q&f=false)
 
 ## Mortality, health, aging, biodemography
 
