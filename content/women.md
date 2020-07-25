@@ -77,7 +77,7 @@ Jump to:
 - [Adolescent well‐being in cohabiting, married, and single‐parent families](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2003.00876.x)
 - [Measuring and modeling cohabitation: New perspectives from qualitative data](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2005.00189.x)
 
-### [Rachel Marigolis](https://www.rachelmargolis.net/)
+### [Rachel Margolis](https://www.rachelmargolis.net/)
 - [A global perspective on happiness and fertility](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2011.00389.x)
 - [The Changing Demography of Grandparenthood](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12286)
 
