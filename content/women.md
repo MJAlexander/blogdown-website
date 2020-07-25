@@ -240,6 +240,10 @@ Jump to:
 - [Educational selectivity in US immigration: How do immigrants compare to those left behind?](https://link.springer.com/article/10.1353/dem.2005.0001)
 - [Does Selective Migration Matter? Explaining Ethnic Disparities in Educational Attainment among Immigrants' Children](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2005.tb00291.x)
 
+### [Elizabeth Fussell](https://www.brown.edu/academics/population-studies/people/person/elizabeth-fussell)
+- [The limits to cumulative causation: International migration from Mexican Urban Areas](https://link.springer.com/article/10.1353/dem.2004.0003)
+- [The Long-Term Recovery of New Orleans Population After Hurricane Katrina](https://journals.sagepub.com/doi/abs/10.1177/0002764215591181)
+
 ### [Filiz Garip](https://sociology.cornell.edu/filiz-garip)
 - [Social capital and migration: How do similar resources lead to divergent outcomes?](https://link.springer.com/article/10.1353/dem.0.0016)
 - [Discovering Diverse Mechanisms of Migration: The Mexico- U.S. Stream from 1970 to 2000](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2012.00510.x)
@@ -247,6 +251,10 @@ Jump to:
 ### [Jennifer Glick](https://sociology.la.psu.edu/people/jeg115)
 - [Post-secondary school participation of immigrant and native youth: The role of familial resources and educational expectations](https://www.sciencedirect.com/science/article/abs/pii/S0049089X03000590)
 - [Academic trajectories of immigrant youths: Analysis within and across cohorts](https://link.springer.com/article/10.1353/dem.2003.0034)
+
+### [Lori Hunter](https://www.colorado.edu/sociology/lori-hunter)
+- [Migration and Environmental Hazards](https://link.springer.com/content/pdf/10.1007/s11111-005-3343-x.pdf)
+- [Environmental Dimensions of Migration](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-073014-112223)
 
 ### [Janna Johnson](https://sites.google.com/umn.edu/jannaj)
 - [Is Occupational Licensing a Barrier to Interstate Migration?](https://www.nber.org/papers/w24107)
@@ -271,6 +279,10 @@ Jump to:
 ### [C. Jessica Metcalf](https://metcalflab.princeton.edu/people/metcalf-c-jessica/)
 - [Why evolutionary biologists should be demographers](https://www.sciencedirect.com/science/article/abs/pii/S0169534706003806)
 - [Seasonality and comparative dynamics of six childhood infections in pre-vaccination Copenhagen](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2009.1058)
+
+### [Anne R. Pebley](https://ph.ucla.edu/faculty/pebley)
+- [Demography and the Environment](https://link.springer.com/article/10.2307/3004008)
+- [Prenatal and delivery care and childhood immunization in Guatemala: Do family and community matter?](https://link.springer.com/article/10.2307/2061874)
 
 ### [Jennifer Van Hook](https://sociology.la.psu.edu/people/jxv21)
 - [Immigration and living arrangements: Moving beyond economic need versus acculturation](https://link.springer.com/article/10.1353/dem.2007.0019)
