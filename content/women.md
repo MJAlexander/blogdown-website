@@ -41,6 +41,9 @@ Jump to:
 - [Fertility in the context of Mexican migration to the United States: A case for incorporating the pre-migration fertility of immigrants](https://www.jstor.org/stable/26348215?seq=1#metadata_info_tab_contents)
 - [Marriage‐Market Constraints and Mate‐Selection Behavior: Racial, Ethnic, and Gender Differences in Intermarriage](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12346)
 
+### [Shelley Clark](https://www.mcgill.ca/sociology/contact-us/faculty/clark)
+- [The impact of childcare on poor urban Women’s economic empowerment in Africa](https://link.springer.com/article/10.1007/s13524-019-00793-3#:~:text=This%20randomized%20control%20trial%20study,women's%20participation%20in%20paid%20work.&text=These%20findings%20demonstrate%20that%20the,marital%20status%20and%20across%20outcomes.)
+- [Divorce in Sub-Saharan Africa: Are Unions Becoming Less Stable?](https://www.jstor.org/stable/24638576#metadata_info_tab_contents)
 
 ### [Maggie Frye](https://lsa.umich.edu/soc/people/faculty/margaret-frye.html)
 
@@ -65,6 +68,10 @@ Jump to:
 - [Hearing Gender: Voice-Based Gender Classification Processes and Transgender Health Inequality](https://journals.sagepub.com/doi/abs/10.1177/0003122419872504)
 - [Looking at population health beyond “male” and “female”: Implications of transgender identity and gender nonconformity for population health](https://link.springer.com/content/pdf/10.1007/s13524-018-0714-3.pdf)
 
+### [Céline Le Bourdais](https://mcgill.ca/sociology/contact-us/faculty/lebourdais)
+- [Changes in conjugal life in Canada: Is cohabitation progressively replacing marriage?](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-2445.2004.00063.x?casa_token=OOyVhjSzY5gAAAAA%3AqxI77nBLLZXtpidurWn66jHC0VyR16VbnGBCPp4-Yp3KMv3pt5iUfnFn4i31fGTglIhjvxU4q0vxV8E)
+- [Impact of Conjugal Separation on Women’s Income in Canada – Does the Type of Union Matter](https://www.demographic-research.org/volumes/vol35/50/)
+
 ### [Sara Lopus](https://socialsciences.calpoly.edu/faculty/sara-lopus)
 - [Relatives in Residence: Relatedness of Household Members Drives Schooling Differentials in Mozambique](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12393)
 - [Visualizing Africa’s Educational Gender Gap](https://journals.sagepub.com/doi/full/10.1177/2378023118795956)
@@ -88,6 +95,10 @@ Jump to:
 ### [Jenna Nobles](https://cde.wisc.edu/staff/nobles-jenna/)
 - [Parenting from abroad: Migration, nonresident father involvement, and children's education in Mexico](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00842.x)
 - [The effects of mortality on fertility: population dynamics after a natural disaster](https://link.springer.com/content/pdf/10.1007/s13524-014-0362-1.pdf)
+
+### [Evelyn Patterson](https://law.vanderbilt.edu/bio/evelyn-patterson)
+- [Incarcerating death: Mortality in US state correctional facilities, 1985–1998](https://link.springer.com/article/10.1353/dem.0.0123)
+- [Estimating mean length of stay in prison: methods and applications](https://link.springer.com/content/pdf/10.1007/s10940-007-9037-z.pdf)
 
 ### [Sarah Patterson](https://www.psc.isr.umich.edu/people/profile/1522/Sarah_Patterson)
 - [The Demography of Multigenerational Caregiving: A Critical Aspect of the Gendered Life Course](https://journals.sagepub.com/doi/full/10.1177/2378023119862737)
@@ -252,6 +263,14 @@ Jump to:
 ### [Ayesha Mahmud](https://ayeshamahmud.github.io/)
 - [Comparative dynamics, seasonality in transmission, and predictability of childhood infections in Mexico](https://www.cambridge.org/core/journals/epidemiology-and-infection/article/comparative-dynamics-seasonality-in-transmission-and-predictability-of-childhood-infections-in-mexico/D42E1AE52EAEAED56EFD55EFE7A8D2A6)
 - [Drivers of measles mortality: the historic fatality burden of famine in Bangladesh](https://www.cambridge.org/core/journals/epidemiology-and-infection/article/drivers-of-measles-mortality-the-historic-fatality-burden-of-famine-in-bangladesh/3DED1784C1B25607693B2C6B29C6D090)
+
+### [Claudia Masferrer](https://www.mcgill.ca/sociology/contact-us/faculty/claudia-masferrer)
+- [Does Family Matter for Recent Immigrants’ Life Satisfaction](https://www.sciencedirect.com/science/article/abs/pii/S1040260816300193)
+- [Going Back Home? Changing Demography and Geography of Mexican Return Migration](https://link.springer.com/article/10.1007/s11113-012-9243-8)
+
+### [C. Jessica Metcalf](https://metcalflab.princeton.edu/people/metcalf-c-jessica/)
+- [Why evolutionary biologists should be demographers](https://www.sciencedirect.com/science/article/abs/pii/S0169534706003806)
+- [Seasonality and comparative dynamics of six childhood infections in pre-vaccination Copenhagen](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2009.1058)
 
 ### [Jennifer Van Hook](https://sociology.la.psu.edu/people/jxv21)
 - [Immigration and living arrangements: Moving beyond economic need versus acculturation](https://link.springer.com/article/10.1353/dem.2007.0019)
