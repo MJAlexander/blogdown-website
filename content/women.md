@@ -192,6 +192,10 @@ Jump to:
 - [An agent-based model of sex ratio at birth distortions](https://link.springer.com/chapter/10.1007/978-3-319-32283-4_12)
 - [Using Facebook ad data to track the global digital gender gap](https://www.sciencedirect.com/science/article/pii/S0305750X18300883)
 
+### [Miles Taylor](https://coss.fsu.edu/sociology/mtaylor)
+- [Timing, Accumulation, and the Black/White Disability Gap in Later Life: A Test of Weathering](https://journals.sagepub.com/doi/abs/10.1177/0164027507311838)
+- [Cohort Differences and Chronic Disease Profiles of Differential Disability Trajectories](https://academic.oup.com/psychsocgerontology/article/66B/6/729/591502)
+
 ### [Elizabeth Wrigley-Field](https://www.ssc.wisc.edu/~efield/)
 - [Mortality deceleration and mortality selection: Three unexpected implications of a simple model](https://link.springer.com/content/pdf/10.1007/s13524-013-0256-7.pdf)
 - [Multidimensional Mortality Selection: Why Individual Dimensions of Frailty Don’t Act Like Frailty](https://link.springer.com/content/pdf/10.1007/s13524-020-00858-8.pdf)
