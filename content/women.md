@@ -342,6 +342,10 @@ Jump to:
 - [Social relationships and health behavior across the life course](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-070308-120011?journalCode=soc)
 - [Widowhood and depression: Explaining long-term gender differences in vulnerability](https://www.jstor.org/stable/2136854?seq=1#metadata_info_tab_contents)
 
+### [B. Piedad Urdinola](https://sites.google.com/site/piedadurdinola/)
+- [Could Political Violence Affect Infant Mortality? The Colombian Case](https://www.repository.fedesarrollo.org.co/handle/11445/1073)
+- [The Homicide Atlas in Colombia: Contagion and Under-Registration for Small Areas](http://www.scielo.org.co/scielo.php?pid=S0121-215X2017000100008&script=sci_abstract&tlng=pt)
+
 ### [Amélie Quesnel-Vallée](http://www.ameliequesnelvallee.org/)
 - [Self-rated health: caught in the crossfire of the quest for ‘true’ health?](https://academic.oup.com/ije/article/36/6/1161/824081)
 - [Temporary work and depressive symptoms: a propensity score analysis](https://www.sciencedirect.com/science/article/abs/pii/S027795361000167X)
