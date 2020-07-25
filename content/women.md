@@ -284,9 +284,21 @@ Jump to:
 - [Why evolutionary biologists should be demographers](https://www.sciencedirect.com/science/article/abs/pii/S0169534706003806)
 - [Seasonality and comparative dynamics of six childhood infections in pre-vaccination Copenhagen](https://royalsocietypublishing.org/doi/full/10.1098/rspb.2009.1058)
 
+### [Valerie Mueller](https://spgs.asu.edu/content/valerie-mueller)
+- [Heat stress increases long-term human migration in rural Pakistan](https://www.nature.com/articles/nclimate2103/)
+- [Temporary migration and climate variation in eastern Africa](https://doi.org/10.1016/j.worlddev.2019.104704)
+
+### [Raya Muttarak](http://www.wittgensteincentre.org/en/staff/member/muttarak.htm)
+- [Is Education a Key to Reducing Vulnerability to Natural Disasters and hence Unavoidable Climate Change?](https://www.jstor.org/stable/26269470?seq=1#metadata_info_tab_contents)
+- [Climate change and seasonal floods: potential long-term nutritional consequences for children in Kerala, India](https://gh.bmj.com/content/4/2/e001215.abstract)
+
 ### [Anne R. Pebley](https://ph.ucla.edu/faculty/pebley)
 - [Demography and the Environment](https://link.springer.com/article/10.2307/3004008)
 - [Prenatal and delivery care and childhood immunization in Guatemala: Do family and community matter?](https://link.springer.com/article/10.2307/2061874)
+
+### [Heather Randell](https://www.heatherrandell.com/)
+- [Structure and agency in development-induced forced migration: the case of Brazilís Belo Monte Dam](https://link.springer.com/content/pdf/10.1007/s11111-015-0245-4.pdf)
+- [Climate change and educational attainment in the global tropics](10.1073/pnas.1817480116)
 
 ### [Jennifer Van Hook](https://sociology.la.psu.edu/people/jxv21)
 - [Immigration and living arrangements: Moving beyond economic need versus acculturation](https://link.springer.com/article/10.1353/dem.2007.0019)
