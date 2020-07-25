@@ -151,6 +151,10 @@ Jump to:
 - [Are births underreported in rural China? Manipulation of statistical records in response to China’s population policies](https://link.springer.com/article/10.2307/2648100)
 - [Has the Chinese family planning policy been successful in changing fertility preferences?](https://link.springer.com/article/10.1353/dem.2002.0029)
 
+### [Clémentine Rossier](https://www.unige.ch/sciences-societe/ideso/membres/rossier/)
+- [Estimating induced abortion rates: a review](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4465.2003.00087.x)
+- [Social interaction effects on fertility: Intentions and behaviors](https://link.springer.com/content/pdf/10.1007/s10680-009-9203-0.pdf)
+
 ### [Heini Väisänen](https://heinivaisanen.com/)
 - [Social Inequalities in Teenage Fertility Outcomes: Childbearing and Abortion Trends of Three Birth Cohorts In Finland](https://onlinelibrary.wiley.com/doi/abs/10.1363/46e1314)
 - [The association between education and induced abortion for three cohorts of adults in Finland](https://www.tandfonline.com/doi/full/10.1080/00324728.2015.1083608)
@@ -228,6 +232,10 @@ Jump to:
 ### [Janna Johnson](https://sites.google.com/umn.edu/jannaj)
 - [Is Occupational Licensing a Barrier to Interstate Migration?](https://www.nber.org/papers/w24107)
 - [The long run health consequences of rural‐urban migration](https://onlinelibrary.wiley.com/doi/full/10.3982/QE962)
+
+### [Mao-Mei Liu](https://www.site.demog.berkeley.edu/liu-profile-page)
+- [Migrant networks and international migration: Testing weak ties](https://link.springer.com/content/pdf/10.1007/s13524-013-0213-5.pdf)
+- [Prospects for the comparative study of international migration using quasi-longitudinal micro-data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5739584/)
 
 ### [Ayesha Mahmud](https://ayeshamahmud.github.io/)
 - [Comparative dynamics, seasonality in transmission, and predictability of childhood infections in Mexico](https://www.cambridge.org/core/journals/epidemiology-and-infection/article/comparative-dynamics-seasonality-in-transmission-and-predictability-of-childhood-infections-in-mexico/D42E1AE52EAEAED56EFD55EFE7A8D2A6)
