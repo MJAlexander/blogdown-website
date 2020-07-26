@@ -465,6 +465,10 @@ Jump to:
 - [Malaria risk on the Amazon frontier](https://www.pnas.org/content/103/7/2452.short)
 - [Brazil's unified health system: the first 30 years and prospects for the future](https://www.sciencedirect.com/science/article/abs/pii/S0140673619312437)
 
+### [Lynne Cossman](https://en.wikipedia.org/wiki/Lynne_Cossman)
+- [Reconsidering the Rural-Urban Continuum in Rural Health Research: A Test of Stable Relationships Using Mortality as a Health Measure](https://link.springer.com/article/10.1007/s11113-008-9069-6)
+- [Persistent Clusters of Mortality in the United States](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2089111/)
+
 ### [Eileen Crimmins](https://gero.usc.edu/faculty/crimmins/)
 - [Change in cognitively healthy and cognitively impaired life expectancy in the United States: 2000–2010](https://www.sciencedirect.com/science/article/pii/S2352827316301148)
 - [Aging populations, mortality, and life expectancy](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-073117-041351)
