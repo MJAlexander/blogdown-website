@@ -14,7 +14,7 @@ Jump to:
 
 - [Family, social demography](#family-social-demography)
 - [Fertility](#fertility)
-- [Mathematical, statistical, digital demography](#mathematical-statistical-digital-demography)
+- [Mathematical, statistical, digital demography, population projection](#mathematical-statistical-digital-demography-population-projection)
 - [Migration, environment, economic demography](#migration-environment-economic-demography)
 - [Mortality, health, aging, biodemography](#mortality-health-aging-biodemography)
 
@@ -210,7 +210,7 @@ Jump to:
 
 
 
-## Mathematical, statistical, digital demography
+## Mathematical, statistical, digital demography, population projection
 
 ### [Leontine Alkema](https://leontinealkema.github.io/alkema_lab/)
 - [Probabilistic Projections of the Total Fertility Rate for All Countries](https://link.springer.com/content/pdf/10.1007/s13524-011-0040-5.pdf)
@@ -231,6 +231,10 @@ Jump to:
 ### [Jutta Gampe](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/jutta_gampe_655)
 - [Human mortality beyond age 110](https://www.demogr.mpg.de/en/publications_databases_6118/publications_1904/book_chapters/human_mortality_beyond_age_110_3980/)
 - [Seasonal variation in death counts: P-spline smoothing in the presence of overdispersion](https://www.demogr.mpg.de/en/publications_databases_6118/publications_1904/book_chapters/seasonal_variation_in_death_counts_p_spline_smoothing_in_the_presence_of_overdispersion_1725/)
+
+### [Raquel Guimaraes](https://raquel-guimaraes.com/)
+- [Uncertainty in population projections: the state of the art](https://www.scielo.br/scielo.php?pid=S0102-30982014000200003&script=sci_arttext)
+- [The Demography of Skills-Adjusted Human Capital](http://pure.iiasa.ac.at/id/eprint/16477/)
 
 ### [Ridhi Kashyap](https://www.nuffield.ox.ac.uk/people/profiles/ridhi-kashyap/)
 - [An agent-based model of sex ratio at birth distortions](https://link.springer.com/chapter/10.1007/978-3-319-32283-4_12)
