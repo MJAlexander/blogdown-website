@@ -124,6 +124,10 @@ Jump to:
 - [The topography of the divorce plateau: Levels and trends in union stability in the United States after 1980](https://www.jstor.org/stable/26348083?seq=1#metadata_info_tab_contents)
 - [Cohabitation and children's family instability](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-2445.2004.00014.x-i1)
 
+### [Emily Rauscher](https://www.brown.edu/academics/sociology/people/emily-rauscher)
+- [Why Who Marries Whom Matters: Effects of Educational Assortative Mating on Infant Health in the United States 1969–1994](https://academic.oup.com/sf/article-abstract/98/3/1143/5498123?redirectedFrom=fulltext)
+- [Does Educational Equality Increase Mobility? Exploiting Nineteenth-Century U.S. Compulsory Schooling Laws](https://www.journals.uchicago.edu/doi/abs/10.1086/685443)
+
 ### [Judith Seltzer](https://soc.ucla.edu/faculty/judith-seltzer)
 - [The Family Safety Net of Black and White Multigenerational Families](https://onlinelibrary.wiley.com/doi/abs/10.1111/padr.12233)
 - [Stepfamily Structure and Transfers Between Generations in U.S. Families](https://link.springer.com/article/10.1007%2Fs13524-018-0740-1)
