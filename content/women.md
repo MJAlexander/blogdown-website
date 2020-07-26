@@ -53,6 +53,10 @@ Jump to:
 - [White and Latino locational attainments: Assessing the role of race and resources in US metropolitan residential segregation](https://journals.sagepub.com/doi/abs/10.1177/2332649217748426)
 - [The Unique Case of Minneapolis–St. Paul, MN: Locational Attainments and Segregation in the Twin Cities](https://link.springer.com/content/pdf/10.1007/s40980-019-00056-0.pdf)
 
+- [Sonalde Desai](https://www.sonaldedesai.org/)
+- [Gender scripts and age at marriage in India](https://link.springer.com/article/10.1353/dem.0.0118)
+- [Maternal education and child health: Is there a strong causal relationship?](https://link.springer.com/article/10.2307/3004028)
+
 ### [Ann Evans](https://researchers.anu.edu.au/researchers/evans-aa)
 - [Negotiating the Life Course: Stability and Change in Life Pathways](https://books.google.ca/books?hl=en&lr=&id=Tnq9aOqsJ6EC&oi=fnd&pg=PR5&dq=info:5eeNfNsOTjEJ:scholar.google.com&ots=XPUErOyzV-&sig=360RlSD9LFOnqOq_et_FM6QVpuM&redir_esc=y#v=onepage&q&f=false)
 - [The influence of significant others on Australian teenagers' decisions about pregnancy resolution](https://www.jstor.org/stable/2673786?seq=1#metadata_info_tab_contents)
@@ -360,13 +364,18 @@ Jump to:
 - [Rural Demography](https://link.springer.com/book/10.1007/978-3-030-10910-3)
 - [Recovery Migration after Hurricanes Katrina and Rita: Spatial Concentration and Intensification in the Migration System](https://pubmed.ncbi.nlm.nih.gov/26084982/)
 
-### [Audrey Dorélien](https://www.hhh.umn.edu/directory/audrey-dor%C3%A9lien)
-- [Birth Seasonality in Sub-Saharan Africa](https://www.jstor.org/stable/26332053#metadata_info_tab_contents)
-- [What is Urban? Comparing a Satellite View with the Demographic and Health Surveys](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2013.00610.x)
+### [Molly Dondero](https://www.american.edu/cas/faculty/dondero.cfm)
+- [School stratification in new and established Latino destinations](https://academic.oup.com/sf/article-abstract/91/2/477/2235792)
+- [Generational status, neighborhood context, and mother-child resemblance in dietary quality in Mexican-origin families](https://www.sciencedirect.com/science/article/abs/pii/S0277953615302835)
 
 ### [Gretchen Donehower](https://u.demog.berkeley.edu/~gretchen/)
 - [Methodology of the National Time Transfer Accounts](https://link.springer.com/chapter/10.1007/978-3-030-11806-8_2#:~:text=NTA%20is%20a%20framework%20for,ages%20when%20we%20are%20not.)
 - [Gender and Work in the United States and Patterns by Hispanic Ethnicity](https://link.springer.com/chapter/10.1007/978-3-030-11806-8_7)
+
+### [Audrey Dorélien](https://www.hhh.umn.edu/directory/audrey-dor%C3%A9lien)
+- [Birth Seasonality in Sub-Saharan Africa](https://www.jstor.org/stable/26332053#metadata_info_tab_contents)
+- [What is Urban? Comparing a Satellite View with the Demographic and Health Surveys](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2013.00610.x)
+
 
 ### [Paula England](https://as.nyu.edu/content/nyu-as/as/faculty/paula-england.html)
 - [Gender inequality in labor markets: The role of motherhood and segregation](https://academic.oup.com/sp/article-abstract/12/2/264/1685513)
