@@ -188,6 +188,10 @@ Jump to:
 - [Childbearing desires of childless men and women: When are goals adjusted?](https://www.sciencedirect.com/science/article/abs/pii/S1040260812000548)
 - [Using a reproductive life course approach to understand contraceptive method use in Australia](https://search.proquest.com/openview/1cbbecd902d54618ddba532e7097ddbd/1?pq-origsite=gscholar&cbl=34392)
 
+### [Caroline Harnett](https://sc.edu/study/colleges_schools/artsandsciences/sociology/our_people/faculty_staff_directory/hartnett_caroline.php)
+- [Racial Disparities in Emotional Well-Being during Pregnancy](https://journals.sagepub.com/doi/abs/10.1177/0022146520920259)
+- [Births that are later-than-desired: correlates and consequences](https://link.springer.com/article/10.1007/s11113-019-09513-6)
+
 ### [Jennifer Johnson-Hanks](https://sociology.berkeley.edu/faculty/jennifer-johnson-hanks)
 - [Understanding Family Change and Variation](https://link.springer.com/chapter/10.1007%2F978-94-007-1945-3_1)
 - [Natural Intentions: Fertility Decline in the African Demographic and Health Surveys](https://www.journals.uchicago.edu/doi/10.1086/508791)
