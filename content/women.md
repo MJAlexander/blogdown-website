@@ -176,6 +176,10 @@ Jump to:
 - [The spread of health services and fertility transition](https://link.springer.com/article/10.1353/dem.2007.0041)
 - [Parental family experiences, the timing of first sex, and contraception](https://www.sciencedirect.com/science/article/abs/pii/S0049089X10001316)
 
+### [Suzana Cavenaghi](https://iussp.org/en/directoryprofile/22396)
+- [Mapping the Timing, Pace, and Scale of the Fertility Transition in Brazil](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2010.00330.x)
+- [Fertility and development: evidence from Brazil](https://www.jstor.org/stable/3180829?seq=1#metadata_info_tab_contents)
+
 ### [Sarah Cowan](https://www.sarahkcowan.org/)
 - [Enacted abortion stigma in the United States](https://www.sciencedirect.com/science/article/abs/pii/S0277953617300114)
 - [Alternative estimates of lifetime prevalence of abortion from indirect survey questioning methods](https://d1wqtxts1xzle7.cloudfront.net/58636729/Cowan_Wu_England_Makela_Lifetime_Estimates_Abortion_Prevalence.pdf?1552766990=&response-content-disposition=inline%3B+filename%3DAlternative_Estimates_of_Lifetime_Preval.pdf&Expires=1595636437&Signature=Q5oJr6kvzHTJ8QcT7E6yg2Hc07YpMsEhszwyyynQO5bYlerrz4H~mlVrQavw-GRbiqW361-0LCnfOdkLMYcLfWz43DFeCg44ZdizDYJ~7uGY9sE2Zbf8HSVdfd7HRjFnBAa4Dh6hfX7-uYRlWTXU8COjJKOScFCmaNGU~BAICp03cwQ-ZZUneb8WgBjo~3agSiAFE-vWlIXXkMqRzK9mpxmHb6H8YmyfsmhQqx5aRh-1slA1l9SbeScJQuPDgAQeLueCsXFxkriUI8EgpW6K8LcE2-iJBqEbr2vyX79U6JPFzlD~db8z4OUf8Jw1LvZlu8OKM5IOxy7cCSGaik7euQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA)
@@ -405,6 +409,14 @@ Jump to:
 - [Change in cognitively healthy and cognitively impaired life expectancy in the United States: 2000–2010](https://www.sciencedirect.com/science/article/pii/S2352827316301148)
 - [Aging populations, mortality, and life expectancy](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-073117-041351)
 
+### [Aline Désesquelles](https://www.ined.fr/en/research/researchers/D%C3%A9sesquelles+Aline/)
+- [Mortality From Alzheimer’s Disease, Parkinson’s Disease, and Dementias in France and Italy: A Comparison Using the Multiple Cause-of-Death Approach](https://pubmed.ncbi.nlm.nih.gov/24667337/)
+- [Revisiting the mortality of France and Italy with the multiple-cause-of-death approach](https://www.demographic-research.org/volumes/vol23/28/default.htm)
+
+### [Viorela Diaconu](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/viorela_diaconu_3714/)
+- [Insight on 'typical' longevity: an analysis of the modal lifespan by leading causes of death in Canada](https://www.demographic-research.org/volumes/vol35/17/default.htm)
+- [Living and Working Longer in an Aging Society: Toward Increasing Inequalities?](https://ir.lib.uwo.ca/pclc/vol3/iss1/11/)
+
 ### [Vanessa Di Lego](https://www.oeaw.ac.at/vid/people/staff/vanessa-di-lego/)
 - [Gender differences in healthy and unhealthy life years](https://link.springer.com/chapter/10.1007/978-3-030-37668-0_11#:~:text=Not%20surprisingly%2C%20women%20expect%20to,from%20ages%2065%20and%20over.)
 - [Mortality selection among adults in Brazil: The survival advantage of Air Force officers](https://www.demographic-research.org/volumes/vol37/41/default.htm)
@@ -417,9 +429,21 @@ Jump to:
 - [Social class differentials in health and mortality: Patterns and explanations in comparative perspective](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-070308-115929)
 - [Mortality among elderly Hispanics in the United States: Past evidence and new results](https://link.springer.com/article/10.1353/dem.2004.0001)
 
+### [Jenny García](https://theconversation.com/profiles/jenny-garcia-735043)
+- [Trends in infant mortality in Venezuela between 1985 and 2016: a systematic analysis of demographic data](https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(18)30479-0/fulltext)
+- [Urban–rural differentials in Latin American infant mortality](https://www.demographic-research.org/volumes/vol42/8/42-8.pdf)
+
 ### [Lauren Gaydosh](https://www.vanderbilt.edu/mhs/person/lauren-gaydosh/)
 - [The Depths of Despair Among US Adults Entering Midlife](https://ajph.aphapublications.org/doi/full/10.2105/AJPH.2019.305002)
 - [Childhood Family Instability and Young Adult Health](https://journals.sagepub.com/doi/abs/10.1177/0022146518785174)
+
+### [Dana Glei](http://danaglei.users.sonic.net/)
+- [Participating in social activities helps preserve cognitive function: an analysis of a longitudinal, population-based study of the elderly](https://pubmed.ncbi.nlm.nih.gov/15764689/)
+- [Utilization of care during pregnancy in rural Guatemala: does obstetrical need matter?](https://pubmed.ncbi.nlm.nih.gov/14572850/)
+
+### [Noreen Goldman](https://www.princeton.edu/~ngoldman/)
+- [Socioeconomic differences in mortality among US adults: Insights into the Hispanic paradox](https://academic.oup.com/psychsocgerontology/article/62/3/S184/600844)
+- [Mortality differentials by marital status: an international comparison](Mortality differentials by marital status: an international comparison)
 
 ### [Pamela Herd](https://gufaculty360.georgetown.edu/s/contact/0033600001i3sNCAAY/pamela-herd)
 - [Socioeconomic position and health: the differential effects of education versus income on the onset versus progression of health problems](https://journals.sagepub.com/doi/abs/10.1177/002214650704800302)
@@ -445,6 +469,10 @@ Jump to:
 - [Differences in Tsimane children’s growth outcomes and associated determinants as estimated by WHO standards vs. within population references](https://anthropology.washington.edu/research/publications/tsimane-vs-who-growth-references)
 - [Infant gut microbiota: developmental influences and health outcomes](https://link.springer.com/chapter/10.1007/978-1-4614-4060-4_11)
 
+### [France Meslé](https://www.ined.fr/en/research/researchers/Mesl%C3%A9+France)
+- [Diverging Trends in Female Old-Age Mortality: The United States and the Netherlands versus France and Japan](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2006.00108.x)
+- [Reconstructing Long-Term Series of Causes of Death](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6241024/)
+
 ### [Marília Nepomuceno](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/marilia_r_nepomuceno_2921)
 - [Besides population age-structure, health and other demographic factors can contribute to understanding the COVID-19 burden](https://dx.doi.org/10.1073/pnas.2008760117)
 - [A cohort survival comparison of Central and Eastern European and high-longevity countries](https://www.cairn.info/revue-population-2019-3-page-299.htm?ref=doi)
@@ -456,6 +484,9 @@ Jump to:
 ### [Hayley Pierce](https://fhssfaculty.byu.edu/FacultyPage/hhayley)
 - [Increasing Maternal Healthcare Use in Rwanda: Implications for Child Nutritional Status and Survival](https://pubmed.ncbi.nlm.nih.gov/24607667/)
 - [Cohabitation or Marriage? How Relationship Status and Community Context Influence the Well-being of Children in Developing Nations](https://www.researchgate.net/publication/335480373_Cohabitation_or_Marriage_How_Relationship_Status_and_Community_Context_Influence_the_Well-being_of_Children_in_Developing_Nations)
+
+### [Diana Sawyer](https://www.scielo.br/scielo.php?pid=S1413-81232002000400012&script=sci_arttext)
+- [Spatial patterns of malaria in the Amazon: implications for surveillance and targeted interventions](https://pubmed.ncbi.nlm.nih.gov/16815074/)
 
 ### [Debra Umberson](https://liberalarts.utexas.edu/sociology/faculty/dju)
 - [Social relationships and health behavior across the life course](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-070308-120011?journalCode=soc)
@@ -472,6 +503,14 @@ Jump to:
 ### [Alyson Van Raalte](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/alyson_van_raalte_1575/)
 - [The case for monitoring life-span inequality](https://science.sciencemag.org/content/362/6418/1002.summary)
 - [Lifespan variation by occupational class: Compression or stagnation over time?](https://link.springer.com/content/pdf/10.1007/s13524-013-0253-x.pdf)
+
+### [Rosie Seaman](https://www.stir.ac.uk/people/1489025)
+- [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
+- [The increasing lifespan variation gradient by area-level deprivation: A decomposition analysis of Scotland 1981–2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6711767/)
+
+### [Laura Lidia Rodríguez Wong](http://somos.ufmg.br/professor/laura-lidia-rodriguez-wong)
+- [The rapid process of aging in Brazil: serious challenges for public policies](https://www.scielo.br/scielo.php?pid=S0102-30982006000100002&script=sci_abstract)
+- [Evidences of further decline of fertility in Latina America: Reproductive behavior and some thoughts on the consequences on the age structure](https://iussp2009.princeton.edu/papers/93516)
 
 ### [Emma Zang](http://www.emmazang.net/)
 - [Recent trends in US mortality in early and middle adulthood: racial/ethnic disparities in inter-cohort patterns](https://academic.oup.com/ije/article-abstract/48/3/934/5224527)
