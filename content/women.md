@@ -302,6 +302,10 @@ Jump to:
 - [Birth Seasonality in Sub-Saharan Africa](https://www.jstor.org/stable/26332053#metadata_info_tab_contents)
 - [What is Urban? Comparing a Satellite View with the Demographic and Health Surveys](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2013.00610.x)
 
+### [Gretchen Donehower](https://u.demog.berkeley.edu/~gretchen/)
+- [Methodology of the National Time Transfer Accounts](https://link.springer.com/chapter/10.1007/978-3-030-11806-8_2#:~:text=NTA%20is%20a%20framework%20for,ages%20when%20we%20are%20not.)
+- [Gender and Work in the United States and Patterns by Hispanic Ethnicity](https://link.springer.com/chapter/10.1007/978-3-030-11806-8_7)
+
 ### [Paula England](https://as.nyu.edu/content/nyu-as/as/faculty/paula-england.html)
 - [Gender inequality in labor markets: The role of motherhood and segregation](https://academic.oup.com/sp/article-abstract/12/2/264/1685513)
 - [Households, employment, and gender: A social, economic, and demographic view](https://books.google.ca/books?hl=en&lr=&id=KmZQDwAAQBAJ&oi=fnd&pg=PP1&dq=info:94IYgM3TQQ8J:scholar.google.com&ots=j3j1WlRtkz&sig=rM321rrLCZOd99RaevAagNBJLXc&redir_esc=y#v=onepage&q&f=false)
