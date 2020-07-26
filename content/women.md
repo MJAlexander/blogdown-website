@@ -131,6 +131,10 @@ Jump to:
 - [Live Births and Fertility Amid the Zika Epidemic in Brazil](https://link.springer.com/content/pdf/10.1007/s13524-020-00871-x.pdf)
 - [Women’s reproductive intentions and behaviors during the Zika epidemic in Brazil](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6663086/)
 
+### [Melissa Milkie](https://melissamilkie.com/)
+- [Playing all the roles: Gender and the work-family balancing act](https://www.jstor.org/stable/353763?seq=1#metadata_info_tab_contents)
+- [The time squeeze: Parental statuses and feelings about time with children](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-2445.2004.00050.x)
+
 ### [Melinda Mills](https://www.sociology.ox.ac.uk/academic-staff/melinda-mills.html)
 - [Why do people postpone parenthood? Reasons and social policy incentives](https://academic.oup.com/humupd/article/17/6/848/871500)
 - [Globalization, uncertainty and the early life course](https://link.springer.com/article/10.1007/s11618-003-0023-4)
@@ -139,9 +143,17 @@ Jump to:
 - [Reexamining the case for marriage: Union formation and changes in well‐being](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00873.x)
 - [Planned and unplanned childbearing among unmarried women](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2002.00915.x)
 
+### [Daniela V. Negraia](https://danielanegraia.weebly.com/publications.html)
+- [Unpacking the Parenting Well-Being Gap: The Role of Dynamic Features of Daily Life across Broader Social Contexts](https://journals.sagepub.com/doi/10.1177/0190272520902453)
+- [Gender Disparities in Parenting Time Across Activities, Child Ages, and Educational Groups](https://journals.sagepub.com/doi/10.1177/0192513X18770232)
+
 ### [Jenna Nobles](https://cde.wisc.edu/staff/nobles-jenna/)
 - [Parenting from abroad: Migration, nonresident father involvement, and children's education in Mexico](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00842.x)
 - [The effects of mortality on fertility: population dynamics after a natural disaster](https://link.springer.com/content/pdf/10.1007/s13524-014-0362-1.pdf)
+
+### [Kei Nomaguchi](https://www.bgsu.edu/arts-and-sciences/sociology/people/kei-m-nomaguchi.html)
+- [Costs and rewards of children: The effects of becoming a parent on adults' lives](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2003.00356.x)
+- [Exercise time: Gender differences in the effects of marriage, parenthood, and employment](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2004.00029.x)
 
 ### [Evelyn Patterson](https://law.vanderbilt.edu/bio/evelyn-patterson)
 - [Incarcerating death: Mortality in US state correctional facilities, 1985–1998](https://link.springer.com/article/10.1353/dem.0.0123)
@@ -150,6 +162,10 @@ Jump to:
 ### [Sarah Patterson](https://www.psc.isr.umich.edu/people/profile/1522/Sarah_Patterson)
 - [The Demography of Multigenerational Caregiving: A Critical Aspect of the Gendered Life Course](https://journals.sagepub.com/doi/full/10.1177/2378023119862737)
 - [Educational Attainment Differences in Attitudes toward Provisions of IADL Care for Older Adults in the US](https://www.tandfonline.com/doi/abs/10.1080/08959420.2020.1722898)
+
+### [Kate Prickett](http://www.kateprickett.com/)
+- [A research note on time with children in different-and same-sex two-parent families](https://link.springer.com/article/10.1007/s13524-015-0385-2)
+- [Maternal education and investments in children's health](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12253)
 
 ### [Yue Qian](https://sociology.ubc.ca/profile/yue-qian/)
 - [Gender Asymmetry in Educational and Income Assortative Marriage](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12372)
