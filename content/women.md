@@ -294,7 +294,7 @@ Jump to:
 - [Standardized comparisons in population research](https://www.jstor.org/stable/2060055?seq=1#metadata_info_tab_contents)
 
 
-[^2]: Not active, but such an important and influential woman scholar in demography. 
+[^2]: Passed away in 2007, but was such an important and influential woman scholar in demography. 
 
 ### [Jane Menken](https://en.wikipedia.org/wiki/Jane_Menken)
 - [On Becoming a Mathematical Demographer—And the Career in Problem-Focused Inquiry that Followed](https://www.annualreviews.org/doi/pdf/10.1146/annurev-soc-073117-041059)
