@@ -151,6 +151,10 @@ Jump to:
 - [Maternal reading skills and child mortality in Nigeria: a reassessment of why education matters](https://link.springer.com/article/10.1007%252Fs13524-013-0209-1)
 - [Polygynous contexts, family structure, and infant mortality in sub-Saharan Africa](https://link.springer.com/content/pdf/10.1007/s13524-013-0262-9.pdf)
 
+### [Johnelle Sparks]()
+- [Do biological, sociodemographic, and behavioral characteristics explain racial/ethnic disparities in preterm births?](https://www.sciencedirect.com/science/article/abs/pii/S0277953609001117)
+- [Racial/ethnic differences in breastfeeding duration among WIC-eligible families](https://www.sciencedirect.com/science/article/abs/pii/S1049386711000466)
+
 ### [Lisa Strohschein](https://apps.ualberta.ca/directory/person/las5)
 - [Parental divorce and child mental health trajectories](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2005.00217.x)
 - [Marital transitions and mental health: are there gender differences in the short-term effects of marital status change?](https://www.sciencedirect.com/science/article/abs/pii/S027795360500393X)
