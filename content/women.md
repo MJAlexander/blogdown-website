@@ -626,6 +626,10 @@ Jump to:
 ### [Diana Sawyer](https://www.scielo.br/scielo.php?pid=S1413-81232002000400012&script=sci_arttext)
 - [Spatial patterns of malaria in the Amazon: implications for surveillance and targeted interventions](https://pubmed.ncbi.nlm.nih.gov/16815074/)
 
+### [Nandita Saikia](http://nanditasaikia.com/)
+- [Trends and geographic differentials in mortality under age 60 in India](https://www.tandfonline.com/doi/abs/10.1080/00324728.2010.534642)
+- [Does type of household affect maternal health? Evidence from India](https://pdfs.semanticscholar.org/2ece/463397868492798d0ef3382a1cc2a537b6c8.pdf)
+
 ### [Debra Umberson](https://liberalarts.utexas.edu/sociology/faculty/dju)
 - [Social relationships and health behavior across the life course](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-070308-120011?journalCode=soc)
 - [Widowhood and depression: Explaining long-term gender differences in vulnerability](https://www.jstor.org/stable/2136854?seq=1#metadata_info_tab_contents)
