@@ -8,7 +8,7 @@ An ever-growing list of active scholars in demography who identify as women or a
 
 [^1]: Thanks to Rohan Alexander, Paul Chung, Robert Pickett and Leslie Root for their help in compiling the initial list.
 
-If you know of someone who should be on this list and isn't, or if you are on this list and would like different papers highlighted, email me!
+If you know of someone who should be on this list and isn't, or if you are on this list and would like different papers highlighted, or if you see any mistakes, email me!
 
 Jump to:
 
@@ -261,7 +261,7 @@ Jump to:
 - [Standardized comparisons in population research](https://www.jstor.org/stable/2060055?seq=1#metadata_info_tab_contents)
 
 
-[^2]: Not active, but such an important and influential women scholar in demography. 
+[^2]: Not active, but such an important and influential woman scholar in demography. 
 
 ### [Miles Taylor](https://coss.fsu.edu/sociology/mtaylor)
 - [Timing, Accumulation, and the Black/White Disability Gap in Later Life: A Test of Weathering](https://journals.sagepub.com/doi/abs/10.1177/0164027507311838)
