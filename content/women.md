@@ -107,6 +107,10 @@ Jump to:
 - [A global perspective on happiness and fertility](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2011.00389.x)
 - [The Changing Demography of Grandparenthood](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12286)
 
+### [Leticia Marteleto]()
+- [Live Births and Fertility Amid the Zika Epidemic in Brazil](https://link.springer.com/content/pdf/10.1007/s13524-020-00871-x.pdf)
+- [Women’s reproductive intentions and behaviors during the Zika epidemic in Brazil](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6663086/)
+
 ### [Melinda Mills](https://www.sociology.ox.ac.uk/academic-staff/melinda-mills.html)
 - [Why do people postpone parenthood? Reasons and social policy incentives](https://academic.oup.com/humupd/article/17/6/848/871500)
 - [Globalization, uncertainty and the early life course](https://link.springer.com/article/10.1007/s11618-003-0023-4)
