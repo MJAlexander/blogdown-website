@@ -412,10 +412,6 @@ Jump to:
 - [Migrant networks and international migration: Testing weak ties](https://link.springer.com/content/pdf/10.1007/s13524-013-0213-5.pdf)
 - [Prospects for the comparative study of international migration using quasi-longitudinal micro-data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5739584/)
 
-### [Silvia Loi](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/silvia_loi_2870)
-- [Migrant health convergence and the role of material deprivation](https://www.demographic-research.org/volumes/vol40/32/)
-- [Migration, health and mortality in Italy: an unfinished story](https://www.iris.unina.it/handle/11588/714542)
-
 ### [Yao Lu](http://www.columbia.edu/~yl2479/)
 - [Test of the ‘healthy migrant hypothesis’: a longitudinal analysis of health selectivity of internal migration in Indonesia](https://www.sciencedirect.com/science/article/abs/pii/S0277953608003225) 
 - [Education of children left behind in rural China](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00951.x)
@@ -566,9 +562,17 @@ Jump to:
 - [Trends in the educational gradient of US adult mortality from 1986 through 2006 by race, gender, and age group](https://journals.sagepub.com/doi/abs/10.1177/0164027510392388)
 - [Educational attainment and adult mortality in the United States: A systematic analysis of functional form](https://link.springer.com/content/pdf/10.1007/s13524-011-0082-8.pdf)
 
+### [Mine Kühn](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/mine_kuehn_3302/)
+- [Gender differences in health in Havana versus in Mexico City and in the US Hispanic population](https://link.springer.com/content/pdf/10.1007/s10433-020-00563-w.pdf)
+- [Trends in gender differences in health at working ages among West and East Germans](https://www.sciencedirect.com/science/article/pii/S2352827318300570)
+
 ### [Tiziana Leone](http://www.lse.ac.uk/international-development/people/tiziana-leone)
 - [Diabetes and depression comorbidity and socio-economic status in low and middle income countries (LMICs): a mapping of the evidence](https://globalizationandhealth.biomedcentral.com/articles/10.1186/1744-8603-8-39)
 - [Impact and determinants of sex preference in Nepal](https://www.jstor.org/stable/3181060?seq=1#metadata_info_tab_contents)
+
+### [Silvia Loi](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/silvia_loi_2870)
+- [Migrant health convergence and the role of material deprivation](https://www.demographic-research.org/volumes/vol40/32/)
+- [Migration, health and mortality in Italy: an unfinished story](https://www.iris.unina.it/handle/11588/714542)
 
 ### [Virpi Lummaa](https://www.utu.fi/en/people/virpi-lummaa)
 - [Evolution of sex differences in lifespan and aging: causes and constraints](https://onlinelibrary.wiley.com/doi/abs/10.1002/bies.201300021)
@@ -589,6 +593,10 @@ Jump to:
 ### [Marília Nepomuceno](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/marilia_r_nepomuceno_2921)
 - [Besides population age-structure, health and other demographic factors can contribute to understanding the COVID-19 burden](https://dx.doi.org/10.1073/pnas.2008760117)
 - [A cohort survival comparison of Central and Eastern European and high-longevity countries](https://www.cairn.info/revue-population-2019-3-page-299.htm?ref=doi)
+
+### [Anna Oksuzyan](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/anna_oksuzyan_1135/)
+- [Men: good health and high mortality. Sex differences in health and aging](https://pubmed.ncbi.nlm.nih.gov/18431075/)
+- [Is the story about sensitive women and stoical men true? Gender differences in health after adjustment for reporting behavior](https://www.sciencedirect.com/science/article/pii/S0277953619301388)
 
 ### [Nadine Ouellette](https://demo.umontreal.ca/repertoire-departement/professeurs/professeur/in/in29461/sg/Nadine%20Ouellette/)
 - [Period-Based Mortality Change: Turning Points in Trends since 1950](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4091993/)
