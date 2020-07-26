@@ -554,6 +554,10 @@ Jump to:
 - [Evolution of sex differences in lifespan and aging: causes and constraints](https://onlinelibrary.wiley.com/doi/abs/10.1002/bies.201300021)
 - [Sons reduced maternal longevity in preindustrial humans](https://www.researchgate.net/profile/Virpi_Lummaa/publication/11367151_Sons_Reduced_Maternal_Longevity_in_Preindustrial_Humans/links/546086a70cf295b5616204b8/Sons-Reduced-Maternal-Longevity-in-Preindustrial-Humans.pdf)
 
+### [Milly Marston](https://www.lshtm.ac.uk/aboutus/people/marston.milly)
+- [The relationship between HIV and fertility in the era of antiretroviral therapy in sub-Saharan Africa: evidence from 49 Demographic and Health Surveys](https://pubmed.ncbi.nlm.nih.gov/28986949/)
+- [Net survival of perinatally and postnatally HIV-infected children: a pooled analysis of individual data from sub-Saharan Africa](https://pubmed.ncbi.nlm.nih.gov/21247884/)
+
 ### [Melanie Martin](https://anthropology.washington.edu/people/melanie-martin)
 - [Differences in Tsimane children’s growth outcomes and associated determinants as estimated by WHO standards vs. within population references](https://anthropology.washington.edu/research/publications/tsimane-vs-who-growth-references)
 - [Infant gut microbiota: developmental influences and health outcomes](https://link.springer.com/chapter/10.1007/978-1-4614-4060-4_11)
