@@ -119,6 +119,10 @@ Jump to:
 - [Why do people postpone parenthood? Reasons and social policy incentives](https://academic.oup.com/humupd/article/17/6/848/871500)
 - [Globalization, uncertainty and the early life course](https://link.springer.com/article/10.1007/s11618-003-0023-4)
 
+### [Kelly Musick](https://www.human.cornell.edu/people/kam386)
+- [Reexamining the case for marriage: Union formation and changes in well‐being](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00873.x)
+- [Planned and unplanned childbearing among unmarried women](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2002.00915.x)
+
 ### [Jenna Nobles](https://cde.wisc.edu/staff/nobles-jenna/)
 - [Parenting from abroad: Migration, nonresident father involvement, and children's education in Mexico](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00842.x)
 - [The effects of mortality on fertility: population dynamics after a natural disaster](https://link.springer.com/content/pdf/10.1007/s13524-014-0362-1.pdf)
@@ -190,6 +194,10 @@ Jump to:
 ### [Laura Wright](https://artsandscience.usask.ca/profile/LWright#/profile)
 - [Union Transitions and Fertility within First Premarital Cohahitations in Canada: Diverging Trends by Education](https://crdcn.org/union-transitions-and-fertility-within-first-premarital-cohabitations-canada-diverging-patterns)
 - [Healthy Grandparenthood: How long is it and how has it Changed?](https://www.niussp.org/article/healthy-grandparenthood-how-long-is-it-and-how-has-it-changed/)
+
+### [Youngmin Yi](https://www.human.cornell.edu/people/yy567)
+- [Leaving Home, Entering Institutions: Implications for Home-Leaving in the Transition to Adulthood](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12616)
+- [Can Foster Care Interventions Diminish Justice System Inequality?](https://futureofchildren.princeton.edu/sites/futureofchildren/files/media/foc_vol_28.1_reducing_justice_compiled_5-1_0.pdf)
 
 
 ## Fertility
