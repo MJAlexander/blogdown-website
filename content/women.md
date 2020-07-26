@@ -128,6 +128,10 @@ Jump to:
 - [Why Who Marries Whom Matters: Effects of Educational Assortative Mating on Infant Health in the United States 1969–1994](https://academic.oup.com/sf/article-abstract/98/3/1143/5498123?redirectedFrom=fulltext)
 - [Does Educational Equality Increase Mobility? Exploiting Nineteenth-Century U.S. Compulsory Schooling Laws](https://www.journals.uchicago.edu/doi/abs/10.1086/685443)
 
+### [Christine Schwartz](https://www.ssc.wisc.edu/~cschwart/)
+- [Trends in educational assortative marriage from 1940 to 2003](https://link.springer.com/article/10.1353/dem.2005.0036)
+- [Earnings inequality and the changing association between spouses’ earnings](https://www.journals.uchicago.edu/doi/abs/10.1086/651373)
+
 ### [Judith Seltzer](https://soc.ucla.edu/faculty/judith-seltzer)
 - [The Family Safety Net of Black and White Multigenerational Families](https://onlinelibrary.wiley.com/doi/abs/10.1111/padr.12233)
 - [Stepfamily Structure and Transfers Between Generations in U.S. Families](https://link.springer.com/article/10.1007%2Fs13524-018-0740-1)
@@ -252,7 +256,6 @@ Jump to:
 - [Internal migration and development: Comparing migration intensities around the world](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2015.00025.x)
 
 ### [Sara Curran](https://soc.washington.edu/people/sara-curran)
-
 - [Engendering migrant networks: The case of Mexican migration](https://link.springer.com/article/10.1353/dem.2003.0011)
 - [Mapping gender and migration in sociological scholarship: Is it segregation or integration?](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2006.00008.x)
 
@@ -275,6 +278,10 @@ Jump to:
 ### [Cynthia Feliciano](https://sociology.wustl.edu/people/cynthia-feliciano)
 - [Educational selectivity in US immigration: How do immigrants compare to those left behind?](https://link.springer.com/article/10.1353/dem.2005.0001)
 - [Does Selective Migration Matter? Explaining Ethnic Disparities in Educational Attainment among Immigrants' Children](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2005.tb00291.x)
+
+### [Elizabeth Frankenberg](https://www.cpc.unc.edu/people/fellows/elizabeth-frankenberg/)
+- [The real costs of Indonesia's economic crisis: Preliminary findings from the Indonesia Family Life Surveys](https://econpapers.repec.org/paper/fthrandlp/99-04.htm)
+- [Health consequences of forest fires in Indonesia](https://link.springer.com/article/10.1353/dem.2005.0004)
 
 ### [Alexia Fürnkranz-Prskawetz](https://www.oeaw.ac.at/vid/people/staff/alexia-fuernkranz-prskawetz/)
 - [A brain gain with a brain drain](https://www.sciencedirect.com/science/article/abs/pii/S0165176597000852)
@@ -339,6 +346,11 @@ Jump to:
 ### [Heather Randell](https://www.heatherrandell.com/)
 - [Structure and agency in development-induced forced migration: the case of Brazilís Belo Monte Dam](https://link.springer.com/content/pdf/10.1007/s11111-015-0245-4.pdf)
 - [Climate change and educational attainment in the global tropics](10.1073/pnas.1817480116)
+
+### [Xi Song](https://sociology.sas.upenn.edu/people/xi-song)
+- [Market transition theory revisited: Changing regimes of housing inequality in China, 1988-2002](https://www.sociologicalscience.com/download/volume%201/july/SocSci_v1_277to291.pdf)
+- [Diverging mobility trajectories: Grandparent effects on educational attainment in one-and two-parent families in the United States](https://link.springer.com/content/pdf/10.1007/s13524-016-0515-5.pdf)
+
 
 ### [Helga de Valk](https://nidi.nl/en/employees/helga-de-valk/)
 - [Co-residence of adult children with their parents: differences by migration background explored and explained](https://www.tandfonline.com/doi/abs/10.1080/1369183X.2018.1485207)
