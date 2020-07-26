@@ -243,6 +243,10 @@ Jump to:
 - [Estimating induced abortion rates: a review](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4465.2003.00087.x)
 - [Social interaction effects on fertility: Intentions and behaviors](https://link.springer.com/content/pdf/10.1007/s10680-009-9203-0.pdf)
 
+### [Rebecca Sear](https://www.lshtm.ac.uk/aboutus/people/sear.rebecca)
+- [Evolutionary contributions to the study of human fertility](https://www.tandfonline.com/doi/abs/10.1080/00324728.2014.982905?journalCode=rpst20)
+- [How much does family matter? The implications of a cooperative breeding strategy for the demographic transition](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2011.00379.x)
+
 ### [Heini Väisänen](https://heinivaisanen.com/)
 - [Social Inequalities in Teenage Fertility Outcomes: Childbearing and Abortion Trends of Three Birth Cohorts In Finland](https://onlinelibrary.wiley.com/doi/abs/10.1363/46e1314)
 - [The association between education and induced abortion for three cohorts of adults in Finland](https://www.tandfonline.com/doi/full/10.1080/00324728.2015.1083608)
@@ -583,10 +587,6 @@ Jump to:
 ### [Rosie Seaman](https://www.stir.ac.uk/people/1489025)
 - [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
 - [The increasing lifespan variation gradient by area-level deprivation: A decomposition analysis of Scotland 1981–2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6711767/)
-
-### [Rebecca Sear](https://www.lshtm.ac.uk/aboutus/people/sear.rebecca)
-- [Who keeps children alive? A review of the effects of kin on child survival](https://www.sciencedirect.com/science/article/abs/pii/S1090513807001055)
-- [Maternal grandmothers improve nutritional status and survival of children in rural Gambia](https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2000.1190)
 
 ### [Laura Lidia Rodríguez Wong](http://somos.ufmg.br/professor/laura-lidia-rodriguez-wong)
 - [The rapid process of aging in Brazil: serious challenges for public policies](https://www.scielo.br/scielo.php?pid=S0102-30982006000100002&script=sci_abstract)
