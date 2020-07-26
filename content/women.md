@@ -136,6 +136,10 @@ Jump to:
 - [The Family Safety Net of Black and White Multigenerational Families](https://onlinelibrary.wiley.com/doi/abs/10.1111/padr.12233)
 - [Stepfamily Structure and Transfers Between Generations in U.S. Families](https://link.springer.com/article/10.1007%2Fs13524-018-0740-1)
 
+### [Wendy Sigle](http://www.lse.ac.uk/gender/people/people-profiles/faculty/wendy-sigle)
+- [Why demography needs (new) theories](http://eprints.lse.ac.uk/86429/1/Sigle_Demography%20needs%20theories_2018.pdf)
+- [Fertility in England and Wales: a policy puzzle?](http://eprints.lse.ac.uk/31320/)
+
 ### [Emily Smith-Greenway](http://emilysmithgreenaway.org/)
 - [Maternal reading skills and child mortality in Nigeria: a reassessment of why education matters](https://link.springer.com/article/10.1007%252Fs13524-013-0209-1)
 - [Polygynous contexts, family structure, and infant mortality in sub-Saharan Africa](https://link.springer.com/content/pdf/10.1007/s13524-013-0262-9.pdf)
@@ -492,6 +496,10 @@ Jump to:
 - [Increase in frailty of older workers and retirees predicted by negative psychosocial working conditions on the job](https://www.sciencedirect.com/science/article/abs/pii/S0277953614007874)
 - [Debt and Foregone Medical Care](https://journals.sagepub.com/doi/abs/10.1177/0022146513483772)
 
+### [Tiziana Leone](http://www.lse.ac.uk/international-development/people/tiziana-leone)
+- [Diabetes and depression comorbidity and socio-economic status in low and middle income countries (LMICs): a mapping of the evidence](https://globalizationandhealth.biomedcentral.com/articles/10.1186/1744-8603-8-39)
+- [Impact and determinants of sex preference in Nepal](https://www.jstor.org/stable/3181060?seq=1#metadata_info_tab_contents)
+
 ### [Virpi Lummaa](https://www.utu.fi/en/people/virpi-lummaa)
 - [Evolution of sex differences in lifespan and aging: causes and constraints](https://onlinelibrary.wiley.com/doi/abs/10.1002/bies.201300021)
 - [Sons reduced maternal longevity in preindustrial humans](https://www.researchgate.net/profile/Virpi_Lummaa/publication/11367151_Sons_Reduced_Maternal_Longevity_in_Preindustrial_Humans/links/546086a70cf295b5616204b8/Sons-Reduced-Maternal-Longevity-in-Preindustrial-Humans.pdf)
@@ -516,6 +524,10 @@ Jump to:
 - [Increasing Maternal Healthcare Use in Rwanda: Implications for Child Nutritional Status and Survival](https://pubmed.ncbi.nlm.nih.gov/24607667/)
 - [Cohabitation or Marriage? How Relationship Status and Community Context Influence the Well-being of Children in Developing Nations](https://www.researchgate.net/publication/335480373_Cohabitation_or_Marriage_How_Relationship_Status_and_Community_Context_Influence_the_Well-being_of_Children_in_Developing_Nations)
 
+### [Amélie Quesnel-Vallée](http://www.ameliequesnelvallee.org/)
+- [Self-rated health: caught in the crossfire of the quest for ‘true’ health?](https://academic.oup.com/ije/article/36/6/1161/824081)
+- [Temporary work and depressive symptoms: a propensity score analysis](https://www.sciencedirect.com/science/article/abs/pii/S027795361000167X)
+
 ### [Diana Sawyer](https://www.scielo.br/scielo.php?pid=S1413-81232002000400012&script=sci_arttext)
 - [Spatial patterns of malaria in the Amazon: implications for surveillance and targeted interventions](https://pubmed.ncbi.nlm.nih.gov/16815074/)
 
@@ -526,10 +538,6 @@ Jump to:
 ### [B. Piedad Urdinola](https://sites.google.com/site/piedadurdinola/)
 - [Could Political Violence Affect Infant Mortality? The Colombian Case](https://www.repository.fedesarrollo.org.co/handle/11445/1073)
 - [The Homicide Atlas in Colombia: Contagion and Under-Registration for Small Areas](http://www.scielo.org.co/scielo.php?pid=S0121-215X2017000100008&script=sci_abstract&tlng=pt)
-
-### [Amélie Quesnel-Vallée](http://www.ameliequesnelvallee.org/)
-- [Self-rated health: caught in the crossfire of the quest for ‘true’ health?](https://academic.oup.com/ije/article/36/6/1161/824081)
-- [Temporary work and depressive symptoms: a propensity score analysis](https://www.sciencedirect.com/science/article/abs/pii/S027795361000167X)
 
 ### [Alyson Van Raalte](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/alyson_van_raalte_1575/)
 - [The case for monitoring life-span inequality](https://science.sciencemag.org/content/362/6418/1002.summary)
