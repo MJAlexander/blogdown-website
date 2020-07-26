@@ -49,7 +49,7 @@ Jump to:
 - [The impact of childcare on poor urban Women’s economic empowerment in Africa](https://link.springer.com/article/10.1007/s13524-019-00793-3#:~:text=This%20randomized%20control%20trial%20study,women's%20participation%20in%20paid%20work.&text=These%20findings%20demonstrate%20that%20the,marital%20status%20and%20across%20outcomes.)
 - [Divorce in Sub-Saharan Africa: Are Unions Becoming Less Stable?](https://www.jstor.org/stable/24638576#metadata_info_tab_contents)
 
-### [Amber Cromwell](https://scholar.google.com/citations?user=dgf4d9gAAAAJ&hl=en)
+### [Amber Crowell](https://scholar.google.com/citations?user=dgf4d9gAAAAJ&hl=en)
 - [White and Latino locational attainments: Assessing the role of race and resources in US metropolitan residential segregation](https://journals.sagepub.com/doi/abs/10.1177/2332649217748426)
 - [The Unique Case of Minneapolis–St. Paul, MN: Locational Attainments and Segregation in the Twin Cities](https://link.springer.com/content/pdf/10.1007/s40980-019-00056-0.pdf)
 
