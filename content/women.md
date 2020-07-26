@@ -292,6 +292,10 @@ Jump to:
 
 [^2]: Not active, but such an important and influential woman scholar in demography. 
 
+### [Jane Menken](https://en.wikipedia.org/wiki/Jane_Menken)
+- [On Becoming a Mathematical Demographer—And the Career in Problem-Focused Inquiry that Followed](https://www.annualreviews.org/doi/pdf/10.1146/annurev-soc-073117-041059)
+- [Age and infertility](https://science.sciencemag.org/content/233/4771/1389.abstract)
+
 ### [Julie Rajaratnam](https://globalhealth.washington.edu/faculty/julie-rajaratnam)
 - [Measuring under-five mortality: Validation of new low-cost methods](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000253)
 - [Worldwide mortality in men and women aged 15–59 years from 1970 to 2010: a systematic analysis](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736%2810%2960517-X/fulltext)
