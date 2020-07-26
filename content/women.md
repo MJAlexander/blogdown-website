@@ -580,6 +580,10 @@ Jump to:
 - [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
 - [The increasing lifespan variation gradient by area-level deprivation: A decomposition analysis of Scotland 1981–2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6711767/)
 
+### [Rebecca Sear](https://www.lshtm.ac.uk/aboutus/people/sear.rebecca)
+- [Who keeps children alive? A review of the effects of kin on child survival](https://www.sciencedirect.com/science/article/abs/pii/S1090513807001055)
+- [Maternal grandmothers improve nutritional status and survival of children in rural Gambia](https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2000.1190)
+
 ### [Laura Lidia Rodríguez Wong](http://somos.ufmg.br/professor/laura-lidia-rodriguez-wong)
 - [The rapid process of aging in Brazil: serious challenges for public policies](https://www.scielo.br/scielo.php?pid=S0102-30982006000100002&script=sci_abstract)
 - [Evidences of further decline of fertility in Latina America: Reproductive behavior and some thoughts on the consequences on the age structure](https://iussp2009.princeton.edu/papers/93516)
