@@ -61,6 +61,10 @@ Jump to:
 - [Negotiating the Life Course: Stability and Change in Life Pathways](https://books.google.ca/books?hl=en&lr=&id=Tnq9aOqsJ6EC&oi=fnd&pg=PR5&dq=info:5eeNfNsOTjEJ:scholar.google.com&ots=XPUErOyzV-&sig=360RlSD9LFOnqOq_et_FM6QVpuM&redir_esc=y#v=onepage&q&f=false)
 - [The influence of significant others on Australian teenagers' decisions about pregnancy resolution](https://www.jstor.org/stable/2673786?seq=1#metadata_info_tab_contents)
 
+### [Sarah Flood](https://pop.umn.edu/people/sarah-flood)
+- [Time for each other: Work and family constraints among couples](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12255)
+- [Healthy Time Use in the Encore Years: Do Work, Resources, Relations, and Gender Matter?](https://journals.sagepub.com/doi/abs/10.1177/0022146514568669)
+
 ### [Maggie Frye](https://lsa.umich.edu/soc/people/faculty/margaret-frye.html)
 
 - [Bright futures in Malawi’s new dawn: Educational aspirations as assertions of identity](https://www.journals.uchicago.edu/doi/abs/10.1086/664542)
@@ -69,6 +73,10 @@ Jump to:
 ### [Anne Gauthier](https://t.co/BMHJq9QVCr?amp=1)
 - [The impact of family policies on fertility in industrialized countries: a review of the literature](https://link.springer.com/article/10.1007/s11113-007-9033-x)
 - [Generations and Gender Survey study profile. Longitudinal and Life Course Studies](https://www.llcsjournal.org/index.php/llcs/article/view/500)
+
+### [Katie R. Genadek](https://scholar.google.com/citations?user=bFhMJ0sAAAAJ&hl=en)
+- [No-fault divorce laws and the labor supply of women with and without children](http://jhr.uwpress.org/content/XLII/1/247.short)
+- [Trends in spouses’ shared time in the United States, 1965–2012](https://link.springer.com/content/pdf/10.1007/s13524-016-0512-8.pdf)
 
 ### [Susan Greenhlagh](http://susan-greenhalgh.com/)
 - [Just One Child: Science and Policy in Deng’s China](https://www.ucpress.edu/book/9780520253391/just-one-child)
@@ -534,6 +542,10 @@ Jump to:
 ### [Jennifer Dowd](https://www.jenndowd.com/)
 -  [Demographic science aids in understanding the spread and fatality rates of COVID-19](https://www.pnas.org/content/117/18/9696.short)
 - [Does the predictive power of self-rated health for subsequent mortality risk vary by socioeconomic status in the US?](https://academic.oup.com/ije/article/36/6/1214/822656)
+
+### [Julia Drew](https://pop.umn.edu/people/julia-rivera-drew)
+- [Trends in Fatal and Nonfatal Injuries among Older Americans, 2004-2017](https://www.ajpmonline.org/article/S0749-3797(20)30057-X/fulltext)
+- [Disability and the Self-Reliant Family: Revisiting the Literature on Parents with Disabilities](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5605814/)
 
 ### [Laura Dwyer-Lindgren](http://www.healthdata.org/about/laura-dwyer-lindgren)
 - [US County-Level Trends in Mortality Rates for Major Causes of Death, 1980-2014](https://pubmed.ncbi.nlm.nih.gov/27959996/)
