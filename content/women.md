@@ -29,6 +29,10 @@ Jump to:
 - [A Cognitive-Social Model of Fertility Intentions](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4132897/)
 - [Culture and Demography: From Reluctant Bedfellows to Committed Partners](https://link.springer.com/content/pdf/10.1007/s13524-013-0257-6.pdf)
 
+### [Alaka Basu](https://devsoc.cals.cornell.edu/people/alaka-basu/)
+- [The Sociocultural and Political Aspects of Abortion: Global Perspectives](https://books.google.ca/books?hl=en&lr=&id=YNY8NqdsA6UC&oi=fnd&pg=PP13&dq=The+Social+and+Political+Context+of+Abortion+basu&ots=l1t2WhWdmL&sig=BvGr6jpvoh7caAVlUrHs3nRRC4E#v=onepage&q=The%20Social%20and%20Political%20Context%20of%20Abortion%20basu&f=false)
+- [Conditioning Factors for Fertility Decline in Bengal: History, Language Identity, and Openness to Innovations](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2000.00761.x)
+
 ### [Valeria Bordone](https://sites.google.com/view/valeriabordone)
 - [Contact and proximity of older people to their adult children: A comparison between Italy and Sweden](https://onlinelibrary.wiley.com/doi/abs/10.1002/psp.559)
 - [Patterns of grandparental child care across Europe: the role of the policy context and working mothers' need](https://www.cambridge.org/core/journals/ageing-and-society/article/patterns-of-grandparental-child-care-across-europe-the-role-of-the-policy-context-and-working-mothers-need/FD999CE0803BE444D37D1A9CD69C7175)
