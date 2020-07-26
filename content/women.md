@@ -412,6 +412,10 @@ Jump to:
 - [Migrant networks and international migration: Testing weak ties](https://link.springer.com/content/pdf/10.1007/s13524-013-0213-5.pdf)
 - [Prospects for the comparative study of international migration using quasi-longitudinal micro-data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5739584/)
 
+### [Silvia Loi](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/silvia_loi_2870)
+- [Migrant health convergence and the role of material deprivation](https://www.demographic-research.org/volumes/vol40/32/)
+- [Migration, health and mortality in Italy: an unfinished story](https://www.iris.unina.it/handle/11588/714542)
+
 ### [Yao Lu](http://www.columbia.edu/~yl2479/)
 - [Test of the ‘healthy migrant hypothesis’: a longitudinal analysis of health selectivity of internal migration in Indonesia](https://www.sciencedirect.com/science/article/abs/pii/S0277953608003225) 
 - [Education of children left behind in rural China](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00951.x)
