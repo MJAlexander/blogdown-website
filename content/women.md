@@ -235,7 +235,9 @@ Jump to:
 - [Social Inequalities in Teenage Fertility Outcomes: Childbearing and Abortion Trends of Three Birth Cohorts In Finland](https://onlinelibrary.wiley.com/doi/abs/10.1363/46e1314)
 - [The association between education and induced abortion for three cohorts of adults in Finland](https://www.tandfonline.com/doi/full/10.1080/00324728.2015.1083608)
 
-
+### [Leela Visaria](http://gidr.ac.in/faculty/24)
+- [Abortion in India: Ground Reality](https://books.google.ca/books/about/Abortion_in_India.html?id=E5IEAQAAIAAJ&redir_esc=y)
+- [Abortion in India: Emerging Issues from Qualitative Studies](https://www.jstor.org/stable/4415809?seq=1#metadata_info_tab_contents)
 
 ## Mathematical, statistical, digital demography, population projection
 
