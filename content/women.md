@@ -62,6 +62,10 @@ Jump to:
 - [Bright futures in Malawi’s new dawn: Educational aspirations as assertions of identity](https://www.journals.uchicago.edu/doi/abs/10.1086/664542)
 - [The demography of words: The global decline in non-numeric fertility preferences, 1993–2011](https://www.tandfonline.com/doi/abs/10.1080/00324728.2017.1304565)
 
+### [Anne Gauthier](https://t.co/BMHJq9QVCr?amp=1)
+- [The impact of family policies on fertility in industrialized countries: a review of the literature](https://link.springer.com/article/10.1007/s11113-007-9033-x)
+- [Generations and Gender Survey study profile. Longitudinal and Life Course Studies](https://www.llcsjournal.org/index.php/llcs/article/view/500)
+
 ### [Susan Greenhlagh](http://susan-greenhalgh.com/)
 - [Just One Child: Science and Policy in Deng’s China](https://www.ucpress.edu/book/9780520253391/just-one-child)
 - [On the Crafting of Population Thought](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2012.00474.x)
