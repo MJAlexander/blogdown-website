@@ -311,6 +311,10 @@ Jump to:
 - [Where people move and when: temporary population mobility in Australia](https://search.informit.com.au/documentSummary;dn=157293264384755;res=IELAPA)
 - [Internal migration and development: Comparing migration intensities around the world](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2015.00025.x)
 
+### [Siwei Cheng](https://siweicheng.weebly.com/research.html)
+- [A life course trajectory framework for understanding the intracohort pattern of wage inequality](https://www.journals.uchicago.edu/doi/abs/10.1086/679103)
+- [The accumulation of (dis) advantage: The intersection of gender and race in the long-term wage effect of marriage](https://journals.sagepub.com/doi/abs/10.1177/0003122415621263)
+
 ### [Sara Curran](https://soc.washington.edu/people/sara-curran)
 - [Engendering migrant networks: The case of Mexican migration](https://link.springer.com/article/10.1353/dem.2003.0011)
 - [Mapping gender and migration in sociological scholarship: Is it segregation or integration?](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2006.00008.x)
@@ -512,6 +516,10 @@ Jump to:
 ### [Lucie Kalousová](http://www.luciekalousova.com/)
 - [Increase in frailty of older workers and retirees predicted by negative psychosocial working conditions on the job](https://www.sciencedirect.com/science/article/abs/pii/S0277953614007874)
 - [Debt and Foregone Medical Care](https://journals.sagepub.com/doi/abs/10.1177/0022146513483772)
+
+### [Jennifer Karas Montez](https://jennkarasmontez.com/)
+- [Trends in the educational gradient of US adult mortality from 1986 through 2006 by race, gender, and age group](https://journals.sagepub.com/doi/abs/10.1177/0164027510392388)
+- [Educational attainment and adult mortality in the United States: A systematic analysis of functional form](https://link.springer.com/content/pdf/10.1007/s13524-011-0082-8.pdf)
 
 ### [Tiziana Leone](http://www.lse.ac.uk/international-development/people/tiziana-leone)
 - [Diabetes and depression comorbidity and socio-economic status in low and middle income countries (LMICs): a mapping of the evidence](https://globalizationandhealth.biomedcentral.com/articles/10.1186/1744-8603-8-39)
