@@ -180,6 +180,10 @@ Jump to:
 - [Mapping the Timing, Pace, and Scale of the Fertility Transition in Brazil](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2010.00330.x)
 - [Fertility and development: evidence from Brazil](https://www.jstor.org/stable/3180829?seq=1#metadata_info_tab_contents)
 
+### [Raquel Coutinho](https://orcid.org/0000-0002-2841-1480)
+- [Live Births and Fertility amidst the Zika Virus Epidemic in Brazil](https://liberalarts.utexas.edu/zika/events/live-births-and-fertility-amidst-the-zika-virus-epidemic-in-brazil)
+- [Life satisfaction in Brazil: an exploration of theoretical correlates and age, period and cohort variations using the World Values Survey (1991-2014)](https://www.scielo.br/scielo.php?pid=S0102-30982020000100151&script=sci_arttext&tlng=en)
+
 ### [Sarah Cowan](https://www.sarahkcowan.org/)
 - [Enacted abortion stigma in the United States](https://www.sciencedirect.com/science/article/abs/pii/S0277953617300114)
 - [Alternative estimates of lifetime prevalence of abortion from indirect survey questioning methods](https://d1wqtxts1xzle7.cloudfront.net/58636729/Cowan_Wu_England_Makela_Lifetime_Estimates_Abortion_Prevalence.pdf?1552766990=&response-content-disposition=inline%3B+filename%3DAlternative_Estimates_of_Lifetime_Preval.pdf&Expires=1595636437&Signature=Q5oJr6kvzHTJ8QcT7E6yg2Hc07YpMsEhszwyyynQO5bYlerrz4H~mlVrQavw-GRbiqW361-0LCnfOdkLMYcLfWz43DFeCg44ZdizDYJ~7uGY9sE2Zbf8HSVdfd7HRjFnBAa4Dh6hfX7-uYRlWTXU8COjJKOScFCmaNGU~BAICp03cwQ-ZZUneb8WgBjo~3agSiAFE-vWlIXXkMqRzK9mpxmHb6H8YmyfsmhQqx5aRh-1slA1l9SbeScJQuPDgAQeLueCsXFxkriUI8EgpW6K8LcE2-iJBqEbr2vyX79U6JPFzlD~db8z4OUf8Jw1LvZlu8OKM5IOxy7cCSGaik7euQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA)
@@ -200,9 +204,17 @@ Jump to:
 - [Understanding Family Change and Variation](https://link.springer.com/chapter/10.1007%2F978-94-007-1945-3_1)
 - [Natural Intentions: Fertility Decline in the African Demographic and Health Surveys](https://www.journals.uchicago.edu/doi/10.1086/508791)
 
+### [Luciana Luz do Amaral](http://somos.ufmg.br/professor/luciana-soares-luz-do-amaral)
+- [Bridging user and provider perspectives: Family planning access and utilization in rural Mozambique](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4609646/)
+- [Women’s decision-making autonomy and children’s schooling in rural Mozambique](https://pubmed.ncbi.nlm.nih.gov/26491400/)
+
 ### [M. Giovanna Merli](https://globalhealth.duke.edu/people/merli-maria-giovanna)
 - [Are births underreported in rural China? Manipulation of statistical records in response to China’s population policies](https://link.springer.com/article/10.2307/2648100)
 - [Has the Chinese family planning policy been successful in changing fertility preferences?](https://link.springer.com/article/10.1353/dem.2002.0029)
+
+### [Paula Miranda‐Ribeiro](http://somos.ufmg.br/professor/paula-de-miranda-ribeiro)
+- [Fertility Differentials by Education in Brazil: From the Conclusion of Fertility to the Onset of Postponement Transition](https://onlinelibrary.wiley.com/doi/10.1111/padr.12165)
+- [First conjugal union and religion: Signs contrary to the Second Demographic Transition in Brazil?](https://www.demographic-research.org/volumes/vol33/34/)
 
 ### [Clémentine Rossier](https://www.unige.ch/sciences-societe/ideso/membres/rossier/)
 - [Estimating induced abortion rates: a review](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4465.2003.00087.x)
@@ -243,6 +255,13 @@ Jump to:
 ### [Ridhi Kashyap](https://www.nuffield.ox.ac.uk/people/profiles/ridhi-kashyap/)
 - [An agent-based model of sex ratio at birth distortions](https://link.springer.com/chapter/10.1007/978-3-319-32283-4_12)
 - [Using Facebook ad data to track the global digital gender gap](https://www.sciencedirect.com/science/article/pii/S0305750X18300883)
+
+### [Evelyn M. Kitagawa](https://en.wikipedia.org/wiki/Evelyn_M._Kitagawa)[^2]
+- [Components of a difference between two rates](https://www.jstor.org/stable/2281213?seq=1#metadata_info_tab_contents)
+- [Standardized comparisons in population research](https://www.jstor.org/stable/2060055?seq=1#metadata_info_tab_contents)
+
+
+[^2]: Not active, but such an important and influential women scholar in demography. 
 
 ### [Miles Taylor](https://coss.fsu.edu/sociology/mtaylor)
 - [Timing, Accumulation, and the Black/White Disability Gap in Later Life: A Test of Weathering](https://journals.sagepub.com/doi/abs/10.1177/0164027507311838)
