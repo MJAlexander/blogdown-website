@@ -647,13 +647,18 @@ Jump to:
 - [The case for monitoring life-span inequality](https://science.sciencemag.org/content/362/6418/1002.summary)
 - [Lifespan variation by occupational class: Compression or stagnation over time?](https://link.springer.com/content/pdf/10.1007/s13524-013-0253-x.pdf)
 
+### [Laura Lidia Rodríguez Wong](http://somos.ufmg.br/professor/laura-lidia-rodriguez-wong)
+- [The rapid process of aging in Brazil: serious challenges for public policies](https://www.scielo.br/scielo.php?pid=S0102-30982006000100002&script=sci_abstract)
+- [Evidences of further decline of fertility in Latina America: Reproductive behavior and some thoughts on the consequences on the age structure](https://iussp2009.princeton.edu/papers/93516)
+
 ### [Rosie Seaman](https://www.stir.ac.uk/people/1489025)
 - [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
 - [The increasing lifespan variation gradient by area-level deprivation: A decomposition analysis of Scotland 1981–2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6711767/)
 
-### [Laura Lidia Rodríguez Wong](http://somos.ufmg.br/professor/laura-lidia-rodriguez-wong)
-- [The rapid process of aging in Brazil: serious challenges for public policies](https://www.scielo.br/scielo.php?pid=S0102-30982006000100002&script=sci_abstract)
-- [Evidences of further decline of fertility in Latina America: Reproductive behavior and some thoughts on the consequences on the age structure](https://iussp2009.princeton.edu/papers/93516)
+### [Aïda Solé Auró](https://www.upf.edu/web/sole-auro)
+- [Health of Immigrants in European Countries](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2008.00150.x)
+- [Who cares? A comparison of informal and formal care provision in Spain, England and the USA](https://www.cambridge.org/core/journals/ageing-and-society/article/who-cares-a-comparison-of-informal-and-formal-care-provision-in-spain-england-and-the-usa/EB0202DF1C3D43193373DEA063599A7B)
+
 
 ### [Emma Zang](http://www.emmazang.net/)
 - [Recent trends in US mortality in early and middle adulthood: racial/ethnic disparities in inter-cohort patterns](https://academic.oup.com/ije/article-abstract/48/3/934/5224527)
