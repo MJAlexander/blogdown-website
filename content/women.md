@@ -171,6 +171,10 @@ Jump to:
 - [If all we knew about women was what we read in Demography, what would we know?](https://link.springer.com/article/10.2307/2061806)
 - [Demographic Foundations of Family Change](https://www.jstor.org/stable/2095354?seq=1#metadata_info_tab_contents)
 
+### [Kate Weisshaar](http://www.kateweisshaar.com/)
+- [Labor Force Participation Over the Life Course: The Long-Term Effects of Employment Trajectories on Wages and the Gender Wage Gap](https://pubmed.ncbi.nlm.nih.gov/31997232/)
+- [Publish and Perish? An Assessment of Gender Gaps in Promotion to Tenure in Academia](https://academic.oup.com/sf/article/96/2/529/3897008?guestAccessKey=edcee817-fdf5-4dbf-ad07-5ca46818a6c7)
+
 ### [Laura Wright](https://artsandscience.usask.ca/profile/LWright#/profile)
 - [Union Transitions and Fertility within First Premarital Cohahitations in Canada: Diverging Trends by Education](https://crdcn.org/union-transitions-and-fertility-within-first-premarital-cohabitations-canada-diverging-patterns)
 - [Healthy Grandparenthood: How long is it and how has it Changed?](https://www.niussp.org/article/healthy-grandparenthood-how-long-is-it-and-how-has-it-changed/)
@@ -291,13 +295,17 @@ Jump to:
 
 ## Migration, environment, economic demography
 
+### [Aude Bernard](https://sees.uq.edu.au/profile/10064/aude-bernard)
+- [Life‐course transitions and the age profile of internal migration](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2014.00671.x)
+- [Improved measures for the cross-national comparison of age profiles of internal migration](https://www.tandfonline.com/doi/abs/10.1080/00324728.2014.890243)
+
 ### [Irene Bloemraad](https://sociology.berkeley.edu/faculty/irene-bloemraad)
 - [Who Claims Dual Citizenship? The Limits of Postnationalism, the Possibilities of Transnationalism, and the Persistence of Traditional Citizenship](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1747-7379.2004.tb00203.x)
 - [The promise and pitfalls of comparative research design in the study of migration](https://academic.oup.com/migration/article/1/1/27/941988)
 
-### [Aude Bernard](https://sees.uq.edu.au/profile/10064/aude-bernard)
-- [Life‐course transitions and the age profile of internal migration](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2014.00671.x)
-- [Improved measures for the cross-national comparison of age profiles of internal migration](https://www.tandfonline.com/doi/abs/10.1080/00324728.2014.890243)
+### [Jennie Brand](http://www.profjenniebrand.com/)
+- [Who benefits most from college? Evidence for negative selection in heterogeneous economic returns to higher education](https://journals.sagepub.com/doi/abs/10.1177/0003122410363567)
+- [Regression and matching estimates of the effects of elite college attendance on educational and career achievement](https://www.sciencedirect.com/science/article/abs/pii/S0049089X05000268)
 
 ### [Elin Charles-Edwards](https://sees.uq.edu.au/profile/9017/elin-charles-edwards)
 - [Where people move and when: temporary population mobility in Australia](https://search.informit.com.au/documentSummary;dn=157293264384755;res=IELAPA)
