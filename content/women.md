@@ -355,6 +355,10 @@ Jump to:
 - [Is Education a Key to Reducing Vulnerability to Natural Disasters and hence Unavoidable Climate Change?](https://www.jstor.org/stable/26269470?seq=1#metadata_info_tab_contents)
 - [Climate change and seasonal floods: potential long-term nutritional consequences for children in Kerala, India](https://gh.bmj.com/content/4/2/e001215.abstract)
 
+### [Ana Maria Nogales Vasconcelos](https://orcid.org/0000-0001-7589-107X)
+- [Heterogeneity among Young People Neither in Employment Nor in Education in Brazil](https://journals.sagepub.com/doi/full/10.1177/0002716220913234)
+- [Causes of death among people living with HIV/AIDS in Brazil](https://www.sciencedirect.com/science/article/pii/S1413867010701124)
+
 ### [Anne R. Pebley](https://ph.ucla.edu/faculty/pebley)
 - [Demography and the Environment](https://link.springer.com/article/10.2307/3004008)
 - [Prenatal and delivery care and childhood immunization in Guatemala: Do family and community matter?](https://link.springer.com/article/10.2307/2061874)
@@ -379,6 +383,10 @@ Jump to:
 ### [Leah VanWey](https://www.brown.edu/academics/sociology/people/leah-vanwey)
 - [Household demographic change and land use/land cover change in the Brazilian Amazon](https://link.springer.com/content/pdf/10.1007/s11111-007-0040-y.pdf)
 - [Theories Underlying the Study of Human-Environmenta Interactions](https://books.google.com/books?hl=en&lr=&id=rkplSGlHJmwC&oi=fnd&pg=PA23&dq=info:dYXZktdAhpUJ:scholar.google.com&ots=fPv6O7khoo&sig=TKdNE3zfkJOiKchUo71n03I0M4w#v=onepage&q&f=false)
+
+### [Simone Wajnman](https://geesc.cedeplar.ufmg.br/integrantes/simone-wajnman/)
+- [The motherhood penalty: participation in the labor market and job quality of women with children](https://www.scielo.br/scielo.php?pid=S0102-30982019000100159&script=sci_abstract)
+- [From the causes to the economic consequences of the demographic transition in Brazil](https://www.researchgate.net/publication/262700193_From_the_causes_to_the_economic_consequences_of_the_demographic_transition_in_Brazil)
 
 ## Mortality, health, aging, biodemography
 
