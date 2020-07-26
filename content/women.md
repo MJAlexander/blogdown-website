@@ -143,7 +143,7 @@ Jump to:
 - [Reexamining the case for marriage: Union formation and changes in well‐being](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2011.00873.x)
 - [Planned and unplanned childbearing among unmarried women](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2002.00915.x)
 
-### [Daniela V. Negraia](https://danielanegraia.weebly.com/publications.html)
+### [Daniela Negraia](https://danielanegraia.weebly.com/publications.html)
 - [Unpacking the Parenting Well-Being Gap: The Role of Dynamic Features of Daily Life across Broader Social Contexts](https://journals.sagepub.com/doi/10.1177/0190272520902453)
 - [Gender Disparities in Parenting Time Across Activities, Child Ages, and Educational Groups](https://journals.sagepub.com/doi/10.1177/0192513X18770232)
 
@@ -335,6 +335,10 @@ Jump to:
 
 
 [^2]: Passed away in 2007, but was such an important and influential woman scholar in demography. 
+
+### [Liying Luo](https://sociology.la.psu.edu/people/lzl65)
+- [The Age-Period-Cohort-Interaction Model for Describing and Investigating Inter-cohort Deviations and Intra-cohort Life-course Dynamics](https://journals.sagepub.com/doi/10.1177/0049124119882451)
+- [The Sensitivity of the Intrinsic Estimator to Coding Schemes: A Comment on Yang, Schulhofer-Wohl, Fu, and Land](https://www.journals.uchicago.edu/doi/abs/10.1086/689830?mobileUi=0)
 
 ### [Jane Menken](https://en.wikipedia.org/wiki/Jane_Menken)
 - [On Becoming a Mathematical Demographer—And the Career in Problem-Focused Inquiry that Followed](https://www.annualreviews.org/doi/pdf/10.1146/annurev-soc-073117-041059)
