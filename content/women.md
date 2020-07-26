@@ -292,6 +292,11 @@ Jump to:
 
 [^2]: Not active, but such an important and influential woman scholar in demography. 
 
+### [Julie Rajaratnam](https://globalhealth.washington.edu/faculty/julie-rajaratnam)
+- [Measuring under-five mortality: Validation of new low-cost methods](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000253)
+- [Worldwide mortality in men and women aged 15–59 years from 1970 to 2010: a systematic analysis](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736%2810%2960517-X/fulltext)
+
+
 ### [Miles Taylor](https://coss.fsu.edu/sociology/mtaylor)
 - [Timing, Accumulation, and the Black/White Disability Gap in Later Life: A Test of Weathering](https://journals.sagepub.com/doi/abs/10.1177/0164027507311838)
 - [Cohort Differences and Chronic Disease Profiles of Differential Disability Trajectories](https://academic.oup.com/psychsocgerontology/article/66B/6/729/591502)
