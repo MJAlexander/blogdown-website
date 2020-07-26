@@ -151,7 +151,7 @@ Jump to:
 - [Maternal reading skills and child mortality in Nigeria: a reassessment of why education matters](https://link.springer.com/article/10.1007%252Fs13524-013-0209-1)
 - [Polygynous contexts, family structure, and infant mortality in sub-Saharan Africa](https://link.springer.com/content/pdf/10.1007/s13524-013-0262-9.pdf)
 
-### [Johnelle Sparks]()
+### [Johnelle Sparks](https://hcap.utsa.edu/directory/johnelle-sparks-ph-d/)
 - [Do biological, sociodemographic, and behavioral characteristics explain racial/ethnic disparities in preterm births?](https://www.sciencedirect.com/science/article/abs/pii/S0277953609001117)
 - [Racial/ethnic differences in breastfeeding duration among WIC-eligible families](https://www.sciencedirect.com/science/article/abs/pii/S1049386711000466)
 
