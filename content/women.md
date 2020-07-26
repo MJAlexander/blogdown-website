@@ -333,7 +333,6 @@ Jump to:
 - [Components of a difference between two rates](https://www.jstor.org/stable/2281213?seq=1#metadata_info_tab_contents)
 - [Standardized comparisons in population research](https://www.jstor.org/stable/2060055?seq=1#metadata_info_tab_contents)
 
-
 [^2]: Passed away in 2007, but was such an important and influential woman scholar in demography. 
 
 ### [Liying Luo](https://sociology.la.psu.edu/people/lzl65)
@@ -566,6 +565,10 @@ Jump to:
 ### [Julia Drew](https://pop.umn.edu/people/julia-rivera-drew)
 - [Trends in Fatal and Nonfatal Injuries among Older Americans, 2004-2017](https://www.ajpmonline.org/article/S0749-3797(20)30057-X/fulltext)
 - [Disability and the Self-Reliant Family: Revisiting the Literature on Parents with Disabilities](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5605814/)
+
+### [Géraldine Duthé](https://www.ined.fr/en/research/researchers/Duth%C3%A9+G%C3%A9raldine)
+- [Suicide among male prisoners in France: a prospective population-based study](https://www.sciencedirect.com/science/article/pii/S0379073813004313)
+- [Mortality in the Caucasus: An attempt to re-estimate recent mortality trends in Armenia and Georgia](https://www.jstor.org/stable/26349571?seq=1#metadata_info_tab_contents)
 
 ### [Laura Dwyer-Lindgren](http://www.healthdata.org/about/laura-dwyer-lindgren)
 - [US County-Level Trends in Mortality Rates for Major Causes of Death, 1980-2014](https://pubmed.ncbi.nlm.nih.gov/27959996/)
