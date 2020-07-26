@@ -437,6 +437,14 @@ Jump to:
 - [Increase in frailty of older workers and retirees predicted by negative psychosocial working conditions on the job](https://www.sciencedirect.com/science/article/abs/pii/S0277953614007874)
 - [Debt and Foregone Medical Care](https://journals.sagepub.com/doi/abs/10.1177/0022146513483772)
 
+### [Virpi Lummaa](https://www.utu.fi/en/people/virpi-lummaa)
+- [Evolution of sex differences in lifespan and aging: causes and constraints](https://onlinelibrary.wiley.com/doi/abs/10.1002/bies.201300021)
+- [Sons reduced maternal longevity in preindustrial humans](https://www.researchgate.net/profile/Virpi_Lummaa/publication/11367151_Sons_Reduced_Maternal_Longevity_in_Preindustrial_Humans/links/546086a70cf295b5616204b8/Sons-Reduced-Maternal-Longevity-in-Preindustrial-Humans.pdf)
+
+### [Melanie Martin](https://anthropology.washington.edu/people/melanie-martin)
+- [Differences in Tsimane children’s growth outcomes and associated determinants as estimated by WHO standards vs. within population references](https://anthropology.washington.edu/research/publications/tsimane-vs-who-growth-references)
+- [Infant gut microbiota: developmental influences and health outcomes](https://link.springer.com/chapter/10.1007/978-1-4614-4060-4_11)
+
 ### [Marília Nepomuceno](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/marilia_r_nepomuceno_2921)
 - [Besides population age-structure, health and other demographic factors can contribute to understanding the COVID-19 burden](https://dx.doi.org/10.1073/pnas.2008760117)
 - [A cohort survival comparison of Central and Eastern European and high-longevity countries](https://www.cairn.info/revue-population-2019-3-page-299.htm?ref=doi)
