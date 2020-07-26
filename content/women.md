@@ -224,6 +224,10 @@ Jump to:
 - [Demographic forecasting: 1980 to 2005 in review](https://www.sciencedirect.com/science/article/abs/pii/S016920700600046X)
 - [Applying Lee-Carter under conditions of variable mortality decline](https://www.tandfonline.com/doi/abs/10.1080/00324720215935)
 
+### [Fengqing Chao](https://www.fengqingchao.com/)
+- [Systematic assessment of the sex ratio at birth for all countries and estimation of national imbalances and regional reference level](https://www.pnas.org/content/116/19/9303)
+- [National and regional under-5 mortality rate by economic status for low-income and middle-income countries: a systematic assessment](https://www.thelancet.com/action/showPdf?pii=S2214-109X%2818%2930059-7)
+
 ### [Jutta Gampe](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/jutta_gampe_655)
 - [Human mortality beyond age 110](https://www.demogr.mpg.de/en/publications_databases_6118/publications_1904/book_chapters/human_mortality_beyond_age_110_3980/)
 - [Seasonal variation in death counts: P-spline smoothing in the presence of overdispersion](https://www.demogr.mpg.de/en/publications_databases_6118/publications_1904/book_chapters/seasonal_variation_in_death_counts_p_spline_smoothing_in_the_presence_of_overdispersion_1725/)
