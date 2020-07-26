@@ -497,6 +497,10 @@ Jump to:
 -  [Demographic science aids in understanding the spread and fatality rates of COVID-19](https://www.pnas.org/content/117/18/9696.short)
 - [Does the predictive power of self-rated health for subsequent mortality risk vary by socioeconomic status in the US?](https://academic.oup.com/ije/article/36/6/1214/822656)
 
+### [Laura Dwyer-Lindgren](http://www.healthdata.org/about/laura-dwyer-lindgren)
+- [US County-Level Trends in Mortality Rates for Major Causes of Death, 1980-2014](https://pubmed.ncbi.nlm.nih.gov/27959996/)
+- [Inequalities in Life Expectancy Among US Counties, 1980 to 2014: Temporal Trends and Key Drivers](https://pubmed.ncbi.nlm.nih.gov/28492829/)
+
 ### [Irma Elo](https://sociology.sas.upenn.edu/people/irma-elo)
 - [Social class differentials in health and mortality: Patterns and explanations in comparative perspective](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-070308-115929)
 - [Mortality among elderly Hispanics in the United States: Past evidence and new results](https://link.springer.com/article/10.1353/dem.2004.0001)
