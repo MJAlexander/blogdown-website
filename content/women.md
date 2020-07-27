@@ -65,7 +65,6 @@ Jump to:
 - [Italy: Delayed adaptation of social institutions to changes in family behaviour](https://www.jstor.org/stable/26349260)
 - [Socio-Economic Factors and Family Size as Determinants of Marital Dissolution in Italy](https://doi.org/10.1093/oxfordjournals.esr.a036623)
 
-
 ### [Sonalde Desai](https://www.sonaldedesai.org/)
 - [Gender scripts and age at marriage in India](https://link.springer.com/article/10.1353/dem.0.0118)
 - [Maternal education and child health: Is there a strong causal relationship?](https://link.springer.com/article/10.2307/3004028)
@@ -106,10 +105,14 @@ Jump to:
 - [The relationship between private safety nets and economic outcomes among single mothers](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2006.00250.x)
 - [Do family support environments influence fertility? Evidence from 20 European countries](https://link.springer.com/content/pdf/10.1007/s10680-013-9308-3.pdf)
 
-
 ### [Jennifer Hook](https://dornsife.usc.edu/cf/soci/soci_faculty_display.cfm?Person_ID=1042774)
 - [Care in context: Men's unpaid work in 20 countries, 1965–2003](https://journals.sagepub.com/doi/abs/10.1177/000312240607100406)
 - [Gender inequality in the welfare state: Sex segregation in housework, 1965–2003](https://www.journals.uchicago.edu/doi/abs/10.1086/651384)
+
+
+### [Vladimira Kantorova](https://www.researchgate.net/profile/Vladimira_Kantorova)
+- [Education And Entry Into Motherhood In The Czech Republic During State-Socialism And The Transition Period 1970-1997](https://doi.org/10.1007/1-4020-4716-9_10)
+- [Setting Ambitious yet Achievable Targets Using Probabilistic Projections: Meeting Demand for Family Planning](https://doi.org/10.1111/sifp.12025)
 
 ### [Tahu Kukutai](https://www.waikato.ac.nz/nidea/people/tahuk)
 - [In search of ethnic New Zealanders: National naming in the 2006 census](https://www.msd.govt.nz/documents/about-msd-and-our-work/publications-resources/journals-and-magazines/social-policy-journal/spj36/social-policy-journal-36.pdf#page=51)
@@ -232,6 +235,10 @@ Jump to:
 - [Do biological, sociodemographic, and behavioral characteristics explain racial/ethnic disparities in preterm births?](https://www.sciencedirect.com/science/article/abs/pii/S0277953609001117)
 - [Racial/ethnic differences in breastfeeding duration among WIC-eligible families](https://www.sciencedirect.com/science/article/abs/pii/S1049386711000466)
 
+### [Sarah Staveteig](https://www.researchgate.net/profile/Sarah_Staveteig) 
+- [Fear, opposition, ambivalence, and omission: Results from a follow-up study on unmet need for family planning in Ghana](https://doi.org/10.1371/journal.pone.0182076)
+- [Reaching the ' first 90 ': Gaps in coverage of HIV testing among people living with HIV in 16 African countries](https://doi.org/10.1371/journal.pone.0186316)
+
 ### [Lisa Strohschein](https://apps.ualberta.ca/directory/person/las5)
 - [Parental divorce and child mental health trajectories](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2005.00217.x)
 - [Marital transitions and mental health: are there gender differences in the short-term effects of marital status change?](https://www.sciencedirect.com/science/article/abs/pii/S027795360500393X)
@@ -239,6 +246,11 @@ Jump to:
 ### [Maria Letizia Tanturri](https://homes.stat.unipd.it/marialetiziatanturri/)
 - [Childless or childfree? Paths to voluntary childlessness in Italy](https://www.jstor.org/stable/25434658)
 - [Economic well-being in old age in Italy: does having children make a difference?](https://www.jstor.org/stable/41430836)
+
+
+### [Sarah Tom](https://www.columbianeurology.org/profile/setom)
+- [Frailty and Fracture, Disability, and Falls: A Multiple Country Study From the Global Longitudinal Study of Osteoporosis in Women](https://doi.org/10.1111/jgs.12146)
+- [Characterization of Dementia and Alzheimer's Disease in an Older Population: Updated Incidence and Life Expectancy With and Without Dementia](https://doi.org/10.2105/AJPH.2014.301935)
 
 ### [Florencia Torche](https://sociology.stanford.edu/people/florencia-torche)
 - [The effect of maternal stress on birth outcomes: exploiting a natural experiment](https://link.springer.com/content/pdf/10.1007/s13524-011-0054-z.pdf)
@@ -426,6 +438,9 @@ Jump to:
 - [Estimating population counts with capture-recapture models in the context of erroneous records in linked administrative data](https://www.oeaw.ac.at/fileadmin/subsites/Institute/VID/PDF/Publications/Working_Papers/WP2017_15.pdf) 
 - [Using Twitter data for demographic research](https://www.demographic-research.org/volumes/vol37/46/)
 
+### [Junni Zhang](https://www.bayesiandemography.com/people)
+- [Likelihood-Based Analysis of Causal Effects of Job-Training Programs Using Principal Stratification](https://doi.org/10.1198/jasa.2009.0012)
+- [Fully Bayesian Benchmarking of Small Area Estimation Models](https://doi.org/10.2478/JOS-2020-0010)
 
 ## Migration, environment, economic demography
 
