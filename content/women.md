@@ -135,7 +135,7 @@ Jump to:
 - [Live Births and Fertility Amid the Zika Epidemic in Brazil](https://link.springer.com/content/pdf/10.1007/s13524-020-00871-x.pdf)
 - [Women’s reproductive intentions and behaviors during the Zika epidemic in Brazil](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6663086/)
 
-### [Julia Mikolai](https://risweb.st-andrews.ac.uk/portal/en/persons/julia-mikolai(4d7e041b-ad7f-4484-80f4-349d039576dc.html)
+### [Julia Mikolai](https://risweb.st-andrews.ac.uk/portal/en/persons/julia-mikolai4d7e041b-ad7f-4484-80f4-349d039576dc.html)
 - [Divorce, Separation, and Housing Changes: A Multiprocess Analysis of Longitudinal Data from England and Wales](https://link.springer.com/article/10.1007/s13524-017-0640-9)
 - [Short-and long-term effects of divorce and separation on housing tenure in England and Wales](https://www.tandfonline.com/doi/full/10.1080/00324728.2017.1391955)
 
