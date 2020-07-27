@@ -65,6 +65,10 @@ Jump to:
 - [Negotiating the Life Course: Stability and Change in Life Pathways](https://books.google.ca/books?hl=en&lr=&id=Tnq9aOqsJ6EC&oi=fnd&pg=PR5&dq=info:5eeNfNsOTjEJ:scholar.google.com&ots=XPUErOyzV-&sig=360RlSD9LFOnqOq_et_FM6QVpuM&redir_esc=y#v=onepage&q&f=false)
 - [The influence of significant others on Australian teenagers' decisions about pregnancy resolution](https://www.jstor.org/stable/2673786?seq=1#metadata_info_tab_contents)
 
+### [Anette Eva Fasang](https://www.wzb.eu/en/persons/anette-eva-fasang)
+- [The" second wave" of sequence analysis bringing the" course" back into the life course](https://journals.sagepub.com/doi/abs/10.1177/0049124109357532)
+- [The interplay of work and family trajectories over the life course: Germany and the United States in comparison](https://www.journals.uchicago.edu/doi/abs/10.1086/691128)
+
 ### [Sarah Flood](https://pop.umn.edu/people/sarah-flood)
 - [Time for each other: Work and family constraints among couples](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12255)
 - [Healthy Time Use in the Encore Years: Do Work, Resources, Relations, and Gender Matter?](https://journals.sagepub.com/doi/abs/10.1177/0022146514568669)
@@ -226,6 +230,10 @@ Jump to:
 ### [Ariane Utomo](https://researchers.anu.edu.au/researchers/utomo-aj)
 - [Women as secondary earners: Gendered preferences on marriage and employment of university students in modern Indonesia](https://www.tandfonline.com/doi/abs/10.1080/17441730.2012.646841)
 - [Marrying up? Trends in age and education gaps among married couples in Indonesia](https://journals.sagepub.com/doi/abs/10.1177/0192513X14538023)
+
+### [Lili Vargha](https://www.demografia.hu/en/staff-vargha-lili)
+- [The Quantity‐Quality Tradeoff: A Cross‐Country Comparison of Market and Nonmarket Investments per Child in Relation to Fertility](https://onlinelibrary.wiley.com/doi/abs/10.1111/padr.12245?af=R&utm_campaign=Feed%3A+PopulationAndDevelopmentReview+%28Population+and+Development+Review%29&utm_medium=feed&utm_source=feedburner)
+- [Household production and consumption over the life cycle: National Time Transfer Accounts in 14 European countries](https://www.demographic-research.org/volumes/vol36/32/default.htm)
 
 ### [Susan Watkins](https://ccpr.ucla.edu/watkins/)
 - [If all we knew about women was what we read in Demography, what would we know?](https://link.springer.com/article/10.2307/2061806)
