@@ -37,6 +37,10 @@ Jump to:
 - [Do Targeted Stipend Programs Reduce Gender and Socioeconomic Inequalities in Schooling Attainment? Insights From Rural Bangladesh](https://link.springer.com/article/10.1007/s13524-015-0435-9)
 - [Contextual Declines in Educational Hypergamy and Intimate Partner Violence](https://academic.oup.com/sf/article-abstract/97/3/1257/5078440)
 
+### [Ann Berrington](https://www.southampton.ac.uk/demography/about/staff/amb6.page)
+- [Perpetual postponers? Women's, men's and couple's fertility intentions and subsequent fertility behaviour](https://eprints.soton.ac.uk/34148/)
+- [Marital dissolution among the 1958 British birth cohort: The role of cohabitation](https://www.tandfonline.com/doi/abs/10.1080/00324720308066)
+
 ### [Valeria Bordone](https://sites.google.com/view/valeriabordone)
 - [Contact and proximity of older people to their adult children: A comparison between Italy and Sweden](https://onlinelibrary.wiley.com/doi/abs/10.1002/psp.559)
 - [Patterns of grandparental child care across Europe: the role of the policy context and working mothers' need](https://www.cambridge.org/core/journals/ageing-and-society/article/patterns-of-grandparental-child-care-across-europe-the-role-of-the-policy-context-and-working-mothers-need/FD999CE0803BE444D37D1A9CD69C7175)
@@ -179,6 +183,10 @@ Jump to:
 - [Short‐and long‐distance moves of young adults during the transition to adulthood in Britain](https://onlinelibrary.wiley.com/doi/abs/10.1002/psp.2125)
 - [Preschool services for children: Cross-national analysis of factors affecting use](https://journals.sagepub.com/doi/abs/10.1177/0020872814536415)
 
+### [Brienna Perelli-Harris](https://www.southampton.ac.uk/demography/about/staff/bgph1c10.page)
+- [The educational gradient of childbearing within cohabitation in Europe](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2010.00357.x)
+- [Changes in union status during the transition to parenthood in eleven European countries, 1970s to early 2000s](https://www.tandfonline.com/doi/abs/10.1080/00324728.2012.673004)
+
 ### [Kate Prickett](http://www.kateprickett.com/)
 - [A research note on time with children in different-and same-sex two-parent families](https://link.springer.com/article/10.1007/s13524-015-0385-2)
 - [Maternal education and investments in children's health](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12253)
@@ -310,10 +318,6 @@ Jump to:
 ### [Paula Miranda‐Ribeiro](http://somos.ufmg.br/professor/paula-de-miranda-ribeiro)
 - [Fertility Differentials by Education in Brazil: From the Conclusion of Fertility to the Onset of Postponement Transition](https://onlinelibrary.wiley.com/doi/10.1111/padr.12165)
 - [First conjugal union and religion: Signs contrary to the Second Demographic Transition in Brazil?](https://www.demographic-research.org/volumes/vol33/34/)
-
-### [Brienna Perelli-Harris](https://www.southampton.ac.uk/demography/about/staff/bgph1c10.page)
-- [The educational gradient of childbearing within cohabitation in Europe](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2010.00357.x)
-- [Changes in union status during the transition to parenthood in eleven European countries, 1970s to early 2000s](https://www.tandfonline.com/doi/abs/10.1080/00324728.2012.673004)
 
 ### [Clémentine Rossier](https://www.unige.ch/sciences-societe/ideso/membres/rossier/)
 - [Estimating induced abortion rates: a review](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4465.2003.00087.x)
