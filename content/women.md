@@ -311,6 +311,10 @@ Jump to:
 - [Fertility Differentials by Education in Brazil: From the Conclusion of Fertility to the Onset of Postponement Transition](https://onlinelibrary.wiley.com/doi/10.1111/padr.12165)
 - [First conjugal union and religion: Signs contrary to the Second Demographic Transition in Brazil?](https://www.demographic-research.org/volumes/vol33/34/)
 
+### [Brienna Perelli-Harris](https://www.southampton.ac.uk/demography/about/staff/bgph1c10.page)
+- [The educational gradient of childbearing within cohabitation in Europe](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2010.00357.x)
+- [Changes in union status during the transition to parenthood in eleven European countries, 1970s to early 2000s](https://www.tandfonline.com/doi/abs/10.1080/00324728.2012.673004)
+
 ### [Clémentine Rossier](https://www.unige.ch/sciences-societe/ideso/membres/rossier/)
 - [Estimating induced abortion rates: a review](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4465.2003.00087.x)
 - [Social interaction effects on fertility: Intentions and behaviors](https://link.springer.com/content/pdf/10.1007/s10680-009-9203-0.pdf)
