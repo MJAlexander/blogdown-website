@@ -327,6 +327,10 @@ Jump to:
 - [Abortion in India: Ground Reality](https://books.google.ca/books/about/Abortion_in_India.html?id=E5IEAQAAIAAJ&redir_esc=y)
 - [Abortion in India: Emerging Issues from Qualitative Studies](https://www.jstor.org/stable/4415809?seq=1#metadata_info_tab_contents)
 
+### [Agnese Vitali](https://webapps.unitn.it/du/en/Persona/PER0212776/Curriculum)
+- [Preference theory and low fertility: A comparative perspective](https://link.springer.com/content/pdf/10.1007/s10680-009-9178-x.pdf)
+- [Youth prospects in a time of economic recession](https://www.jstor.org/stable/26348180?seq=1#metadata_info_tab_contents)
+
 ## Mathematical, statistical, digital demography, population projection
 
 ### [Leontine Alkema](https://leontinealkema.github.io/alkema_lab/)
