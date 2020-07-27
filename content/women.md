@@ -698,13 +698,20 @@ Jump to:
 - [Self-rated health: caught in the crossfire of the quest for ‘true’ health?](https://academic.oup.com/ije/article/36/6/1161/824081)
 - [Temporary work and depressive symptoms: a propensity score analysis](https://www.sciencedirect.com/science/article/abs/pii/S027795361000167X)
 
-
 ### [Nandita Saikia](http://nanditasaikia.com/)
 - [Trends and geographic differentials in mortality under age 60 in India](https://www.tandfonline.com/doi/abs/10.1080/00324728.2010.534642)
 - [Does type of household affect maternal health? Evidence from India](https://pdfs.semanticscholar.org/2ece/463397868492798d0ef3382a1cc2a537b6c8.pdf)
 
 ### [Diana Sawyer](https://www.scielo.br/scielo.php?pid=S1413-81232002000400012&script=sci_arttext)
 - [Spatial patterns of malaria in the Amazon: implications for surveillance and targeted interventions](https://pubmed.ncbi.nlm.nih.gov/16815074/)
+
+### [Rosie Seaman](https://www.stir.ac.uk/people/1489025)
+- [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
+- [The increasing lifespan variation gradient by area-level deprivation: A decomposition analysis of Scotland 1981–2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6711767/)
+
+### [Aïda Solé-Auró](https://www.upf.edu/web/sole-auro)
+- [Health of Immigrants in European Countries](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2008.00150.x)
+- [Who cares? A comparison of informal and formal care provision in Spain, England and the USA](https://www.cambridge.org/core/journals/ageing-and-society/article/who-cares-a-comparison-of-informal-and-formal-care-provision-in-spain-england-and-the-usa/EB0202DF1C3D43193373DEA063599A7B)
 
 ### [Debra Umberson](https://liberalarts.utexas.edu/sociology/faculty/dju)
 - [Social relationships and health behavior across the life course](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-070308-120011?journalCode=soc)
@@ -718,21 +725,15 @@ Jump to:
 - [The case for monitoring life-span inequality](https://science.sciencemag.org/content/362/6418/1002.summary)
 - [Lifespan variation by occupational class: Compression or stagnation over time?](https://link.springer.com/content/pdf/10.1007/s13524-013-0253-x.pdf)
 
+### [Yana Vierboom](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/yana_catherine_vierboom_3786/)
+- [Trends in Alcohol-Related Mortality by Educational Attainment in the U.S., 2000–2017](https://link.springer.com/article/10.1007%2Fs11113-019-09527-0)
+- [The contribution of differences in adiposity to educational disparities in mortality in the United States](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5759347/)
+
+
 ### [Laura Lidia Rodríguez Wong](http://somos.ufmg.br/professor/laura-lidia-rodriguez-wong)
 - [The rapid process of aging in Brazil: serious challenges for public policies](https://www.scielo.br/scielo.php?pid=S0102-30982006000100002&script=sci_abstract)
 - [Evidences of further decline of fertility in Latina America: Reproductive behavior and some thoughts on the consequences on the age structure](https://iussp2009.princeton.edu/papers/93516)
 
-### [Rosie Seaman](https://www.stir.ac.uk/people/1489025)
-- [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
-- [The increasing lifespan variation gradient by area-level deprivation: A decomposition analysis of Scotland 1981–2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6711767/)
-
-### [Aïda Solé-Auró](https://www.upf.edu/web/sole-auro)
-- [Health of Immigrants in European Countries](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2008.00150.x)
-- [Who cares? A comparison of informal and formal care provision in Spain, England and the USA](https://www.cambridge.org/core/journals/ageing-and-society/article/who-cares-a-comparison-of-informal-and-formal-care-provision-in-spain-england-and-the-usa/EB0202DF1C3D43193373DEA063599A7B)
-
-### [Yana Vierboom](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/yana_catherine_vierboom_3786/)
-- [Trends in Alcohol-Related Mortality by Educational Attainment in the U.S., 2000–2017](https://link.springer.com/article/10.1007%2Fs11113-019-09527-0)
-- [The contribution of differences in adiposity to educational disparities in mortality in the United States](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5759347/)
 
 ### [Emma Zang](http://www.emmazang.net/)
 - [Recent trends in US mortality in early and middle adulthood: racial/ethnic disparities in inter-cohort patterns](https://academic.oup.com/ije/article-abstract/48/3/934/5224527)
