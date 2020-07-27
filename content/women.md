@@ -238,6 +238,9 @@ Jump to:
 - [Repartnering in France: The role of gender, age and past fertility](https://www.sciencedirect.com/science/article/abs/pii/S1040260812000184)
 - [Cohabitation and marriage in Britain since the 1970s](https://link.springer.com/article/10.1057/pt.2011.16)
 
+### [Kristin Bietsch](https://www.linkedin.com/in/kristin-bietsch-81036386)
+- [Family Planning During and After the West African Ebola Crisis](https://onlinelibrary.wiley.com/doi/full/10.1111/sifp.12110)
+- [The Maximum CPR Model: a demographic tool for family planning policy](https://gatesopenresearch.org/articles/3-1736)
 
 ### [Sarah Brauner-Otto](https://www.mcgill.ca/sociology/contact-us/faculty/brauner-otto)
 - [The spread of health services and fertility transition](https://link.springer.com/article/10.1353/dem.2007.0041)
