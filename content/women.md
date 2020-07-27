@@ -617,8 +617,9 @@ Jump to:
 - [The Future of Us](https://www.bookdepository.com/Future-Us-Liz-Allen/9781742236506)
 - [Post-separation patterns of children's overnight stays with each parent: A detailed snapshot](https://www.tandfonline.com/doi/abs/10.5172/jfs.2012.18.2-3.202)
 
-### [Elizabeth Barbi](https://www.dss.uniroma1.it/it/dipartimento/persone/barbi-elisabetta)
+### [Elisabetta Barbi](https://www.dss.uniroma1.it/it/dipartimento/persone/barbi-elisabetta)
 - [The plateau of human mortality: Demography of longevity pioneers](https://science.sciencemag.org/content/360/6396/1459.full?ijkey=7YwUWtPpfqk9A&keytype=ref&siteid=sci)
+- [Response to Comment on “The plateau of human mortality: Demography of longevity pioneers”](https://doi.org/10.1126/science.aav3229)
 
 ### [Magali Barbieri](https://www.site.demog.berkeley.edu/barbieri-profile-page)
 - [The contribution of drug-related deaths to the US disadvantage in mortality](https://academic.oup.com/ije/article-abstract/48/3/945/5265302)
