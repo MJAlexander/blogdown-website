@@ -726,7 +726,7 @@ Jump to:
 - [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
 - [The increasing lifespan variation gradient by area-level deprivation: A decomposition analysis of Scotland 1981–2011](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6711767/)
 
-### [Aïda Solé Auró](https://www.upf.edu/web/sole-auro)
+### [Aïda Solé-Auró](https://www.upf.edu/web/sole-auro)
 - [Health of Immigrants in European Countries](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2008.00150.x)
 - [Who cares? A comparison of informal and formal care provision in Spain, England and the USA](https://www.cambridge.org/core/journals/ageing-and-society/article/who-cares-a-comparison-of-informal-and-formal-care-provision-in-spain-england-and-the-usa/EB0202DF1C3D43193373DEA063599A7B)
 
