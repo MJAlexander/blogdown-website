@@ -29,7 +29,8 @@ reactable(df %>% arrange(Name) %>% select(-page, -paper_1_link, -paper_2_link),
   })), 
   searchable = TRUE,
   filterable = TRUE, 
-  sortable = TRUE)
+  sortable = TRUE, 
+  defaultPageSize = 30)
 
 ```
 
