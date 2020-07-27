@@ -33,6 +33,10 @@ Jump to:
 - [The Sociocultural and Political Aspects of Abortion: Global Perspectives](https://books.google.ca/books?hl=en&lr=&id=YNY8NqdsA6UC&oi=fnd&pg=PP13&dq=The+Social+and+Political+Context+of+Abortion+basu&ots=l1t2WhWdmL&sig=BvGr6jpvoh7caAVlUrHs3nRRC4E#v=onepage&q=The%20Social%20and%20Political%20Context%20of%20Abortion%20basu&f=false)
 - [Conditioning Factors for Fertility Decline in Bengal: History, Language Identity, and Openness to Innovations](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2000.00761.x)
 
+### [Julia Behrman](https://www.sociology.northwestern.edu/people/faculty/core/julia-behrman.html)
+- [Do Targeted Stipend Programs Reduce Gender and Socioeconomic Inequalities in Schooling Attainment? Insights From Rural Bangladesh](https://link.springer.com/article/10.1007/s13524-015-0435-9)
+- [Contextual Declines in Educational Hypergamy and Intimate Partner Violence](https://academic.oup.com/sf/article-abstract/97/3/1257/5078440)
+
 ### [Valeria Bordone](https://sites.google.com/view/valeriabordone)
 - [Contact and proximity of older people to their adult children: A comparison between Italy and Sweden](https://onlinelibrary.wiley.com/doi/abs/10.1002/psp.559)
 - [Patterns of grandparental child care across Europe: the role of the policy context and working mothers' need](https://www.cambridge.org/core/journals/ageing-and-society/article/patterns-of-grandparental-child-care-across-europe-the-role-of-the-policy-context-and-working-mothers-need/FD999CE0803BE444D37D1A9CD69C7175)
@@ -53,7 +57,7 @@ Jump to:
 - [White and Latino locational attainments: Assessing the role of race and resources in US metropolitan residential segregation](https://journals.sagepub.com/doi/abs/10.1177/2332649217748426)
 - [The Unique Case of Minneapolis–St. Paul, MN: Locational Attainments and Segregation in the Twin Cities](https://link.springer.com/content/pdf/10.1007/s40980-019-00056-0.pdf)
 
-- [Sonalde Desai](https://www.sonaldedesai.org/)
+### [Sonalde Desai](https://www.sonaldedesai.org/)
 - [Gender scripts and age at marriage in India](https://link.springer.com/article/10.1353/dem.0.0118)
 - [Maternal education and child health: Is there a strong causal relationship?](https://link.springer.com/article/10.2307/3004028)
 
@@ -249,6 +253,11 @@ Jump to:
 ### [Suzana Cavenaghi](https://iussp.org/en/directoryprofile/22396)
 - [Mapping the Timing, Pace, and Scale of the Fertility Transition in Brazil](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2010.00330.x)
 - [Fertility and development: evidence from Brazil](https://www.jstor.org/stable/3180829?seq=1#metadata_info_tab_contents)
+
+### [Diane Coffey](https://sites.google.com/site/dianelcoffey/)
+- [Pre-pregnancy body mass and weight gain during pregnancy in India and sub-Saharan Africa](https://sites.google.com/site/dianelcoffey/research/Coffey2015_PNAS.pdf?attredirects=0&d=1)
+- [Costs and consequences of a cash transfer for hospital births in a rural district of Uttar Pradesh, India](https://sites.google.com/site/dianelcoffey/research/Coffey_2014_SSM.pdf?attredirects=0&d=1)
+
 
 ### [Raquel Coutinho](https://orcid.org/0000-0002-2841-1480)
 - [Live Births and Fertility amidst the Zika Virus Epidemic in Brazil](https://liberalarts.utexas.edu/zika/events/live-births-and-fertility-amidst-the-zika-virus-epidemic-in-brazil)
@@ -447,6 +456,10 @@ Jump to:
 - [Child malnutrition and climate in Sub-Saharan Africa: An analysis of recent trends in Kenya](https://doi-org.proxy.lib.fsu.edu/10.1016/j.apgeog.2012.06.017)
 - [Using satellite remote sensing and household survey data to assess human health and nutrition response to environmental change](https://link.springer.com/article/10.1007%252Fs11111-013-0201-0)
 
+### [Carmen Gutierrez](https://publicpolicy.unc.edu/people/5178/)
+- [The institutional determinants of health insurance: Moving away from labor market, marriage, and family attachments under the ACA](https://doi.org/10.1177/0003122418811112)
+- [Employment and Health Among Recently Incarcerated Men Before and After the Affordable Care Act (2009–2017)](https://doi.org/10.2105/AJPH.2019.305419)
+
 ### [Lori Hunter](https://www.colorado.edu/sociology/lori-hunter)
 - [Migration and Environmental Hazards](https://link.springer.com/content/pdf/10.1007/s11111-005-3343-x.pdf)
 - [Environmental Dimensions of Migration](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-073014-112223)
@@ -493,7 +506,15 @@ Jump to:
 
 ### [Heather Randell](https://www.heatherrandell.com/)
 - [Structure and agency in development-induced forced migration: the case of Brazilís Belo Monte Dam](https://link.springer.com/content/pdf/10.1007/s11111-015-0245-4.pdf)
+
+### [Krista Perreira](https://www.cpc.unc.edu/people/fellows/krista-m-perreira/)
+- [Making it in America: High school completion by immigrant and native youth](https://doi.org/10.1353/dem.2006.0026)
+- [Painful passages: Traumatic experiences and post-traumatic stress among US immigrant Latino adolescents and their primary caregivers](https://doi.org/10.1111/imre.12050)
 - [Climate change and educational attainment in the global tropics](10.1073/pnas.1817480116)
+
+### [Gabriela Sánchez-Sot](https://www.uh.edu/class/cmas/about-us/cmas-faculty/gabriela-sanchez-soto/)
+- [I Would Really Like to Go Where You Go’: Rethinking Migration Decision‐Making Among Educated Tied Movers](https://doi.org/10.1002/psp.1990)
+- [Youth Education and Employment in Mexico City: A Mixed-Methods Analysis](https://doi.org/10.1177/0002716220910391)
 
 ### [Xi Song](https://sociology.sas.upenn.edu/people/xi-song)
 - [Market transition theory revisited: Changing regimes of housing inequality in China, 1988-2002](https://www.sociologicalscience.com/download/volume%201/july/SocSci_v1_277to291.pdf)
@@ -633,6 +654,10 @@ Jump to:
 - [Evolution of sex differences in lifespan and aging: causes and constraints](https://onlinelibrary.wiley.com/doi/abs/10.1002/bies.201300021)
 - [Sons reduced maternal longevity in preindustrial humans](https://www.researchgate.net/profile/Virpi_Lummaa/publication/11367151_Sons_Reduced_Maternal_Longevity_in_Preindustrial_Humans/links/546086a70cf295b5616204b8/Sons-Reduced-Maternal-Longevity-in-Preindustrial-Humans.pdf)
 
+### [Guadalupe Marquez-Velarde](https://sociology.usu.edu/people/directory/guadalupe-marquez-velarde)
+- [Mental health disparities among low-income US Hispanic residents of a US-Mexico border colonia]https://doi.org/10.1007/s40615-015-0091-1)
+- [Racial stratification in self-rated health among Black Mexicans and White Mexicans](https://doi.org/10.1016/j.ssmph.2019.100509)
+
 ### [Milly Marston](https://www.lshtm.ac.uk/aboutus/people/marston.milly)
 - [The relationship between HIV and fertility in the era of antiretroviral therapy in sub-Saharan Africa: evidence from 49 Demographic and Health Surveys](https://pubmed.ncbi.nlm.nih.gov/28986949/)
 - [Net survival of perinatally and postnatally HIV-infected children: a pooled analysis of individual data from sub-Saharan Africa](https://pubmed.ncbi.nlm.nih.gov/21247884/)
@@ -697,6 +722,9 @@ Jump to:
 - [Health of Immigrants in European Countries](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2008.00150.x)
 - [Who cares? A comparison of informal and formal care provision in Spain, England and the USA](https://www.cambridge.org/core/journals/ageing-and-society/article/who-cares-a-comparison-of-informal-and-formal-care-provision-in-spain-england-and-the-usa/EB0202DF1C3D43193373DEA063599A7B)
 
+### [Yana Vierboom](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/yana_catherine_vierboom_3786/)
+- [Trends in Alcohol-Related Mortality by Educational Attainment in the U.S., 2000–2017](https://link.springer.com/article/10.1007%2Fs11113-019-09527-0)
+- [The contribution of differences in adiposity to educational disparities in mortality in the United States](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5759347/)
 
 ### [Emma Zang](http://www.emmazang.net/)
 - [Recent trends in US mortality in early and middle adulthood: racial/ethnic disparities in inter-cohort patterns](https://academic.oup.com/ije/article-abstract/48/3/934/5224527)
