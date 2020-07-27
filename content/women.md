@@ -135,6 +135,10 @@ Jump to:
 - [Live Births and Fertility Amid the Zika Epidemic in Brazil](https://link.springer.com/content/pdf/10.1007/s13524-020-00871-x.pdf)
 - [Women’s reproductive intentions and behaviors during the Zika epidemic in Brazil](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6663086/)
 
+### [Julia Mikolai](https://risweb.st-andrews.ac.uk/portal/en/persons/julia-mikolai(4d7e041b-ad7f-4484-80f4-349d039576dc.html)
+- [Divorce, Separation, and Housing Changes: A Multiprocess Analysis of Longitudinal Data from England and Wales](https://link.springer.com/article/10.1007/s13524-017-0640-9)
+- [Short-and long-term effects of divorce and separation on housing tenure in England and Wales](https://www.tandfonline.com/doi/full/10.1080/00324728.2017.1391955)
+
 ### [Melissa Milkie](https://melissamilkie.com/)
 - [Playing all the roles: Gender and the work-family balancing act](https://www.jstor.org/stable/353763?seq=1#metadata_info_tab_contents)
 - [The time squeeze: Parental statuses and feelings about time with children](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.0022-2445.2004.00050.x)
@@ -166,6 +170,10 @@ Jump to:
 ### [Sarah Patterson](https://www.psc.isr.umich.edu/people/profile/1522/Sarah_Patterson)
 - [The Demography of Multigenerational Caregiving: A Critical Aspect of the Gendered Life Course](https://journals.sagepub.com/doi/full/10.1177/2378023119862737)
 - [Educational Attainment Differences in Attitudes toward Provisions of IADL Care for Older Adults in the US](https://www.tandfonline.com/doi/abs/10.1080/08959420.2020.1722898)
+
+### [Alina Pelikh](https://cls.ucl.ac.uk/team/alina-pelikh/)
+- [Short‐and long‐distance moves of young adults during the transition to adulthood in Britain](https://onlinelibrary.wiley.com/doi/abs/10.1002/psp.2125)
+- [Preschool services for children: Cross-national analysis of factors affecting use](https://journals.sagepub.com/doi/abs/10.1177/0020872814536415)
 
 ### [Kate Prickett](http://www.kateprickett.com/)
 - [A research note on time with children in different-and same-sex two-parent families](https://link.springer.com/article/10.1007/s13524-015-0385-2)
