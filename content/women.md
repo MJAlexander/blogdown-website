@@ -579,6 +579,7 @@ Jump to:
 
 ### [Heather Randell](https://www.heatherrandell.com/)
 - [Structure and agency in development-induced forced migration: the case of Brazilís Belo Monte Dam](https://link.springer.com/content/pdf/10.1007/s11111-015-0245-4.pdf)
+- [Climate change and educational attainment in the global tropics](https://www.pnas.org/content/116/18/8840)
 
 ### [Krista Perreira](https://www.cpc.unc.edu/people/fellows/krista-m-perreira/)
 - [Making it in America: High school completion by immigrant and native youth](https://doi.org/10.1353/dem.2006.0026)
@@ -782,6 +783,7 @@ Jump to:
 
 ### [Diana Sawyer](https://www.scielo.br/scielo.php?pid=S1413-81232002000400012&script=sci_arttext)
 - [Spatial patterns of malaria in the Amazon: implications for surveillance and targeted interventions](https://pubmed.ncbi.nlm.nih.gov/16815074/)
+- [Profiles of health services utilization in Brazil](https://www.scielo.br/scielo.php?pid=S1413-81232002000400012&script=sci_arttext)
 
 ### [Rosie Seaman](https://www.stir.ac.uk/people/1489025)
 - [Increasing inequality in age of death at shared levels of life expectancy: A comparative study of Scotland and England and Wales](https://www.sciencedirect.com/science/article/pii/S235282731630101X )
