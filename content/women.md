@@ -61,6 +61,11 @@ Jump to:
 - [White and Latino locational attainments: Assessing the role of race and resources in US metropolitan residential segregation](https://journals.sagepub.com/doi/abs/10.1177/2332649217748426)
 - [The Unique Case of Minneapolis–St. Paul, MN: Locational Attainments and Segregation in the Twin Cities](https://link.springer.com/content/pdf/10.1007/s40980-019-00056-0.pdf)
 
+### [Alessandra De Rose](https://web.uniroma1.it/memotef/en/users/de-rose-alessandra)
+- [Italy: Delayed adaptation of social institutions to changes in family behaviour](https://www.jstor.org/stable/26349260)
+- [Socio-Economic Factors and Family Size as Determinants of Marital Dissolution in Italy](https://doi.org/10.1093/oxfordjournals.esr.a036623)
+
+
 ### [Sonalde Desai](https://www.sonaldedesai.org/)
 - [Gender scripts and age at marriage in India](https://link.springer.com/article/10.1353/dem.0.0118)
 - [Maternal education and child health: Is there a strong causal relationship?](https://link.springer.com/article/10.2307/3004028)
@@ -78,7 +83,6 @@ Jump to:
 - [Healthy Time Use in the Encore Years: Do Work, Resources, Relations, and Gender Matter?](https://journals.sagepub.com/doi/abs/10.1177/0022146514568669)
 
 ### [Maggie Frye](https://lsa.umich.edu/soc/people/faculty/margaret-frye.html)
-
 - [Bright futures in Malawi’s new dawn: Educational aspirations as assertions of identity](https://www.journals.uchicago.edu/doi/abs/10.1086/664542)
 - [The demography of words: The global decline in non-numeric fertility preferences, 1993–2011](https://www.tandfonline.com/doi/abs/10.1080/00324728.2017.1304565)
 
@@ -142,6 +146,11 @@ Jump to:
 ### [Leticia Marteleto](https://liberalarts.utexas.edu/prc/directory/faculty/ljm86)
 - [Live Births and Fertility Amid the Zika Epidemic in Brazil](https://link.springer.com/content/pdf/10.1007/s13524-020-00871-x.pdf)
 - [Women’s reproductive intentions and behaviors during the Zika epidemic in Brazil](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6663086/)
+
+### [Letizia Mencarini](https://letiziamencarini.com/)
+- [Life Satisfaction Favors Reproduction. The Universal Positive Effect of Life Satisfaction on Childbearing in Contemporary Low Fertility Countries](https://doi.org/10.1371/journal.pone.0206202)
+- [Employed Women and Marital Union Stability: It Helps When Men Help](https://doi.org/10.1177/0192513X17710283)
+
 
 ### [Julia Mikolai](https://scholar.google.co.uk/citations?user=GhqmkD8AAAAJ&hl=en)
 - [Divorce, Separation, and Housing Changes: A Multiprocess Analysis of Longitudinal Data from England and Wales](https://link.springer.com/article/10.1007/s13524-017-0640-9)
@@ -226,6 +235,10 @@ Jump to:
 ### [Lisa Strohschein](https://apps.ualberta.ca/directory/person/las5)
 - [Parental divorce and child mental health trajectories](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1741-3737.2005.00217.x)
 - [Marital transitions and mental health: are there gender differences in the short-term effects of marital status change?](https://www.sciencedirect.com/science/article/abs/pii/S027795360500393X)
+
+### [Maria Letizia Tanturri](https://homes.stat.unipd.it/marialetiziatanturri/)
+- [Childless or childfree? Paths to voluntary childlessness in Italy](https://www.jstor.org/stable/25434658)
+- [Economic well-being in old age in Italy: does having children make a difference?](https://www.jstor.org/stable/41430836)
 
 ### [Florencia Torche](https://sociology.stanford.edu/people/florencia-torche)
 - [The effect of maternal stress on birth outcomes: exploiting a natural experiment](https://link.springer.com/content/pdf/10.1007/s13524-011-0054-z.pdf)
@@ -327,6 +340,11 @@ Jump to:
 - [Evolutionary contributions to the study of human fertility](https://www.tandfonline.com/doi/abs/10.1080/00324728.2014.982905?journalCode=rpst20)
 - [How much does family matter? The implications of a cooperative breeding strategy for the demographic transition](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2011.00379.x)
 
+### [Alessandra Trimarchi](https://www.ined.fr/en/research/researchers/Trimarchi+Alessandra)
+- [Education and the transition to fatherhood: The role of selection into union](https://doi.org/10.1007/s13524-016-0533-3)
+- [Pathways to marital and non-marital first birth: the role of his and her education](https://www.jstor.org/stable/26506104)
+
+
 ### [Heini Väisänen](https://heinivaisanen.com/)
 - [Social Inequalities in Teenage Fertility Outcomes: Childbearing and Abortion Trends of Three Birth Cohorts In Finland](https://onlinelibrary.wiley.com/doi/abs/10.1363/46e1314)
 - [The association between education and induced abortion for three cohorts of adults in Finland](https://www.tandfonline.com/doi/full/10.1080/00324728.2015.1083608)
@@ -375,6 +393,11 @@ Jump to:
 
 [^2]: Passed away in 2007, but was such an important and influential woman scholar in demography. 
 
+### [Anastasia Kostaki](http://www2.stat-athens.aueb.gr/~akostaki/)
+- [A nine‐parameter version of the Heligman‐Pollard formula](https://doi.org/10.1080/08898489209525346)
+- [Expanding an abridged life table](https://www.jstor.org/stable/26348031)
+
+
 ### [Liying Luo](https://sociology.la.psu.edu/people/lzl65)
 - [The Age-Period-Cohort-Interaction Model for Describing and Investigating Inter-cohort Deviations and Intra-cohort Life-course Dynamics](https://journals.sagepub.com/doi/10.1177/0049124119882451)
 - [The Sensitivity of the Intrinsic Estimator to Coding Schemes: A Comment on Yang, Schulhofer-Wohl, Fu, and Land](https://www.journals.uchicago.edu/doi/abs/10.1086/689830?mobileUi=0)
@@ -387,6 +410,9 @@ Jump to:
 - [Measuring under-five mortality: Validation of new low-cost methods](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1000253)
 - [Worldwide mortality in men and women aged 15–59 years from 1970 to 2010: a systematic analysis](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736%2810%2960517-X/fulltext)
 
+### [Hana Ševčíková](https://www.stat.washington.edu/hana/)
+- [Assessing uncertainty in urban simulations using Bayesian melding](https://doi.org/10.1016/j.trb.2006.11.001)
+- [bayesTFR: An R Package for Probabilistic Projections of the Total Fertility Rate](https://doi.org/10.18637/jss.v043.i01)
 
 ### [Miles Taylor](https://coss.fsu.edu/sociology/mtaylor)
 - [Timing, Accumulation, and the Black/White Disability Gap in Later Life: A Test of Weathering](https://journals.sagepub.com/doi/abs/10.1177/0164027507311838)
@@ -402,6 +428,10 @@ Jump to:
 
 
 ## Migration, environment, economic demography
+
+### Jennifer Airlshire](https://gero.usc.edu/faculty/ailshire/)
+- [Fine particulate matter air pollution and cognitive function among older US adults](https://doi.org/10.1093/aje/kwu155)
+- [Family relationships and troubled sleep among US adults: examining the influences of contact frequency and relationship quality](https://doi.org/10.1177/0022146512446642)
 
 ### [Aude Bernard](https://sees.uq.edu.au/profile/10064/aude-bernard)
 - [Life‐course transitions and the age profile of internal migration](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2014.00671.x)
@@ -586,6 +616,15 @@ Jump to:
 - [The role of socioeconomic factors in Black-White health inequities across the life course: Point-in-time measures, long-term exposures, and differential health returns](https://www.sciencedirect.com/science/article/abs/pii/S0277953616305676)
 - [The physiological impacts of wealth shocks in late life: Evidence from the Great Recession](https://www.sciencedirect.com/science/article/abs/pii/S0277953615302884)
 
+### [Emmanuelle Cambois](https://www.ined.fr/en/research/researchers/Cambois+Emmanuelle)
+- [Social inequalities in disability-free life expectancy in the french male population, 1980-1991](https://doi.org/10.1353/dem.2001.0033)
+- [Aging and health in France: an unexpected expansion of disability in mid-adulthood over recent years](https://doi.org/10.1093/eurpub/cks136)
+
+### [Graziella Caselli](https://scholar.google.com/citations?user=Trf4DAkAAAAJ&hl=it 
+- [Three dimensions of the survival curve: Horizontalization, verticalization, and longevity extension](https://doi.org/10.1353/dem.2005.0012)
+- [Epidemiologic transition theory exceptions](https://www.jstor.org/stable/29788712)
+
+
 ### [Marcia Castro](https://www.hsph.harvard.edu/marcia-castro/)
 - [Malaria risk on the Amazon frontier](https://www.pnas.org/content/103/7/2452.short)
 - [Brazil's unified health system: the first 30 years and prospects for the future](https://www.sciencedirect.com/science/article/abs/pii/S0140673619312437)
@@ -597,6 +636,10 @@ Jump to:
 ### [Eileen Crimmins](https://gero.usc.edu/faculty/crimmins/)
 - [Change in cognitively healthy and cognitively impaired life expectancy in the United States: 2000–2010](https://www.sciencedirect.com/science/article/pii/S2352827316301148)
 - [Aging populations, mortality, and life expectancy](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-073117-041351)
+
+### [Dorly Deeg](http://www.emgo.nl/team/186/dorlydeeg/personal-information/)
+- [Attrition in the Longitudinal Aging Study Amsterdam: The effect of differential inclusion in side studies](https://doi.org/10.1016/S0895-4356(01)00475-9)
+- [Concepts of self-rated health: Specifying the gender difference in mortality risk](https://doi.org/10.1093/geront/43.3.376)
 
 ### [Aline Désesquelles](https://www.ined.fr/en/research/researchers/D%C3%A9sesquelles+Aline/)
 - [Mortality From Alzheimer’s Disease, Parkinson’s Disease, and Dementias in France and Italy: A Comparison Using the Multiple Cause-of-Death Approach](https://pubmed.ncbi.nlm.nih.gov/24667337/)
@@ -732,6 +775,10 @@ Jump to:
 ### [Aïda Solé-Auró](https://www.upf.edu/web/sole-auro)
 - [Health of Immigrants in European Countries](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2008.00150.x)
 - [Who cares? A comparison of informal and formal care provision in Spain, England and the USA](https://www.cambridge.org/core/journals/ageing-and-society/article/who-cares-a-comparison-of-informal-and-formal-care-provision-in-spain-england-and-the-usa/EB0202DF1C3D43193373DEA063599A7B)
+
+### [Catalina Torres](https://portal.findresearcher.sdu.dk/en/persons/ctorres)
+- [Life expectancy in urbanizing contexts: Patterns and causes of changes in mortality in historical populations](https://doi.org/10.21996/13hx-6h08)
+- [The contribution of urbanization to changes in life expectancy in Scotland, 1861–1910](https://doi.org/10.1080/00324728.2018.1549746)
 
 ### [Debra Umberson](https://liberalarts.utexas.edu/sociology/faculty/dju)
 - [Social relationships and health behavior across the life course](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-070308-120011?journalCode=soc)
