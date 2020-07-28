@@ -21,6 +21,24 @@ Jump to:
 
 ## Family, social demography
 
+###  [Aliya Saperstein](https://sociology.stanford.edu/people/aliya-saperstein)
+- [Racial Fluidity and Inequality in the United States](https://doi.org/10.1086/667722)
+- [Racial Formation in Perspective: Connecting Individuals, Institutions, and Power Relations](https://doi.org/10.1146/annurev-soc-071312-145639)
+
+
+### [Sunita Kishor](https://www.icf.com/company/about/our-people/k/kishor-sunita)
+- [Reproductive health and domestic violence: Are the poorest women uniquely disadvantaged?](https://doi.org/10.1353/dem.2006.0014)
+- [Married Women's Risk of STIs in Developing Countries: The Role of Intimate Partner Violence and Partner's Infection Status](https://doi.org/10.1177/1077801212455358)
+
+### [Monica das Gupta](https://www.popcenter.umd.edu/mprc-associates/mdasgupt )
+- [Selective Discrimination against Female Children in Rural Punjab, India](https://www.jstor.org/stable/1972121)
+- [Death Clustering, Mothers' Education and the Determinants of Child Mortality in Rural Punjab, India](https://doi.org/10.1080/0032472031000144866)
+
+### [Sangeetha Madhavan](https://aasd.umd.edu/facultyprofile/madhavan/sangeetha)
+- ['Absent breadwinners': Father-child connections and paternal support in rural South Africa](https://doi.org/10.1080/03057070802259902)
+- [The social context of children's nutritional status in rural South Africa](https://doi.org/10.1080/14034950701355700)
+
+
 ### [Jennifer Augustine](https://www.sc.edu/study/colleges_schools/artsandsciences/sociology/our_people/faculty_staff_directory/augustine_jennifer.php)
 - [Doing it All? Mothers’ College Enrollment, Time Use, and Affective Well-Being](https://onlinelibrary.wiley.com/doi/abs/10.1111/jomf.12477)
 - [Can Increased Educational Attainment among Lower Educated Mothers Reduce Inequalities in the Skill Development of Children? ](https://link.springer.com/article/10.1007/s13524-017-0637-4)
@@ -287,6 +305,14 @@ Jump to:
 
 ## Fertility
 
+### [Amy Tsui](https://www.jhsph.edu/faculty/directory/profile/1025/amy-ong-tsui)
+- [Family Planning and the Burden of Unintended Pregnancies](https://doi.org/10.1093/epirev/mxq012)
+- [Contraceptive Practice in sub-Saharan Africa](https://doi.org/10.1111/padr.12051)
+
+###  [Ann E Biddlecom](https://www.guttmacher.org/about/staff/ann-biddlecom)
+- [Absent and problematic men: Demographic accounts of male reproductive roles](https://doi.org/10.1111/j.1728-4457.2000.00081.x)
+- [Health care utilization, family context, and adaptation among immigrants to the United States](https://www.jstor.org/stable/2137215)
+
 ### [Eva Beaujouan](http://www.wittgensteincentre.org/en/staff/member/beaujouan.htm)
 - [Repartnering in France: The role of gender, age and past fertility](https://www.sciencedirect.com/science/article/abs/pii/S1040260812000184)
 - [Cohabitation and marriage in Britain since the 1970s](https://link.springer.com/article/10.1057/pt.2011.16)
@@ -371,6 +397,11 @@ Jump to:
 
 ## Mathematical, statistical, digital demography, population projection
 
+### [Beth jarosz](https://www.prb.org/people/beth-jarosz/)
+- [Using Assessor Parcel Data to Maintain Housing Unit Counts for Small Area Population Estimates](https://doi.org/10.1007/978-1-4020-8329-7_5)
+- [Poisson Distribution: A Model for Estimating Households by Household Size](https://doi.org/10.1007/s11113-020-09575-x)
+
+
 ### [Leontine Alkema](https://leontinealkema.github.io/alkema_lab/)
 - [Probabilistic Projections of the Total Fertility Rate for All Countries](https://link.springer.com/content/pdf/10.1007/s13524-011-0040-5.pdf)
 - [Global estimation of child mortality using a Bayesian B-spline bias-reduction model](https://www.jstor.org/stable/24522377?seq=1#metadata_info_tab_contents)
@@ -444,6 +475,33 @@ Jump to:
 
 ## Migration, environment, economic demography
 
+### [Shannon Gleeson](https://www.ilr.cornell.edu/people/shannon-gleeson)
+- [When Do Papers Matter? An Institutional Analysis of Undocumented Life in the United States](https://doi.org/10.1111/j.1468-2435.2011.00726.x)
+- [Labor Rights for All? The Role of Undocumented Immigrant Status for Worker Claims Making](https://doi.org/10.1111/j.1747-4469.2010.01196.x)
+
+
+### [Hania Zlotnik]([https://www.un.org/en/development/desa/newsletter/desanews/cg/2012/02/index.html)
+- [International migration 1965-96: An overview](https://doi.org/10.2307/2808151)
+- [The use of hypothetical cohorts in estimating demographic parameters under conditions of changing fertility and mortality](https://doi.org/10.2307/2061052)
+
+### [Rebeca Wong](https://www.utmb.edu/scoa/membership/rebeca-wong)
+- [Cohort Profile: The Mexican Health and Aging Study (MHAS)](https://doi.org/10.1093/ije/dyu263)
+- [Wealth in middle and old age in Mexico: The role of international migration](https://doi.org/10.1111/j.1747-7379.2007.00059.x)
+
+
+### [Holly Reed](https://www.gc.cuny.edu/Page-Elements/Academics-Research-Centers-Initiatives/Doctoral-Programs/Sociology/Faculty-Bios/Holly-Reed)
+- [Men's and women's migration in coastal Ghana: An event history analysis](https://dx.doi.org/10.4054%2FDemRes.2010.22.25)
+- [Moving Across Boundaries: Migration in South Africa, 1950-2000](https://doi.org/10.1007/s13524-012-0140-x)
+
+
+### [Ellen Kraly](https://www.colgate.edu/about/directory/ekraly)
+- [Estimates Of Long-Term Immigration To The United-States - Moving United-States Statistics Toward United-Nations Concepts](https://doi.org/10.2307/2061855)
+- [Efforts To Improve International Migration Statistics - A Historical Perspective](https://doi.org/10.2307/2546500)
+
+### [Beth Daponte](https://www.researchgate.net/scientific-contributions/2141066464_Beth_Osborne_Daponte)
+- [Why do low-income households not use food stamps? Evidence from an experiment](https://doi.org/10.2307/146382)
+- [How the private food assistance network evolved: Interactions between public and private responses to hunger](https://doi.org/10.1177/0899764006289771)
+
 ### [Jennifer Airlshire](https://gero.usc.edu/faculty/ailshire/)
 - [Fine particulate matter air pollution and cognitive function among older US adults](https://doi.org/10.1093/aje/kwu155)
 - [Family relationships and troubled sleep among US adults: examining the influences of contact frequency and relationship quality](https://doi.org/10.1177/0022146512446642)
@@ -471,6 +529,11 @@ Jump to:
 ### [Sara Curran](https://soc.washington.edu/people/sara-curran)
 - [Engendering migrant networks: The case of Mexican migration](https://link.springer.com/article/10.1353/dem.2003.0011)
 - [Mapping gender and migration in sociological scholarship: Is it segregation or integration?](https://journals.sagepub.com/doi/abs/10.1111/j.1747-7379.2006.00008.x)
+
+### [Violetta hionidou](https://www.ncl.ac.uk/hca/staff/profile/violettahionidou.html)
+- [Abortion and Contraception in Modern Greece, 1830-1967. Medicine, Sexuality and Popular Culture](https://doi.org/10.1007/978-3-030-41490-0)
+- [‘If we hadn’t left … we would have all died’: Escaping Famine on the Greek Island of Chios, 1941–44](https://doi.org/10.1093/jrs/fez041)
+
 
 ### [Katherine Curtis](https://dces.wisc.edu/people/faculty/katherine-curtis/)
 - [Rural Demography](https://link.springer.com/book/10.1007/978-3-030-10910-3)
@@ -500,6 +563,7 @@ Jump to:
 ### [Barbara Entwisle](https://www.cpc.unc.edu/people/fellows/barbara-entwisle/)
 - [Putting people into place](https://link.springer.com/article/10.1353/dem.2007.0045)
 - [Multilevel effects of socioeconomic development and family planning programs on children ever born](https://www.journals.uchicago.edu/doi/abs/10.1086/228316)
+
 
 ### [Cynthia Feliciano](https://sociology.wustl.edu/people/cynthia-feliciano)
 - [Educational selectivity in US immigration: How do immigrants compare to those left behind?](https://link.springer.com/article/10.1353/dem.2005.0001)
@@ -827,4 +891,24 @@ Jump to:
 ### [Virginia Zarulli](https://portal.findresearcher.sdu.dk/en/persons/vzarulli)
 - [Women live longer than men even during severe famines and epidemics](https://www.pnas.org/content/115/4/E832?xid=PS_smithsonian)
 - [Mortality by education level at late-adult ages in Turin: a survival analysis using frailty models with period and cohort approaches ](https://bmjopen.bmj.com/content/3/7/e002841.short)
+
+### [Toshiko Kaneda](https://www.prb.org/people/toshiko-kaneda/)
+- [Gender Differences in Functional Health and Mortality Among the Chinese Elderly Testing an Exposure Versus Vulnerability Hypothesis](https://doi.org/10.1177/0164027508330725)
+- [Education, Gender, and Functional Transitions Among Indonesian Elderly](https://doi.org/10.1007/s10823-007-9041-7)
+
+### [Arline Geronimus](https://sph.umich.edu/faculty-profiles/geronimus-arline.html)
+- ["Weathering" and age patterns of allostatic load scores among blacks and whites in the United States](https://doi.org/10.2105/AJPH.2004.060749)
+- [Black/white differences in the relationship of maternal age to birthweight: A population-based test of the weathering hypothesis](https://doi.org/10.1016/0277-9536(95)00159-X)
+
+### [Emi Suzuki](https://blogs.worldbank.org/team/emi-suzuki)
+- [Estimates of maternal mortality worldwide between 1990 and 2005: an assessment of available data](https://doi.org/10.1016/S0140-6736(07)61572-4)
+- [Understanding Global Trends in Maternal Mortality](https://doi.org/10.1363/3903213)
+
+### [Ewa Tabeau](https://www.wur.nl/en/Persons/Ewa-EW-Ewa-Tabeau-PhD-MSc.htm)
+- [War-related Deaths in the 1992–1995 Armed Conflicts in Bosnia and Herzegovina: A Critique of Previous Estimates and Recent Results](https://doi.org/10.1007/s10680-005-6852-5)
+- [Improving Overall Mortality Forecasts by Analysing Cause-of-Death, Period and Cohort Effects in Trends](https://doi.org/10.1023/A:1006109310764)
+
+### [Li Liu](https://www.jhsph.edu/faculty/directory/profile/2243/li-liu)
+- [Global, regional, and national causes of child mortality: an updated systematic analysis for 2010 with time trends since 2000](https://doi.org/10.1016/S0140-6736(12)60560-1)
+- [Global, regional, and national causes of under-5 mortality in 2000-15: an updated systematic analysis with implications for the Sustainable Development Goals](https://doi.org/10.1016/S0140-6736(16)31593-8)
 
