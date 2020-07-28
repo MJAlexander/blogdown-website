@@ -1,6 +1,6 @@
 +++
 title = "Women in demography"
-slug = "women_scholars"
+slug = "women_scholars_old"
 +++
 
 
@@ -637,7 +637,7 @@ Jump to:
 - [Social inequalities in disability-free life expectancy in the french male population, 1980-1991](https://doi.org/10.1353/dem.2001.0033)
 - [Aging and health in France: an unexpected expansion of disability in mid-adulthood over recent years](https://doi.org/10.1093/eurpub/cks136)
 
-### [Graziella Caselli](https://scholar.google.com/citations?user=Trf4DAkAAAAJ&hl=it 
+### [Graziella Caselli](https://scholar.google.com/citations?user=Trf4DAkAAAAJ&hl=it)
 - [Three dimensions of the survival curve: Horizontalization, verticalization, and longevity extension](https://doi.org/10.1353/dem.2005.0012)
 - [Epidemiologic transition theory exceptions](https://www.jstor.org/stable/29788712)
 
@@ -743,7 +743,7 @@ Jump to:
 - [Sons reduced maternal longevity in preindustrial humans](https://www.researchgate.net/profile/Virpi_Lummaa/publication/11367151_Sons_Reduced_Maternal_Longevity_in_Preindustrial_Humans/links/546086a70cf295b5616204b8/Sons-Reduced-Maternal-Longevity-in-Preindustrial-Humans.pdf)
 
 ### [Guadalupe Marquez-Velarde](https://sociology.usu.edu/people/directory/guadalupe-marquez-velarde)
-- [Mental health disparities among low-income US Hispanic residents of a US-Mexico border colonia]https://doi.org/10.1007/s40615-015-0091-1)
+- [Mental health disparities among low-income US Hispanic residents of a US-Mexico border colonia](https://doi.org/10.1007/s40615-015-0091-1)
 - [Racial stratification in self-rated health among Black Mexicans and White Mexicans](https://doi.org/10.1016/j.ssmph.2019.100509)
 
 ### [Milly Marston](https://www.lshtm.ac.uk/aboutus/people/marston.milly)

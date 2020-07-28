@@ -1,0 +1,50 @@
+---
+title: "Women in Demography"
+---
+
+An ever-growing list of active scholars in demography who identify as women or as a gender minority, listed by broad sub-disicpline, and with two notable papers.[^1]
+
+[^1]: Thanks to Rohan Alexander, Paul Chung, Robert Pickett and Leslie Root for their help in compiling the initial list.
+
+If you know of someone who should be on this list and isn't, or if you are on this list and would like different papers highlighted, or if you see any mistakes, email me!
+
+Sub-disciplines are:
+
+- Family, social demography
+- Fertility
+- Mathematical, statistical, digital demography, population projection
+- Migration, environment, economic demography
+- Mortality, health, aging, biodemography
+
+<br>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(reactable)
+library(here)
+
+df <- read_csv(here("content/women_scholars/scholars.csv"))
+
+reactable(df %>% arrange(Name) %>% rename(`Sub-discipline` = Category) %>% select(-page, -paper_1_link, -paper_2_link), 
+          columns = list(Name = colDef(cell = function(value, index) {
+    # Render as a link
+    url <- df[index, "page"] %>% pull()
+    htmltools::tags$a(href = url, target = "_blank", as.character(value))
+  }),
+  `Paper 1` = colDef(cell = function(value, index) {
+    # Render as a link
+    url <- df[index, "paper_1_link"] %>% pull()
+    htmltools::tags$a(href = url, target = "_blank", as.character(value))
+  }),
+  `Paper 2` = colDef(cell = function(value, index) {
+    # Render as a link
+    url <- df[index, "paper_2_link"] %>% pull()
+    htmltools::tags$a(href = url, target = "_blank", as.character(value))
+  })), 
+  searchable = TRUE,
+  filterable = TRUE, 
+  sortable = TRUE, 
+  defaultPageSize = 30)
+
+```
+
