@@ -8,13 +8,15 @@ An ever-growing list of active scholars in demography who identify as women or a
 
 If you or someone you know should be on this list and isn't, or if you are on this list and would like different papers highlighted, or if you see any mistakes, email me!
 
-Sub-disciplines are:
+Sub-disciplines are:[^2]
 
 - Family, social demography
 - Fertility
 - Mathematical, statistical, digital demography, population projection
 - Migration, environment, economic demography
 - Mortality, health, aging, biodemography
+
+[^2]: As this list has grown the discipline categories have become less useful. At some point I will change the categories to be more informative (if anyone would like to volunteer to do this, get in touch :) )
 
 <br>
 
