@@ -25,7 +25,7 @@ The goal of this post is to illustrate these steps in an accessible way, applied
 
 # The data
 
-I'm using (a sample of) the publicly available dataset of all births in the United States in 2017, available on the [NBER website](https://data.nber.org/data/vital-statistics-natality-data.html). For the purposes of this exercise, I'm just using a 0.1% sample of the births, which leads to 3842 observations. Details on how I got the data are [here](https://github.com/MJAlexander/applied-stats/blob/master/code/births_2017_prep.R). 
+I'm using (a sample of) the publicly available dataset of all births in the United States in 2017, available on the [NBER website](https://data.nber.org/data/vital-statistics-natality-data.html). For the purposes of this exercise, I'm just using a 0.1% sample of the births, which leads to 3842 observations. Details on how I got the data are [here](https://github.com/MJAlexander/states_mortality/birthweight_bayes_viz/births_2017_prep.R). 
 
 Let's load in the packages we need and the dataset:
 
@@ -166,9 +166,9 @@ dsl %>%
 Now let's run the models described above. I will illustrate how to do this in both `stan` and `brms`. 
 
 ## Running the models in Stan
-The Stan code for model 1 is below. You can view the stan code for model 2 [here](https://github.com/MJAlexander/applied-stats/blob/master/code/models/simple_weight_preterm_int.stan). It's worth noticing the `generated quantities` block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using `brms` we don't have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.[^5]
+The Stan code for model 1 is below. You can view the stan code for model 2 [here](https://github.com/MJAlexander/states_mortality/birthweight_bayes_viz/simple_weight_preterm_int.stan). It's worth noticing the `generated quantities` block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using `brms` we don't have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.[^5]
 
-[^5]: It's also possible / easy to get posterior predictive samples in R after running the model, [here](https://github.com/MJAlexander/applied-stats/blob/master/code/yrep_birthweight_example.R) is some example code. Doing everything in Stan is neater, but it might be clearer to see what's going on doing it yourself in R. 
+[^5]: It's also possible / easy to get posterior predictive samples in R after running the model, [here](https://github.com/MJAlexander/states_mortality/birthweight_bayes_viz/yrep_birthweight_example.R) is some example code. Doing everything in Stan is neater, but it might be clearer to see what's going on doing it yourself in R. 
 
 ```{stan output.var="mod1s"}
 data {

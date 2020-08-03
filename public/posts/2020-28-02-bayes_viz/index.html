@@ -134,7 +134,7 @@ The goal of this post is to illustrate these steps in an accessible way, applied
 </div>
 <div id="the-data" class="section level1">
 <h1>The data</h1>
-<p>I’m using (a sample of) the publicly available dataset of all births in the United States in 2017, available on the <a href="https://data.nber.org/data/vital-statistics-natality-data.html">NBER website</a>. For the purposes of this exercise, I’m just using a 0.1% sample of the births, which leads to 3842 observations. Details on how I got the data are <a href="https://github.com/MJAlexander/applied-stats/blob/master/code/births_2017_prep.R">here</a>.</p>
+<p>I’m using (a sample of) the publicly available dataset of all births in the United States in 2017, available on the <a href="https://data.nber.org/data/vital-statistics-natality-data.html">NBER website</a>. For the purposes of this exercise, I’m just using a 0.1% sample of the births, which leads to 3842 observations. Details on how I got the data are <a href="https://github.com/MJAlexander/states_mortality/birthweight_bayes_viz/births_2017_prep.R">here</a>.</p>
 <p>Let’s load in the packages we need and the dataset:</p>
 <pre class="r"><code>library(tidyverse)
 library(rstan)
@@ -257,7 +257,7 @@ dsl %&gt;%
 <p>Now let’s run the models described above. I will illustrate how to do this in both <code>stan</code> and <code>brms</code>.</p>
 <div id="running-the-models-in-stan" class="section level2">
 <h2>Running the models in Stan</h2>
-<p>The Stan code for model 1 is below. You can view the stan code for model 2 <a href="https://github.com/MJAlexander/applied-stats/blob/master/code/models/simple_weight_preterm_int.stan">here</a>. It’s worth noticing the <code>generated quantities</code> block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using <code>brms</code> we don’t have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<p>The Stan code for model 1 is below. You can view the stan code for model 2 <a href="https://github.com/MJAlexander/states_mortality/birthweight_bayes_viz/simple_weight_preterm_int.stan">here</a>. It’s worth noticing the <code>generated quantities</code> block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using <code>brms</code> we don’t have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
 <pre class="stan"><code>data {
   int&lt;lower=1&gt; N;       // number of observations
   vector[N] log_gest;    // log gestational age
@@ -518,7 +518,7 @@ loo2 &lt;- loo(loglik2, save_psis = TRUE)</code></pre>
 <li id="fn2"><p>I am very lucky to work with one of the authors, <a href="https://twitter.com/dan_p_simpson">Dan Simpson</a>, who listens to my questions and comments at length with an admirable level of patience, usually in exchange for coffee.<a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>Technically this is whether or not the birth was ‘very preterm’ according to WHO definitions: <a href="https://www.who.int/news-room/fact-sheets/detail/preterm-birth" class="uri">https://www.who.int/news-room/fact-sheets/detail/preterm-birth</a><a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p>Someone I <a href="www.rohanalexander.com">know</a> was recently asked “when do you know that your EDA is done?” Their response was, EDA is never done, you just die.<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>It’s also possible / easy to get posterior predictive samples in R after running the model, <a href="https://github.com/MJAlexander/applied-stats/blob/master/code/yrep_birthweight_example.R">here</a> is some example code. Doing everything in Stan is neater, but it might be clearer to see what’s going on doing it yourself in R.<a href="#fnref5">↩</a></p></li>
+<li id="fn5"><p>It’s also possible / easy to get posterior predictive samples in R after running the model, <a href="https://github.com/MJAlexander/states_mortality/birthweight_bayes_viz/yrep_birthweight_example.R">here</a> is some example code. Doing everything in Stan is neater, but it might be clearer to see what’s going on doing it yourself in R.<a href="#fnref5">↩</a></p></li>
 <li id="fn6"><p>More details <a href="https://arxiv.org/abs/1507.04544">here</a>.<a href="#fnref6">↩</a></p></li>
 </ol>
 </div>
