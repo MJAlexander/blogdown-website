@@ -55,7 +55,7 @@ ds <- ds %>%
 
 An important first step to model building is exploratory data analysis, which should help to inform potential variables or functional forms of the model. Here's some EDA in the most brief sense.[^4] Below is a scatter plot of gestational age (weeks) and birth weight (kg) on the log scale, which appears to show some relationship:
 
-[^4]: Someone I [know](www.rohanalexander.com) was recently asked "when do you know that your EDA is done?" Their response was, EDA is never done, you just die. 
+[^4]: Someone I [know](https://www.rohanalexander.com) was recently asked "when do you know that your EDA is done?" Their response was, EDA is never done, you just die. 
 
 ```{r}
 ds %>% 

@@ -32,7 +32,7 @@ Reserve Bank of Australia Analyst/Senior Analyst, February 2010 &amp;ndash; June
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/posts/2020-28-02-bayes_viz/</guid>
-      <description>Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
+      <description>Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading &#39;Visualizing the Bayesian Workflow&#39; and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
 The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age.</description>
     </item>
     
