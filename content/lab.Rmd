@@ -1,0 +1,39 @@
+---
+title: "Bayesian Demography Lab"
+---
+
+<center>![](/img/lab_hex.jpg){width="50%"}</center>
+
+The Bayesian Demography Lab brings together researchers from demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities. Current projects are wide ranging, and include: 
+
+- the estimation of maternal cause of death; 
+- using social media data in demographic research; 
+- forecasting foster care populations in the US; 
+- understanding various demand and supply aspects of the opioid epidemic; 
+- estimating mortality using geneaology data; and 
+- various topics related to migration estimation and health. 
+
+# Current researchers
+
+- [Michael Chong](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-chong), PhD candidate in Statistics. 
+    + Maternal cause of death; mortality estimation using geneaological data; estimating population mobility using Facebook data
+- [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health.
+    + Investigating trends in illicit drug supply and overdoses
+- [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon), PhD candidate in Statistics. 
+    + Stochastic multistate models for opioid use, dependence, and overdose
+- [Abtin Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en), MPH, MA candidate in Sociology.
+    + Migrant health in Canada
+- [Marija Pejcinovska](https://www.statistics.utoronto.ca/people/directories/graduate-students/marija-pejcinovska), PhD candidate in Statistics. 
+    + Maternal cause of death; improving the estimation of abortion-related deaths
+- [Jessie Yeung](https://www.researchgate.net/profile/Jessie_Yeung2), MA in Statistics (now Research Analyst at StatCan).
+    + Using MRP to estimate fertility intentions; Bayesian age-specific migration schedules
+
+# Main collaborators
+
+- [Rohan Alexander](https://rohanalexander.com/), Information and Statistics, University of Toronto
+- [Leontine Alkema](https://leontinealkema.github.io/alkema_lab/), Biostatistics, UMass Amherst
+- [Alison Gemmill](https://www.alisongemmill.com/), Population, Family and Reproductive Health, Johns Hopkins University
+- [Josh Goldstein](https://www.site.demog.berkeley.edu/josh-goldstein), Demography, UC Berkeley
+- [Leslie Root](https://leslieroot.net/about/), Demography, UC Berkeley
+- [Chris Wildemann](https://en.wikipedia.org/wiki/Christopher_Wildeman), Sociology, Duke University
+- [Emilio Zagheni](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/emilio_zagheni_2243), Demography, Max Planck Institute for Demographic Research
