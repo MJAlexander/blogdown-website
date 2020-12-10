@@ -10,7 +10,7 @@ output:
 
 
 <p>This semester, for the first time, I taught an undergraduate stats for sociologists course at Toronto. It is the second or third course in a sequence, and up to this point students had used Excel and SPSS in previous courses.</p>
-<p>It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot). This post contains some reflections on the semester, about what went well and what needed work. Although teaching with R is becoming much more common, I still think there are relatively few cases where it’s used at the very introductory level, for students who’s main interests are not statistics, and particularly using the tidyverse format. Hopefully these experiences will be useful for others going forward.</p>
+<p>It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot). This post contains some reflections on the semester, about what went well and what needed work. Although teaching with R is becoming much more common, I still think there are relatively few cases where it’s used at the very introductory level, for students whose main interests are not statistics, and particularly using the tidyverse format. Hopefully these experiences will be useful for others going forward.</p>
 <div id="covid-disclaimer" class="section level2">
 <h2>Covid disclaimer</h2>
 <p>Teaching a course for the first time this semester obviously coincided with teaching a course online during a pandemic for the first time. As most people who have taught or taken a course in this environment will attest, conditions are less than ideal for both teaching and learning. I’m hoping that my next shot at this course will be more successfully purely because I won’t be being blinded by a ring light staring at a computer screen with only the chat function in the video conferencing software saving my sanity.</p>
@@ -63,7 +63,7 @@ output:
 </div>
 <div id="skills-learnt-to-answer-interesting-questions" class="section level2">
 <h2>Skills learnt to answer interesting questions</h2>
-<p>Being sociology students, these students were interested in social processes and questions, and asked some really interesting questions based on the Canadian GSS. It was great to see them using their new found tidyverse skills to try and delve into these questions. To me, seeing a student do a <code>group_by</code> and <code>summarize</code> to <code>ggplot</code> sequence to understand patterns in the data was more exciting than teaching them to run regressions.</p>
+<p>Being sociology students, these students were interested in social processes and questions, and asked some really interesting questions based on the Canadian GSS. It was great to see them using their new-found tidyverse skills to try and delve into these questions. To me, seeing a student do a <code>group_by</code> and <code>summarize</code> to <code>ggplot</code> sequence to understand patterns in the data was more exciting than teaching them to run regressions.</p>
 </div>
 </div>
 <div id="what-could-be-improved" class="section level1">
@@ -71,7 +71,7 @@ output:
 <p>While there were some highlights to what generally was a bleak semester in an apocalyptic 2020, there were also some aspects of the course that were challenging and needed improvement. Some of this was me teaching it for the first time and not knowing what I was doing, but some issues are just fundamentally hard.</p>
 <div id="debugging-is-a-skill-that-needs-to-be-taught" class="section level2">
 <h2>Debugging is a skill that needs to be taught</h2>
-<p>A lot of students had issues with errors in their code, particularly trying to get their RMarkdown file to knit. And the most common approach to debugging appeared to be “email the professor” or “email the TA”. But debugging is a skill — when you are just starting out, it’s not immediately obvious that you should go through line by line and execute the code until an error appears. Additionally, error messages in R are often pretty hard to understand when you’re new, and it’s not immediately obvious that you can just Google the error (don’t we all)?</p>
+<p>A lot of students had issues with errors in their code, particularly trying to get their RMarkdown file to knit. And the most common approach to debugging appeared to be “email the professor” or “email the TA”. But debugging is a skill — when you are just starting out, it’s not immediately obvious that you should go through line by line and execute the code until an error appears. Additionally, error messages in R are often pretty hard to understand when you’re new, and it’s not immediately obvious that you can just Google the error.</p>
 <p>A big cause of errors that I just didn’t even think about was when students copy-pasted text from PDFs. For example, if there was a regression equation, the beta’s were copy pasted, but even more of a problem was when em-dashes were copy pasted and the Unicode threw an error.</p>
 <p>Next time, I will aim to devote a lab early on to debugging tips, and explicitly mention the unicode issue (or change the latex engine).</p>
 </div>
