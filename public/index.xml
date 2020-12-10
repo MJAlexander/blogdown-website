@@ -6,7 +6,7 @@
     <description>Recent content on Monica Alexander</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Professional Experience</title>
       <link>/professional/</link>
@@ -20,6 +20,16 @@ Human Mortality Database Graduate Student Researcher, January 2015 &amp;ndash; M
 UNICEF Technical Advisory Group Consultant, March 2014 &amp;ndash; December 2015
 The Centre for Aboriginal Economic Policy Research Research Officer, April 2012 &amp;ndash; December 2014
 Reserve Bank of Australia Analyst/Senior Analyst, February 2010 &amp;ndash; June 2013</description>
+    </item>
+    
+    <item>
+      <title>Teaching the tidyverse to undergrad sociologists</title>
+      <link>/posts/2020-12-10-teaching/</link>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2020-12-10-teaching/</guid>
+      <description>This semester, for the first time, I taught an undergraduate stats for sociologists course at Toronto. It is the second or third course in a sequence, and up to this point students had used Excel and SPSS in previous courses.
+It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot).</description>
     </item>
     
     <item>

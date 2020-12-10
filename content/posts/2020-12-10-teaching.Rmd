@@ -1,0 +1,113 @@
+---
+title: "Teaching the tidyverse to undergrad sociologists"
+author: "Monica Alexander"
+date: "2020-12-10"
+output: 
+  html_document:
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE,  warning=FALSE, message=FALSE)
+```
+
+This semester, for the first time, I taught an undergraduate stats for sociologists course at Toronto. It is the second or third course in a sequence, and up to this point students had used Excel and SPSS in previous courses. 
+
+It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot). This post contains some reflections on the semester, about what went well and what needed work. Although teaching with R is becoming much more common, I still think there are relatively few cases where it's used at the very introductory level, for students who's main interests are not statistics, and particularly using the tidyverse format. Hopefully these experiences will be useful for others going forward. 
+
+## Covid disclaimer
+
+Teaching a course for the first time this semester obviously coincided with teaching a course online during a pandemic for the first time. As most people who have taught or taken a course in this environment will attest, conditions are less than ideal for both teaching and learning. I'm hoping that my next shot at this course will be more successfully purely because I won't be being blinded by a ring light staring at a computer screen with only the chat function in the video conferencing software saving my sanity. 
+
+# Course summary
+
+Here's a brief overview of what the course looked like in terms of structure, topics and assessments. As mentioned, students had already taken at least one intro data analysis course, using either Excel or SPSS. They had learned about summary and descriptive statistics, histograms, boxplots, a bit on distributions, a bit about z-scores and comparisons between two groups. 
+
+## Topics
+
+- basic statistical and probability concepts (populations and sampling, probability laws, random variables, expectation, variance) 
+- summary measures of quantitative data
+- exploratory data analysis
+    + understanding the structure of your dataset
+    + missing data etc
+    + summaries by group
+    + data visualization (key graphs e.g. histograms, scatterplots)
+- linear regression (frequentist) estimation and inference
+- logistic regression (hand-wavy about estimation) and inference
+- regression diagnostics 
+
+
+
+## Structure
+
+One lecture per week (2 hours) and one lab per week (2 hours), both of which were online. The lectures were a mix of theory and R examples, and the labs were a chance to get some hands-on practice in R. I also supplemented lectures and labs with additional videos of me live coding to demonstrate a particular concept.[^1] 
+
+[^1]: Live coding is a journey. I kept my videos to one take and unedited because a) editing/retakes are time consuming and b) hopefully it was actually reassuring for the students to see me try to fix errors by staring blankly and trying random things. 
+
+## Assessments
+
+Three assignments, an online mid-term exam and a final research project. The research project was structured such that the students handed in parts (question, EDA, analysis) along the way, then the final write-up was due at the end of the semester. For the research project, students chose a research question of interest using the [2017 Canadian General Social Survey](https://www.statcan.gc.ca/eng/survey/household/4501). 
+
+All coding was done in R, through RStudio. And all code was written in RMarkdown documents (rather than plan R scripts). All assignments and the research project were done in RMarkdown, and the students had to hand in both the Rmd file and the knitted pdf. 
+
+# I didn't assign a textbook (although I tried finding one)
+
+Everyone's advice when you're first start out teaching is teach from a book, it saves a lot of prep. I really did try and find a textbook, I even [tweeted](https://twitter.com/monjalexander/status/1281299053121277957) about it (although this is fairly on brand) and got some really good suggestions. The fact that I didn't end up using one is not to say there are no good intro stats textbooks with applications in R, there are lots. But I found what was out there either had R examples that were written in base R, or didn't cover the methods I needed to talk about. So I ended up teaching essentially from my own slides, with supplementary readings from a few free online textbooks, plus [Regression and Other Stories](https://avehtari.github.io/ROS-Examples/). I also linked to [R4DS](https://r4ds.had.co.nz/) as a resource for R, but generally just relied on my own notes and examples.
+
+# What went well 
+
+A bunch of things seemed to go pretty well, some of which were expected and some of which weren't. 
+
+## Kids these days are good at technology
+
+In previous courses I've used RStudio Cloud, but I didn't this time around because of the new payment structure (I didn't get my act together + didn't ever decide whether I wanted to spend lots of \$ to use it). So I was expecting lots of install issues, but there wasn't really. The [tinytex](https://yihui.org/tinytex/) package is a godsend and makes everything much easier in terms of getting R markdown working. 
+
+Before we started, I was worried about introducing the RStudio IDE, which was new for everyone, so I thought people might have trouble finding their way around, understanding where everything was, what all the panes were, etc. But this is a generation of students who grew up with Snapchat and are now proficient at TikTok so I had nothing to worry about. 
+
+## ggplot, small multiples and learning about your data
+
+I found ggplot hard to teach (or, there's just a lot of material, see below). But once students felt comfortable with using it, some of the applications in their EDA assignments were truly impressive. Yes, the learning curve for ggplot is steep, but once you kind of get it (or are exposed to enough examples of it), it's so easy to change color or fill to represent different groups, and do facets to compare groups side-by-side. This led to some really great visualizations of distributions and patterns in raw data, which aren't really possible at an intro level using base graphics (or some other statistical software).
+
+## Skills learnt to answer interesting questions
+
+Being sociology students, these students were interested in social processes and questions, and asked some really interesting questions based on the Canadian GSS. It was great to see them using their new found tidyverse skills to try and delve into these questions. To me, seeing a student do a `group_by` and `summarize` to `ggplot` sequence to understand patterns in the data was more exciting than teaching them to run regressions. 
+
+# What could be improved 
+
+While there were some highlights to what generally was a bleak semester in an apocalyptic 2020, there were also some aspects of the course that were challenging and needed improvement. Some of this was me teaching it for the first time and not knowing what I was doing, but some issues are just fundamentally hard. 
+
+## Debugging is a skill that needs to be taught
+
+A lot of students had issues with errors in their code, particularly trying to get their RMarkdown file to knit. And the most common approach to debugging appeared to be "email the professor" or "email the TA". But debugging is a skill --- when you are just starting out, it's not immediately obvious that you should go through line by line and execute the code until an error appears. Additionally, error messages in R are often pretty hard to understand when you're new, and it's not immediately obvious that you can just Google the error (don't we all)? 
+
+A big cause of errors that I just didn't even think about was when students copy-pasted text from PDFs. For example, if there was a regression equation, the beta's were copy pasted, but even more of a problem was when em-dashes were copy pasted and the Unicode threw an error.
+
+Next time, I will aim to devote a lab early on to debugging tips, and explicitly mention the unicode issue (or change the latex engine). 
+
+
+## Hard to stay true to the 'verse 100% of the time
+
+I was always going to teach R using tidyverse, because that's how I code and I firmly believe that it's easier to learn from scratch, because piping and the grammatical set up makes a lot of sense intuitively. And I think in general this worked well. However, I didn't really think through the fact that sometimes you have to fall back to base R. This is particularly the case when you start using `lm` and having to extract coefficient values and other things from the model object. All of a sudden I found myself falling back to `$`'s and `[[`'s and having to clunkily explain what they were. 
+
+I suspect this could be somewhat avoided if I looked into some of the new packages (e.g. `tidymodels`) that help to get around this, but in future I think as a teaching strategy from the outset I shouldn't try to be so purist about the whole tidyverse thing and accept that there will be some functions in base R that are important to know. 
+
+## How the hell to teach EDA properly
+
+I did about 1.5 weeks on exploratory data analysis. This included 'getting familiar with your dataset' (what types of variables there are, size, missingness), summary and descriptive statistics (by groups), and data visualization using ggplot. 
+
+A few issues here. Firstly, I feel like 'traditional' statistics courses at this level don't really teach EDA at all. Students might do a bit of graphing of distributions and scatter plots, and be assumed to know what a boxplot is, but in general the idea of really trying to understand your dataset before going near regression is probably not emphasized. I get nervous when people start regressing things without looking at the dataset properly. I really tried to emphasize EDA as an important step in building evidence and knowledge about your research question. But in reality, there's very little time to do this. We have to get through regression estimation and inference and diagnostics. There really should be whole courses on EDA, but there usually aren't. 
+
+Another challenging point was that EDA and data visualization rely on knowing ggplot, and ggplot is a LOT when you are first starting to use R. Teaching EDA naturally comes towards the start of the semester, but this is also the time where students are still wrapping their heads around even the basics of R. And there's just so much to ggplot. I use it all the time so I guess I'd kind of forgotten about all the details, but the lab I wrote for this was a monster. It's an enormous learning curve, and there was a fair bit of attrition that week, but the students who stuck with it did really well. 
+
+I think in future I will decrease the volume of material I covered in this course and spend more time on EDA and data visualization. 
+
+
+# Final thoughts
+
+Teaching is hard, and teaching in a pandemic is even harder. I'm hoping with practice I'll do a better job of teaching how I want to teach --- that sounds weird, why don't I just teach how I want to teach? The same reason that some presentations I give are sometimes not exactly how I wanted them --- the words come out wrong, the emphasis is off, my thoughts don't come across clearly. 
+
+Some of the issues I mentioned are fixable but others point to larger conversations about what I (or others) think statistics curriculum should look like. Teaching R and the tidyverse to undergrad sociologists is in a way much harder than teaching it to graduate statistics students, but just as valuable and rewarding. 
+
+
+
+

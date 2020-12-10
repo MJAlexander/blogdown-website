@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Monica Alexander">
+    <meta name="description" content="Monica Alexander&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Teaching the tidyverse to undergrad sociologists"/>
+<meta name="twitter:description" content="This semester, for the first time, I taught an undergraduate stats for sociologists course at Toronto. It is the second or third course in a sequence, and up to this point students had used Excel and SPSS in previous courses.
+It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot)."/>
+
+    <meta property="og:title" content="Teaching the tidyverse to undergrad sociologists" />
+<meta property="og:description" content="This semester, for the first time, I taught an undergraduate stats for sociologists course at Toronto. It is the second or third course in a sequence, and up to this point students had used Excel and SPSS in previous courses.
+It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2020-12-10-teaching/" />
+<meta property="article:published_time" content="2020-12-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-10T00:00:00+00:00" />
+
+
+    
+      <base href="/posts/2020-12-10-teaching/">
+    
+    <title>
+  Teaching the tidyverse to undergrad sociologists · Monica Alexander
+</title>
+
+    
+      <link rel="canonical" href="/posts/2020-12-10-teaching/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.75.1" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Monica Alexander
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/research/">Research</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/lab/">Lab</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/contact/">Contact me</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Teaching the tidyverse to undergrad sociologists</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-12-10T00:00:00Z'>
+                December 10, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              9 minutes read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+
+
+<p>This semester, for the first time, I taught an undergraduate stats for sociologists course at Toronto. It is the second or third course in a sequence, and up to this point students had used Excel and SPSS in previous courses.</p>
+<p>It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot). This post contains some reflections on the semester, about what went well and what needed work. Although teaching with R is becoming much more common, I still think there are relatively few cases where it’s used at the very introductory level, for students who’s main interests are not statistics, and particularly using the tidyverse format. Hopefully these experiences will be useful for others going forward.</p>
+<div id="covid-disclaimer" class="section level2">
+<h2>Covid disclaimer</h2>
+<p>Teaching a course for the first time this semester obviously coincided with teaching a course online during a pandemic for the first time. As most people who have taught or taken a course in this environment will attest, conditions are less than ideal for both teaching and learning. I’m hoping that my next shot at this course will be more successfully purely because I won’t be being blinded by a ring light staring at a computer screen with only the chat function in the video conferencing software saving my sanity.</p>
+</div>
+<div id="course-summary" class="section level1">
+<h1>Course summary</h1>
+<p>Here’s a brief overview of what the course looked like in terms of structure, topics and assessments. As mentioned, students had already taken at least one intro data analysis course, using either Excel or SPSS. They had learned about summary and descriptive statistics, histograms, boxplots, a bit on distributions, a bit about z-scores and comparisons between two groups.</p>
+<div id="topics" class="section level2">
+<h2>Topics</h2>
+<ul>
+<li>basic statistical and probability concepts (populations and sampling, probability laws, random variables, expectation, variance)</li>
+<li>summary measures of quantitative data</li>
+<li>exploratory data analysis
+<ul>
+<li>understanding the structure of your dataset</li>
+<li>missing data etc</li>
+<li>summaries by group</li>
+<li>data visualization (key graphs e.g. histograms, scatterplots)</li>
+</ul></li>
+<li>linear regression (frequentist) estimation and inference</li>
+<li>logistic regression (hand-wavy about estimation) and inference</li>
+<li>regression diagnostics</li>
+</ul>
+</div>
+<div id="structure" class="section level2">
+<h2>Structure</h2>
+<p>One lecture per week (2 hours) and one lab per week (2 hours), both of which were online. The lectures were a mix of theory and R examples, and the labs were a chance to get some hands-on practice in R. I also supplemented lectures and labs with additional videos of me live coding to demonstrate a particular concept.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="assessments" class="section level2">
+<h2>Assessments</h2>
+<p>Three assignments, an online mid-term exam and a final research project. The research project was structured such that the students handed in parts (question, EDA, analysis) along the way, then the final write-up was due at the end of the semester. For the research project, students chose a research question of interest using the <a href="https://www.statcan.gc.ca/eng/survey/household/4501">2017 Canadian General Social Survey</a>.</p>
+<p>All coding was done in R, through RStudio. And all code was written in RMarkdown documents (rather than plan R scripts). All assignments and the research project were done in RMarkdown, and the students had to hand in both the Rmd file and the knitted pdf.</p>
+</div>
+</div>
+<div id="i-didnt-assign-a-textbook-although-i-tried-finding-one" class="section level1">
+<h1>I didn’t assign a textbook (although I tried finding one)</h1>
+<p>Everyone’s advice when you’re first start out teaching is teach from a book, it saves a lot of prep. I really did try and find a textbook, I even <a href="https://twitter.com/monjalexander/status/1281299053121277957">tweeted</a> about it (although this is fairly on brand) and got some really good suggestions. The fact that I didn’t end up using one is not to say there are no good intro stats textbooks with applications in R, there are lots. But I found what was out there either had R examples that were written in base R, or didn’t cover the methods I needed to talk about. So I ended up teaching essentially from my own slides, with supplementary readings from a few free online textbooks, plus <a href="https://avehtari.github.io/ROS-Examples/">Regression and Other Stories</a>. I also linked to <a href="https://r4ds.had.co.nz/">R4DS</a> as a resource for R, but generally just relied on my own notes and examples.</p>
+</div>
+<div id="what-went-well" class="section level1">
+<h1>What went well</h1>
+<p>A bunch of things seemed to go pretty well, some of which were expected and some of which weren’t.</p>
+<div id="kids-these-days-are-good-at-technology" class="section level2">
+<h2>Kids these days are good at technology</h2>
+<p>In previous courses I’ve used RStudio Cloud, but I didn’t this time around because of the new payment structure (I didn’t get my act together + didn’t ever decide whether I wanted to spend lots of $ to use it). So I was expecting lots of install issues, but there wasn’t really. The <a href="https://yihui.org/tinytex/">tinytex</a> package is a godsend and makes everything much easier in terms of getting R markdown working.</p>
+<p>Before we started, I was worried about introducing the RStudio IDE, which was new for everyone, so I thought people might have trouble finding their way around, understanding where everything was, what all the panes were, etc. But this is a generation of students who grew up with Snapchat and are now proficient at TikTok so I had nothing to worry about.</p>
+</div>
+<div id="ggplot-small-multiples-and-learning-about-your-data" class="section level2">
+<h2>ggplot, small multiples and learning about your data</h2>
+<p>I found ggplot hard to teach (or, there’s just a lot of material, see below). But once students felt comfortable with using it, some of the applications in their EDA assignments were truly impressive. Yes, the learning curve for ggplot is steep, but once you kind of get it (or are exposed to enough examples of it), it’s so easy to change color or fill to represent different groups, and do facets to compare groups side-by-side. This led to some really great visualizations of distributions and patterns in raw data, which aren’t really possible at an intro level using base graphics (or some other statistical software).</p>
+</div>
+<div id="skills-learnt-to-answer-interesting-questions" class="section level2">
+<h2>Skills learnt to answer interesting questions</h2>
+<p>Being sociology students, these students were interested in social processes and questions, and asked some really interesting questions based on the Canadian GSS. It was great to see them using their new found tidyverse skills to try and delve into these questions. To me, seeing a student do a <code>group_by</code> and <code>summarize</code> to <code>ggplot</code> sequence to understand patterns in the data was more exciting than teaching them to run regressions.</p>
+</div>
+</div>
+<div id="what-could-be-improved" class="section level1">
+<h1>What could be improved</h1>
+<p>While there were some highlights to what generally was a bleak semester in an apocalyptic 2020, there were also some aspects of the course that were challenging and needed improvement. Some of this was me teaching it for the first time and not knowing what I was doing, but some issues are just fundamentally hard.</p>
+<div id="debugging-is-a-skill-that-needs-to-be-taught" class="section level2">
+<h2>Debugging is a skill that needs to be taught</h2>
+<p>A lot of students had issues with errors in their code, particularly trying to get their RMarkdown file to knit. And the most common approach to debugging appeared to be “email the professor” or “email the TA”. But debugging is a skill — when you are just starting out, it’s not immediately obvious that you should go through line by line and execute the code until an error appears. Additionally, error messages in R are often pretty hard to understand when you’re new, and it’s not immediately obvious that you can just Google the error (don’t we all)?</p>
+<p>A big cause of errors that I just didn’t even think about was when students copy-pasted text from PDFs. For example, if there was a regression equation, the beta’s were copy pasted, but even more of a problem was when em-dashes were copy pasted and the Unicode threw an error.</p>
+<p>Next time, I will aim to devote a lab early on to debugging tips, and explicitly mention the unicode issue (or change the latex engine).</p>
+</div>
+<div id="hard-to-stay-true-to-the-verse-100-of-the-time" class="section level2">
+<h2>Hard to stay true to the ’verse 100% of the time</h2>
+<p>I was always going to teach R using tidyverse, because that’s how I code and I firmly believe that it’s easier to learn from scratch, because piping and the grammatical set up makes a lot of sense intuitively. And I think in general this worked well. However, I didn’t really think through the fact that sometimes you have to fall back to base R. This is particularly the case when you start using <code>lm</code> and having to extract coefficient values and other things from the model object. All of a sudden I found myself falling back to <code>$</code>’s and <code>[[</code>’s and having to clunkily explain what they were.</p>
+<p>I suspect this could be somewhat avoided if I looked into some of the new packages (e.g. <code>tidymodels</code>) that help to get around this, but in future I think as a teaching strategy from the outset I shouldn’t try to be so purist about the whole tidyverse thing and accept that there will be some functions in base R that are important to know.</p>
+</div>
+<div id="how-the-hell-to-teach-eda-properly" class="section level2">
+<h2>How the hell to teach EDA properly</h2>
+<p>I did about 1.5 weeks on exploratory data analysis. This included ‘getting familiar with your dataset’ (what types of variables there are, size, missingness), summary and descriptive statistics (by groups), and data visualization using ggplot.</p>
+<p>A few issues here. Firstly, I feel like ‘traditional’ statistics courses at this level don’t really teach EDA at all. Students might do a bit of graphing of distributions and scatter plots, and be assumed to know what a boxplot is, but in general the idea of really trying to understand your dataset before going near regression is probably not emphasized. I get nervous when people start regressing things without looking at the dataset properly. I really tried to emphasize EDA as an important step in building evidence and knowledge about your research question. But in reality, there’s very little time to do this. We have to get through regression estimation and inference and diagnostics. There really should be whole courses on EDA, but there usually aren’t.</p>
+<p>Another challenging point was that EDA and data visualization rely on knowing ggplot, and ggplot is a LOT when you are first starting to use R. Teaching EDA naturally comes towards the start of the semester, but this is also the time where students are still wrapping their heads around even the basics of R. And there’s just so much to ggplot. I use it all the time so I guess I’d kind of forgotten about all the details, but the lab I wrote for this was a monster. It’s an enormous learning curve, and there was a fair bit of attrition that week, but the students who stuck with it did really well.</p>
+<p>I think in future I will decrease the volume of material I covered in this course and spend more time on EDA and data visualization.</p>
+</div>
+</div>
+<div id="final-thoughts" class="section level1">
+<h1>Final thoughts</h1>
+<p>Teaching is hard, and teaching in a pandemic is even harder. I’m hoping with practice I’ll do a better job of teaching how I want to teach — that sounds weird, why don’t I just teach how I want to teach? The same reason that some presentations I give are sometimes not exactly how I wanted them — the words come out wrong, the emphasis is off, my thoughts don’t come across clearly.</p>
+<p>Some of the issues I mentioned are fixable but others point to larger conversations about what I (or others) think statistics curriculum should look like. Teaching R and the tidyverse to undergrad sociologists is in a way much harder than teaching it to graduate statistics students, but just as valuable and rewarding.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Live coding is a journey. I kept my videos to one take and unedited because a) editing/retakes are time consuming and b) hopefully it was actually reassuring for the students to see me try to fix errors by staring blankly and trying random things.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+      </div>
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+
+    
+    <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
