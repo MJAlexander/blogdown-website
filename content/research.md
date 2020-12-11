@@ -30,7 +30,8 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 - Biddle, N., **Howlett, M.**, Hunter, B., and Paradies, Y., '[Labour Market and Other Discrimination Facing Indigenous Australians](https://search.informit.com.au/documentSummary;dn=363028735038386;res=IELBus)', *Australian Journal of Labour Economics*, 2013, 16(1): 91–113.
 
 
-# Working papers
+# Working papers and projects
+- **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Technical model summary](/pdf/fc.pdf).
 - **Alexander, M.**, '[Temporal smoothers for use in demographic estimation and projection](/pdf/temporal_smoothing.pdf)'.
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](/pdf/bayesian_censoc.pdf)'.
 - **Alexander, M.**, and Alkema, L., '[A Bayesian hierarchical model for estimating subnational female populations in developing countries](/pdf/bayesian_kenya.pdf)' .
