@@ -12,7 +12,7 @@ output: html_document
 <p>The summary: names are very concentrated — the majority of babies are called a name from a relatively small subset. However, baby name concentration is declining over time, and additionally, the number of unique names is increasing.</p>
 <div id="data" class="section level1">
 <h1>Data</h1>
-<p>I used the used the <code>babynames</code> and <code>ozbabynames</code> packages to look at names in the US and Australia. You will need to install the Australian version from <a href="https://github.com/ropenscilabs/ozbabynames">GitHub</a>. I restricted the period to be 1960-2015 where both datasets had data. For the Australian baby names, I restricted the dataset to only include South Australia, Western Australia and New South Wales, as the other states did not have full coverage over the specified time period.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p>I used the used the <code>babynames</code> and <code>ozbabynames</code> packages to look at names in the US and Australia. You will need to install the Australian version from <a href="https://github.com/ropenscilabs/ozbabynames">GitHub</a>. I restricted the period to be 1960-2015 where both datasets had data. For the Australian baby names, I restricted the dataset to only include South Australia, Western Australia and New South Wales, as the other states did not have full coverage over the specified time period.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>Each dataset gives us the name, sex, year and count of number of babies. The following code loads them in and creates one tibble with both countries.</p>
 <pre class="r"><code># load in the packages required
 library(ozbabynames)
@@ -77,7 +77,7 @@ head(db)</code></pre>
   scale_color_brewer(palette = &quot;Set1&quot;) +
   ggtitle(&quot;Gini coefficients for baby names \nAustralia and USA, 1960-2015&quot;)</code></pre>
 <p><img src="/posts/2019-20-01-babynames_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>We can plot this concentration a different way: let’s look at the proportion of babies who have a name in the top 5% most popular names.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p>We can plot this concentration a different way: let’s look at the proportion of babies who have a name in the top 5% most popular names.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>Note that the trends and patterns are pretty much identical to those above. The levels are quite high: in 1960 in the US, almost 90% of all babies born were called a name that was in the top 5% most popular names (note that this corresponds to the around the 250 most popular names).</p>
 <pre class="r"><code>db %&gt;% 
   group_by(sex, year, country) %&gt;% 
@@ -115,7 +115,7 @@ head(db)</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>For those who are a bit rusty on Australian geography, it’s a shame we don’t have Victoria and Queensland in particular, the two other big states.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Note that I chose the top 5% rather than the top 5 because of the large difference in the number of unique names across the two countries.<a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p>For those who are a bit rusty on Australian geography, it’s a shame we don’t have Victoria and Queensland in particular, the two other big states.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Note that I chose the top 5% rather than the top 5 because of the large difference in the number of unique names across the two countries.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
