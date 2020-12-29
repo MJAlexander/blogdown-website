@@ -30,15 +30,25 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 - Biddle, N., **Howlett, M.**, Hunter, B., and Paradies, Y., '[Labour Market and Other Discrimination Facing Indigenous Australians](https://search.informit.com.au/documentSummary;dn=363028735038386;res=IELBus)', *Australian Journal of Labour Economics*, 2013, 16(1): 91–113.
 
 
-# Working papers and projects
+# Working papers and projects 
 - **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Technical model summary](/pdf/fc.pdf).
-- **Alexander, M.**, '[Temporal smoothers for use in demographic estimation and projection](/pdf/temporal_smoothing.pdf)'.
-- **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](/pdf/bayesian_censoc.pdf)'.
+- **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://osf.io/preprints/socarxiv/z4qg9/)'.
 - **Alexander, M.**, and Alkema, L., '[A Bayesian hierarchical model for estimating subnational female populations in developing countries](/pdf/bayesian_kenya.pdf)' .
+- **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](/pdf/bayesian_censoc.pdf)'.
 - **Alexander, M.**, and Alexander, R., '[The Effect of Events on Discussion in the Australian
 Federal Parliament (1901-2017)](https://rohanalexander.com/pdf/2018-10-22-first_page.pdf)'.
+- Maheu-Giroux, M, Sardinha, L, St ̈ockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’.
 - Chung, P.H., and **Alexander, M.**, '[Kin Dependency Ratios: An Extension and Application of the Goodman Method for Estimating the Availability of Kin](https://p-chung.com/paa/2019/abstract/)'.
-- Root, L.R, and **Alexander, M.** '[Competing effects on the average age of infant death](/pdf/a0.pdf)'.
+
+# Working papers where there is not so much working happening
+- **Alexander, M.**, '[Temporal smoothers for use in demographic estimation and projection](/pdf/temporal_smoothing.pdf)'. This paper turned into another paper (coming soon!). I wrote an R package to accompany the paper, which can be found on my [GitHub](https://github.com/MJAlexander/distortr). One day I might translate the models from JAGS to Stan. 
+
+# Code and other fun projects
+
+- I am a contributor to the [DemoTools](https://timriffe.github.io/DemoTools/) R package.
+- I made a children's book in R called ['D is for Demography'](https://github.com/MJAlexander/d_is_for_demography). My toddler prefers 'The Very Hungry Caterpillar' or 'Wombat Stew'. 
+- [This repo](https://github.com/MJAlexander/states-mortality) on my GitHub has various bits and pieces of code, mostly related to mortality, but some other stuff too. 
+
 
 
 
