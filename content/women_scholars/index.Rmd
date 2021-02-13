@@ -27,7 +27,7 @@ library(tidyverse)
 library(reactable)
 library(here)
 
-df <- read_csv(here("content/women_scholars/scholars.csv"))
+df <- read_csv(here("content/women_scholars/scholars.csv"),col_types = cols_only("Name" = col_character(), "page" = col_character(), "Category" = col_character(), "Paper 1" = col_character(), "paper_1_link" = col_character(), "Paper 2" = col_character(), "paper_2_link" = col_character()))
 
 reactable(df  %>% rename(`Sub-discipline` = Category) %>% select(-page, -paper_1_link, -paper_2_link), 
           columns = list(Name = colDef(cell = function(value, index) {
