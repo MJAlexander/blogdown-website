@@ -31,10 +31,10 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 
 
 # Working papers, projects and pre-prints
+- **Alexander, M.**, and Alkema, L., '[A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings](https://arxiv.org/abs/2102.06121)'.
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
 - **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://osf.io/preprints/socarxiv/z4qg9/)'.
 - **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Technical model summary](/pdf/fc.pdf).
-- **Alexander, M.**, and Alkema, L., '[A Bayesian hierarchical model for estimating subnational female populations in developing countries](/pdf/bayesian_kenya.pdf)' .
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
 - Maheu-Giroux, M, Sardinha, L, Stockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’.
 - Kiang, M. V., Chen, J. T., Krieger, N., Buckee, C. O., **Alexander, M.**, Baker, J. T., Buckner, R. L., Coombs III, G., Rich-Edwards, J. W., Carlson, K. W. and Onnela, J.-P. '[Sociodemographic Characteristics of Missing Data in Digital Phenotyping](https://www.medrxiv.org/content/10.1101/2020.12.29.20249002v1)'.
