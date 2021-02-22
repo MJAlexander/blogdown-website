@@ -1,0 +1,94 @@
+---
+title: "Mapping a network of women in demography"
+author: "Monica Alexander"
+date: "2021-02-21"
+output: 
+  html_document:
+    number_sections: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE,  warning=FALSE, message=FALSE)
+```
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(leaflet)
+library(rvest)
+library(tidygeocoder)
+geos <- read_csv("geos.csv")
+```
+
+Last summer, I ran a demography reading course and one of the students noticed that I didn't cite very many scholars who were women. She was absolutely right, so I decided to start putting together a [list of active scholars](https://www.monicaalexander.com/women_scholars/) in demography who identify as women or other gender minorities. Initially some friends and I put together about 60 names, and then I put it out on Twitter --- now it's over 300 names long. It's been a great way to discover new scholars and papers.
+
+It was fun to see the list grow as people saw the tweets, and interesting that additions would tend to happen in geographic clusters as different people found it and then suggested their colleagues. I was curious to see how the locations of all these scholars mapped on a global scale. The list was never meant to be comprehensive and I am under no false pretenses that it is representative, but thought it might be interesting all the same. 
+
+The issue is that, perhaps rather foolishly, I had not been collecting or recording people's affiliations in any systematic way. Rather than going through the list and manually entering everyone's affiliations, I decided to use it as an excuse to write some R code. It is reading week after all and I'm only a little (read: extremely, very much) behind with work. 
+
+This post summarizes what I did to map affiliations of women in demography. In particular I grabbed (most) affiliations from Google Scholar with the help of the `rvest` package, and geocoded these affiliations with the help of the `tidygeocoder` package. 
+
+# Getting the affiliations through Google Scholar
+
+The first step is to get a list of the universities or other institutions that people are affiliated with. I decided my best best to do this in a programmatic way was probably through Google Scholar. Most people have a Google Scholar page these days, so I only had to manually enter a few people's affiliations (probably ~15 in total). 
+
+Here's an example of how I did it. I'm using [Leslie Root](https://twitter.com/les_ja) as an example, who is a great demographer and friend, and would probably be mildly embarrassed/irritated if she ever reads this post. 
+
+The first step is to define the URL that we want to look up. In particular, this is the Google Scholar author search page. 
+
+```{r, eval = FALSE}
+this_name <- "root,leslie"
+search_page <- paste(
+  "http://scholar.google.com/
+  citations?hl=en&view_op=search_authors&mauthors=", 
+  this_name,
+  sep="")
+```
+
+Once the page is defined, we can use the `read_html` function from the `rvest` package to get the contents of that page.
+
+```{r, eval = FALSE}
+gs_result <- read_html(search_page)
+```
+
+This gives us a whole bunch of html that is largely useless. If you go to the [search page](https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=root,leslie), you'll notice that the bit we want is "Postdoctoral Fellow, University of California, Berkeley". We can extract this from the html using the following code:
+
+```{r, eval = FALSE}
+affiliation <- gs_result %>% 
+    xml_find_all("//div[contains(@class, 'gs_ai_aff')]") %>% 
+    html_text()
+```
+
+Note that I worked out what bit I had to extract (the `gs_ai_aff`) by going to the search page, right clicking and selecting 'View Page Source', then searching for the bit that contained the affiliation. 
+
+Now that I have an automated way of grabbing the affiliation, I can iterate over the list of all scholars to get affiliations for everyone. A few things to note here: firstly, some people didn't have Google Scholar pages, so I entered them manually. Secondly, affiliations are self-reported and so are often in different formats, so there was a bit of text cleaning to get a standardized form. Finally, some people have names that returned more than one Google Scholar page. For these people I searched the pages to find the one that included the paper(s) that I have listed for that particular scholar. 
+
+# Geocoding the affiliation locations
+
+Now that I have a list of affiliations, the next step is to geocode them so I can put them on a map. This may sound fancy but it's very easy in R with the help of specialized packages. There are lots of geocoding packages around, but I used `tidygeocoder`. The `geocode` function within this package takes a tibble of addresses (which can just be University names) and returns a tibble with a latitude and longitude column. For example: 
+
+```{r}
+geo_example <- tibble(clean_affiliation = "University of California, Berkeley")
+
+geo_example %>% 
+  geocode(address = clean_affiliation, 
+          method = 'osm', verbose = TRUE)
+```
+This worked great for the majority of affiliations I had listed. Some could not be found which I went through and manually entered (there were about 6 I did this for). In addition, a couple of geocodes were wrong (for example, the University of Southampton was put in Singapore?!), and I manually changed these. I did a cursory check but if anyone sees any remaining errors let me know. 
+
+# Mapping the affiliation locations
+
+Now we have the geocoded affiliations we can map them easily using `leaflet`. Here's the map:
+
+```{r}
+leaflet() %>% 
+  addTiles() %>% 
+  addMarkers(lat = geos$lat, 
+             lng = geos$long, 
+             popup = geos$clean_affiliation)
+```
+
+There are 141 unique affiliations. Perhaps unsurprisingly these are very much concentrated in the US and Europe. 
+
+# Summary
+
+I created a list of women in demography and stupidly did not record affiliations. But it was a nice excuse to use some nice R packages like `rvest` and `tidygeocoder` to get a map of this network so far. Hopefully this list will continue to grow over time; please add yourself or others if you see omissions! 
