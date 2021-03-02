@@ -27,16 +27,6 @@ It may or may not surprise anyone reading this to learn that I wanted to teach t
     </item>
     
     <item>
-      <title>Visualizing the Bayesian workflow in R</title>
-      <link>/posts/2020-28-02-bayes_viz/</link>
-      <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2020-28-02-bayes_viz/</guid>
-      <description>Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading &#39;Visualizing the Bayesian Workflow&#39; and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
-The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age.</description>
-    </item>
-    
-    <item>
       <title>Reproducibility in demographic research</title>
       <link>/posts/2019-10-20-reproducibility/</link>
       <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
