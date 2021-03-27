@@ -21,9 +21,9 @@ The Bayesian Demography Lab brings together researchers from demography, statist
 - [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now consultant for UNESCO).
     + Small area mortality estimation
 - [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094) PhD student at Max Planck Institute for Demographic Research.
+    + Modeling bias in social media migration data
 - [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health.
     + Investigating trends in illicit drug supply and overdoses
-    + Modeling bias in social media migration data
 - [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon), PhD candidate in Statistics. 
     + Stochastic multistate models for opioid use, dependence, and overdose
 - [Abtin Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en), MPH, MA candidate in Sociology.
