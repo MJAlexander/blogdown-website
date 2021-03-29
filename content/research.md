@@ -44,6 +44,14 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 # Working papers where there is not so much working happening
 - **Alexander, M.**, '[Temporal smoothers for use in demographic estimation and projection](/pdf/temporal_smoothing.pdf)'. This paper turned into another paper (Sussman et al, above). I wrote an R package to accompany the paper, which can be found on my [GitHub](https://github.com/MJAlexander/distortr). One day I might translate the models from JAGS to Stan. 
 
+# Talks
+
+Here are recordings of two talks I've given as part of the [Toronto Data Workshop](https://rohanalexander.com/toronto_data_workshop.html) and the [Toronto Workshop on Reproducibility](https://rohanalexander.com/reproducibility.html):
+
+- [Using Facebook advertising data to estimate migration](https://www.youtube.com/watch?v=xM1vf_KT76g)
+- [Overcoming barriers to sharing code](https://www.youtube.com/watch?v=yvM2C6aZ94k)
+
+
 # Code and other fun projects
 
 - I am a contributor to the [DemoTools](https://timriffe.github.io/DemoTools/) R package.
