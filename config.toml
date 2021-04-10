@@ -3,7 +3,7 @@ title = "Monica Alexander"
 
 theme = "hugo-coder"
 
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 
 languagecode = "en"
 defaultcontentlanguage = "en"
