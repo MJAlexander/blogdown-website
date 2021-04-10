@@ -106,8 +106,3 @@ pygmentscodefencesguesssyntax = true
         url = "contact/"
 
 
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true

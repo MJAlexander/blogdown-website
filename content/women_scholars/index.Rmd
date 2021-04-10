@@ -1,6 +1,5 @@
 ---
 title: "Women in Demography"
-output: html_document
 ---
 
 An ever-growing list of active scholars in demography who identify as women or as a gender minority, listed by broad sub-discipline, and with two notable papers.[^1] [^2]
@@ -26,12 +25,11 @@ Sub-disciplines are:[^3]
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(reactable)
-library(DT)
 library(here)
 
 df <- read_csv(here("content/women_scholars/scholars.csv"),col_types = cols_only("Name" = col_character(), "page" = col_character(), "Category" = col_character(), "Paper 1" = col_character(), "paper_1_link" = col_character(), "Paper 2" = col_character(), "paper_2_link" = col_character()))
 
-d1 <- reactable(df  %>% rename(`Sub-discipline` = Category) %>% select(-page, -paper_1_link, -paper_2_link), 
+reactable(df  %>% rename(`Sub-discipline` = Category) %>% select(-page, -paper_1_link, -paper_2_link), 
           columns = list(Name = colDef(cell = function(value, index) {
     # Render as a link
     url <- df[index, "page"] %>% pull()
@@ -52,17 +50,5 @@ d1 <- reactable(df  %>% rename(`Sub-discipline` = Category) %>% select(-page, -p
   sortable = TRUE, 
   defaultPageSize = 30)
 
-d1
-
 ```
 
-```{r, message=FALSE, warning=FALSE, include=FALSE}
-library(htmlwidgets)
-library(htmltools)
-library(widgetframe)
-
-#htmlwidgets::saveWidget(d1, file = "d1.html")
-
-```
-
-<!-- <iframe seamless src="d1.html" width="100%" height="700"></iframe> -->
