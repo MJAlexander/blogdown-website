@@ -46,10 +46,11 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 
 # Talks
 
-Here are recordings of two talks I've given as part of the [Toronto Data Workshop](https://rohanalexander.com/toronto_data_workshop.html) and the [Toronto Workshop on Reproducibility](https://rohanalexander.com/reproducibility.html):
+Here are recordings of some talks: 
 
 - [Using Facebook advertising data to estimate migration](https://www.youtube.com/watch?v=xM1vf_KT76g)
 - [Overcoming barriers to sharing code](https://www.youtube.com/watch?v=yvM2C6aZ94k)
+- [Estimating subnational populations in data-sparse contexts](https://www.youtube.com/watch?v=OyDEfGfDoCo&feature=youtu.be)
 
 
 # Code and other fun projects
