@@ -16,6 +16,7 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 
 
 # Peer-reviewed publications
+- **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://osf.io/preprints/socarxiv/z4qg9/)'. Accepted, *Demography*.
 - **Alexander, M.**, Polimis, K., and Zagheni, E., 'Combining social media and survey data to nowcast migrant stocks in the United States', *Population Research and Policy Review*, 2020, DOI: https://doi.org/10.1007/s11113-020-09599-3.
 - **Alexander, M.**, Polimis, K., and Zagheni, E., 'The impact of Hurricane Maria on out-migration from Puerto Rico: Evidence from Facebook data', *Population and Development Review*, 2019, DOI:  https://doi.org/10.1111/padr.12289.  
 - Hug, L., **Alexander, M.**, You, D., and Alkema, L. '[National, regional, and global levels and trends in neonatal mortality between 1990 and 2017, with scenario-based projections to 2030: a systematic analysis by the United Nations Inter-agency Group for Child Mortality Estimation](https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30163-9/fulltext)', *Lancet Global Health*, 2019, 7(6): 710--720. 
@@ -29,11 +30,13 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 - Gray, M., **Howlett, M.**, and Hunter, B., '[Labour Market Outcomes for Indigenous Australians](https://journals.sagepub.com/doi/abs/10.1177/1035304614545943)', *The Economic and Labour Relations Review*, 2014, 25(3): 497–517.
 - Biddle, N., **Howlett, M.**, Hunter, B., and Paradies, Y., '[Labour Market and Other Discrimination Facing Indigenous Australians](https://search.informit.com.au/documentSummary;dn=363028735038386;res=IELBus)', *Australian Journal of Labour Economics*, 2013, 16(1): 91–113.
 
+# Book chapters
+- **Alexander, M.**  '[Using social media advertising data to estimate migration trends over time](https://www.elgaronline.com/view/edcoll/9781789909784/9781789909784.00007.xml)'. In *Big Data Applications in Geography and Planning*. Edward Elgar Publishing. 2021.
+
 
 # Working papers, projects, and pre-prints
 - **Alexander, M.**, and Alkema, L., '[A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings](https://arxiv.org/abs/2102.06121)'.
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
-- **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://osf.io/preprints/socarxiv/z4qg9/)'.
 - **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Technical model summary](/pdf/fc.pdf).
 - Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://arxiv.org/abs/2102.10020).
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
@@ -60,7 +63,7 @@ Here are recordings of some talks:
 - I made a children's book in R called ['D is for Demography'](https://github.com/MJAlexander/d_is_for_demography). My toddler prefers 'The Very Hungry Caterpillar' or 'Wombat Stew'.
 - [This repo](https://github.com/MJAlexander/states-mortality) on my GitHub has various bits and pieces of code, mostly related to mortality, but some other stuff too. 
 - [Shiny app](https://monica-alexander.shinyapps.io/babynames_app/) to explore baby names in Australia, Ontario, and USA
-- [Shiny app](https://monica-alexander.shinyapps.io/collections/) documenting some collections. 
+- [Shiny app](https://monica-alexander.shinyapps.io/collections/) documenting some collections. (One day I hope to own a copy of all Agatha Christies.)
 
 
 
