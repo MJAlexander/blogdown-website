@@ -26,7 +26,7 @@ The Bayesian Demography Lab brings together researchers from demography, statist
     + Investigating trends in illicit drug supply and overdoses
 - [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon), PhD candidate in Statistics. 
     + Stochastic multistate models for opioid use, dependence, and overdose
-- [Abtin Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en), MPH, MA candidate in Sociology.
+- [Aida Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en), PhD student in Sociology.
     + Migrant health in Canada
 - [Marija Pejcinovska](https://www.statistics.utoronto.ca/people/directories/graduate-students/marija-pejcinovska), PhD candidate in Statistics. 
     + Maternal cause of death; improving the estimation of abortion incidence and abortion-related deaths
