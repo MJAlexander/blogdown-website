@@ -1,0 +1,40 @@
+---
+title: "Thoughts about the future of data-driven demographic research"
+author: "Monica Alexander"
+date: "2021-10-14"
+output: 
+  html_document:
+    number_sections: false
+---
+
+The Max Planck Institute for [Demographic Research celebrated their 25th anniversary](https://www.demogr.mpg.de/en/news_events_6123/calendar_1921/exciting_data_and_cutting_edge_methods_past_present_and_future_of_data_driven_research_at_the_mpidr_9141) today. I had the pleasure of being part of a panel discussing the past, present and future of data-driven research, along with Karl Ulrich Mayer, Michaela Kreyenfeld, Mikko Myrskylä and Emilio Zagheni. The discussion was great and went by way too fast, so I thought I'd write down a few notes touching on what I mentioned, but also what I wanted to mention (but we ran out of time).
+
+# New forms of data
+
+The nature of data available to us in demography and social sciences has changed dramatically in the past 25 years. We are not just confined to using census and survey data: many new forms of data such as digital trace, admin data, text as data and other systems data provide new opportunities to learn about individuals and populations. A lot of these new forms of data are very rich and granular and focus on the individual, so it may be the case that you think demographers don’t have much to offer. But I think we do: what are demographers good at? Thinking about data issues, thinking about populations, making adjustments and carefully interpreting things at the population level. These skills are important now more than ever. 
+
+# Increased computational power
+
+25 years ago we didn’t have the degree of computational power we have today. Notably, we didn’t have the computational power on our laptops or most desktops to run many of the statistical models we use to analyze these new types of large data sources. For example, a seminal paper on [Gibbs sampling](https://www.tandfonline.com/doi/pdf/10.1080/01621459.2000.10474335?casa_token=ujkj315OdEUAAAAA:3MuVM03mqL01pAjNU-XeFoqanAmsrtrKB9bwxpTLQEUWNCqBaaL4NJ9JJilnrEBOBS1aAZzPUKYmkQ) was published in 1990, and that paved the way for Bayesian inference estimated through MCMC to become accessible to researchers across many disciplines, including demography. What does this mean for us? I think the most exciting thing is that these new computational methods allow us to rethink classical demographic problems leveraging statistical techniques and new data sources. 
+
+
+# Informing public policy
+
+Perhaps traditionally, demographers see themselves as apolitical, the number crunchers of the social sciences. But I think we should try and move beyond that and engage more in public debate. Two recent examples of this: language that we use as ‘objective’ is not that at all; made clear from commentators politicizing the term ‘replacement fertility’, and even worse than that, the term ‘the great replacement’ appearing in a terrorist’s manifesto. We need to take [ownership of the estimates we are producing](https://www.washingtonpost.com/opinions/2019/03/18/racist-terrorists-are-obsessed-with-demographics-lets-not-give-them-talking-points/) and think about how they affect different subpopulations. A second example is COVID-19. Right from when this pandemic started it was clear that demographers have a unique set of skills that allow us to produce research to help inform public policy. For example, a group led by José Manuel Aburto [quantified the impact of the pandemic on life expectancy](https://academic.oup.com/ije/advance-article/doi/10.1093/ije/dyab207/6375510?searchresult=1). [Elizabeth Wrigley-Field](https://scholar.google.ca/citations?hl=en&user=eaZS9_YAAAAJ&view_op=list_works&sortby=pubdate) and colleagues have used classic demographic decomposition to highlight inequalities. A paper by Ashton Veredy and colleagues looked at [kin loss due to COVID-19](https://www.pnas.org/content/117/30/17695.short). We have a unique perspective that should be pushed forward. 
+
+# Increased pace of research
+
+Another thing that has come to light in the current pandemic is that the pace of research has dramatically increased. This is out of necessity as the pandemic has evolved rapidly and it has become important to inform public policy to get findings out as soon as possible. As part of this, we have seen a shift away from peer-reviewed journal articles to more of a focus on pre-prints. This is a double-edged sword. The downside is potentially reduced accountability and review. [Annie Collins and Rohan Alexander](https://arxiv.org/abs/2107.10724) examined pre-prints related to COVID-19, and found that three quarters had neither open code nor open data available. But on a positive note, this shift has meant that junior researchers have had an opportunity to have more influence. As pre-prints have become more accepted, and we rely less on only reading research in high-impact journals, it has meant that the work of junior researchers has become more influential. In addition, the increased use of social media platforms, particularly Twitter, to disseminate research has also provided opportunities for junior researchers. For instance, Ilya Kashnitsky was involved in transparently questioning the validity of a high-profile paper that [linked school closures and life expectancy](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2772834). In a traditional academic system, this level of impact would likely have been difficult to achieve.
+
+
+
+
+# Inequality as a research issue and a researcher's issue
+
+As overall health and mortality have, on average, improved over time, questions of inequalities have come into focus and these inequalities have been exacerbated by the pandemic. As demographers, moving forward, I think there is a real call for us to focus less on the population average, and more on population disparities. This is at the macro level, differences in experiences across countries, across states within a country, but also at a micro level, for instance differences across race and gender within populations. An important part of realizing this as a research priority, is realizing that we need to work toward greater representation of who is studying these issues. And trying to encourage greater involvement and participation from researchers from low and middle income countries, and, more broadly, those who may have a background that seems different to our own.
+
+
+
+
+
+
