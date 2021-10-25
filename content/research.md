@@ -17,6 +17,7 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 
 # Peer-reviewed publications
 - **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://osf.io/preprints/socarxiv/z4qg9/)'. Accepted, *Demography*.
+- Kiang MV, Tsai AC, **Alexander MJ**, Rehkopf DH, Basu S. '[Racial/Ethnic Disparities in Opioid-Related Mortality in the USA, 1999–2019: the Extreme Case of Washington DC.](https://pubmed.ncbi.nlm.nih.gov/34664185/)' J Urban Heal. Published online 2021:1-7. doi: 10.1007/s11524-021-00573-8
 - Wilson, T., Grossman, I., **Alexander, M.**, Rees, P., and Temple, J. 'Methods for small area population forecasts: state-of-the-art and research needs', *Population Research and Policy Review*, 2021, DOI: https://doi.org/10.1007/s11113-021-09671-6.
 - Kiang MV, Chen JT, Krieger N, Buckee CO, **Alexander M**, Baker JT, Buckner RL, Coombs III G, Rich-Edwards JW, Carlson KW, & Onnela J-P. 'Sociodemographic characteristics of missing data in digital phenotyping'. *Scientific Reports*. 2021;11(1):15408. doi:10.1038/s41598-021-94516-7
 - **Alexander, M.**, Polimis, K., and Zagheni, E., 'Combining social media and survey data to nowcast migrant stocks in the United States', *Population Research and Policy Review*, 2020, DOI: https://doi.org/10.1007/s11113-020-09599-3.
@@ -60,6 +61,7 @@ Here are recordings of some talks:
 
 # Code and other fun projects
 
+- A package to fit Rogers-Castro migration models, `rcbayes`, is on [CRAN](https://cran.uib.no/web/packages/rcbayes/index.html). 
 - I am a contributor to the [DemoTools](https://timriffe.github.io/DemoTools/) R package.
 - I made a children's book in R called ['D is for Demography'](https://github.com/MJAlexander/d_is_for_demography). My toddler prefers 'The Very Hungry Caterpillar' or 'Wombat Stew'.
 - [This repo](https://github.com/MJAlexander/states-mortality) on my GitHub has various bits and pieces of code, mostly related to mortality, but some other stuff too. 
