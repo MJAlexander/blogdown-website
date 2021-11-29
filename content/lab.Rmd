@@ -39,6 +39,7 @@ The Bayesian Demography Lab brings together researchers from demography, statist
 - [Leontine Alkema](https://leontinealkema.github.io/alkema_lab/), Biostatistics, UMass Amherst
 - [Alison Gemmill](https://www.alisongemmill.com/), Population, Family and Reproductive Health, Johns Hopkins University
 - [Josh Goldstein](https://www.site.demog.berkeley.edu/josh-goldstein), Demography, UC Berkeley
-- [Leslie Root](https://leslieroot.net/about/), Demography, UC Berkeley
+- [Robert Pickett](http://www.robertempickett.com/), Demography and Sociology, NYU
+- [Leslie Root](https://leslieroot.net/about/), Demography, University of Colorado, Boulder
 - [Chris Wildemann](https://en.wikipedia.org/wiki/Christopher_Wildeman), Sociology, Duke University
 - [Emilio Zagheni](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/emilio_zagheni_2243), Demography, Max Planck Institute for Demographic Research
