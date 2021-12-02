@@ -42,13 +42,15 @@ __Using non-traditional data sources in demographic research:__ I focus on devel
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
 - **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Technical model summary](/pdf/fc.pdf).
 - Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://arxiv.org/abs/2102.10020).
+- Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
 - Maheu-Giroux, M, Sardinha, L, Stockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’.
-- Kiang, M. V., Chen, J. T., Krieger, N., Buckee, C. O., **Alexander, M.**, Baker, J. T., Buckner, R. L., Coombs III, G., Rich-Edwards, J. W., Carlson, K. W. and Onnela, J.-P. '[Sociodemographic Characteristics of Missing Data in Digital Phenotyping](https://www.medrxiv.org/content/10.1101/2020.12.29.20249002v1)'.
-- Chung, P.H., and **Alexander, M.**, '[Kin Dependency Ratios: An Extension and Application of the Goodman Method for Estimating the Availability of Kin](https://p-chung.com/paa/2019/abstract/)'.
+
 
 # Working papers where there is not so much working happening
-- **Alexander, M.**, '[Temporal smoothers for use in demographic estimation and projection](/pdf/temporal_smoothing.pdf)'. This paper turned into another paper (Susmann et al., above). I wrote an R package to accompany the paper, which can be found on my [GitHub](https://github.com/MJAlexander/distortr). One day I might translate the models from JAGS to Stan. 
+- **Alexander, M.**, '[Temporal smoothers for use in demographic estimation and projection](/pdf/temporal_smoothing.pdf)'. This paper turned into another paper (Susmann et al., above). I wrote an R package to accompany the paper, which can be found on my [GitHub](https://github.com/MJAlexander/distortr). One day I might translate the models from JAGS to Stan.
+- Chung, P.H., and **Alexander, M.**, '[Kin Dependency Ratios: An Extension and Application of the Goodman Method for Estimating the Availability of Kin](https://p-chung.com/paa/2019/abstract/)'.
+
 
 # Talks
 
