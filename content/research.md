@@ -13,6 +13,7 @@ __Health and mortality inequalities:__ I research how disparities in health and 
 
 __Using non-traditional data sources in demographic research:__ I focus on developing methods to overcome biases and data quality issues to take advantage of new data sources such as web and social media data, and text data. 
 
+A list of papers is also on [Google Scholar](https://scholar.google.ca/citations?user=EoBHlPQAAAAJ&hl=en&authuser=1). 
 
 
 # Peer-reviewed publications
