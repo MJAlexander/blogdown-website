@@ -1,0 +1,69 @@
+---
+title: "Applied statistics, data in context, and answering hard questions"
+author: "Monica Alexander"
+date: "2022-01-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+What does it mean to do applied statistics, be an applied statistician, or teach applied statistics? What does it mean to do these things well? There's no one right answer here, and I'm still working out how to tackle these things with the best approaches. But I think one thing that is clear --- by virtue of definition --- is that when applying statistical methods, and teaching applied statistics, engaging with the data must come to the fore. This post contains some of my own reflections about understanding data in context, how that links to statistical models, and tackling hard-to-answer questions. 
+
+## Bias, error, and how spherical is your elephant?
+
+Consider for a moment you are modeling an outcome of interest $y_i$, assuming the following model 
+$$
+y_i|
+\mu,\sigma \sim N(\mu_i, \sigma^2)
+$$
+The outcome $y_i$ could be something like birthweight, for example. What is this model saying? Our observations of birthweight are a draw from a Normal distribution, centered at some expected value $\mu_i$ with some error $\varepsilon_i \sim N(0, \sigma^2)$. 
+
+No big deal. We can put a model on $\mu_i$; for example, we might model it as a linear function of mother's age $X_1$ and gestation length $X_2$, and we end up with standard linear regression
+$$
+y_i|
+\mu,\sigma \sim N(\mu_i, \sigma^2)
+$$
+$$
+\mu_i = \beta_0 + \beta_1X_{i1}+\beta_2X_{i2}
+$$
+We can interpret coefficients. We could check how our model fits the data; we could think about omitted variable bias and conclude that in future efforts we should also consider some measure of the mother's preexisting conditions. 
+
+But we also need to think about where the data come from. Say the data were collected from a population where the vast majority of births occur in hospitals, methods of birthweight were standardized and data coverage was complete and stored in a central database. This is almost an ideal data collection situation, and we are perhaps okay with just considering model based error ($\varepsilon_i$); that is, how well does our model likely reflect the true proximate determinants of birthweight.
+
+Now consider the situation where data on birthweights were collected from a population where births at home are common, perhaps because hospitals are relatively inaccessible. Birthweights are still recorded in a central database that covers all hospitals. How does this affect who is in our dataset? Are those who are left out likely to be missing at random? We could potentially reconsider our research question to be focused on studying birthweight of only babies who were born in hospitals, but if we made inferences about the broader population, these may be wrong. 
+
+Now consider the situation where data on birthweights is not sourced from a hospital's central database at all, but rather gather from a survey of women who have had children (asking mothers the question, "how much did your youngest child weigh at birth?"). Now we may have issues of representation (based on who was sampled for the survey, and who responded to the survey), but there is also most likely measurement error to consider. We are asking a mother to recall her most recent baby's weight at birth, which they may be able to do to varying degrees of accuracy.[^1] The accuracy may depend on systematic factors, such as how long ago the birth occurred, or whether there was a skilled attendant present at birth. Systematic is good, because in statistics, systematic means you can model it. 
+
+Going back to our model above, it is now helpful to think of the distributional statement $y_i \sim N(\mu_i, \sigma^2)$ more explicitly as a data model. The observation of an individual's birthweight $y_i$ is the "truth" ($\mu_i$) plus some error. But in this context we need to think more carefully about the error in our observation. For example, we could add a bias term $\delta t$ which captures the bias in our measurement of birthweight based on the number of years $t$ since the baby was born:
+$$
+y_i \sim N(\beta_0 + \beta_1X_{i1}+\beta_2X_{i2}+\delta t_i, \sigma^2)
+$$
+There may be other sources of measurement error that we also want to include in the model, and at other levels of granularity, the variance term in the model also may need reconsidering. Say for example, the $y_i$ was not at the individual level, but, the rate of babies with low birthweight at a country level. If these data were sourced from a survey, then the variance term could include some measure of sampling error, for example.  
+
+How do we estimate this bias terms like $\delta$ in practice? In a Bayesian setting, we could encode some prior knowledge about the size and direction of this coefficient. In general we are best placed if we have another, better quality, source of data on birthweights for the same population that we could use to learn about our survey. This hardly ever happens in the population we are interested in (if we have a better quality data source then why not use it), so we often have to learn about bias from other populations. Maybe there is no way of getting a good estimate of bias, even though we know it's there. Still, I think it's beneficial to write down a model that would include such terms, in a similar way to how some would draw a DAG even if the data do not permit causal inference. 
+
+[^1]: FWIW, I can't remember what my kids weighed at birth (although it's written down somewhere), but remember thinking they were "about average" so at a pinch I could make some number up based on that knowledge. 
+
+
+## Without context, data lose their utility
+
+The takeaway from the above is that without context, data lose their meaning. I could give you a dataset on birthweights and other characteristics about the mothers and pregnancies, you could run a regression fine and talk about the results. But without know something about how the data were collected, and the population that the data came from, your model will be wrong, but it will also probably be useless. In the birthweight example, this means thinking about measurement, but also thinking about how prevalent home births are, why people chose to have home births, and how this may affect birth outcomes. Going beyond this, it may also involve thinking about more sensitive issues, like the accessibility of abortion.[^2] 
+
+I have been involved in projects [estimating causes of maternal mortality](https://arxiv.org/abs/2101.05240), working with demographers, statisticians, and physicians. The stories from physicians who have worked on the ground in contexts where data collections systems are not well-functioning, and how various decisions of the mother and doctors affect how deaths are captured and coded, are eye-opening. This of course is an advertisement for the benefits of interdisciplinary research, but knowing the context is just the first step. It is a real challenge to try and operationalize processes in the form of statistical parameters, and get estimates that are useful. But even writing down case studies and examples of data problems, and trying to understand how those relate to model assumptions, is useful for transparency, communication, and to aid better data collection in future.  
+
+[^2]: The relationship between abortion accessibility and birthweight is well-studied, but difficult to estimate because of selection issues; see for example [this paper](https://www.jstor.org/stable/146046?casa_token=ewa0-BJ9shgAAAAA%3A9cOtywRMyoxWw_9BHSzkcjxBXEzZZpfILmolZGSXYmgev6N3bfUDTH_iYIKXDe85OWeai0QNDY-Wj7o90FwJbCcd5L1JHSj1O1OnmBvc79IXnOrEs6A&seq=1#metadata_info_tab_contents).
+
+## Asking difficult questions is hard, answering them is harder
+
+An oft-heard observation of applied statistics classes is that methods were taught 'in vacuum', being applied to datasets that were already cleaned and missing values, errors etc, dealt with. This is unrealistic and does not teach students that getting data in a useful format is not only time consuming and annoying (and requires arguably a higher level of coding skill than just running pre-packaged models), but also involves a bunch of decisions and assumptions that need to be considering in modeling. So what do we do? We should teach with real data! But this is often easier said than done, because you only have a limited amount of time in class and if you're teaching based on hitting a bunch of methods-related objectives, understanding data takes away from that. I don't know what the solution is, but I do think there should be a greater focus on datasets than what has been traditionally been the case.
+
+A related question is what datasets should we use for teaching? Perhaps one could argue that a lot of these methods were developed to understand agricultural statistics so we should focus on crop outcomes. With apologies to the very good folks who are in agricultural science[^3], that isn't my main interest, and that's not what I'm going to talk about in class. I'm a statistical demographer --- or a computational social scientist, or a data scientist, depending on what grant I'm applying to --- and I'm going to talk about people. 
+
+[^3]: Last year we visited University of Guelph and picked up some honey that was made on campus. Very good. 
+
+Sometimes the questions that we ask in the social sciences are hard to ask. They may involve outcomes like sickness and loss, mental health issues, child maltreatment, illegal drug use, forced migration, or abortion. But it is often the case that difficult topics are also the hardest to measure and understand. There is a role for applied statisticians and using statistical methods in these situations, and there are many examples of survey and statistical methods being advanced with the goal of answering some difficult questions.[^4] By asking these questions sensitively, in an inclusive way, working closely with domain experts, and emphasizing engaging with the data and the context in which is collected, we can improve both the teaching and practice of applied statistics. 
+
+[^4]: For example, [network scale up methods](https://academic.oup.com/aje/article/174/10/1190/105499?login=false) to estimate the size of populations at risk of HIV/AIDS. 
+

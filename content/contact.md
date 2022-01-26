@@ -7,6 +7,5 @@ I have offices in both the Statistical Sciences Department (Level 9, 700 Univers
 
 My email is monica.alexander@utoronto.ca.
 
-**Note: I am on maternity leave from June 2021 to January 2022.**
 
 <!-- I receive many emails from prospective students before they get entry to the U of T graduate program. Unfortunately the nature of the admissions process means that until you are admitted I'm not much use to you. Once you're admitted I'm more than happy to supervise you or discuss your research. -->
