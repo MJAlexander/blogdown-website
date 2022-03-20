@@ -3,6 +3,8 @@ title = "News"
 slug = "news"
 +++
 
+- **7 March 2022**: New paper out in the [*International Statistical Review*](https://onlinelibrary.wiley.com/doi/10.1111/insr.12491), led by Herb Susmann, on Temporal Models for Demographic and Global Health Outcomes in Multiple Populations. 
+- **4 March 2022**:New paper out in [*Demography*](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-9779784/294667/Competing-Effects-on-the-Average-Age-of-Infant) with Leslie Root on the competing effects on the average age of infant death.
 - **1 February 2022**: New [MPIDR working paper](https://t.co/SDOe0XGANF), led by Michael Chong, on identifying and correcting bias in big crowd-sourced online genealogies.
 - **10 December 2021**: Together with Robert Pickett, Michael Chong, Alex Roehrkasse, and Chris Wildemann, we received a grant from the [Cash Transfer Lab](https://as.nyu.edu/content/nyu-as/as/departments/cash-transfer-lab.html) to study the impact of the Permanent Fund Dividend on child maltreatment investigations in Alaska. 
 - **7 December 2021**: Our preprint, 'Estimating causes of maternal death in data-sparse contexts', is now available on [arXiv](https://arxiv.org/abs/2101.05240).

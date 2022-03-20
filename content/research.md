@@ -17,10 +17,12 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Peer-reviewed publications
-- **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://osf.io/preprints/socarxiv/z4qg9/)'. Accepted, *Demography*.
-- Kiang MV, Tsai AC, **Alexander MJ**, Rehkopf DH, Basu S. '[Racial/Ethnic Disparities in Opioid-Related Mortality in the USA, 1999–2019: the Extreme Case of Washington DC.](https://pubmed.ncbi.nlm.nih.gov/34664185/)' J Urban Heal. Published online 2021:1-7. doi: 10.1007/s11524-021-00573-8
+- **Alexander, M.**, and Alkema, L., '[A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings](https://arxiv.org/abs/2102.06121)', (Accepted, *Demography*).
+- Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://onlinelibrary.wiley.com/doi/10.1111/insr.12491), *International Statistical Review*, 2022, DOI: 10.1111/insr.12491.
+- **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-9779784/294667/Competing-Effects-on-the-Average-Age-of-Infant)'. *Demography*, 2022, DOI: 10.1215/00703370-9779784.
+- Kiang MV, Tsai AC, **Alexander MJ**, Rehkopf DH, Basu S. '[Racial/Ethnic Disparities in Opioid-Related Mortality in the USA, 1999–2019: the Extreme Case of Washington DC.](https://pubmed.ncbi.nlm.nih.gov/34664185/)' J Urban Heal. Published online 2021:1-7. DOI: 10.1007/s11524-021-00573-8.
 - Wilson, T., Grossman, I., **Alexander, M.**, Rees, P., and Temple, J. 'Methods for small area population forecasts: state-of-the-art and research needs', *Population Research and Policy Review*, 2021, DOI: https://doi.org/10.1007/s11113-021-09671-6.
-- Kiang MV, Chen JT, Krieger N, Buckee CO, **Alexander M**, Baker JT, Buckner RL, Coombs III G, Rich-Edwards JW, Carlson KW, & Onnela J-P. 'Sociodemographic characteristics of missing data in digital phenotyping'. *Scientific Reports*. 2021;11(1):15408. doi:10.1038/s41598-021-94516-7
+- Kiang MV, Chen JT, Krieger N, Buckee CO, **Alexander M**, Baker JT, Buckner RL, Coombs III G, Rich-Edwards JW, Carlson KW, & Onnela J-P. 'Sociodemographic characteristics of missing data in digital phenotyping'. *Scientific Reports*. 2021;11(1):15408. DOI: 10.1038/s41598-021-94516-7.
 - **Alexander, M.**, Polimis, K., and Zagheni, E., 'Combining social media and survey data to nowcast migrant stocks in the United States', *Population Research and Policy Review*, 2020, DOI: https://doi.org/10.1007/s11113-020-09599-3.
 - **Alexander, M.**, Polimis, K., and Zagheni, E., 'The impact of Hurricane Maria on out-migration from Puerto Rico: Evidence from Facebook data', *Population and Development Review*, 2019, DOI:  https://doi.org/10.1111/padr.12289.  
 - Hug, L., **Alexander, M.**, You, D., and Alkema, L. '[National, regional, and global levels and trends in neonatal mortality between 1990 and 2017, with scenario-based projections to 2030: a systematic analysis by the United Nations Inter-agency Group for Child Mortality Estimation](https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30163-9/fulltext)', *Lancet Global Health*, 2019, 7(6): 710--720. 
@@ -39,10 +41,8 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Working papers, projects, and pre-prints
-- **Alexander, M.**, and Alkema, L., '[A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings](https://arxiv.org/abs/2102.06121)'.
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
 - **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Technical model summary](/pdf/fc.pdf).
-- Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://arxiv.org/abs/2102.10020).
 - Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
 - Maheu-Giroux, M, Sardinha, L, Stockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’.
