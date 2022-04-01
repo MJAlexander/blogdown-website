@@ -3,6 +3,7 @@ title = "News"
 slug = "news"
 +++
 
+- **1 April 2022**: Excited to be one of the new Associate Editors of [Demographic Research](https://www.demographic-research.org/info/whos_who.htm).
 - **7 March 2022**: New paper out in the [*International Statistical Review*](https://onlinelibrary.wiley.com/doi/10.1111/insr.12491), led by Herb Susmann, on Temporal Models for Demographic and Global Health Outcomes in Multiple Populations. 
 - **4 March 2022**:New paper out in [*Demography*](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-9779784/294667/Competing-Effects-on-the-Average-Age-of-Infant) with Leslie Root on the competing effects on the average age of infant death.
 - **1 February 2022**: New [MPIDR working paper](https://t.co/SDOe0XGANF), led by Michael Chong, on identifying and correcting bias in big crowd-sourced online genealogies.
