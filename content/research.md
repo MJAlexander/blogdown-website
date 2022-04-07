@@ -42,7 +42,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 # Working papers, projects, and pre-prints
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
-- **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Technical model summary](/pdf/fc.pdf).
+- **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Paper presented at PAA 2022](/pdf/fc_paa.pdf).
 - Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
 - Maheu-Giroux, M, Sardinha, L, Stockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’.
