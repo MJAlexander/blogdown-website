@@ -41,6 +41,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Working papers, projects, and pre-prints
+- **Alexander, M.**, '[Decomposing dimensions of mortality inequality](https://osf.io/preprints/socarxiv/uqwxj)'.
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
 - **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Paper presented at PAA 2022](/pdf/fc_paa.pdf).
 - Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
