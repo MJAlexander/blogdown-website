@@ -13,4 +13,5 @@ slug = "teaching"
 
 # Other
 
-I ran a workshop on 'Social Media for Population Research' for [CAnD3](https://www.mcgill.ca/cand3/) Fellows in April 2021. All the materials and code are here: https://mjalexander.github.io/social_media_workshop/
+- I ran a workshop on 'Non-traditional data sources in demography' at Cedeplar in April 2022. All the materials and code are here: https://mjalexander.github.io/demopop-workshop/
+- I ran a workshop on 'Social Media for Population Research' for [CAnD3](https://www.mcgill.ca/cand3/) Fellows in April 2021. All the materials and code are here: https://mjalexander.github.io/social_media_workshop/
