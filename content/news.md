@@ -3,6 +3,8 @@ title = "News"
 slug = "news"
 +++
 
+- **13 July 2022**: A workshop on [Bayesian Methods for Social Sciences](https://bayesforshs.sciencesconf.org/) in happening in Paris in October. Registration is free but required. I'll be talking about  jointly estimating subnational mortality for multiple populations. 
+- **1 June 2022**: Excited to be a mentor for the [Population and Social Data Science Summer Incubator Program](https://www.demogr.mpg.de/en/news_events_6123/news_press_releases_4630/news/population_and_social_data_science_summer_incubator_program_10619) at the Max Planck Institute for Demographic Research. 
 - **26 May 2022**: Presented at the Stellar Stats Workshop on jointly estimating subnational mortality for multiple populations. Slides are [here](https://github.com/MJAlexander/states-mortality/blob/master/stellar_stats_MA.pdf).
 - **29 April 2022**: Gave a workshop on non-traditional data sources in demography. Materials are [here](https://mjalexander.github.io/demopop-workshop/).
 - **18 April 2022**: New pre-print on [decomposing dimensions of mortality inequality](https://osf.io/preprints/socarxiv/uqwxj).
