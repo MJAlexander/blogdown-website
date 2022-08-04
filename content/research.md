@@ -18,6 +18,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 # Peer-reviewed publications
 - **Alexander, M.**, and Alkema, L., '[A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings](https://arxiv.org/abs/2102.06121)', (Accepted, *Demography*).
+- Maheu-Giroux, M, Sardinha, L, Stockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’, *BMC Medical Research Methodology*, 2022: 22(1), 1-17.
 - Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://onlinelibrary.wiley.com/doi/10.1111/insr.12491), *International Statistical Review*, 2022, DOI: 10.1111/insr.12491.
 - **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-9779784/294667/Competing-Effects-on-the-Average-Age-of-Infant)'. *Demography*, 2022, DOI: 10.1215/00703370-9779784.
 - Kiang MV, Tsai AC, **Alexander MJ**, Rehkopf DH, Basu S. '[Racial/Ethnic Disparities in Opioid-Related Mortality in the USA, 1999–2019: the Extreme Case of Washington DC.](https://pubmed.ncbi.nlm.nih.gov/34664185/)' J Urban Heal. Published online 2021:1-7. DOI: 10.1007/s11524-021-00573-8.
@@ -42,11 +43,11 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 # Working papers, projects, and pre-prints
 - **Alexander, M.**, '[Decomposing dimensions of mortality inequality](https://osf.io/preprints/socarxiv/uqwxj)'.
+- Chong, M., Alburez-Gutierrez, D., Del Fava, E.,**Alexander, M.**, \& Zagheni, E. (2022). '[Identifying and correcting bias in big crowd-sourced online genealogies](https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf).
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
 - **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Shiny app](https://monica-alexander.shinyapps.io/foster_care/); [Paper presented at PAA 2022](/pdf/fc_paa.pdf).
 - Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
 - **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
-- Maheu-Giroux, M, Sardinha, L, Stockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’.
 
 
 # Working papers where there is not so much working happening
