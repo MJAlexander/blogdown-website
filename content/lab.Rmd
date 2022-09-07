@@ -4,34 +4,33 @@ title: "Bayesian Demography Lab"
 
 <center>![](/img/lab_hex.jpg){width="50%"}</center>
 
-The Bayesian Demography Lab brings together researchers from demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities. Current projects are wide ranging, and include: 
-
-- the estimation of maternal cause of death; 
-- improving methodologies for estimating stateless populations;
-- using social media data in demographic research; 
-- forecasting foster care populations in the US; 
-- understanding various demand and supply aspects of the opioid epidemic; 
-- estimating mortality using geneaology data; and 
-- various topics related to migration estimation and health. 
+The Bayesian Demography Lab brings together researchers from demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities.
 
 # Current researchers
 
 - [Michael Chong](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-chong), PhD candidate in Statistics. 
-    + Maternal cause of death; mortality estimation using geneaological data; estimating population mobility using Facebook data
-- [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now consultant for UNESCO).
-    + Small area mortality estimation
-- [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094) PhD student at Max Planck Institute for Demographic Research.
-    + Modeling bias in social media migration data
-- [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health.
-    + Investigating trends in illicit drug supply and overdoses
+    + Maternal cause of death; mortality estimation using geneaological data; stateless population estimation; estimates of stillbirth by timing
+- [Ari Decter-Frain](https://aridecterfrain.com/), PhD student at Cornell University
+    + Small-area migration and demographic modeling with consumer data
+- [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094), PhD student at Max Planck Institute for Demographic Research.
+    + Small-area mortality modeling
+- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics
+    + Measuring short-term mobility with Facebook data
 - [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon), PhD candidate in Statistics. 
-    + Stochastic multistate models for opioid use, dependence, and overdose
+    + Stochastic multistate models for opioid use, dependence, and overdose; multiverse analysis
 - [Aida Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en), PhD student in Sociology.
     + Migrant health in Canada
 - [Marija Pejcinovska](https://www.statistics.utoronto.ca/people/directories/graduate-students/marija-pejcinovska), PhD candidate in Statistics. 
-    + Maternal cause of death; improving the estimation of abortion incidence and abortion-related deaths
+    + Maternal cause of death; improving the estimation of abortion incidence and abortion-related deaths; MRP
+- [Emily Somerset](https://ca.linkedin.com/in/emily-somerset-15178580), PhD student in Statistics
 - [Jessie Yeung](https://www.researchgate.net/profile/Jessie_Yeung2), MA in Statistics (now Research Analyst at StatCan).
-    + Using MRP to estimate fertility intentions; Bayesian age-specific migration schedules
+    + Bayesian age-specific migration schedules
+    
+# Alumni
+- [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in biostatistics at University of Washington).
+- [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health (now PhD student in environmental health at Columbia University).
+
+    
 
 # Main collaborators
 
