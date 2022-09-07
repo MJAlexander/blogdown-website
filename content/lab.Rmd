@@ -10,11 +10,11 @@ The Bayesian Demography Lab brings together researchers from demography, statist
 
 - [Michael Chong](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-chong), PhD candidate in Statistics. 
     + Maternal cause of death; mortality estimation using geneaological data; stateless population estimation; estimates of stillbirth by timing
-- [Ari Decter-Frain](https://aridecterfrain.com/), PhD student at Cornell University
+- [Ari Decter-Frain](https://aridecterfrain.com/), PhD student in Public Policy at Cornell University.
     + Small-area migration and demographic modeling with consumer data
 - [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094), PhD student at Max Planck Institute for Demographic Research.
     + Small-area mortality modeling
-- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics
+- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics.
     + Measuring short-term mobility with Facebook data
 - [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon), PhD candidate in Statistics. 
     + Stochastic multistate models for opioid use, dependence, and overdose; multiverse analysis
@@ -22,7 +22,7 @@ The Bayesian Demography Lab brings together researchers from demography, statist
     + Migrant health in Canada
 - [Marija Pejcinovska](https://www.statistics.utoronto.ca/people/directories/graduate-students/marija-pejcinovska), PhD candidate in Statistics. 
     + Maternal cause of death; improving the estimation of abortion incidence and abortion-related deaths; MRP
-- [Emily Somerset](https://ca.linkedin.com/in/emily-somerset-15178580), PhD student in Statistics
+- [Emily Somerset](https://ca.linkedin.com/in/emily-somerset-15178580), PhD student in Statistics.
 - [Jessie Yeung](https://www.researchgate.net/profile/Jessie_Yeung2), MA in Statistics (now Research Analyst at StatCan).
     + Bayesian age-specific migration schedules
     
