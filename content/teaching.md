@@ -10,6 +10,10 @@ slug = "teaching"
 - **Intermediate Data Analysis** (SOC6707H, graduate level). Winter 2021, 2022. 
 - **Demographic Methods** (STA4525H). Winter 2019, Summer 2020. All materials for the course are [here](https://github.com/MJAlexander/demographic-methods).
 - **Intermediate Quantitative Methods** (SOC252H1F, undergraduate level). Fall 2020.
+- **Sociology R Bootcamp, 7 September 2022** 
+    + Slides: [Module 1](/pdf/1_intro.pdf); [Module 2](/pdf/2_tidy.pdf); [Module 3](/pdf/3_ggplot.pdf)
+    + [Rstudio cloud link](https://rstudio.cloud/content/4459414)
+    + R scripts will be added after course
 
 # Other
 
