@@ -13,7 +13,7 @@ slug = "teaching"
 - **Sociology R Bootcamp, 7 September 2022** 
     + Slides: [Module 1](/pdf/1_intro.pdf); [Module 2](/pdf/2_tidy.pdf); [Module 3](/pdf/3_ggplot.pdf)
     + [Rstudio cloud link](https://rstudio.cloud/content/4459414)
-    + R scripts will be added after course
+    + Code from the course is [here](/code.R)
 
 # Other
 
