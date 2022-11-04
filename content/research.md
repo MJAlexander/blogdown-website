@@ -17,7 +17,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Peer-reviewed publications
-- **Alexander, M.**, and Alkema, L., '[A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings](https://arxiv.org/abs/2102.06121)', (Accepted, *Demography*).
+- **Alexander, M.**, and Alkema, L., '[A Bayesian Cohort Component Projection Model to Estimate Women of Reproductive Age at the Subnational Level in Data-Sparse Settings](https://read.dukeupress.edu/demography/article/59/5/1713/318087/A-Bayesian-Cohort-Component-Projection-Model-to)', 2022, DOI: 10.1215/00703370-10216406.
 - Maheu-Giroux, M, Sardinha, L, Stockl, H, Meyer, S, Godin, A, **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://www.medrxiv.org/content/10.1101/2020.11.19.20235101v1)’, *BMC Medical Research Methodology*, 2022: 22(1), 1-17.
 - Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://onlinelibrary.wiley.com/doi/10.1111/insr.12491), *International Statistical Review*, 2022, DOI: 10.1111/insr.12491.
 - **Alexander, M.** and Root, L. '[Competing effects on the average age of infant death](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-9779784/294667/Competing-Effects-on-the-Average-Age-of-Infant)'. *Demography*, 2022, DOI: 10.1215/ 00703370-9779784.

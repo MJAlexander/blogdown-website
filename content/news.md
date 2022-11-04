@@ -3,6 +3,8 @@ title = "News"
 slug = "news"
 +++
 
+
+- **3 November 2022:** Presented 'Racial Disparities in Infant Outcomes: insights from, and for, formal demography' at the Social Demography Seminar Series at Harvard's Center for Population and Development Studies. A copy of the slides is [here](/pdf/infant_formal.pdf).
 - **12 September 2022**: New paper in [*Demography*](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-10216406/318087/A-Bayesian-Cohort-Component-Projection-Model-to) with Leontine Alkema discussing a Bayesian cohort component projection model for use in data-sparse settings.
 - **7 September 2022**: The [Formal Demography Working Group](https://formaldemography.github.io/working_group/) is back on 30 September 2022. 
 - **13 July 2022**: A workshop on [Bayesian Methods for Social Sciences](https://bayesforshs.sciencesconf.org/) in happening in Paris in October. Registration is free but required. I'll be talking about  jointly estimating subnational mortality for multiple populations. 
