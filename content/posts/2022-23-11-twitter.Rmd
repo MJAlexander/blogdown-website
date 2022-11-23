@@ -43,14 +43,7 @@ Through Twitter, we built up a large email list, and over time and through word-
 
 ### Promoting junior scholars
 
-There is no doubt that Twitter has enabled the promotion and exposure of early career researchers unlike anything that came before it. You can tweet about papers, pre-prints, presentations, other projects; you can tweet interesting observations, jokes or memes, and there's a good chance they might resonate with people, irrespective of your career stage. Many senior academics also promote junior scholar's work, for example Jennifer Doleac does a thread of women on the economics job market every year. 
-
-<center>
-```{r echo=FALSE}
-blogdown::shortcode('tweet', '1581009366248960002')
-```
-</center>
-
+There is no doubt that Twitter has enabled the promotion and exposure of early career researchers unlike anything that came before it. You can tweet about papers, pre-prints, presentations, other projects; you can tweet interesting observations, jokes or memes, and there's a good chance they might resonate with people, irrespective of your career stage. Many senior academics also promote junior scholar's work. 
 
 I'm of the era where I'm thinking 'it's possible that Twitter helped me get a job'[^5], and now I'm a 'senior junior' (geriatric junior?) I really enjoy reading about the work of talented students and postdocs, discovered largely through their tweets. Hashtags that are associated with conferences are another good example --- whereas before, I was inclined to attend sessions where I recognized the name of the speaker, I now follow along with the hashtags to learn about interesting research.   
 
