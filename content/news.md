@@ -4,6 +4,7 @@ slug = "news"
 +++
 
 
+- **10 December 2022:** Will be at [IMS International Conference on Statistics and Data Science ](https://sites.google.com/view/icsds2022/home?authuser=0) presenting wok on estimating stillbirths by timing.
 - **3 November 2022:** Presented 'Racial Disparities in Infant Outcomes: insights from, and for, formal demography' at the Social Demography Seminar Series at Harvard's Center for Population and Development Studies. A copy of the slides is [here](/pdf/infant_formal.pdf).
 - **1 November 2022** On 23-25 February I'll be teaching a short course on ['Extracting, Manipulating and Analyzing Social Media Data'](https://codehorizons.com/Seminars/extracting-manipulating-and-analyzing-social-media-data/), run through Code Horizons. 
 - **12 September 2022**: New paper in [*Demography*](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-10216406/318087/A-Bayesian-Cohort-Component-Projection-Model-to) with Leontine Alkema discussing a Bayesian cohort component projection model for use in data-sparse settings.
