@@ -72,7 +72,7 @@ Here are recordings of some talks:
 - I made a children's book in R called ['D is for Demography'](https://github.com/MJAlexander/d_is_for_demography). My toddler prefers 'The Very Hungry Caterpillar' or 'Wombat Stew'.
 - [This repo](https://github.com/MJAlexander/states-mortality) on my GitHub has various bits and pieces of code, mostly related to mortality, but some other stuff too. 
 - [Shiny app](https://monica-alexander.shinyapps.io/babynames_app/) to explore baby names in Australia, Ontario, and USA
-- [Shiny app](https://monica-alexander.shinyapps.io/collections/) documenting some collections. (One day I hope to own a copy of all Agatha Christies.)
+
 
 
 
