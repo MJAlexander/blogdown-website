@@ -22,7 +22,7 @@ pygmentscodefencesguesssyntax = true
     description = "Monica Alexander's personal website"
     keywords = "blog,developer,personal"
     info = "Assistant Professor, Statistics and Sociology, University of Toronto"
-    avatarurl = "images/MonicaNew.jpg"
+    avatarurl = "images/MonicaNewNew.jpg"
     footercontent = ""
     
     math = true
