@@ -22,12 +22,15 @@ The Bayesian Demography Lab brings together researchers from demography, statist
     + Migrant health in Canada
 - [Marija Pejcinovska](https://www.statistics.utoronto.ca/people/directories/graduate-students/marija-pejcinovska), PhD candidate in Statistics. 
     + Maternal cause of death; improving the estimation of abortion incidence and abortion-related deaths; MRP
+- [Benjamin-Samuel Schluter](https://scholar.google.com/citations?user=GDtbu2oAAAAJ&hl=en), Postdoctoral Fellow in Statistics.
+    + Mortality estimation; seasonality
 - [Emily Somerset](https://ca.linkedin.com/in/emily-somerset-15178580), PhD student in Statistics.
+    + Small-area migration estimation, maternal causes of death
 - [Jessie Yeung](https://www.researchgate.net/profile/Jessie_Yeung2), MA in Statistics (now Research Analyst at StatCan).
     + Bayesian age-specific migration schedules
     
 # Alumni
-- [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in biostatistics at University of Washington).
+- [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in Biostatistics at University of Washington).
 - [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health (now PhD student in environmental health at Columbia University).
 
     

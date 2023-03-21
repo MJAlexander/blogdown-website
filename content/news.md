@@ -3,7 +3,7 @@ title = "News"
 slug = "news"
 +++
 
-
+- **27 February 2023:** Awarded a [Catalyst Grant from the Data Science Institute](https://datasciences.utoronto.ca/data-sciences-institute-catalyst-grants-support-2023/) to use web data to better understand inequalities in childcare in Canada (with Ito Peng). 
 - **19 December 2022:** Awarded a [Computational & Quantitative Social Sciences Grant from the Data Science Institute](https://datasciences.utoronto.ca/computational-and-quantitative-social-sciences-grant/) to help develop methods to estimate migration changes since the COVID-19 pandemic. 
 - **10 December 2022:** Will be at [IMS International Conference on Statistics and Data Science ](https://sites.google.com/view/icsds2022/home?authuser=0) presenting wok on estimating stillbirths by timing.
 - **3 November 2022:** Presented 'Racial Disparities in Infant Outcomes: insights from, and for, formal demography' at the Social Demography Seminar Series at Harvard's Center for Population and Development Studies. A copy of the slides is [here](/pdf/infant_formal.pdf).

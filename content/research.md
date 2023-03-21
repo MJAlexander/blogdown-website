@@ -42,6 +42,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Working papers, projects, and pre-prints
+- Chong, M.Y.C., and **Alexander, M.**. '[Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model](https://arxiv.org/abs/2212.06219)'.
 - **Alexander, M.** and Root, L. '[Racial disparities in premature births, fetal deaths and neonatal deaths: a multi-decrement lifetable approach](/pdf/paa2023.pdf)'. 
 - **Alexander, M.**, '[Decomposing dimensions of mortality inequality](https://osf.io/preprints/socarxiv/uqwxj)'.
 - Chong, M., Alburez-Gutierrez, D., Del Fava, E.,**Alexander, M.**, \& Zagheni, E. (2022). '[Identifying and correcting bias in big crowd-sourced online genealogies](https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf).
