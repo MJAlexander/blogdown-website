@@ -3,6 +3,7 @@ title = "News"
 slug = "news"
 +++
 
+- **May 2023:** Excited to serve as a member of the Technical Advisory Group to the UN Interagency Group on Child Mortality Estimation (UN IGME). 
 - **27 February 2023:** Awarded a [Catalyst Grant from the Data Science Institute](https://datasciences.utoronto.ca/data-sciences-institute-catalyst-grants-support-2023/) to use web data to better understand inequalities in childcare in Canada (with Ito Peng). 
 - **19 December 2022:** Awarded a [Computational & Quantitative Social Sciences Grant from the Data Science Institute](https://datasciences.utoronto.ca/computational-and-quantitative-social-sciences-grant/) to help develop methods to estimate migration changes since the COVID-19 pandemic. 
 - **10 December 2022:** Will be at [IMS International Conference on Statistics and Data Science ](https://sites.google.com/view/icsds2022/home?authuser=0) presenting wok on estimating stillbirths by timing.
