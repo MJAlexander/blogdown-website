@@ -4,8 +4,6 @@ slug = "papers"
 +++
 
 
-
-
 # Peer-reviewed articles
 
 1. **Alexander, M.**, and Alkema, L., [‘A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings’](https://read.dukeupress.edu/demography/article/59/5/1713/318087/A-Bayesian-Cohort-Component-Projection-Model-to), *Demography*, 2022: 59(5), 1713-1737.
@@ -27,6 +25,7 @@ slug = "papers"
 17. Hunter, B., **Howlett, M.**, and Gray, M., '[The Economic Impact of the Mining Boom on Indigenous and Non-Indigenous Australians](https://onlinelibrary.wiley.com/doi/full/10.1002/app5.99#:~:text=Average%20household%20incomes%20are%20higher,employment%20rate%20in%20mining%20areas.)', *Asia & the Pacific Policy Studies*, 2015, 2(3): 517–530.
 18. Gray, M., **Howlett, M.**, and Hunter, B., '[Labour Market Outcomes for Indigenous Australians](/pdf/elrr.pdf)', *The Economic and Labour Relations Review*, 2014, 25(3): 497–517.
 19. Biddle, N., **Howlett, M.**, Hunter, B., and Paradies, Y., '[Labour Market and Other Discrimination Facing Indigenous Australians](/pdf/ajle_2013.pdf)', *Australian Journal of Labour Economics*, 2013, 16(1): 91–113.
+
 
 # Book chapters
 
