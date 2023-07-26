@@ -33,9 +33,9 @@ slug = "papers"
 
 # Non-refereed publications
 
-21. Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., Zagheni, E. 2023. [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf) *MPIDR Working Paper WP-2023-008.* Rostock, Max Planck Institute for Demographic Research.
-22. Chong, M., Alburez-Gutierrez, D., Del Fava, E., **Alexander, M.**, Zagheni, E. 2022. [‘Identifying and correcting bias in big crowd-sourced online genealogies’.](https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf) *MPIDR Working Paper WP-2022-005*. Rostock, Max Planck Institute for Demographic Research. 
-23. Winant, C., **Alexander, M.**, Dharamshi, A., Dukhovnov, D., & Barbieri, M. 2021. [‘Methods Protocol for the United States Mortality County Database.’](https://usa.mortality.org/uploads/counties/USCountyBayesianEstimationMethodsProtocol20210927.pdf).
+21. Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., and Zagheni, E. 2023. [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf) *MPIDR Working Paper WP-2023-008.* Rostock, Max Planck Institute for Demographic Research.
+22. Chong, M., Alburez-Gutierrez, D., Del Fava, E., **Alexander, M.**, and Zagheni, E. 2022. [‘Identifying and correcting bias in big crowd-sourced online genealogies’.](https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf) *MPIDR Working Paper WP-2022-005*. Rostock, Max Planck Institute for Demographic Research. 
+23. Winant, C., **Alexander, M.**, Dharamshi, A., Dukhovnov, D., and Barbieri, M. 2021. [‘Methods Protocol for the United States Mortality County Database.’](https://usa.mortality.org/uploads/counties/USCountyBayesianEstimationMethodsProtocol20210927.pdf).
 24. Hunter, B., **Howlett, M.**, and Biddle, N. 2014. [‘Modelling Exposure to Risk of Experiencing Discrimination in the Context of Endogenous Ethnic Identification’](https://docs.iza.org/dp8040.pdf), *IZA Discussion Paper* #8040. 
 25. Gray, M., Hunter, B., and **Howlett, M.** 2013. [‘Indigenous Employment: A Story of Continuing Growth’](https://caepr.cass.anu.edu.au/sites/default/files/docs/TI2013_02_Gray__Employment_0.pdf), *CAEPR Topical Issue* 2/2013, Australian National University, Canberra. 
 
