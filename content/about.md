@@ -9,6 +9,6 @@ I have worked on research projects with the World Health Organization, UNICEF, U
 
 I am passionate about increasing the representation of women in STEM and other quantitative fields. I maintain a list of [women scholars in demography](https://www.monicaalexander.com/women_scholars/). I also co-organize the [Formal Demography Working Group](https://formaldemography.github.io/working_group).
 
-I am married to [Rohan Alexander](https://rohanalexander.com/) who is also faculty at UofT (and not a Jamaican-American cricketer as Google suggests). Outside of work I ~~am interested in photography, cycling, and music~~ have two children, and enjoy building Lego, reading stories, and dancing to The Wiggles.
+I am married to [Rohan Alexander](https://rohanalexander.com/) who is also faculty at UofT (and not a Jamaican-American cricketer as Google suggests). Outside of work I ~~am interested in photography, cycling, and music~~ have two children, and enjoy building Lego, reading stories, and dancing to The Wiggles. 
 
 A full CV can be found [here](/pdf/cv.pdf).

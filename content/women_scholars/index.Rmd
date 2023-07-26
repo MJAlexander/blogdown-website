@@ -6,7 +6,7 @@ An ever-growing list of active scholars in demography who identify as women or a
 
 [^1]: Thanks to Rohan Alexander, Paul Chung, Robert Pickett and Leslie Root for their help in compiling the initial list.
 
-[^2]: At some point I plan to add Twitter handles to this list too (as suggested by Ilya Kashnitsky, this would also be a good way to see networks); this will maybe happen after semester ends. If anyone would like to volunteer to do this, let me know :)
+[^2]: To dos: add social media handles, institution/country info. And do some data visualization! 
 
 If you or someone you know should be on this list and isn't, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSdb1XObnbO4KP0Xg65gakYA-CO_78OZFU7KPfddxdJJnehUtg/viewform).  If you are on this list and would like different papers highlighted, or if you see any mistakes, email me!
 
@@ -18,7 +18,7 @@ Sub-disciplines are:[^3]
 - Migration, environment, economic demography
 - Mortality, health, aging, biodemography
 
-[^3]: As this list has grown the discipline categories have become less useful. At some point I will change the categories to be more informative (again, if anyone would like to volunteer to do this, get in touch :) )
+[^3]: At some point I want to change these to actually be more informative. 
 
 <br>
 

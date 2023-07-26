@@ -42,7 +42,7 @@ slug = "papers"
 # Submitted manuscripts
 
 26. Chong, M.Y.C., Pejcinovska, M., and **Alexander, M.** [‘Estimating causes of maternal death in data-sparse contexts’.](https://arxiv.org/abs/2101.05240) arXiv:2101.05240 (revise and resubmit, *Annals of Applied Statistics*).
-27. Yeung, J., **Alexander, M.**, and Riffe, T. ‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’. (revise and resubmit, *Demographic Research*).
+27. Yeung, J., **Alexander, M.**, and Riffe, T. [‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’.](/pdf/dr_rcbayes.pdf) (revise and resubmit, *Demographic Research*).
 28. **Alexander, M.** [‘Decomposing Dimensions of Mortality Inequality.’](https://osf.io/preprints/socarxiv/uqwxj) doi:10.31235/osf.io/uqwxj. (revise and resubmit, *Population Research and Policy Review*).
 29. **Alexander M.**, and Root, L. [‘Racial disparities in fetal and infant outcomes: a multiple-decrement life table approach’.](https://doi.org/10.31235/osf.io/k5qp7 ) doi:10.31235/osf.io/k5qp7 (under review at *Demography*)
 30. Chong, M.Y.C and **Alexander, M.** [‘Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model’.](https://arxiv.org/abs/2212.06219) arXiv:2212.06219 (under review at *JRSS Series C*).
