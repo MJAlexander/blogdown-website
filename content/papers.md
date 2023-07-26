@@ -54,12 +54,12 @@ slug = "papers"
 
 # Works in progress
 
-35. Dharamshi, A., **Alexander, M.**, Winant, C., and Barbieri, M. 'Jointly Estimating Subnational Mortality for Multiple Populations'.
-36. Schluter, BS., Alburez-Gutierrez, D., Bibbins-Domingo, K., **Alexander, M.**, and Kiang, M.V. 'Racial/ethnic disparities in parental loss due to drugs and firearms in the United States, 1999 - 2020'. 
-37. **Alexander, M.**. 'Measures of premature life lost at a fixed level of life expectancy'. [Extended abstract submitted to PAA 2023](/pdf/Te0.pdf) 
-38. **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Paper presented at PAA 2022](/pdf/fc_paa.pdf); [Shiny app](https://monica-alexander.shinyapps.io/foster_care/).
-39. Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
-40. **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
+35. Dharamshi, A., **Alexander, M.**, Winant, C., and Barbieri, M. 'Jointly Estimating Subnational Mortality for Multiple Populations'. (*Status*: drafting of manuscript almost complete; to submit to *Demograhic Research*)
+36. Schluter, BS., Alburez-Gutierrez, D., Bibbins-Domingo, K., **Alexander, M.**, and Kiang, M.V. 'Racial/ethnic disparities in parental loss due to drugs and firearms in the United States, 1999 - 2020'. (*Status*: drafting of manuscript almost complete; to submit as a research letter to to *JAMA*)
+37. **Alexander, M.**. 'Measures of premature life lost at a fixed level of life expectancy'. [Extended abstract submitted to PAA 2023](/pdf/Te0.pdf) (*Status*: need to discuss relationship with existing measures, apply to life expectancy post-Covid-19 to explore cross country differences). 
+38. **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Paper presented at PAA 2022](/pdf/fc_paa.pdf); [Shiny app](https://monica-alexander.shinyapps.io/foster_care/). (*Status*: need to expand discussion of context, apply to data post-Covid-19).
+39. Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'. (*Status*: need to update data based on newly created dataset, simplify model to be a shorter time period).
+40. **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'. (*Status*: need to update data based on newly created dataset).
 
 
 # Software
