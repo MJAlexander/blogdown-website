@@ -56,11 +56,13 @@ slug = "papers"
 
 35. Dharamshi, A., **Alexander, M.**, Winant, C., and Barbieri, M. 'Jointly Estimating Subnational Mortality for Multiple Populations'.
 36. Schluter, BS., Alburez-Gutierrez, D., Bibbins-Domingo, K., **Alexander, M.**, and Kiang, M.V. 'Racial/ethnic disparities in parental loss due to drugs and firearms in the United States, 1999 - 2020'. 
-37. **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Paper presented at PAA 2022](/pdf/fc_paa.pdf); [Shiny app](https://monica-alexander.shinyapps.io/foster_care/).
-38. Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
-39. **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
+37. **Alexander, M.**. 'Measures of premature life lost at a fixed level of life expectancy'. [Extended abstract submitted to PAA 2023](/pdf/Te0.pdf) 
+38. **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Paper presented at PAA 2022](/pdf/fc_paa.pdf); [Shiny app](https://monica-alexander.shinyapps.io/foster_care/).
+39. Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'.
+40. **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'.
+
 
 # Software
 
-40. Yeung, J., **Alexander, M.**, and Riffe, T. 'rcbayes: Estimate Rogers-Castro Migration Age Schedules with Bayesian Models'. https://cran.uib.no/web/packages/rcbayes/index.html
+41. Yeung, J., **Alexander, M.**, and Riffe, T. 'rcbayes: Estimate Rogers-Castro Migration Age Schedules with Bayesian Models'. https://cran.uib.no/web/packages/rcbayes/index.html
 
