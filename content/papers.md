@@ -51,21 +51,22 @@ Notes: (*) indicates student/trainee; (+) indicates co-first authorship; (#) ind
 30. Chong, M.Y.C.(*) and **Alexander, M.** [‘Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model’.](https://arxiv.org/abs/2212.06219) arXiv:2212.06219 (under review at *Journal of the Royal Statistical Society (JRSS) Series C*).
 31. Pejchinovska, M.(*), and **Alexander, M.**  [‘A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence.’](https://doi.org/10.31235/osf.io/uz8ev) doi:10.31235/osf.io/uz8ev (under review at *Sociology Methodology*)
 32. Katz, L.(\*), Chong, M.Y.C(\*) and **Alexander, M**. [‘Measuring Short-term Mobility Patterns in North America Using Facebook Advertising Data, with an Application to Adjusting Covid-19 Mortality Rates.’](https://doi.org/10.31235/osf.io/bev4p) doi:10.31235/osf.io/bev4p. (under review at *Demographic Research*) 
-33. Moon, M.(*) and **Alexander, M**. 'Modelling transitions of opioid usage, addiction, and fatal overdoses using a Bayesian multistate model'. (under review at *Statistics in Medicine*)
-34. Pejchinovska, M.(*), **Alexander, M.**, Yeung, J.(*), Gemmill, A. 'MRP as a tool in the population sciences: potential benefits and challenges'. (under review, to appear in Kennedy, L., Alexander, R., and Gelman, A., (editors), *Multilevel Regression and Post-stratification: A Practical Guide and New Developments*, (accepted for publication by Cambridge University Press, expected 2024)). 
+33. Moon, M.(*) and **Alexander, M**. ['Modelling transitions of opioid usage, addiction, and fatal overdoses using a Bayesian multistate model'.](/pdf/moon-alexander.pdf) (under review at *Statistics in Medicine*)
+34. Pejchinovska, M.(\*), **Alexander, M.**, Yeung, J.(\*), Gemmill, A. ['MRP as a tool in the population sciences: potential benefits and challenges'.](/pdf/mrp_chapter.pdf) (under review, to appear in Kennedy, L., Alexander, R., and Gelman, A., (editors), *Multilevel Regression and Post-stratification: A Practical Guide and New Developments*, (accepted for publication by Cambridge University Press, expected 2024)). 
 
 
 # Works in progress
 
 35. Dharamshi, A.(*), **Alexander, M.**, Winant, C., and Barbieri, M. ['Jointly Estimating Subnational Mortality for Multiple Populations'.](/pdf/subnational_joint.pdf) (*Status*: drafting of manuscript almost complete; to submit to *Demograhic Research*)
-36. Schluter, BS.(*), Alburez-Gutierrez, D., Bibbins-Domingo, K., **Alexander, M.**(#), and Kiang, M.V.(#) 'Racial/ethnic disparities in parental loss due to drugs and firearms in the United States, 1999 - 2020'. (*Status*: drafting of manuscript almost complete; to submit as a research letter to to *JAMA*)
+36. Schluter, BS.(*), Alburez-Gutierrez, D., Bibbins-Domingo, K., **Alexander, M.**(#), and Kiang, M.V.(#) ['Racial/ethnic disparities in parental loss due to drugs and firearms in the United States, 1999 - 2020'.](/pdf/kin_drugs_guns.pdf) (*Status*: drafting of manuscript almost complete; to submit as a research letter to to *JAMA*)
 37. **Alexander, M.**. 'Measures of premature life lost at a fixed level of life expectancy'. [Extended abstract submitted to PAA 2023](/pdf/Te0.pdf) (*Status*: need to discuss relationship with existing measures, apply to life expectancy post-Covid-19 to explore cross country differences). 
 38. **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Paper presented at PAA 2022](/pdf/fc_paa.pdf); [Shiny app](https://monica-alexander.shinyapps.io/foster_care/). (*Status*: need to expand discussion of context, apply to data post-Covid-19).
-39. Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'. (*Status*: need to update data based on newly created dataset, simplify model to be a shorter time period).
-40. **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'. (*Status*: need to update data based on newly created dataset).
+39. **Alexander, M.**, and Chong, M.Y.C.(*). ['Methods to estimate stateless populations'.](/pdf/case_studies.pdf) (*Status*: This was a report prepared for UNHCR. We need rewrite it to be in manuscript format.)
+40. Alexander, R., and **Alexander, M.**. '[The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018](https://arxiv.org/abs/2111.09299)'. (*Status*: need to update data based on newly created dataset, simplify model to be a shorter time period).
+41. **Alexander, M.**, and Goldstein, J., '[Deaths without denominators: using a matched dataset to study mortality patterns in the United States](https://osf.io/preprints/socarxiv/q79ye/)'. (*Status*: need to update data based on newly created dataset).
 
 
 # Software
 
-41. Yeung, J.(*), **Alexander, M.**, and Riffe, T. 'rcbayes: Estimate Rogers-Castro Migration Age Schedules with Bayesian Models'. https://cran.uib.no/web/packages/rcbayes/index.html
+42. Yeung, J.(*), **Alexander, M.**, and Riffe, T. 'rcbayes: Estimate Rogers-Castro Migration Age Schedules with Bayesian Models'. https://cran.uib.no/web/packages/rcbayes/index.html
 
