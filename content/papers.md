@@ -57,7 +57,7 @@ Notes: (*) indicates student/trainee; (+) indicates co-first authorship; (#) ind
 
 # Works in progress
 
-35. Dharamshi, A.(*), **Alexander, M.**, Winant, C., and Barbieri, M. ['Jointly Estimating Subnational Mortality for Multiple Populations'.](/pdf/subnational_joint.pdf) (*Status*: drafting of manuscript almost complete; to submit to *Demograhic Research*)
+35. Dharamshi, A.(*), **Alexander, M.**, Winant, C., and Barbieri, M. ['Jointly Estimating Subnational Mortality for Multiple Populations'.](/pdf/subnational_joint.pdf) (*Status*: drafting of manuscript almost complete; to submit to *Demographic Research*)
 36. Schluter, BS.(*), Alburez-Gutierrez, D., Bibbins-Domingo, K., **Alexander, M.**(#), and Kiang, M.V.(#) ['Racial/ethnic disparities in parental loss due to drugs and firearms in the United States, 1999 - 2020'.](/pdf/kin_drugs_guns.pdf) (*Status*: drafting of manuscript almost complete; to submit as a research letter to to *JAMA*)
 37. **Alexander, M.**. 'Measures of premature life lost at a fixed level of life expectancy'. [Extended abstract submitted to PAA 2023](/pdf/Te0.pdf) (*Status*: need to discuss relationship with existing measures, apply to life expectancy post-Covid-19 to explore cross country differences). 
 38. **Alexander, M.**, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. 'Forecasting child welfare outcomes in the United States'. [Paper presented at PAA 2022](/pdf/fc_paa.pdf); [Shiny app](https://monica-alexander.shinyapps.io/foster_care/). (*Status*: need to expand discussion of context, apply to data post-Covid-19).
