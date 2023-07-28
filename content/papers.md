@@ -43,7 +43,7 @@ Notes: (*) indicates student/trainee; (+) indicates co-first authorship; (#) ind
 
 # Submitted manuscripts
 
-25. Chong, M.Y.C.(*), Pejchinovska, M.(*), and **Alexander, M.** [‘Estimating causes of maternal death in data-sparse contexts’.](https://arxiv.org/abs/2101.05240) arXiv:2101.05240 (revise and resubmit, *Annals of Applied Statistics*).
+25. Chong, M.Y.C.(\*), Pejchinovska, M.(\*), and **Alexander, M.** [‘Estimating causes of maternal death in data-sparse contexts’.](https://arxiv.org/abs/2101.05240) arXiv:2101.05240 (revise and resubmit, *Annals of Applied Statistics*).
 26. Yeung, J.(*), **Alexander, M.**, and Riffe, T. [‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’.](/pdf/dr_rcbayes.pdf) (revise and resubmit, *Demographic Research*).
 27. **Alexander, M.** [‘Decomposing Dimensions of Mortality Inequality.’](https://osf.io/preprints/socarxiv/uqwxj) doi:10.31235/osf.io/uqwxj. (revise and resubmit, *Population Research and Policy Review*).
 28. Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., and Zagheni, E. [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf) (revise and resubmit, *Science Advances*). 
