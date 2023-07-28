@@ -33,17 +33,18 @@ slug = "papers"
 
 # Non-refereed publications
 
-21. Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., and Zagheni, E. 2023. [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf) *MPIDR Working Paper WP-2023-008.* Rostock, Max Planck Institute for Demographic Research.
-22. Chong, M., Alburez-Gutierrez, D., Del Fava, E., **Alexander, M.**, and Zagheni, E. 2022. [‘Identifying and correcting bias in big crowd-sourced online genealogies’.](https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf) *MPIDR Working Paper WP-2022-005*. Rostock, Max Planck Institute for Demographic Research. 
-23. Winant, C., **Alexander, M.**, Dharamshi, A., Dukhovnov, D., and Barbieri, M. 2021. [‘Methods Protocol for the United States Mortality County Database.’](https://usa.mortality.org/uploads/counties/USCountyBayesianEstimationMethodsProtocol20210927.pdf).
-24. Hunter, B., **Howlett, M.**, and Biddle, N. 2014. [‘Modelling Exposure to Risk of Experiencing Discrimination in the Context of Endogenous Ethnic Identification’](https://docs.iza.org/dp8040.pdf), *IZA Discussion Paper* #8040. 
-25. Gray, M., Hunter, B., and **Howlett, M.** 2013. [‘Indigenous Employment: A Story of Continuing Growth’](https://caepr.cass.anu.edu.au/sites/default/files/docs/TI2013_02_Gray__Employment_0.pdf), *CAEPR Topical Issue* 2/2013, Australian National University, Canberra. 
+
+21. Chong, M., Alburez-Gutierrez, D., Del Fava, E., **Alexander, M.**, and Zagheni, E. 2022. [‘Identifying and correcting bias in big crowd-sourced online genealogies’.](https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf) *MPIDR Working Paper WP-2022-005*. Rostock, Max Planck Institute for Demographic Research. 
+22. Winant, C., **Alexander, M.**, Dharamshi, A., Dukhovnov, D., and Barbieri, M. 2021. [‘Methods Protocol for the United States Mortality County Database.’](https://usa.mortality.org/uploads/counties/USCountyBayesianEstimationMethodsProtocol20210927.pdf).
+23. Hunter, B., **Howlett, M.**, and Biddle, N. 2014. [‘Modelling Exposure to Risk of Experiencing Discrimination in the Context of Endogenous Ethnic Identification’](https://docs.iza.org/dp8040.pdf), *IZA Discussion Paper* #8040. 
+24. Gray, M., Hunter, B., and **Howlett, M.** 2013. [‘Indigenous Employment: A Story of Continuing Growth’](https://caepr.cass.anu.edu.au/sites/default/files/docs/TI2013_02_Gray__Employment_0.pdf), *CAEPR Topical Issue* 2/2013, Australian National University, Canberra. 
 
 # Submitted manuscripts
 
-26. Chong, M.Y.C., Pejchinovska, M., and **Alexander, M.** [‘Estimating causes of maternal death in data-sparse contexts’.](https://arxiv.org/abs/2101.05240) arXiv:2101.05240 (revise and resubmit, *Annals of Applied Statistics*).
-27. Yeung, J., **Alexander, M.**, and Riffe, T. [‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’.](/pdf/dr_rcbayes.pdf) (revise and resubmit, *Demographic Research*).
-28. **Alexander, M.** [‘Decomposing Dimensions of Mortality Inequality.’](https://osf.io/preprints/socarxiv/uqwxj) doi:10.31235/osf.io/uqwxj. (revise and resubmit, *Population Research and Policy Review*).
+25. Chong, M.Y.C., Pejchinovska, M., and **Alexander, M.** [‘Estimating causes of maternal death in data-sparse contexts’.](https://arxiv.org/abs/2101.05240) arXiv:2101.05240 (revise and resubmit, *Annals of Applied Statistics*).
+26. Yeung, J., **Alexander, M.**, and Riffe, T. [‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’.](/pdf/dr_rcbayes.pdf) (revise and resubmit, *Demographic Research*).
+27. **Alexander, M.** [‘Decomposing Dimensions of Mortality Inequality.’](https://osf.io/preprints/socarxiv/uqwxj) doi:10.31235/osf.io/uqwxj. (revise and resubmit, *Population Research and Policy Review*).
+28. Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., and Zagheni, E. 2023. [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf) MPIDR Working Paper WP-2023-008. (revise and resubmit, *Science Advances*). 
 29. **Alexander M.**, and Root, L. [‘Racial disparities in fetal and infant outcomes: a multiple-decrement life table approach’.](https://doi.org/10.31235/osf.io/k5qp7 ) doi:10.31235/osf.io/k5qp7 (under review at *Demography*)
 30. Chong, M.Y.C and **Alexander, M.** [‘Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model’.](https://arxiv.org/abs/2212.06219) arXiv:2212.06219 (under review at *JRSS Series C*).
 31. Pejchinovska, M., and **Alexander, M.**  [‘A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence.’](https://doi.org/10.31235/osf.io/uz8ev) doi:10.31235/osf.io/uz8ev (under review at *Sociology Methodology*)
