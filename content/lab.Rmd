@@ -4,44 +4,48 @@ title: "Bayesian Demography Lab"
 
 <center>![](/img/lab_hex.jpg){width="30%"}</center>
 
-The Bayesian Demography Lab brings together researchers from demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities.
+The Bayesian Demography Lab brings together researchers from fileds such as demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities.
 
 # Current researchers
 
-- [Michael Chong](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-chong), PhD candidate in Statistics. 
-    + Maternal cause of death; mortality estimation using geneaological data; stateless population estimation; estimates of stillbirth by timing
-- [Ari Decter-Frain](https://aridecterfrain.com/), PhD student in Public Policy at Cornell University.
-    + Small-area migration and demographic modeling with consumer data
-- [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094), PhD student at Max Planck Institute for Demographic Research.
-    + Small-area mortality modeling
-- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics.
-    + Measuring short-term mobility with Facebook data
-- [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon), PhD candidate in Statistics. 
-    + Stochastic multistate models for opioid use, dependence, and overdose; multiverse analysis
-- [Aida Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en), PhD student in Sociology.
-    + Migrant health in Canada
-- [Marija Pejcinovska](https://www.statistics.utoronto.ca/people/directories/graduate-students/marija-pejcinovska), PhD candidate in Statistics. 
-    + Maternal cause of death; improving the estimation of abortion incidence and abortion-related deaths; MRP
-- [Benjamin-Samuel Schluter](https://scholar.google.com/citations?user=GDtbu2oAAAAJ&hl=en), Postdoctoral Fellow in Statistics.
-    + Mortality estimation; seasonality
-- [Emily Somerset](https://ca.linkedin.com/in/emily-somerset-15178580), PhD student in Statistics.
-    + Small-area migration estimation, maternal causes of death
-- [Jessie Yeung](https://www.researchgate.net/profile/Jessie_Yeung2), MA in Statistics (now Research Analyst at StatCan).
-    + Bayesian age-specific migration schedules
-    
+### Postdoctoral Fellows
+
+- [Benjamin-Samuel Schluter](https://www.benjaminschluter.com/) (Statistics)
+
+### PhD Students
+
+- [Michael Chong](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-chong) (Statistics)
+- [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094) (Demography, Max Planck Institute for Demographic Research)
+- [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon) (Statistics)
+- [Amanda Norton](https://www.utm.utoronto.ca/geography/people/amanda-norton) (Geography)
+- [Aida Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en) (Sociology)
+- [Marija Pejcinovska](https://www.statistics.utoronto.ca/people/directories/graduate-students/marija-pejcinovska) (Statistics)
+- [Emily Somerset](https://www.statistics.utoronto.ca/people/directories/graduate-students/emily-somerset)(Statistics)
+
+
+### Masters Students
+
+- [Jose (Abraham) Morales](https://github.com/abraham-mv) (Statistics)
+
+### Visiting Students
+
+- [Ari Decter-Frain](https://aridecterfrain.com/) (Public Policy, Cornell University)
+
 # Alumni
 - [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in Biostatistics at University of Washington).
+- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics (now Research Analyst, Investigative Journalism Foundation)
 - [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health (now PhD student in environmental health at Columbia University).
+- [Jessie Yeung](https://www.jessieyeung.ca/), MA in Statistics (now Research Analyst at StatCan and Sessional Lecturer, University of Toronto)
 
     
 
-# Main collaborators
+<!-- # Main collaborators -->
 
-- [Rohan Alexander](https://rohanalexander.com/), Information and Statistics, University of Toronto
-- [Leontine Alkema](https://leontinealkema.github.io/alkema_lab/), Biostatistics, UMass Amherst
-- [Alison Gemmill](https://www.alisongemmill.com/), Population, Family and Reproductive Health, Johns Hopkins University
-- [Josh Goldstein](https://www.site.demog.berkeley.edu/josh-goldstein), Demography, UC Berkeley
-- [Robert Pickett](http://www.robertempickett.com/), Demography and Sociology, NYU
-- [Leslie Root](https://leslieroot.net/about/), Demography, University of Colorado, Boulder
-- [Chris Wildemann](https://en.wikipedia.org/wiki/Christopher_Wildeman), Sociology, Duke University
-- [Emilio Zagheni](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/emilio_zagheni_2243), Demography, Max Planck Institute for Demographic Research
+<!-- - [Rohan Alexander](https://rohanalexander.com/), Information and Statistics, University of Toronto -->
+<!-- - [Leontine Alkema](https://leontinealkema.github.io/alkema_lab/), Biostatistics, UMass Amherst -->
+<!-- - [Alison Gemmill](https://www.alisongemmill.com/), Population, Family and Reproductive Health, Johns Hopkins University -->
+<!-- - [Josh Goldstein](https://www.site.demog.berkeley.edu/josh-goldstein), Demography, UC Berkeley -->
+<!-- - [Robert Pickett](http://www.robertempickett.com/), Demography and Sociology, NYU -->
+<!-- - [Leslie Root](https://leslieroot.net/about/), Demography, University of Colorado, Boulder -->
+<!-- - [Chris Wildemann](https://en.wikipedia.org/wiki/Christopher_Wildeman), Sociology, Duke University -->
+<!-- - [Emilio Zagheni](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/emilio_zagheni_2243), Demography, Max Planck Institute for Demographic Research -->
