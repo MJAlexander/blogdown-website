@@ -30,6 +30,7 @@ The Bayesian Demography Lab brings together researchers from fileds such as demo
 ### Visiting Students
 
 - [Ari Decter-Frain](https://aridecterfrain.com/) (Public Policy, Cornell University)
+- [Riccardo Omenti](https://romenti.github.io/) (Statistics, University of Bologna)
 
 # Alumni
 - [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in Biostatistics at University of Washington).
