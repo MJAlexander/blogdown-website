@@ -36,9 +36,11 @@ Coombs III G., Rich-Edwards J.W., Carlson K.W., and Onnela J-P. [‘Sociodemogra
 
 
 # Working papers, projects, and pre-prints
+- Katz, L., Chong, M., and **Alexander, M.**. ['Measuring short-term mobility patterns in North America using Facebook Advertising data, with an application to adjusting Covid-19 mortality rates'](https://osf.io/preprints/socarxiv/bev4p/)
+- Pejchinovska, M., and **Alexander, M.**. ['A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence'](https://osf.io/preprints/socarxiv/uz8ev/)
 - Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., Zagheni, E. (2023). [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf).
 - Chong, M.Y.C., and **Alexander, M.**. '[Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model](https://arxiv.org/abs/2212.06219)'.
-- **Alexander, M.** and Root, L. '[Racial disparities in premature births, fetal deaths and neonatal deaths: a multi-decrement lifetable approach](/pdf/paa2023.pdf)'. 
+- **Alexander, M.** and Root, L. '[Racial disparities in fetal and infant outcomes: a multiple-decrement life table approach](https://osf.io/preprints/socarxiv/k5qp7/)'. 
 - **Alexander, M.**, '[Decomposing dimensions of mortality inequality](https://osf.io/preprints/socarxiv/uqwxj)'.
 - Chong, M., Alburez-Gutierrez, D., Del Fava, E., **Alexander, M.**, \& Zagheni, E. (2022). '[Identifying and correcting bias in big crowd-sourced online genealogies](https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf).
 - **Alexander, M.**, Chong, M.Y.C., and Pejcinovska, M. '[Estimating causes of maternal death in data-sparse contexts](https://arxiv.org/abs/2101.05240)'.
