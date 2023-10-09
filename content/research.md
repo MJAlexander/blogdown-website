@@ -36,8 +36,9 @@ Coombs III G., Rich-Edwards J.W., Carlson K.W., and Onnela J-P. [‘Sociodemogra
 
 
 # Working papers, projects, and pre-prints
-- Katz, L., Chong, M., and **Alexander, M.**. ['Measuring short-term mobility patterns in North America using Facebook Advertising data, with an application to adjusting Covid-19 mortality rates'](https://osf.io/preprints/socarxiv/bev4p/)
-- Pejchinovska, M., and **Alexander, M.**. ['A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence'](https://osf.io/preprints/socarxiv/uz8ev/)
+- Dharamshi, A., **Alexander, M.**, Winant, C. and Barbieri, M. [‘Jointly Estimating Subnational Mortality for Multiple Populations’](https://arxiv.org/abs/2310.03113v1.).
+- Katz, L., Chong, M., and **Alexander, M.**. ['Measuring short-term mobility patterns in North America using Facebook Advertising data, with an application to adjusting Covid-19 mortality rates'](https://osf.io/preprints/socarxiv/bev4p/).
+- Pejchinovska, M., and **Alexander, M.**. ['A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence'](https://osf.io/preprints/socarxiv/uz8ev/).
 - Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., Zagheni, E. (2023). [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf).
 - Chong, M.Y.C., and **Alexander, M.**. '[Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model](https://arxiv.org/abs/2212.06219)'.
 - **Alexander, M.** and Root, L. '[Racial disparities in fetal and infant outcomes: a multiple-decrement life table approach](https://osf.io/preprints/socarxiv/k5qp7/)'. 

@@ -3,6 +3,7 @@ title = "News"
 slug = "news"
 +++
 
+- **6 October 2023:** [New preprint](https://arxiv.org/abs/2310.03113v1) on jointly estimating subnational mortality for multiple populations, led by Ameer Dharamshi. 
 - **7 September 2023:** Will present on model selection issues in Bayesian Demography at BSPS in the session on Data science: estimation and forecasting (5:30-7:15pm, 12 September). 
 - **21 August 2023:** Presented on a Bayesian misclassification framework to adjust abortion incidence estimates at ASA. A preprint is [here](https://osf.io/preprints/socarxiv/uz8ev/). 
 - **25 July 2023:** On 28-30 September I'll be teaching a short course on ['Extracting and Analyzing Web and Social Media Data: A Short Course'](https://codehorizons.com/Seminars/extracting-and-analyzing-web-and-social-media-data/), run through Code Horizons.
