@@ -9,7 +9,9 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Peer-reviewed publications
-- Yeung, J., **Alexander, M.**, and Riffe, T. ‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’. (conditionally accepted, *Demographic Research*).
+
+- Katz, L., Chong, M., and **Alexander, M.**. ['Measuring short-term mobility patterns in North America using Facebook Advertising data, with an application to adjusting Covid-19 mortality rates'](https://osf.io/preprints/socarxiv/bev4p/). (accepted, *Demographic Research*).
+- Yeung, J., **Alexander, M.**, and Riffe, T.  [‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’](https://www.demographic-research.org/articles/volume/49/42). *Demographic Research*, 2023: 49(42), 1201-1228. 
 - **Alexander, M.**, and Alkema, L., [‘A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings’](https://read.dukeupress.edu/demography/article/59/5/1713/318087/A-Bayesian-Cohort-Component-Projection-Model-to), *Demography*, 2022: 59(5), 1713-1737.
 - Maheu-Giroux, M., Sardinha, L., Stockl, H., Meyer, S., Godin, A., **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-022-01634-5)’, *BMC Medical Research Methodology*, 2022: 22(1), 1-17.
 - Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://onlinelibrary.wiley.com/doi/10.1111/insr.12491), *International Statistical Review*,  2022: 90(3), 437-467.
@@ -37,7 +39,6 @@ Coombs III G., Rich-Edwards J.W., Carlson K.W., and Onnela J-P. [‘Sociodemogra
 
 # Working papers, projects, and pre-prints
 - Dharamshi, A., **Alexander, M.**, Winant, C. and Barbieri, M. [‘Jointly Estimating Subnational Mortality for Multiple Populations’](https://arxiv.org/abs/2310.03113v1.).
-- Katz, L., Chong, M., and **Alexander, M.**. ['Measuring short-term mobility patterns in North America using Facebook Advertising data, with an application to adjusting Covid-19 mortality rates'](https://osf.io/preprints/socarxiv/bev4p/).
 - Pejchinovska, M., and **Alexander, M.**. ['A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence'](https://osf.io/preprints/socarxiv/uz8ev/).
 - Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., Zagheni, E. (2023). [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf).
 - Chong, M.Y.C., and **Alexander, M.**. '[Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model](https://arxiv.org/abs/2212.06219)'.

@@ -3,12 +3,13 @@ title = "Scholarly work"
 slug = "papers"
 +++
 
-Notes: (*) indicates student/trainee; (+) indicates co-first authorship; (#) indicates senior authorship
+Notes: \(*\) indicates student/trainee; (+) indicates co-first authorship; (#) indicates senior authorship
 
 
 # Peer-reviewed articles
 
-1. Yeung, J.\(*\), **Alexander, M.**, and Riffe, T. [‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’.](/pdf/dr_rcbayes.pdf) (conditionally accepted, *Demographic Research*).
+1. Katz, L.\(\*\), Chong, M.\(*\), and **Alexander, M.**. ['Measuring short-term mobility patterns in North America using Facebook Advertising data, with an application to adjusting Covid-19 mortality rates'](https://osf.io/preprints/socarxiv/bev4p/). (accepted, *Demographic Research*).
+1. Yeung, J.\(*\), **Alexander, M.**, and Riffe, T. [‘Bayesian implementation of Rogers-Castro model migration schedules: An alternative technique for parameter estimation’](https://www.demographic-research.org/articles/volume/49/42). *Demographic Research*, 2023: 49(42), 1201-1228.
 2. **Alexander, M.**, and Alkema, L., [‘A Bayesian cohort component projection model to estimate adult populations at the subnational level in data-sparse settings’](https://read.dukeupress.edu/demography/article/59/5/1713/318087/A-Bayesian-Cohort-Component-Projection-Model-to), *Demography*, 2022: 59(5), 1713-1737.
 3. Maheu-Giroux, M., Sardinha, L., Stockl, H., Meyer, S., Godin, A., **Alexander, M.**, and Garcia-Moreno, C. ‘[A framework to model global, regional, and national estimates of intimate partner violence](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-022-01634-5)’, *BMC Medical Research Methodology*, 2022: 22(1), 1-17.
 4. Susmann, H., **Alexander, M.**, and Alkema, L., [Temporal models for demographic and global health outcomes in multiple populations: Introducing a new framework to review and standardize documentation of model assumptions and facilitate model comparison](https://onlinelibrary.wiley.com/doi/10.1111/insr.12491), *International Statistical Review*,  2022: 90(3), 437-467.
