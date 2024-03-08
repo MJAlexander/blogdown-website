@@ -3,6 +3,7 @@ title = "News"
 slug = "news"
 +++
 
+- **13 February 2024**: [Paper](https://www.demographic-research.org/articles/volume/50/10/) in *Demographic Research* led by Lindsay Katz on using Facebook data to measure short-term mobility
 - **15 December 2023:** [Paper](https://www.demographic-research.org/articles/volume/49/42) in *Demographic Research* on estimating Rogers-Castro migration schedules in a Bayesian Framework, to accompany our R package, rcbayes. 
 - **6 October 2023:** [New preprint](https://arxiv.org/abs/2310.03113v1) on jointly estimating subnational mortality for multiple populations, led by Ameer Dharamshi. 
 - **7 September 2023:** Presented on model selection issues in Bayesian Demography at BSPS in the session on Data science: estimation and forecasting. 
