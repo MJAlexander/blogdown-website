@@ -3,6 +3,8 @@ title = "News"
 slug = "news"
 +++
 
+- **4 May 2024**: [Paper](https://jamanetwork.com/journals/jama/article-abstract/2818482) in *JAMA* led by Ben Schluter on parental loss in the US due to drugs and firearms. 
+- **April 2 2024**: [Paper](https://academic.oup.com/jrsssc/advance-article/doi/10.1093/jrsssc/qlae017/7636258) in *JRSS Series C* led by Michael Chong on estimating the timing of stillbirths in countries worldwide . 
 - **13 February 2024**: [Paper](https://www.demographic-research.org/articles/volume/50/10/) in *Demographic Research* led by Lindsay Katz on using Facebook data to measure short-term mobility
 - **15 December 2023:** [Paper](https://www.demographic-research.org/articles/volume/49/42) in *Demographic Research* on estimating Rogers-Castro migration schedules in a Bayesian Framework, to accompany our R package, rcbayes. 
 - **6 October 2023:** [New preprint](https://arxiv.org/abs/2310.03113v1) on jointly estimating subnational mortality for multiple populations, led by Ameer Dharamshi. 
