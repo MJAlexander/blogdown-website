@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Monica Alexander</title>
-    <link>/</link>
+    <link>https://www.monicaalexander.com/</link>
     <description>Recent content on Monica Alexander</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.monicaalexander.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Professional Experience</title>
-      <link>/professional/</link>
+      <link>https://www.monicaalexander.com/professional/</link>
       <pubDate>Wed, 20 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/professional/</guid>
+      <guid>https://www.monicaalexander.com/professional/</guid>
       <description>University of Massachusetts, Amherst Graduate Student Researcher, January 2017 &amp;ndash; June 2018
 World Health Organization Consultant, September 2016 &amp;ndash; June 2017
 Data Science for Social Good Fellow, May 2016 &amp;ndash; September 2016
@@ -23,89 +23,116 @@ Reserve Bank of Australia Analyst/Senior Analyst, February 2010 &amp;ndash; June
     </item>
     
     <item>
+      <title>Social media: the good, the bad, the unstable</title>
+      <link>https://www.monicaalexander.com/posts/2022-23-11-twitter/</link>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.monicaalexander.com/posts/2022-23-11-twitter/</guid>
+      <description>There’s been some pretty wild stuff happen over on Twitter in recent weeks. It’s a weird time to be on, and to think about, the future of a social media platform that has become central to how academics communicate new research and communicate with each other. #AcademicTwitter and its many branches — such as #PopTwitter for us demographers — contains thousands of scholars tweeting about job opportunities, latest papers and preprints, conferences and presentations (and also memes).</description>
+    </item>
+    
+    <item>
+      <title>Applied statistics, data in context, and answering hard questions</title>
+      <link>https://www.monicaalexander.com/posts/2022-26-01-applied_stats/</link>
+      <pubDate>Wed, 26 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.monicaalexander.com/posts/2022-26-01-applied_stats/</guid>
+      <description>What does it mean to do applied statistics, be an applied statistician, or teach applied statistics? What does it mean to do these things well? There’s no one right answer here, and I’m still working out how to tackle these things with the best approaches. But I think one thing that is clear — by virtue of definition — is that when applying statistical methods, and teaching applied statistics, engaging with the data must come to the fore.</description>
+    </item>
+    
+    <item>
+      <title>Thoughts about the future of data-driven demographic research</title>
+      <link>https://www.monicaalexander.com/posts/2021-14-10-mpidr/</link>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.monicaalexander.com/posts/2021-14-10-mpidr/</guid>
+      <description>The Max Planck Institute for Demographic Research celebrated their 25th anniversary today. I had the pleasure of being part of a panel discussing the past, present and future of data-driven research, along with Karl Ulrich Mayer, Michaela Kreyenfeld, Mikko Myrskylä and Emilio Zagheni. The discussion was great and went by way too fast, so I thought I’d write down a few notes touching on what I mentioned, but also what I wanted to mention (but we ran out of time).</description>
+    </item>
+    
+    <item>
       <title>Mapping a network of women in demography</title>
-      <link>/posts/2021-21-02-mapping/</link>
+      <link>https://www.monicaalexander.com/posts/2021-21-02-mapping/</link>
       <pubDate>Sun, 21 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2021-21-02-mapping/</guid>
+      <guid>https://www.monicaalexander.com/posts/2021-21-02-mapping/</guid>
       <description>Last summer, I ran a demography reading course and one of the students noticed that I didn’t cite very many scholars who were women. She was absolutely right, so I decided to start putting together a list of active scholars in demography who identify as women or other gender minorities. Initially some friends and I put together about 60 names, and then I put it out on Twitter — now it’s over 300 names long.</description>
     </item>
     
     <item>
       <title>Teaching the tidyverse to undergrad sociologists</title>
-      <link>/posts/2020-12-10-teaching/</link>
+      <link>https://www.monicaalexander.com/posts/2020-12-10-teaching/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2020-12-10-teaching/</guid>
+      <guid>https://www.monicaalexander.com/posts/2020-12-10-teaching/</guid>
       <description>This semester, for the first time, I taught an undergraduate stats for sociologists course at Toronto. It is the second or third course in a sequence, and up to this point students had used Excel and SPSS in previous courses.
 It may or may not surprise anyone reading this to learn that I wanted to teach the material in a very hands-on way in R, using the tidyverse (including ggplot).</description>
     </item>
     
     <item>
       <title>Visualizing the Bayesian workflow in R</title>
-      <link>/posts/2020-28-02-bayes_viz/</link>
+      <link>https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/</link>
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2020-28-02-bayes_viz/</guid>
+      <guid>https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/</guid>
       <description>Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
 The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age.</description>
     </item>
     
     <item>
       <title>Reproducibility in demographic research</title>
-      <link>/posts/2019-10-20-reproducibility/</link>
+      <link>https://www.monicaalexander.com/posts/2019-10-20-reproducibility/</link>
       <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2019-10-20-reproducibility/</guid>
+      <guid>https://www.monicaalexander.com/posts/2019-10-20-reproducibility/</guid>
       <description>On October 10-11, I attended the Open Science Workshop at the Max Planck Institute for Demographic Research. Phil Cohen and I gave keynote presentations. Phil, who was one of the driving forces behind SocArxiv, gave a great talk on the importance of open science and practical ways to make it happen.
 My presentation focused more specifically on reproducibility in demographic research, why it’s important, and gave an overview of some tools that may be useful.</description>
     </item>
     
     <item>
       <title>Exploring the AustralianPoliticans R Package</title>
-      <link>/posts/2019-08-09-australian_politicians/</link>
+      <link>https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/</link>
       <pubDate>Sun, 08 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2019-08-09-australian_politicians/</guid>
+      <guid>https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/</guid>
       <description>Australia federated in 1901.1 Rohan Alexander is unusually interested in the history of Australian politicians, and he decided to convert some of his knowledge into an R package, the appropriately named, AustralianPoliticians. In brief, the package has datasets that contain information on every person who has ever sat in the House of Representatives (MPs) or the Senate since 1901. This post is a shameless plug for that package,2 and shows you how to read in and play around with the data.</description>
     </item>
     
     <item>
       <title>Analyzing name changes after marriage using a non-representative survey</title>
-      <link>/posts/2019-08-07-mrp/</link>
+      <link>https://www.monicaalexander.com/posts/2019-08-07-mrp/</link>
       <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2019-08-07-mrp/</guid>
+      <guid>https://www.monicaalexander.com/posts/2019-08-07-mrp/</guid>
       <description>Introduction Recently on Twitter, sociologist Phil Cohen put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable here for anyone to do their own analysis.
 However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average.</description>
     </item>
     
     <item>
       <title>The concentration and uniqueness of baby names in Australia and the US</title>
-      <link>/posts/2019-20-01-babynames/</link>
+      <link>https://www.monicaalexander.com/posts/2019-20-01-babynames/</link>
       <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2019-20-01-babynames/</guid>
+      <guid>https://www.monicaalexander.com/posts/2019-20-01-babynames/</guid>
       <description>Some great people have compiled historical data on baby names into R packages for both the US (thanks to Hadley Wickham) and Australia (thanks to the Monash group). This makes answering all manner of baby-name-related questions easy.
 I was interested in looking at the distribution of baby names in these populations over time — that is, how concentrated are name choices in the most popular baby names? Is there a big difference between the number of babies that are called the most popular names compared to other names, or is the distribution more evenly spread?</description>
     </item>
     
     <item>
       <title>Lifespan variation as a measure of mortality progress and inequality</title>
-      <link>/posts/2018-21-12-lifespan/</link>
+      <link>https://www.monicaalexander.com/posts/2018-21-12-lifespan/</link>
       <pubDate>Fri, 21 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2018-21-12-lifespan/</guid>
+      <guid>https://www.monicaalexander.com/posts/2018-21-12-lifespan/</guid>
       <description>Introduction This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest paper on the topic.
 One of the most common aggregate measure of mortality we tend to look at is life expectancy.</description>
     </item>
     
     <item>
       <title>Estimating age-specific mortality rates at the subnational level</title>
-      <link>/posts/2018-21-09-tutorial/</link>
+      <link>https://www.monicaalexander.com/posts/2018-21-09-tutorial/</link>
       <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2018-21-09-tutorial/</guid>
+      <guid>https://www.monicaalexander.com/posts/2018-21-09-tutorial/</guid>
       <description>Introduction This is a tutorial on estimating age-specific mortality rates at the subnational level, using a model similar to that described in our Demography paper. There are four main steps, which will be described below:
 Prepare data and get it in the right format Choose and create a mortality standard Fit the model Analyze results from the model  A few notes on this particular example:
  I’ll be fitting the model to county-level mortality rates in California over the years 1999 to 2016.</description>
@@ -113,158 +140,176 @@ Prepare data and get it in the right format Choose and create a mortality standa
     
     <item>
       <title>Thoughts after finishing a Demography PhD</title>
-      <link>/posts/2018-23-05-demog_phd/</link>
+      <link>https://www.monicaalexander.com/posts/2018-23-05-demog_phd/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2018-23-05-demog_phd/</guid>
+      <guid>https://www.monicaalexander.com/posts/2018-23-05-demog_phd/</guid>
       <description>PhDs are hard. They are incredibly fulfilling, but mentally challenging and emotionally draining. You meet some amazing people, but also have to deal with some difficult people and difficult situations. During my time as a PhD student, a lot of things went better than I imagined, but I also made a fair few mistakes.
 The following are a few thoughts after my experience. They are based on being involved in the demographic research field — a relatively small and supportive academic community — but the comments are pretty general.</description>
     </item>
     
     <item>
       <title>Berkeley Demography at PAA 2018</title>
-      <link>/posts/2018-04-24-paa/</link>
+      <link>https://www.monicaalexander.com/posts/2018-04-24-paa/</link>
       <pubDate>Tue, 24 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2018-04-24-paa/</guid>
+      <guid>https://www.monicaalexander.com/posts/2018-04-24-paa/</guid>
       <description>Berkeley Demography and Population Center affiliates will be presenting their work at PAA 2018. Check out some of their great work!
  Magali Barbieri  Session 6-2: Contribution of drug poisonings to divergence in life expectancy Session 45-3: Cause-specific mortality data at the subnational level  Boroka Bo  Poster (Health and Mortality 1): Time poverty by ethnicity  Gabriel Borges  Session 68-4: Mortality rates from sibling histories Session 83-2: Bayesian melding to estimate census coverage  Stephanie Child  Poster (Health and Mortality 1): Social networks and stress  Will Dow  Session 72-3: Cuba’s cardiovascual risk factors Poster (Children and Youth): Parenting and Early Childhood Development in Indigenous and Non-Indigenous Mexican Communities Poster (Health and Mortality 2): Incentive-Based Interventions for Smoking Cessation Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): Paid parental leave  Denys Dukhovnov  Poster (Marriage, Families, Households, and Unions 1): Stress coping strategies Poster (Health and Mortality 1): Time poverty by ethnicity  Dennis Feehan  Session 68-4: Mortality rates from sibling histories Session 167-3: Estimating internet adoption using Facebook  Joshua Goldstein:  Organizer, Mathematical demography session  Ron Lee  Session 95-2: Life expectancy, pension outcomes and income Session 140-3: Aging and intergenerational flows  Hayley Pierce  Session 160-4: Risk and Protective Factors for Generational Refugee Children  Danny Schneider  Session 167-2: Facebook as a Tool for Survey Data Collection Session 174-4: Inequalities in parental time  Ruijie (Mia) Zhong  Poster (Marriage, Families, Households, and Unions 2; Gender, Race, and Ethnicity): Education and marriage in Japan   …and me!</description>
     </item>
     
     <item>
       <title>Gompertz mortality models</title>
-      <link>/posts/2018-02-15-gompertz/</link>
+      <link>https://www.monicaalexander.com/posts/2018-02-15-gompertz/</link>
       <pubDate>Sun, 18 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2018-02-15-gompertz/</guid>
+      <guid>https://www.monicaalexander.com/posts/2018-02-15-gompertz/</guid>
       <description>Introduction The Gompertz model is one of the most well-known mortality models. It does remarkably well at explaining mortality rates at adult ages across a wide range of populations with just two parameters. This post briefly reviews the Gompertz model, highlighting the relationship between the two Gompertz parameters, \(\alpha\) and \(\beta\), and the implied mode age at death. I focus on the situation where we only observe death counts by age (rather than mortality rates), so estimation of the Gompertz model requires choosing \(\alpha\) and \(\beta\) to maximize the (log) density of deaths.</description>
     </item>
     
     <item>
       <title>Using SVD in demographic modeling</title>
-      <link>/posts/2017-12-16-svd/</link>
+      <link>https://www.monicaalexander.com/posts/2017-12-16-svd/</link>
       <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2017-12-16-svd/</guid>
+      <guid>https://www.monicaalexander.com/posts/2017-12-16-svd/</guid>
       <description>A core objective of demographic modeling is finding empirical regularities in age patterns in fertility, mortality and migration. One method to achieve this goal is using Singular Value Decomposition (SVD) to extract characteristic age patterns in demographic indicators over time. This post describes how SVD can be used in demographic research, and in particular, mortality estimation.
 Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulting from the decomposition have special properties:</description>
     </item>
     
     <item>
       <title>Comparing methods for smoothing temporal demographic data</title>
-      <link>/posts/2017-10-31-smoothing/</link>
+      <link>https://www.monicaalexander.com/posts/2017-10-31-smoothing/</link>
       <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2017-10-31-smoothing/</guid>
+      <guid>https://www.monicaalexander.com/posts/2017-10-31-smoothing/</guid>
       <description>At the International Population Conference of the International Union for the Scientific Study of Population (IUSSP) I will present work on comparing different methods for smoothing demographic data. This post briefly outlines the motivation for the project and describes the R package distortr which accompanies the project.
 Motivation An important part of demographic research is the ability to estimate and project time series of demographic and health indicators. However, it is often the case that populations that have the poorest outcomes also have poor-quality data.</description>
     </item>
     
     <item>
       <title>Text analysis of migration news articles</title>
-      <link>/posts/2017-10-08-migration-text/</link>
+      <link>https://www.monicaalexander.com/posts/2017-10-08-migration-text/</link>
       <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2017-10-08-migration-text/</guid>
+      <guid>https://www.monicaalexander.com/posts/2017-10-08-migration-text/</guid>
       <description>Leslie Root and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed.
 Our initial analysis suggests that sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump.</description>
     </item>
     
     <item>
       <title>Opioid mortality by race: from divergence to convergence</title>
-      <link>/posts/2017-05-02-opioid-mortality-by-race/</link>
+      <link>https://www.monicaalexander.com/posts/2017-05-02-opioid-mortality-by-race/</link>
       <pubDate>Tue, 02 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2017-05-02-opioid-mortality-by-race/</guid>
+      <guid>https://www.monicaalexander.com/posts/2017-05-02-opioid-mortality-by-race/</guid>
       <description>Opioid-related mortality in the United States has been rising steadily since 2000. The opioid mortality rate has more than tripled since over the fifteen year period 2000–2015, and shows no signs of declining — in fact, the rate of increase has accelerated in recent years. This is unique to opioid-related drug deaths, with the non-opioid mortality rate remaining fairly level since 2005. The so-called ‘opioid epidemic’ has gained national attention and become an important part of the political agenda.</description>
     </item>
     
     <item>
       <title>Real differences and model artefacts in mortality inequality research</title>
-      <link>/posts/2016-04-26-mortality-sensitivities/</link>
+      <link>https://www.monicaalexander.com/posts/2016-04-26-mortality-sensitivities/</link>
       <pubDate>Tue, 26 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2016-04-26-mortality-sensitivities/</guid>
+      <guid>https://www.monicaalexander.com/posts/2016-04-26-mortality-sensitivities/</guid>
       <description>A couple of weeks ago, a paper was published in the JAMA detailing income inequalities in mortality across cities in the United States. The research, which was led by Raj Chetty at Stanford University, received wide attention. It is an important contribution to the literature, utilizing detailed income and mortality data from the IRS and SSA to estimate adult mortality by income at the city level.
 The most striking finding of the research was that, while the rich live longer everywhere, life expectancy for those in the poorer income groups varies substantially by geography.</description>
     </item>
     
     <item>
       <title>The Cost of NBA Games</title>
-      <link>/posts/2016-02-05-nba/</link>
+      <link>https://www.monicaalexander.com/posts/2016-02-05-nba/</link>
       <pubDate>Fri, 05 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>/posts/2016-02-05-nba/</guid>
+      <guid>https://www.monicaalexander.com/posts/2016-02-05-nba/</guid>
       <description>I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got really, really, good. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, while healthier than drugs, may not be any cheaper.
 I grabbed all data on resale tickets from StubHub for all remaining games of the 2015-16 season.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://www.monicaalexander.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://www.monicaalexander.com/about/</guid>
       <description>I am an Assistant Professor in Statistical Sciences and Sociology at the University of Toronto. I received my PhD in Demography from the University of California, Berkeley. My research interests include statistical demography, mortality and health inequalities, and computational social science.
-I have worked on research projects with the World Health Organization, UNICEF, the Bill and Melinda Gates Foundation, and the Human Mortality Database. I was a 2016 Fellow at Data Science for Social Good, and have worked at the ANU&amp;rsquo;s Centre for Aboriginal Economic Policy Research.</description>
+I have worked on research projects with the World Health Organization, UNICEF, UNHCR, and the Human Mortality Database. I was a 2016 Fellow at Data Science for Social Good, and previously worked at the ANU&amp;rsquo;s Centre for Aboriginal Economic Policy Research.</description>
     </item>
     
     <item>
       <title>Bayesian Demography Lab</title>
-      <link>/lab/</link>
+      <link>https://www.monicaalexander.com/lab/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/lab/</guid>
-      <description>The Bayesian Demography Lab brings together researchers from demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities. Current projects are wide ranging, and include:
- the estimation of maternal cause of death; using social media data in demographic research; forecasting foster care populations in the US; understanding various demand and supply aspects of the opioid epidemic; estimating mortality using geneaology data; and various topics related to migration estimation and health.</description>
+      <guid>https://www.monicaalexander.com/lab/</guid>
+      <description>The Bayesian Demography Lab brings together researchers from fileds such as demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities.
+Current researchers Postdoctoral Fellows  Benjamin-Samuel Schluter (Statistics)   PhD Students  Michael Chong (Statistics) Esther Denecke (Demography, Max Planck Institute for Demographic Research) Dorian DiTommaso (Sociology) Michael Moon (Statistics) Amanda Norton (Geography) Aida Parnia (Sociology) Marija Pejcinovska (Statistics) Fabio Robibaro (Sociology) Emily Somerset (Statistics)   Visiting Students  Ari Decter-Frain (Public Policy, Cornell University)    Alumni  Ameer Dharamshi MA in Statistics (now PhD student in Biostatistics at University of Washington).</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>/contact/</link>
+      <link>https://www.monicaalexander.com/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/contact/</guid>
+      <guid>https://www.monicaalexander.com/contact/</guid>
       <description>I have offices in both the Statistical Sciences Department (Level 9, 700 University Ave, Toronto) and the Sociology Department (Level 3, 725 Spadina Avenue, Toronto).
 My email is monica.alexander@utoronto.ca.</description>
     </item>
     
     <item>
-      <title>Research</title>
-      <link>/research/</link>
+      <title>News</title>
+      <link>https://www.monicaalexander.com/news/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/research/</guid>
-      <description>My research interests broadly fall into three areas:
-Statistical demography: I develop methods to improve estimates and forecasts of demographic and health indicators in situations where the available data are sparse or unreliable. This work involves combining demographic and statistical methods to estimate outcomes in developing countries, minority populations, and in small geographic areas.
-Health and mortality inequalities: I research how disparities in health and mortality outcomes are changing over time.</description>
+      <guid>https://www.monicaalexander.com/news/</guid>
+      <description>4 May 2024: Paper in JAMA led by Ben Schluter on parental loss in the US due to drugs and firearms. April 2 2024: Paper in JRSS Series C led by Michael Chong on estimating the timing of stillbirths in countries worldwide . 13 February 2024: Paper in Demographic Research led by Lindsay Katz on using Facebook data to measure short-term mobility 15 December 2023: Paper in Demographic Research on estimating Rogers-Castro migration schedules in a Bayesian Framework, to accompany our R package, rcbayes.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://www.monicaalexander.com/research/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.monicaalexander.com/research/</guid>
+      <description>A list of papers is also on Google Scholar.
+Peer-reviewed publications  Schlüter, B. S., Alburez-Gutierrez, D., Bibbins-Domingo, K., Alexander, M. J., and Kiang, M. V. &amp;lsquo;Youth experiencing parental death due to drug poisoning and firearm violence in the US, 1999-2020&amp;rsquo;. JAMA, 2024. Chong, M.Y.C., and Alexander, M.. &amp;lsquo;Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model&amp;rsquo;. Journal of the Royal Statitsical Society, Series C, 2024.</description>
+    </item>
+    
+    <item>
+      <title>Scholarly work</title>
+      <link>https://www.monicaalexander.com/papers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.monicaalexander.com/papers/</guid>
+      <description>Notes: (*) indicates student/trainee; (+) indicates co-first authorship; (#) indicates senior authorship
+Peer-reviewed articles  Chong, M.Y.C.(*) and Alexander, M. ‘Estimating the timing of stillbirths in countries worldwide using a Bayesian hierarchical penalized splines regression model’. arXiv:2212.06219 (accepted, Journal of the Royal Statistical Society (JRSS) Series C). Katz, L.(*), Chong, M.(*), and Alexander, M.. &amp;lsquo;Measuring short-term mobility patterns in North America using Facebook Advertising data, with an application to adjusting Covid-19 mortality rates&amp;rsquo;.</description>
     </item>
     
     <item>
       <title>Teaching</title>
-      <link>/teaching/</link>
+      <link>https://www.monicaalexander.com/teaching/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/teaching/</guid>
-      <description>University of Toronto  Applied Statistics II (STA2201H). Winter 2020, Winter 2021. Materials for the 2021 course are here. Demographic Methods (STA4525H). Winter 2019, Summer 2020. All materials for the course are here. Intermediate Data Analysis (SOC6707H, graduate level). Winter 2021. Intermediate Quantitative Methods (SOC252H1F, undergraduate level). Fall 2020.  </description>
+      <guid>https://www.monicaalexander.com/teaching/</guid>
+      <description>University of Toronto  Applied Statistics II (STA2201H, graduate level). Winter 2020-2024. Materials for 2024 are here. Intermediate Quantitative Methods (SOC252H1S, undergraduate level). Fall 2020, Winter 2023. Stats for Sociologists (SOC6302H, graduate level). Winter 2023. Intermediate Data Analysis (SOC6707H, graduate level). Winter 2021, 2022, 2024. Demographic Methods (STA4525H). Winter 2019, Summer 2020. All materials for the course are here. Sociology R Quant camp, 7 September 2022  Slides: Module 1; Module 2; Module 3 Rstudio cloud link Code from the course is here   Sociology Math Quant camp, 6 September 2023  Math slides Probability slides    Other  I ran a workshop on &amp;lsquo;Non-traditional data sources in demography&amp;rsquo; at Cedeplar in April 2022.</description>
     </item>
     
     <item>
       <title>Women in Demography</title>
-      <link>/women_scholars/</link>
+      <link>https://www.monicaalexander.com/women_scholars/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/women_scholars/</guid>
+      <guid>https://www.monicaalexander.com/women_scholars/</guid>
       <description>An ever-growing list of active scholars in demography who identify as women or as a gender minority, listed by broad sub-discipline, and with two notable papers.1 2
 If you or someone you know should be on this list and isn’t, please fill out this form. If you are on this list and would like different papers highlighted, or if you see any mistakes, email me!</description>
     </item>
     
     <item>
       <title>Women in demography</title>
-      <link>/women_scholars_old/</link>
+      <link>https://www.monicaalexander.com/women_scholars_old/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/women_scholars_old/</guid>
+      <guid>https://www.monicaalexander.com/women_scholars_old/</guid>
       <description>An ever-growing list of active scholars in demography who identify as women or as a gender minority, listed by broad sub-disicpline, and with two notable papers.1
 If you know of someone who should be on this list and isn&amp;rsquo;t, or if you are on this list and would like different papers highlighted, or if you see any mistakes, email me!
 Jump to:

@@ -18,20 +18,21 @@ However, there’s an issue with using the raw data without lots of caveats: the
 <meta property="og:description" content="Introduction Recently on Twitter, sociologist Phil Cohen put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable here for anyone to do their own analysis.
 However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2019-08-07-mrp/" />
-<meta property="article:published_time" content="2019-08-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-08-07T00:00:00+00:00" />
+<meta property="og:url" content="https://www.monicaalexander.com/posts/2019-08-07-mrp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-08-07T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-08-07T00:00:00&#43;00:00" />
+
 
 
     
-      <base href="/posts/2019-08-07-mrp/">
+      <base href="https://www.monicaalexander.com/posts/2019-08-07-mrp/">
     
     <title>
   Analyzing name changes after marriage using a non-representative survey · Monica Alexander
 </title>
 
     
-      <link rel="canonical" href="/posts/2019-08-07-mrp/">
+      <link rel="canonical" href="https://www.monicaalexander.com/posts/2019-08-07-mrp/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +42,7 @@ However, there’s an issue with using the raw data without lots of caveats: the
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,17 +53,17 @@ However, there’s an issue with using the raw data without lots of caveats: the
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="generator" content="Hugo 0.82.0" />
   </head>
 
   <body class=" ">
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://www.monicaalexander.com/">
       Monica Alexander
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,27 +72,31 @@ However, there’s an issue with using the raw data without lots of caveats: the
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/research/">Research</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/lab/">Lab</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/teaching/">Teaching</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/contact/">Contact me</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
           </li>
         
       
@@ -271,14 +276,14 @@ age_prop</code></pre>
   scale_color_manual(name = &quot;&quot;, values = c(&quot;MRP estimate&quot; = &quot;black&quot;, &quot;MNCS raw data&quot; = &quot;red&quot;)) + 
   theme_bw(base_size = 14) +
   ggtitle(&quot;Proportion of women keeping name after marriage&quot;)</code></pre>
-<p><img src="/img/marriage_plots/age_plot.png"></p>
+<p><img src="https://www.monicaalexander.com/img/marriage_plots/age_plot.png"></p>
 <p>The result is pretty interesting. Firstly, the MRP estimates are much lower than the raw – this is likely due to the fact that the survey has an over-sample of highly educated women, who are more likely to keep their name.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> There is some evidence of an upside-down U shape over age, which is consistent with past observations that there was a <a href="https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html">peak in name retention in the 80s and 90s</a>.</p>
 <p>We can calculate the results by other groups. Here, you can see the increase in name retention with education, with a particularly high estimate for those with postgraduate education:</p>
-<p><img src="/img/marriage_plots/educ_plot.png"></p>
+<p><img src="https://www.monicaalexander.com/img/marriage_plots/educ_plot.png"></p>
 <p>And here it is by decade; some (weak) evidence to suggest maybe an increase in name retention in the most recent decade, which would be consistent with a <a href="https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html">New York Times</a> piece published a few years back.</p>
-<p><img src="/img/marriage_plots/dec_plot.png"></p>
+<p><img src="https://www.monicaalexander.com/img/marriage_plots/dec_plot.png"></p>
 <p>Finally, here are the results by state. Utah and New York stand out as particularly low and high, respectively. Note that these proportions are not standardized with respect to age or education.</p>
-<p><img src="/img/marriage_plots/state_plot.png"></p>
+<p><img src="https://www.monicaalexander.com/img/marriage_plots/state_plot.png"></p>
 </div>
 </div>
 </div>

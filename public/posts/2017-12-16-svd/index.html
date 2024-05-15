@@ -18,20 +18,21 @@ Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulti
 <meta property="og:description" content="A core objective of demographic modeling is finding empirical regularities in age patterns in fertility, mortality and migration. One method to achieve this goal is using Singular Value Decomposition (SVD) to extract characteristic age patterns in demographic indicators over time. This post describes how SVD can be used in demographic research, and in particular, mortality estimation.
 Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulting from the decomposition have special properties:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2017-12-16-svd/" />
-<meta property="article:published_time" content="2017-12-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2017-12-16T00:00:00+00:00" />
+<meta property="og:url" content="https://www.monicaalexander.com/posts/2017-12-16-svd/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-12-16T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2017-12-16T00:00:00&#43;00:00" />
+
 
 
     
-      <base href="/posts/2017-12-16-svd/">
+      <base href="https://www.monicaalexander.com/posts/2017-12-16-svd/">
     
     <title>
   Using SVD in demographic modeling · Monica Alexander
 </title>
 
     
-      <link rel="canonical" href="/posts/2017-12-16-svd/">
+      <link rel="canonical" href="https://www.monicaalexander.com/posts/2017-12-16-svd/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +42,7 @@ Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulti
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,17 +53,17 @@ Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulti
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="generator" content="Hugo 0.82.0" />
   </head>
 
   <body class=" ">
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://www.monicaalexander.com/">
       Monica Alexander
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,27 +72,31 @@ Background The SVD of matrix \(X\) is \[ X = UDV^T \] The three matrices resulti
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/research/">Research</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/lab/">Lab</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/teaching/">Teaching</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/contact/">Contact me</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
           </li>
         
       
@@ -163,26 +168,26 @@ where</p>
 <div id="example-age-specific-mortality" class="section level3">
 <h3>Example: age-specific mortality</h3>
 <p>Imagine you have observations of age-specific mortality rates in multiple years. Create a matrix, <span class="math inline">\(X\)</span>, where each row represents the age-specific mortality rates in a particular year. Modeling of mortality rates is often done on the log scale (to ensure rates are positive), so you may want to take the log of <span class="math inline">\(X\)</span>. Then do a SVD on this matrix - in <code>R</code> this is as easy as <code>svd(x)</code>. The age patterns of interest are then contained in the resulting <code>v</code> matrix; so for example <code>svd(x)$v[,1:3]</code> would give you the first three age ‘principal components’ of your matrix.</p>
-<p><img src="/img/svd_plots/svd.png"></p>
+<p><img src="https://www.monicaalexander.com/img/svd_plots/svd.png"></p>
 <p>For example, the first three principal components of US male mortality by state over the years 1980-2010 are plotted below. Each component has a demographic interpretation - the first represents baseline mortality, the second represents higher-than-baseline child mortality, and the third represents higher-than-baseline adult mortality.</p>
-<p><img src="/img/svd_plots/3pcs_states_neg.png"></p>
+<p><img src="https://www.monicaalexander.com/img/svd_plots/3pcs_states_neg.png"></p>
 <p>For modeling, the idea is that different linear combinations of these components allow you to flexibly represent a wide range of different mortality curves. For example, log-mortality rates could be modeled as</p>
 <p><span class="math display">\[
 \log m_x = \beta_1 Y_{1x} + \beta_2 Y_{2x} + \beta_3 Y_{3x}
 \]</span>
 where the <span class="math inline">\(Y_{.x}\)</span>’s are the principal components above and the <span class="math inline">\(\beta\)</span>’s are to be estimated. The plot below shows four different mortality curves derived from the US male principal components with different coefficient settings. You can also play with different settings interactively <a href="http://shiny.demog.berkeley.edu/monicah/mort/">here</a>.</p>
-<p><img src="/img/svd_plots/coeff.png"></p>
+<p><img src="https://www.monicaalexander.com/img/svd_plots/coeff.png"></p>
 </div>
 <div id="example-race-specific-opioid-mortality" class="section level3">
 <h3>Example: race-specific opioid mortality</h3>
 <p>This technique of representing and modeling underlying age patterns need not be restricted to modeling all-cause mortality. For example, SVD proves useful when looking at deaths due to opioid overdoses by race and state in the US. Even though <a href="https://www.monicaalexander.com/2017/05/02/opioid-mortality-by-race-from-divergence-to-convergence/">opioid overdoses are rapidly increasing for both the black and white population</a>, overdoses are still a relatively rare event, and so death rates calculated from the raw data suffer from large stochastic/random variation.</p>
 <p>For example, the chart below shows age-specific opioid mortality rates by race for North Carolina in 2004.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> As you can see, for the black population there are quite a few age groups were there are zero observed deaths, so the observed mortality rate is zero. However, given what we know about how mortality evolves over age, the zero observed death rates are likely due to random variation.</p>
-<p><img src="/img/svd_plots/NC_age.png"></p>
+<p><img src="https://www.monicaalexander.com/img/svd_plots/NC_age.png"></p>
 <p>Even though age patterns are noisy at the state level, we have an idea of age patterns by race in opioid mortality in the national level. So we can use these national age patterns - via information captured in a SVD - to help model underlying mortality rates at the state level.</p>
 <p>The figure below shows the first two principal components derived using SVD from race-specific opioid mortality in the US over the years 1999-2015. The first principal component again represents a baseline mortality schedule for opioid-related deaths for each race. The second principal component represents the contribution of each age group to mortality change over time. Notice the ‘double-humped’ shape for the white population - this is driven by heroin deaths being concentrated at younger ages, and prescription opioid-related deaths being concentrated at older ages.</p>
-<p><img src="/img/svd_plots/opioid_pcs.png"></p>
+<p><img src="https://www.monicaalexander.com/img/svd_plots/opioid_pcs.png"></p>
 <p>Similar to the example above, we can use these principal components as a basis of a regression framework to estimate underlying age-specific mortality rates by age. Results from such a model for North Carolina in 2004 are shown below. The dots represent mortality rates calculated from the raw data, as above. The lines and associated shaded area represent estimates of the underlying mortality rates with 95% uncertainty intervals. These were obtained from a model that utilized information from the principal components. Instead of dealing with zero observed deaths, we now have estimates that give more plausible values for the underlying mortality rates.</p>
-<p><img src="/img/svd_plots/NC_agefit.png"></p>
+<p><img src="https://www.monicaalexander.com/img/svd_plots/NC_agefit.png"></p>
 </div>
 </div>
 <div id="summary" class="section level2">

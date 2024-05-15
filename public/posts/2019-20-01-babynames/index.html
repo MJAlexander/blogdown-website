@@ -18,20 +18,21 @@ I was interested in looking at the distribution of baby names in these populatio
 <meta property="og:description" content="Some great people have compiled historical data on baby names into R packages for both the US (thanks to Hadley Wickham) and Australia (thanks to the Monash group). This makes answering all manner of baby-name-related questions easy.
 I was interested in looking at the distribution of baby names in these populations over time — that is, how concentrated are name choices in the most popular baby names? Is there a big difference between the number of babies that are called the most popular names compared to other names, or is the distribution more evenly spread?" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2019-20-01-babynames/" />
-<meta property="article:published_time" content="2019-01-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-01-21T00:00:00+00:00" />
+<meta property="og:url" content="https://www.monicaalexander.com/posts/2019-20-01-babynames/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-01-21T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2019-01-21T00:00:00&#43;00:00" />
+
 
 
     
-      <base href="/posts/2019-20-01-babynames/">
+      <base href="https://www.monicaalexander.com/posts/2019-20-01-babynames/">
     
     <title>
   The concentration and uniqueness of baby names in Australia and the US · Monica Alexander
 </title>
 
     
-      <link rel="canonical" href="/posts/2019-20-01-babynames/">
+      <link rel="canonical" href="https://www.monicaalexander.com/posts/2019-20-01-babynames/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +42,7 @@ I was interested in looking at the distribution of baby names in these populatio
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,17 +53,17 @@ I was interested in looking at the distribution of baby names in these populatio
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="generator" content="Hugo 0.82.0" />
   </head>
 
   <body class=" ">
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://www.monicaalexander.com/">
       Monica Alexander
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,27 +72,31 @@ I was interested in looking at the distribution of baby names in these populatio
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/research/">Research</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/lab/">Lab</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/teaching/">Teaching</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/contact/">Contact me</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
           </li>
         
       
@@ -200,7 +205,7 @@ head(db)</code></pre>
   geom_line(lwd = 1.1) +
   scale_color_brewer(palette = &quot;Set1&quot;) +
   ggtitle(&quot;Gini coefficients for baby names \nAustralia and USA, 1960-2015&quot;)</code></pre>
-<p><img src="/posts/2019-20-01-babynames_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2019-20-01-babynames_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>We can plot this concentration a different way: let’s look at the proportion of babies who have a name in the top 5% most popular names.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <p>Note that the trends and patterns are pretty much identical to those above. The levels are quite high: in 1960 in the US, almost 90% of all babies born were called a name that was in the top 5% most popular names (note that this corresponds to the around the 250 most popular names).</p>
 <pre class="r"><code>db %&gt;% 
@@ -215,7 +220,7 @@ head(db)</code></pre>
   scale_color_brewer(palette = &quot;Set1&quot;) +
   ylab(&quot;proportion&quot;) + 
   ggtitle(&quot;Proportion of babies that have one of the top 5% names \nAustralia and USA, 1960 -2015&quot;)</code></pre>
-<p><img src="/posts/2019-20-01-babynames_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2019-20-01-babynames_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="names-are-getting-more-unique" class="section level1">
 <h1>Names are getting more unique</h1>
@@ -229,7 +234,7 @@ head(db)</code></pre>
   scale_color_brewer(palette = &quot;Set1&quot;) +
   ylab(&quot;proportion&quot;) + 
   ggtitle(&quot;Unique baby names as a proportion of total births \nAustralia and USA, 1960 -2015&quot;)</code></pre>
-<p><img src="/posts/2019-20-01-babynames_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2019-20-01-babynames_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="summary-notes" class="section level1">
 <h1>Summary notes</h1>

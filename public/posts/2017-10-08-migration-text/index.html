@@ -18,20 +18,21 @@ Our initial analysis suggests that sentiment in migration news coverage has chan
 <meta property="og:description" content="Leslie Root and I did some exploratory text analysis of migration-related newspaper articles in the US. We analyzed almost 10,000 articles over the period 2008-2017, looking at how topics and sentiment about migration have changed.
 Our initial analysis suggests that sentiment in migration news coverage has changed over time, and decreased since 2013. Major topics in migration news include political campaigns, the economy, illegal immigrants, Europe, and more recently, Donald Trump." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2017-10-08-migration-text/" />
-<meta property="article:published_time" content="2017-10-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2017-10-08T00:00:00+00:00" />
+<meta property="og:url" content="https://www.monicaalexander.com/posts/2017-10-08-migration-text/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-10-08T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2017-10-08T00:00:00&#43;00:00" />
+
 
 
     
-      <base href="/posts/2017-10-08-migration-text/">
+      <base href="https://www.monicaalexander.com/posts/2017-10-08-migration-text/">
     
     <title>
   Text analysis of migration news articles · Monica Alexander
 </title>
 
     
-      <link rel="canonical" href="/posts/2017-10-08-migration-text/">
+      <link rel="canonical" href="https://www.monicaalexander.com/posts/2017-10-08-migration-text/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +42,7 @@ Our initial analysis suggests that sentiment in migration news coverage has chan
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,17 +53,17 @@ Our initial analysis suggests that sentiment in migration news coverage has chan
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="generator" content="Hugo 0.82.0" />
   </head>
 
   <body class=" ">
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://www.monicaalexander.com/">
       Monica Alexander
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,27 +72,31 @@ Our initial analysis suggests that sentiment in migration news coverage has chan
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/research/">Research</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/lab/">Lab</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/teaching/">Teaching</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/contact/">Contact me</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
           </li>
         
       
@@ -137,25 +142,25 @@ Our initial analysis suggests that sentiment in migration news coverage has chan
 <div id="data" class="section level2">
 <h2>Data</h2>
 <p>We searched <a href="https://search.proquest.com">ProQuest</a> for newspaper articles that included the terms ‘population’ and ’immigra*’. This resulting in a total of 9,869 articles in the years 2008-2017. The search returned articles from the New York Times, Los Angeles Times, Wall Street Journal (WSJ) and WSJ Online. There is a drop in the number of articles in 2017 because we couldn’t collect for the whole year.</p>
-<p><img src="/img/migration_plots/source_year.png" alt="number of articles by year"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/source_year.png" alt="number of articles by year"></p>
 </div>
 <div id="important-words-and-combinations" class="section level2">
 <h2>Important words and combinations</h2>
 <p>The plots below show the most ‘important words’ for articles in each year. We define important words based on the term frequency–inverse document frequency, or <a href="%5Bhttp://tidytextmining.com/tfidf.html">tf-idf</a> measure. This measures the number of times a word appears in the document, but adjusts for the fact that some words appear more frequently in general.</p>
 <p>Throughout all years there is a strong political focus, with Obama, McCain, Clinton, Sanders and Trump all appearing as important words, as well as words like vote/r, campaign and republican. Other common words include hispanic/latino, law, workers and border. The words in 2015 show themes relating to the European migration crisis. In the most recent year, the words ‘police’ and ‘muslim’ have become important.</p>
-<p><img src="/img/migration_plots/tf_idf_year_barplot.png" alt="important words", height="4000"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/tf_idf_year_barplot.png" alt="important words", height="4000"></p>
 <p>We also looked at words preceding the words ‘immigrant’ and ‘migrant’ to see what the most important combinations were. In general the most common preceding word was ‘illegal’. However, looking at changes over time suggests a shift to using alternative words such as ‘undocumented’ and ‘unauthorized’. The number of instances of ‘undocumented immigrant/migrant’ overtook ‘illegal immigrant/migrant’ in 2017. Various ethnicities were also important preceding words, including Mexican, Latino, Hispanic, Asian and Muslim.</p>
-<p><img src="/img/migration_plots/bigram_immigration_year_barplot.png" alt="words preceding immigrant"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/bigram_immigration_year_barplot.png" alt="words preceding immigrant"></p>
 <p>Focusing on the types of ethnicities/religions most commonly mentioned preceding the words immigrant or migrant, there appears to have been a shift in the discussion over time. The most common type of immigrant discussed in the news are Muslim immigrants, and this has broadly been increasing since 2013. In addition, there appears to have been a shift towards referring to Mexican immigrants and away from using the terms Latino and Hispanic.</p>
-<p><img src="/img/migration_plots/bigram_immigration_eth_year.png" alt="ethnicities mentioned"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/bigram_immigration_eth_year.png" alt="ethnicities mentioned"></p>
 </div>
 <div id="sentiment" class="section level2">
 <h2>Sentiment</h2>
 <p>We also looked at how sentiment in migration news articles is changing over time. The plot below shows sentiment for all articles in each year, using the <a href="http://tidytextmining.com/sentiment.html#the-sentiments-dataset">AFINN</a> measure. This lexicon assigns words with a score that runs between -5 and 5, with negative scores indicating negative sentiment and positive scores indicating positive sentiment.</p>
 <p>Sentiment is negative for all years, but the level has been changing. After initially dropping, sentiment increased during Obama’s second term, but has since decreased. This year’s news articles display the most negative sentiment of the whole period.</p>
-<p><img src="/img/migration_plots/sentiment_year.png" alt="sentiment over time"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/sentiment_year.png" alt="sentiment over time"></p>
 <p>Looking at the top five negative words over time, as we saw in the word analysis above, we can see a shift away from the use of ‘illegal’ towards the use of ‘undocumented’. The use of ‘attack’ peaked in 2015, corresponding to the Paris attacks.</p>
-<p><img src="/img/migration_plots/sent_neg_year.png" alt="sentiment over time"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/sent_neg_year.png" alt="sentiment over time"></p>
 </div>
 <div id="topics" class="section level2">
 <h2>Topics</h2>
@@ -170,9 +175,9 @@ Our initial analysis suggests that sentiment in migration news coverage has chan
 <li>Illegal, border, law enforcement</li>
 <li>Elections</li>
 </ul>
-<p><img src="/img/migration_plots/tm_8topic.png" alt="eight topics"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/tm_8topic.png" alt="eight topics"></p>
 <p>Looking at the proportion of documents in five of the above topics by year, unsurprisingly the Trump-related topic has spiked in the last two years. The election topic peaks in line with election cycles. Talk of illegality and enforcement has spiked in the last year, while talk of the economy peaked in 2013, in line with when sentiment was the least negative.</p>
-<p><img src="/img/migration_plots/tm_doc_year_5.png" alt="topics over time"></p>
+<p><img src="https://www.monicaalexander.com/img/migration_plots/tm_doc_year_5.png" alt="topics over time"></p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Monica Alexander">
+    <meta name="description" content="Monica Alexander&#39;s personal website">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Applied statistics, data in context, and answering hard questions"/>
+<meta name="twitter:description" content="What does it mean to do applied statistics, be an applied statistician, or teach applied statistics? What does it mean to do these things well? There’s no one right answer here, and I’m still working out how to tackle these things with the best approaches. But I think one thing that is clear — by virtue of definition — is that when applying statistical methods, and teaching applied statistics, engaging with the data must come to the fore."/>
+
+    <meta property="og:title" content="Applied statistics, data in context, and answering hard questions" />
+<meta property="og:description" content="What does it mean to do applied statistics, be an applied statistician, or teach applied statistics? What does it mean to do these things well? There’s no one right answer here, and I’m still working out how to tackle these things with the best approaches. But I think one thing that is clear — by virtue of definition — is that when applying statistical methods, and teaching applied statistics, engaging with the data must come to the fore." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.monicaalexander.com/posts/2022-26-01-applied_stats/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-26T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-01-26T00:00:00&#43;00:00" />
+
+
+
+    
+      <base href="https://www.monicaalexander.com/posts/2022-26-01-applied_stats/">
+    
+    <title>
+  Applied statistics, data in context, and answering hard questions · Monica Alexander
+</title>
+
+    
+      <link rel="canonical" href="https://www.monicaalexander.com/posts/2022-26-01-applied_stats/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.82.0" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://www.monicaalexander.com/">
+      Monica Alexander
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Applied statistics, data in context, and answering hard questions</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2022-01-26T00:00:00Z'>
+                January 26, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              8 minutes read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+<script src="https://www.monicaalexander.com/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>What does it mean to do applied statistics, be an applied statistician, or teach applied statistics? What does it mean to do these things well? There’s no one right answer here, and I’m still working out how to tackle these things with the best approaches. But I think one thing that is clear — by virtue of definition — is that when applying statistical methods, and teaching applied statistics, engaging with the data must come to the fore. This post contains some of my own reflections about understanding data in context, how that links to statistical models, and tackling hard-to-answer questions.</p>
+<div id="bias-error-and-how-spherical-is-your-elephant" class="section level2">
+<h2>Bias, error, and how spherical is your elephant?</h2>
+<p>Consider for a moment you are modeling an outcome of interest <span class="math inline">\(y_i\)</span>, assuming the following model
+<span class="math display">\[
+y_i|
+\mu,\sigma \sim N(\mu_i, \sigma^2)
+\]</span>
+The outcome <span class="math inline">\(y_i\)</span> could be something like birthweight, for example. What is this model saying? Our observations of birthweight are a draw from a Normal distribution, centered at some expected value <span class="math inline">\(\mu_i\)</span> with some error <span class="math inline">\(\varepsilon_i \sim N(0, \sigma^2)\)</span>.</p>
+<p>No big deal. We can put a model on <span class="math inline">\(\mu_i\)</span>; for example, we might model it as a linear function of mother’s age <span class="math inline">\(X_1\)</span> and gestation length <span class="math inline">\(X_2\)</span>, and we end up with standard linear regression
+<span class="math display">\[
+y_i|
+\mu,\sigma \sim N(\mu_i, \sigma^2)
+\]</span>
+<span class="math display">\[
+\mu_i = \beta_0 + \beta_1X_{i1}+\beta_2X_{i2}
+\]</span>
+We can interpret coefficients. We could check how our model fits the data; we could think about omitted variable bias and conclude that in future efforts we should also consider some measure of the mother’s preexisting conditions.</p>
+<p>But we also need to think about where the data come from. Say the data were collected from a population where the vast majority of births occur in hospitals, methods of birthweight were standardized and data coverage was complete and stored in a central database. This is almost an ideal data collection situation, and we are perhaps okay with just considering model based error (<span class="math inline">\(\varepsilon_i\)</span>); that is, how well does our model likely reflect the true proximate determinants of birthweight.</p>
+<p>Now consider the situation where data on birthweights were collected from a population where births at home are common, perhaps because hospitals are relatively inaccessible. Birthweights are still recorded in a central database that covers all hospitals. How does this affect who is in our dataset? Are those who are left out likely to be missing at random? We could potentially reconsider our research question to be focused on studying birthweight of only babies who were born in hospitals, but if we made inferences about the broader population, these may be wrong.</p>
+<p>Now consider the situation where data on birthweights is not sourced from a hospital’s central database at all, but rather gather from a survey of women who have had children (asking mothers the question, “how much did your youngest child weigh at birth?”). Now we may have issues of representation (based on who was sampled for the survey, and who responded to the survey), but there is also most likely measurement error to consider. We are asking a mother to recall her most recent baby’s weight at birth, which they may be able to do to varying degrees of accuracy.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> The accuracy may depend on systematic factors, such as how long ago the birth occurred, or whether there was a skilled attendant present at birth. Systematic is good, because in statistics, systematic means you can model it.</p>
+<p>Going back to our model above, it is now helpful to think of the distributional statement <span class="math inline">\(y_i \sim N(\mu_i, \sigma^2)\)</span> more explicitly as a data model. The observation of an individual’s birthweight <span class="math inline">\(y_i\)</span> is the “truth” (<span class="math inline">\(\mu_i\)</span>) plus some error. But in this context we need to think more carefully about the error in our observation. For example, we could add a bias term <span class="math inline">\(\delta t\)</span> which captures the bias in our measurement of birthweight based on the number of years <span class="math inline">\(t\)</span> since the baby was born:
+<span class="math display">\[
+y_i \sim N(\beta_0 + \beta_1X_{i1}+\beta_2X_{i2}+\delta t_i, \sigma^2)
+\]</span>
+There may be other sources of measurement error that we also want to include in the model, and at other levels of granularity, the variance term in the model also may need reconsidering. Say for example, the <span class="math inline">\(y_i\)</span> was not at the individual level, but, the rate of babies with low birthweight at a country level. If these data were sourced from a survey, then the variance term could include some measure of sampling error, for example.</p>
+<p>How do we estimate this bias terms like <span class="math inline">\(\delta\)</span> in practice? In a Bayesian setting, we could encode some prior knowledge about the size and direction of this coefficient. In general we are best placed if we have another, better quality, source of data on birthweights for the same population that we could use to learn about our survey. This hardly ever happens in the population we are interested in (if we have a better quality data source then why not use it), so we often have to learn about bias from other populations. Maybe there is no way of getting a good estimate of bias, even though we know it’s there. Still, I think it’s beneficial to write down a model that would include such terms, in a similar way to how some would draw a DAG even if the data do not permit causal inference.</p>
+</div>
+<div id="without-context-data-lose-their-utility" class="section level2">
+<h2>Without context, data lose their utility</h2>
+<p>The takeaway from the above is that without context, data lose their meaning. I could give you a dataset on birthweights and other characteristics about the mothers and pregnancies, you could run a regression fine and talk about the results. But without knowing something about how the data were collected, and the population that the data came from, your model will be wrong, but it will also probably be useless. In the birthweight example, this means thinking about measurement, but also thinking about how prevalent home births are, why people chose to have home births, and how this may affect birth outcomes. Going beyond this, it may also involve thinking about more sensitive issues, like the accessibility of abortion.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>I have been involved in projects <a href="https://arxiv.org/abs/2101.05240">estimating causes of maternal mortality</a>, working with demographers, statisticians, and physicians. The stories from physicians who have worked on the ground in contexts where data collections systems are not well-functioning, and how various decisions of the mother and doctors affect how deaths are captured and coded, are eye-opening. This of course is an advertisement for the benefits of interdisciplinary research, but knowing the context is just the first step. It is a real challenge to try and operationalize processes in the form of statistical parameters, and get estimates that are useful. But even writing down case studies and examples of data problems, and trying to understand how those relate to model assumptions, is useful for transparency, communication, and to aid better data collection in future.</p>
+</div>
+<div id="asking-difficult-questions-is-hard-answering-them-is-harder" class="section level2">
+<h2>Asking difficult questions is hard, answering them is harder</h2>
+<p>An oft-heard observation of applied statistics classes is that methods were taught ‘in vacuum’, being applied to datasets that were already cleaned and missing values, errors etc, dealt with. This is unrealistic and does not teach students that getting data in a useful format is not only time consuming and annoying (and requires arguably a higher level of coding skill than just running pre-packaged models), but also involves a bunch of decisions and assumptions that need to be considering in modeling. So what do we do? We should teach with real data! But this is often easier said than done, because you only have a limited amount of time in class and if you’re teaching based on hitting a bunch of methods-related objectives, understanding data takes away from that. I don’t know what the solution is, but I do think there should be a greater focus on datasets than what has been traditionally been the case.</p>
+<p>A related question is what datasets should we use for teaching? Perhaps one could argue that a lot of these methods were developed to understand agricultural statistics so we should focus on crop outcomes. With apologies to the very good folks who are in agricultural science<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>, that isn’t my main interest, and that’s not what I’m going to talk about in class. I’m a statistical demographer — or a computational social scientist, or a data scientist, depending on what grant I’m applying to — and I’m going to talk about people.</p>
+<p>Sometimes the questions that we ask in the social sciences are hard to ask. They may involve outcomes like sickness and loss, mental health issues, child maltreatment, illegal drug use, forced migration, or abortion. But it is often the case that difficult topics are also the hardest to measure and understand. There is a role for applied statisticians and using statistical methods in these situations, and there are many examples of survey and statistical methods being advanced with the goal of answering some difficult questions.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> By asking these questions sensitively, in an inclusive way, working closely with domain experts, and emphasizing engaging with the data and the context in which it is collected, we can improve both the teaching and practice of applied statistics.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>FWIW, I can’t remember what my kids weighed at birth (although it’s written down somewhere), but remember thinking they were “about average” so at a pinch I could make some number up based on that knowledge.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>The relationship between abortion accessibility and birthweight is well-studied, but difficult to estimate because of selection issues; see for example <a href="https://www.jstor.org/stable/146046?casa_token=ewa0-BJ9shgAAAAA%3A9cOtywRMyoxWw_9BHSzkcjxBXEzZZpfILmolZGSXYmgev6N3bfUDTH_iYIKXDe85OWeai0QNDY-Wj7o90FwJbCcd5L1JHSj1O1OnmBvc79IXnOrEs6A&amp;seq=1#metadata_info_tab_contents">this paper</a>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Last year we visited University of Guelph and picked up some honey that was made on campus. Very good.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>For example, <a href="https://academic.oup.com/aje/article/174/10/1190/105499?login=false">network scale up methods</a> to estimate the size of populations at risk of HIV/AIDS.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+      </div>
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+
+    
+    <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

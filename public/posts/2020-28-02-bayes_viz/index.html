@@ -18,20 +18,21 @@ The goal of this post is to illustrate these steps in an accessible way, applied
 <meta property="og:description" content="Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
 The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/2020-28-02-bayes_viz/" />
-<meta property="article:published_time" content="2020-02-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-02-28T00:00:00+00:00" />
+<meta property="og:url" content="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-02-28T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-02-28T00:00:00&#43;00:00" />
+
 
 
     
-      <base href="/posts/2020-28-02-bayes_viz/">
+      <base href="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/">
     
     <title>
   Visualizing the Bayesian workflow in R · Monica Alexander
 </title>
 
     
-      <link rel="canonical" href="/posts/2020-28-02-bayes_viz/">
+      <link rel="canonical" href="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +42,7 @@ The goal of this post is to illustrate these steps in an accessible way, applied
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,17 +53,17 @@ The goal of this post is to illustrate these steps in an accessible way, applied
 
     
     
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="generator" content="Hugo 0.82.0" />
   </head>
 
   <body class=" ">
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="/">
+    <a class="navigation-title" href="https://www.monicaalexander.com/">
       Monica Alexander
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -71,27 +72,31 @@ The goal of this post is to illustrate these steps in an accessible way, applied
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/about/">About</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/posts/">Blog</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/research/">Research</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/lab/">Lab</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/teaching/">Teaching</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/contact/">Contact me</a>
+            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
           </li>
         
       
@@ -173,7 +178,7 @@ head(ds)</code></pre>
   scale_color_brewer(palette = &quot;Set1&quot;) + 
   theme_bw(base_size = 14) +
   ggtitle(&quot;birthweight v gestational age&quot;)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>It may be reasonable to allow for the relationship between weight and gestational age to vary by whether or not the baby was premature. If we split by prematurity, there is some evidence to suggest a different relationship between the two variables, which may lead us to consider interaction terms:</p>
 <pre class="r"><code>ds %&gt;% 
   ggplot(aes(log(gest), log(birthweight), color = preterm)) + 
@@ -181,7 +186,7 @@ head(ds)</code></pre>
   scale_color_brewer(palette = &quot;Set1&quot;) + 
   theme_bw(base_size = 14) + 
   ggtitle(&quot;birthweight v gestational age&quot;)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="some-simple-candidate-models" class="section level1">
 <h1>Some simple candidate models</h1>
@@ -230,7 +235,7 @@ dsl %&gt;%
   theme_bw(base_size = 16) + 
   annotate(&quot;text&quot;, x=300, y=0.0022, label= &quot;Monica&#39;s\ncurrent weight&quot;, 
            color = &quot;purple&quot;, size = 5) </code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
 <div id="weakly-informative-priors" class="section level2">
 <h2>Weakly informative priors</h2>
@@ -254,7 +259,7 @@ dsl %&gt;%
   geom_vline(xintercept = log(60), color = &quot;purple&quot;, lwd = 1.2, lty = 2) + 
   theme_bw(base_size = 16) + 
   annotate(&quot;text&quot;, x=7, y=0.2, label= &quot;Monica&#39;s\ncurrent weight&quot;, color = &quot;purple&quot;, size = 5)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 </div>
 </div>
 <div id="run-the-models" class="section level1">
@@ -358,11 +363,11 @@ y &lt;- log_weight
 yrep1 &lt;- extract(mod1)[[&quot;log_weight_rep&quot;]]
 samp100 &lt;- sample(nrow(yrep1), 100)
 ppc_dens_overlay(y, yrep1[samp100, ])  </code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Model 2 is a bit better:</p>
 <pre class="r"><code>yrep2 &lt;- extract(mod2)[[&quot;log_weight_rep&quot;]]
 ppc_dens_overlay(y, yrep2[samp100, ])  </code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>If you would like to convince yourself you know what’s going on with <code>ppc_dens_overlay</code> or would like to format your graphs from scratch, you can do the density plots yourself:</p>
 <pre class="r"><code># first, get into a tibble
 rownames(yrep1) &lt;- 1:nrow(yrep1)
@@ -385,15 +390,15 @@ dr %&gt;%
                                 &quot;y_rep&quot; = &quot;lightblue&quot;)) + 
   ggtitle(&quot;Distribution of observed and replicated birthweights&quot;) + 
   theme_bw(base_size = 16)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <div id="test-statistics" class="section level3">
 <h3>Test statistics</h3>
 <p>As well as looking at the overall distributions of the replicated datasets versus the data, we can decide on a test statistic(s) that is a summary of interest, calculate the statistic for each replicated dataset, and compare the distribution of these values with the value of the statistic observed in the data.</p>
 <p>For example, we can look at the distribution of the median (log) birth weight across the replicated data sets in comparison to the median in the data, and plot using <code>ppc_stat</code>. For both models, the predicted median birth weight is too low.</p>
 <pre class="r"><code>ppc_stat(log_weight, yrep1, stat = &#39;median&#39;)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <pre class="r"><code>ppc_stat(log_weight, yrep2, stat = &#39;median&#39;)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
 <p>As before, we can also construct these plots ourselves. Here I’m calculating the proportion of babies who have a weight less than 2.5kg (considered low birth weight) in each of the replicated datasets, and comparing to the proportion in the data. Model 2 seems to do a better job here:</p>
 <pre class="r"><code>t_y &lt;- mean(y&lt;=log(2.5))
 t_y_rep &lt;- sapply(1:nrow(yrep1), function(i) mean(yrep1[i,]&lt;=log(2.5)))
@@ -408,7 +413,7 @@ ggplot(data = as_tibble(t_y_rep), aes(value)) +
                      values = c(&quot;observed&quot; = &quot;darkblue&quot;))+
   scale_fill_manual(name = &quot;&quot;, 
                      values = c(&quot;replicated&quot; = &quot;lightblue&quot;)) </code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <pre class="r"><code>ggplot(data = as_tibble(t_y_rep_2), aes(value)) + 
     geom_histogram(aes(fill = &quot;replicated&quot;)) + 
     geom_vline(aes(xintercept = t_y, color = &quot;observed&quot;), lwd = 1.5) + 
@@ -418,7 +423,7 @@ ggplot(data = as_tibble(t_y_rep), aes(value)) +
                      values = c(&quot;observed&quot; = &quot;darkblue&quot;))+
   scale_fill_manual(name = &quot;&quot;, 
                      values = c(&quot;replicated&quot; = &quot;lightblue&quot;)) </code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
 </div>
 </div>
 <div id="ppcs-with-brms-output" class="section level2">
@@ -443,10 +448,10 @@ head(ds_yrep1)</code></pre>
 <p>Once you have the posterior predictive samples, you can use the <code>bayesplot</code> package as we did above with the Stan output, or do the plots yourself in <code>ggplot</code>.</p>
 <p>Another quick alternative with <code>brms</code> that avoids manually getting the posterior predictive samples altogether is to use the <code>pp_check</code> function, which is a wrapper for all the <code>bayesplot</code> options. e.g. density overlays:</p>
 <pre class="r"><code>pp_check(mod1b, type = &quot;dens_overlay&quot;, nsamples = 100)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>e.g. test statistics:</p>
 <pre class="r"><code>pp_check(mod1b, type = &quot;stat&quot;, stat = &#39;median&#39;, nsamples = 100)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
 </div>
 <div id="loo-cv" class="section level1">
@@ -496,14 +501,14 @@ loo2 &lt;- loo(loglik2, save_psis = TRUE)</code></pre>
 <pre><code>## [1] -0.05329232  0.05934065 -0.20993121 -0.19775285 -0.13801892 -0.02027345</code></pre>
 <p>or plotted easily like this:</p>
 <pre class="r"><code>plot(loo1)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <div id="loo-pit" class="section level3">
 <h3>LOO-PIT</h3>
 <p>Another useful model diagnostic is the LOO <a href="https://en.wikipedia.org/wiki/Probability_integral_transform">probability integral transform</a> (PIT). This essentially looks to see where each point <span class="math inline">\(y_i\)</span> falls in its predictive distribution <span class="math inline">\(p(y_i|\boldsymbol{y_{-i}})\)</span>. If the model is well calibrated these should look like Uniform distributions. We can use <code>bayesplot</code> to plot these against 100 simulate standard Uniforms. The results in this case aren’t too bad.</p>
 <pre class="r"><code>ppc_loo_pit_overlay(yrep = yrep1, y = y, lw = weights(loo1$psis_object)) + ggtitle(&quot;LOO-PIT Model 1&quot;)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <pre class="r"><code>ppc_loo_pit_overlay(yrep = yrep2, y = y, lw = weights(loo2$psis_object)) + ggtitle(&quot;LOO-PIT Model 2&quot;)</code></pre>
-<p><img src="/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
 </div>
 </div>
 <div id="loo-cv-with-brms-output" class="section level2">
