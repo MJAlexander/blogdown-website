@@ -11,11 +11,11 @@ As someone who uses social media data in research, it's always at the back of my
 
 Up until now, I'd thought less about the effect of platform changes on the other side of academia: that of the academic community. Maybe we all inherently assumed that this version of social media was around for good, and academia needs to work out how to incorporate it into our pre-existing structures and processes.
 
-<center>
-```{r echo=FALSE}
-blogdown::shortcode('tweet', '1593597413897474054')
-```
-</center>
+<!-- <center> -->
+<!-- ```{r echo=FALSE} -->
+<!-- blogdown::shortcode('tweet', '1593597413897474054') -->
+<!-- ``` -->
+<!-- </center> -->
 
 So in light of avoiding thinking about the prospect of setting up yet another social media account[^1], I decided it was a nice opportunity to write some reflections[^2] about my experience with Twitter, what's great and not so great, and what that all means for the future. I'm not sure if it's particularly insightful or useful, but it is a good way to express my gratitude for all the wonderful people I've met through this platform, in perhaps a more lasting way than saying it on Twitter (because who knows if it will just break one day)[^3]. 
 
