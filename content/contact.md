@@ -3,7 +3,7 @@ title = "Contact"
 slug = "contact"
 +++
 
-I have offices in both the Statistical Sciences Department (Level 9, 700 University Ave, Toronto) and the Sociology Department (Level 3, 725 Spadina Avenue, Toronto). 
+My office is in the Statistical Sciences Department (Level 9, 700 University Ave, Toronto).
 
 My email is monica.alexander@utoronto.ca.
 
