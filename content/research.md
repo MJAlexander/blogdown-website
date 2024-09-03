@@ -10,7 +10,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 # Peer-reviewed publications
 
-
+- Chong, M. Y., Pejchinovska, M., & **Alexander, M.** ['Estimating causes of maternal death in data‐sparse contexts'](https://onlinelibrary.wiley.com/doi/10.1002/sim.10199). *Statistics in Medicine.*, 2024.  doi: https://doi.org/10.1002/sim.10199
 - **Alexander, M**. and Raftery, A.E., ['Developing and implementing the UN's probabilistic population projections as a milestone for Bayesian demography: An interview with Adrian Raftery.'](https://www.demographic-research.org/articles/volume/51/1) *Demographic Research*, 2024. 51, pp.1-16.
 - Kiang M.V., **Alexander M.J.**. ['Invited commentary: Motivating better methods — and better data collection — for measuring prevalence of drug misuse'](https://academic.oup.com/aje/advance-article-abstract/doi/10.1093/aje/kwae156/7699732?login=false), *American Journal of Epidemiology*. 2024. doi: 10.1093/aje/kwae156. 
 - Schlüter, B. S., Alburez-Gutierrez, D., Bibbins-Domingo, K., **Alexander, M. J.**, and Kiang, M. V. '[Youth experiencing parental death due to drug poisoning and firearm violence in the US, 1999-2020](https://jamanetwork.com/journals/jama/article-abstract/2818482)'. *JAMA*, 2024.

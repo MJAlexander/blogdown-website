@@ -12,3 +12,5 @@ I am passionate about increasing the representation of women in STEM and other q
 I am married to [Rohan Alexander](https://rohanalexander.com/) who is also at UofT. Outside of work I ~~am interested in photography, cycling, and music~~ have two children, and enjoy building Lego trains, reading stories (about trains), and dancing to songs (that mention trains or other vehicles). I run a bit and am on [Strava](https://www.strava.com/athletes/2041191).
 
 A full CV can be found [here](/pdf/cv.pdf).
+
+I am on sabbatical for the 2024-2025 academic year. 

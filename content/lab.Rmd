@@ -24,14 +24,19 @@ The Bayesian Demography Lab brings together researchers from fileds such as demo
 - [Fabio Robibaro](https://ca.linkedin.com/in/fabio-robibaro-886208261?original_referer=https%3A%2F%2Fwww.google.com%2F) (Sociology)
 - [Emily Somerset](https://www.statistics.utoronto.ca/people/directories/graduate-students/emily-somerset) (Statistics)
 
-### Visiting Students
+### Masters Students
 
-- [Ari Decter-Frain](https://aridecterfrain.com/) (Public Policy, Cornell University)
+- [Adele Lauzon](https://ca.linkedin.com/in/adelelauzon) (Statistics)
+
+### Undergraduate Students
+
+- [Ever Hughes](https://ca.linkedin.com/in/ever-hughes-93ga64) (Statistics)
 
 # Alumni
-- [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in Biostatistics at University of Washington).
-- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics (now Research Analyst, Investigative Journalism Foundation)
-- [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health (now PhD student in environmental health at Columbia University).
+- [Ari Decter-Frain](https://aridecterfrain.com/) (Public Policy, Cornell University, visiting student from 2021-2024)
+- [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in Biostatistics at University of Washington)
+- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics (now Research Analyst, UNFPA)
+- [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health (now PhD student in environmental health at Columbia University)
 - [Jose (Abraham) Morales](https://github.com/abraham-mv)
 - [Riccardo Omenti](https://romenti.github.io/) (Statistics, University of Bologna, visiting student Fall 2023)
 - [Jessie Yeung](https://www.jessieyeung.ca/), MA in Statistics (now Research Analyst at StatCan and Sessional Lecturer, University of Toronto)
