@@ -14,6 +14,7 @@ slug = "teaching"
 - **Sociology R Quant camp, 4 September 2024** 
     + Slides: [Module 1](/pdf/1_intro.pdf); [Module 2](/pdf/2_tidy.pdf); [Module 3](/pdf/3_ggplot.pdf)
     + Data is [here](https://github.com/MJAlexander/states-mortality/blob/master/shelter.csv)
+    + Code is [here](https://github.com/MJAlexander/states-mortality/blob/master/quantcamp.R)
 - **Sociology Math Quant camp, 6 September 2023**
     + [Math slides](/pdf/math.pdf)
     + [Probability slides](/pdf/prob.pdf)
