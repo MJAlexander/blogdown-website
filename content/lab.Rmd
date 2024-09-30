@@ -32,6 +32,10 @@ The Bayesian Demography Lab brings together researchers from fileds such as demo
 
 - [Ever Hughes](https://ca.linkedin.com/in/ever-hughes-93ga64) (Statistics)
 
+### Visiting Students
+
+- [Antonino Polizzi](https://www.nuffield.ox.ac.uk/people/profiles/antonino-polizzi/) (DPhil Sociology, Oxford)
+
 # Alumni
 - [Ari Decter-Frain](https://aridecterfrain.com/) (Public Policy, Cornell University, visiting student from 2021-2024)
 - [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in Biostatistics at University of Washington)
