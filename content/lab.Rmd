@@ -4,7 +4,7 @@ title: "Bayesian Demography Lab"
 
 <center>![](/img/lab_hex.jpg){width="30%"}</center>
 
-The Bayesian Demography Lab brings together researchers from fileds such as demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities.
+The Bayesian Demography Lab brings together researchers from fields such as demography, statistics, sociology and public health to work on projects related to statistical demography and the study of demographic inequalities.
 
 # Current researchers
 
