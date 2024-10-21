@@ -3,6 +3,7 @@ title = "News"
 slug = "news"
 +++
 
+- **16 October 2024**: Took part in the [Bayesian Methods for Social Sciences](https://bayesforshs2.sciencesconf.org/) Workshop, including giving a tutorial on Bayesian demographic estimation. Materials are [here](https://github.com/MJAlexander/bayesian-demographic-estimation-tutorial).
 - **27 August 2024**: [Paper](https://onlinelibrary.wiley.com/doi/10.1002/sim.10199) in *Staistics in Medicine* with Michael Chong and Marija Pejchinovska on estimating causes of maternal death. 
 - **1 July 2024**: An interview with Adrian Raftery about the history of the UN probabilistic population projections was published in [*Demographic Research*](https://www.demographic-research.org/articles/volume/51/1).
 - **27 June 2024**: Commentary with Matt Kiang on motivating better methods for measuring prevalence of drug misuse published in the [*American Journal of Epidemiology*](https://academic.oup.com/aje/advance-article-abstract/doi/10.1093/aje/kwae156/7699732?redirectedFrom=fulltext&login=true).
