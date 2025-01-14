@@ -9,7 +9,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Peer-reviewed publications
-
+- Dharamshi, A., **Alexander, M.**, Winant, C. and Barbieri, M. [‘Jointly Estimating Subnational Mortality for Multiple Populations’](https://www.demographic-research.org/articles/volume/52/3). *Demographic Research*, 2025. doi: 10.4054/DemRes.2025.52.3.
 - Chong, M. Y., Pejchinovska, M., & **Alexander, M.** ['Estimating causes of maternal death in data‐sparse contexts'](https://onlinelibrary.wiley.com/doi/10.1002/sim.10199). *Statistics in Medicine.*, 2024.  doi: https://doi.org/10.1002/sim.10199
 - **Alexander, M**. and Raftery, A.E., ['Developing and implementing the UN's probabilistic population projections as a milestone for Bayesian demography: An interview with Adrian Raftery.'](https://www.demographic-research.org/articles/volume/51/1) *Demographic Research*, 2024. 51, pp.1-16.
 - Kiang M.V., **Alexander M.J.**. ['Invited commentary: Motivating better methods — and better data collection — for measuring prevalence of drug misuse'](https://academic.oup.com/aje/advance-article-abstract/doi/10.1093/aje/kwae156/7699732?login=false), *American Journal of Epidemiology*. 2024. doi: 10.1093/aje/kwae156. 
@@ -43,7 +43,6 @@ Coombs III G., Rich-Edwards J.W., Carlson K.W., and Onnela J-P. [‘Sociodemogra
 
 
 # Working papers, projects, and pre-prints
-- Dharamshi, A., **Alexander, M.**, Winant, C. and Barbieri, M. [‘Jointly Estimating Subnational Mortality for Multiple Populations’](https://arxiv.org/abs/2310.03113v1.).
 - Pejchinovska, M., and **Alexander, M.**. ['A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence'](https://osf.io/preprints/socarxiv/uz8ev/).
 - Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U., Zagheni, E. (2023). [‘Predicting individual-level longevity with statistical and machine learning methods.’](https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf).
 - **Alexander, M.** and Root, L. '[Racial disparities in fetal and infant outcomes: a multiple-decrement life table approach](https://osf.io/preprints/socarxiv/k5qp7/)'. 

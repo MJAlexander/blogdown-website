@@ -13,4 +13,4 @@ I am married to [Rohan Alexander](https://rohanalexander.com/) who is also at Uo
 
 A full CV can be found [here](/pdf/cv.pdf).
 
-I am on sabbatical for the 2024-2025 academic year. 
+I am on sabbatical for the 2024-2025 academic year. I am an Academic Visitor at Nuffield College from January 2025. 
