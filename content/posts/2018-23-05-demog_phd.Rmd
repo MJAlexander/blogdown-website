@@ -11,7 +11,7 @@ The following are a few thoughts after my experience. They are based on being in
 
 ## __Good mentors make a huge difference__
 <center>
-```{r echo=FALSE}
+```{r echo=FALSE, eval = FALSE}
 blogdown::shortcode('tweet', '1002535988248416256')
 ```
 </center>
@@ -25,7 +25,7 @@ Find mentors who you feel comfortable around: there is huge value in being able 
 ## __The peer review process can be LONG__
 
 <center>
-```{r echo=FALSE}
+```{r echo=FALSE, eval = FALSE}
 blogdown::shortcode('tweet', '520318869819252736')
 ```
 </center>
@@ -43,7 +43,7 @@ There will probably be opportunities to be involved in side projects in addition
 
 ## __Submit and go to conferences__
 <center>
-```{r echo=FALSE}
+```{r echo=FALSE, eval = FALSE}
 blogdown::shortcode('tweet', '766336056539029504')
 ```
 </center>
@@ -53,7 +53,7 @@ Conferences are a great way of getting your work out there. If you're like me, t
 ## __Write a little bit everyday__
 
 <center>
-```{r echo=FALSE}
+```{r echo=FALSE, eval = FALSE}
 blogdown::shortcode('tweet', '996526193510899712')
 ```
 </center>
@@ -64,7 +64,7 @@ Demographers often like to play with data and graph things instead of writing. T
 
 ## __Try not to compare yourself to others too much__
 <center>
-```{r echo=FALSE}
+```{r echo=FALSE, eval = FALSE}
 blogdown::shortcode('tweet', '999307291873574913')
 ```
 </center>
@@ -76,7 +76,7 @@ But in the end, it's important to focus on yourself: define your own research in
 
 ## __It's okay to feel overwhelmed__
 <center>
-```{r echo=FALSE}
+```{r echo=FALSE, eval = FALSE}
 blogdown::shortcode('tweet', '1002242560633573377')
 ```
 </center>
