@@ -104,10 +104,15 @@ pygmentscodefencesguesssyntax = true
         name = "Teaching"
         weight = 6
         url = "teaching/"
+        
+        [[languages.en.menu.main]]
+        name = "Playlists"
+        weight = 7
+        url = "playlists/"
     
         [[languages.en.menu.main]]
         name = "Contact me"
-        weight = 7
+        weight = 8
         url = "contact/"
 
 
