@@ -28,20 +28,22 @@ The Bayesian Demography Lab brings together researchers from fields such as demo
 
 ### Undergraduate Students
 
-- [Ever Hughes](https://ca.linkedin.com/in/ever-hughes-93ga64) (Statistics)
+- [Cynthia Luo](https://ca.linkedin.com/in/cynthia-luo-b8bbb1277) (Statistics)
+- [Amy Mann](https://ca.linkedin.com/in/amy-mann-08a590216?original_referer=https%3A%2F%2Fwww.google.com%2F) (Statistics)
 
 <!-- ### Visiting Students -->
 
 # Alumni
-- [Michael Chong](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-chong) (Statistics)
-- [Ari Decter-Frain](https://aridecterfrain.com/) (Public Policy, Cornell University, visiting student from 2021-2024)
-- [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094) (Demography, Max Planck Institute for Demographic Research)
-- [Ameer Dharamshi](https://ameerd.github.io/) MA in Statistics (now PhD student in Biostatistics at University of Washington)
-- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16), MA in Statistics (now Research Analyst, UNFPA)
-- [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1), BSc, Statistics and Public Health (now PhD student in environmental health at Columbia University)
-- [Jose (Abraham) Morales](https://github.com/abraham-mv)
-- [Riccardo Omenti](https://romenti.github.io/) (Statistics, University of Bologna, visiting student Fall 2023)
-- [Jessie Yeung](https://www.jessieyeung.ca/), MA in Statistics (now Research Analyst at StatCan and Sessional Lecturer, University of Toronto)
+- [Michael Chong](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-chong) (PhD in Statistics)
+- [Ari Decter-Frain](https://aridecterfrain.com/) (PhD in Public Policy, Cornell University, visiting student from 2021-2024)
+- [Esther Denecke](https://www.demogr.mpg.de/en/about_us_6113/staff_directory_1899/esther_dorothea_denecke_4094) (PhD in Demography, Max Planck Institute for Demographic Research)
+- [Ameer Dharamshi](https://ameerd.github.io/) (MA in Statistics)
+- [Ever Hughes](https://ca.linkedin.com/in/ever-hughes-93ga64) (BSc in Statistics)
+- [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16) (MA in Statistics) 
+- [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1) (BSc in Statistics and Public Health) 
+- [Jose (Abraham) Morales](https://github.com/abraham-mv) (MA in Statistics) 
+- [Riccardo Omenti](https://romenti.github.io/) (PhD in Statistics, University of Bologna, visiting student Fall 2023)
+- [Jessie Yeung](https://www.jessieyeung.ca/) (MA in Statistics) 
 
     
 
