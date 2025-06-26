@@ -20,6 +20,8 @@ Sub-disciplines are:[^3]
 
 [^3]: At some point I want to change these to actually be more informative. 
 
+For related info and activities, please check out the website of the [feminist demography collective!](https://www.feministdemography.org/)
+
 <br>
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
