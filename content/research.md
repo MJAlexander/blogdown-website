@@ -9,6 +9,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Peer-reviewed publications
+- Potter, A. L., Schlüter, B. S., **Alexander, M.**, Yang, C. F. J., & Kiang, M. V. ['Youths Experiencing Parental Death Due to Cancer.'](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2836049) JAMA Network Open, 8(7), 2025. doi: e2519106-e2519106.
 - Cresswell, J.A., **Alexander, M.**, Chong, M.Y., Link, H.M., Pejchinovska, M., Gazeley, U., et al., ['Global and regional causes of maternal deaths 2009–20: a WHO systematic analysis.'](https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(24)00560-6/fulltext) *The Lancet Global Health*, 2025. doi: 10.1016/S2214-109X(24)00560-6
 - Dharamshi, A., **Alexander, M.**, Winant, C. and Barbieri, M. [‘Jointly Estimating Subnational Mortality for Multiple Populations’](https://www.demographic-research.org/articles/volume/52/3). *Demographic Research*, 2025. doi: 10.4054/DemRes.2025.52.3.
 - Chong, M. Y., Pejchinovska, M., & **Alexander, M.** ['Estimating causes of maternal death in data‐sparse contexts'](https://onlinelibrary.wiley.com/doi/10.1002/sim.10199). *Statistics in Medicine.*, 2024.  doi: https://doi.org/10.1002/sim.10199
