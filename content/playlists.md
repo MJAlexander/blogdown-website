@@ -5,6 +5,7 @@ slug = "playlists"
 
 I listen to a lot of music and make at least one playlist every month, so I thought I would share here. These capture moods, the season, places I'm traveling in, and help me to bookmark new music I like. They vary quite a bit but there's a few core artists that are often featured (apologies if you're not a Radiohead fan :-)). If you have any recommendations let me know, I love talking music!
 
+- [August 2025 II](https://music.apple.com/ca/playlist/august-ii-2025/pl.u-gxblkLDCbrqXeZ)
 - [August 2025](https://music.apple.com/ca/playlist/august-2025/pl.u-jV89b79CDz5kE3)
 - [July 2025](https://music.apple.com/ca/playlist/july/pl.u-kv9lbKdCJ0gdx6)
 - [June 2025 II](https://music.apple.com/ca/playlist/june-ii/pl.u-2aoqXEyFGpK5Ee)
