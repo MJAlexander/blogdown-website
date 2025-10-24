@@ -15,6 +15,7 @@ The Bayesian Demography Lab brings together researchers from fields such as demo
 ### PhD Students
 
 - [Dorian DiTommaso](https://ca.linkedin.com/in/dorian-ditommaso) (Sociology)
+- [Yichen Ji]() (Statistics)
 - [Michael Moon](https://www.statistics.utoronto.ca/people/directories/graduate-students/michael-jongho-moon) (Statistics)
 - [Amanda Norton](https://www.utm.utoronto.ca/geography/people/amanda-norton) (Geography)
 - [Aida Parnia](https://scholar.google.com/citations?user=SsX55_MAAAAJ&hl=en) (Sociology)
@@ -24,12 +25,9 @@ The Bayesian Demography Lab brings together researchers from fields such as demo
 
 ### Masters Students
 
-- [Adele Lauzon](https://ca.linkedin.com/in/adelelauzon) (Statistics)
+- [Amy Mann](https://ca.linkedin.com/in/amy-mann-08a590216?original_referer=https%3A%2F%2Fwww.google.com%2F) (Statistics)
 
 ### Undergraduate Students
-
-- [Cynthia Luo](https://ca.linkedin.com/in/cynthia-luo-b8bbb1277) (Statistics)
-- [Amy Mann](https://ca.linkedin.com/in/amy-mann-08a590216?original_referer=https%3A%2F%2Fwww.google.com%2F) (Statistics)
 
 <!-- ### Visiting Students -->
 
@@ -40,6 +38,8 @@ The Bayesian Demography Lab brings together researchers from fields such as demo
 - [Ameer Dharamshi](https://ameerd.github.io/) (MA in Statistics)
 - [Ever Hughes](https://ca.linkedin.com/in/ever-hughes-93ga64) (BSc in Statistics)
 - [Lindsay Katz](https://ca.linkedin.com/in/lindsaykatz16) (MA in Statistics) 
+- [Adele Lauzon](https://ca.linkedin.com/in/adelelauzon) (MA in Statistics)
+- [Cynthia Luo](https://ca.linkedin.com/in/cynthia-luo-b8bbb1277) (BSc in Statistics)
 - [Heather McBrien](http://cmajopen.ca/content/7/4/E665.short?rss=1) (BSc in Statistics and Public Health) 
 - [Jose (Abraham) Morales](https://github.com/abraham-mv) (MA in Statistics) 
 - [Riccardo Omenti](https://romenti.github.io/) (PhD in Statistics, University of Bologna, visiting student Fall 2023)
