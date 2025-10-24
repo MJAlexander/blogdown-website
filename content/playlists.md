@@ -7,7 +7,7 @@ I listen to a lot of music and make at least one playlist every month, so I thou
 
 - [October 2025](https://music.apple.com/ca/playlist/october-2025/pl.u-2aoqXWaHGpK5Ee)
 - [Running playlist (have been running a lot lately)](https://music.apple.com/ca/playlist/running/pl.u-GgA5e8VhoyNlMp)
-- [September 2025](https://music.apple.com/ca/playlist/running/pl.u-GgA5e8VhoyNlMp)
+- [September 2025](https://music.apple.com/ca/playlist/september-2025/pl.u-2aoqXVehGpK5Ee)
 - [August 2025 II](https://music.apple.com/ca/playlist/august-ii-2025/pl.u-gxblkLDCbrqXeZ)
 - [August 2025](https://music.apple.com/ca/playlist/august-2025/pl.u-jV89b79CDz5kE3)
 - [July 2025](https://music.apple.com/ca/playlist/july/pl.u-kv9lbKdCJ0gdx6)
