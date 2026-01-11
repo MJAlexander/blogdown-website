@@ -6,6 +6,14 @@ slug = "teaching"
 
 
 # University of Toronto
+
+## Current
+
+- **Advanced Data Analysis** (SOC6708, graduate level). Winter 2026. Materials are [here](https://github.com/MJAlexander/soc6708).
+- **Special Topics in Applied Statistics** (STA2053, graduate level). Winter 2026. Materials are [here](https://github.com/MJAlexander/sta2053).
+
+## Past
+
 - **Applied Statistics II** (STA2201H, graduate level). Winter 2020-2024. 
 - **Intermediate Quantitative Methods** (SOC252H1S, undergraduate level). Fall 2020, Winter 2023. 
 - **Stats for Sociologists** (SOC6302H, graduate level). Winter 2023.
