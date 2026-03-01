@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+    - "posts/"
+    - "women_scholars/"
+
+execute:
+  freeze: auto
+
+website:
+  title: "Monica Alexander"
+  description: "Monica Alexander's personal website"
+  site-url: https://www.monicaalexander.com/
+  navbar:
+    title: "Monica Alexander"
+    right:
+      - text: "About"
+        href: about.qmd
+      - text: "News"
+        href: news.qmd
+      - text: "Blog"
+        href: posts/index.qmd
+      - text: "Research"
+        href: research.qmd
+      - text: "Lab"
+        href: lab.qmd
+      - text: "Teaching"
+        href: teaching.qmd
+      - text: "Playlists"
+        href: playlists.qmd
+      - text: "Contact me"
+        href: contact.qmd
+  page-footer:
+    center: ""
+
+format:
+  html:
+    theme:
+      - cosmo
+      - custom.scss
+    toc: false
+    html-math-method: mathjax
+    include-in-header:
+      - text: |
+          <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">

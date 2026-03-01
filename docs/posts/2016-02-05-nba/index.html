@@ -1,1008 +1,632 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
-    <meta name="author" content="Monica Alexander">
-    <meta name="description" content="Monica Alexander&#39;s personal website">
-    <meta name="keywords" content="blog,developer,personal">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="The Cost of NBA Games"/>
-<meta name="twitter:description" content="I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got really, really, good. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, while healthier than drugs, may not be any cheaper.
-I grabbed all data on resale tickets from StubHub for all remaining games of the 2015-16 season."/>
+<meta name="author" content="Monica Alexander">
+<meta name="dcterms.date" content="2016-02-05">
 
-    <meta property="og:title" content="The Cost of NBA Games" />
-<meta property="og:description" content="I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got really, really, good. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, while healthier than drugs, may not be any cheaper.
-I grabbed all data on resale tickets from StubHub for all remaining games of the 2015-16 season." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.monicaalexander.com/posts/2016-02-05-nba/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2016-02-05T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2016-02-05T00:00:00&#43;00:00" />
+<title>The Cost of NBA Games – Monica Alexander</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
 
 
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2575636bf12bba71c1c5b79222bd7450.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-46c34704a96b1b9dbfdc14e396dd1b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
 
-    
-      <base href="https://www.monicaalexander.com/posts/2016-02-05-nba/">
-    
-    <title>
-  The Cost of NBA Games · Monica Alexander
-</title>
 
-    
-      <link rel="canonical" href="https://www.monicaalexander.com/posts/2016-02-05-nba/">
-    
+</head>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+<body class="nav-fixed fullcontent quarto-light">
 
-    
-      
-      
-      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-
-    
-
-    
-    
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.82.0" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://www.monicaalexander.com/">
-      Monica Alexander
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monica Alexander</span>
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/playlists/">Playlists</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
-          </li>
-        
-      
-      
-    </ul>
-  </section>
-</nav>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lab.html"> 
+<span class="menu-text">Lab</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../playlists.html"> 
+<span class="menu-text">Playlists</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact me</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Cost of NBA Games</h1>
+</div>
 
 
-      <div class="content">
-        
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">The Cost of NBA Games</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2016-02-05T00:00:00Z'>
-                February 5, 2016
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              6 minutes read
-            </span>
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Monica Alexander </p>
           </div>
-          
-          
-        </div>
-      </header>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 5, 2016</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-      <div>
-        
+
+</header>
 
 
 <p>I moved to the Bay Area almost three years ago, just in time to see the Golden State Warriors start to get pretty good. And then they got <a href="https://www.youtube.com/watch?v=UdvA9w3Tmoc">really, really, good</a>. Being the serious, hardworking PhD student that I am, following the Warriors became a hobby. Turns out that this hobby, <a href="http://www.cnn.com/2012/04/13/health/side-effects-sports-fan/">while healthier than drugs</a>, may not be any cheaper.</p>
 <p>I grabbed all data on resale tickets from <a href="https://www.stubhub.com/">StubHub</a> for all remaining games of the 2015-16 season. As at 1 Feb, there were around 264,200 tickets for sale on StubHub. Note that these do not represent all tickets available, but the large sample size means that the prices are fairly representative of what you could expect to pay.</p>
 <p>For those who don’t follow basketball: The NBA is made up of 30 teams, all of whom play each other at some point during the 82-game season. The teams are roughly geographically divided into either the Eastern Conference or the Western Conference. The Golden State Warriors are the number one ranked team in the Western Conference and won the Grand Final last season. Their star player is Stephen Curry, who has revolutionized basketball in the past few years with the <a href="http://basketball-players.pointafter.com/stories/10645/stephen-curry-three-point-shooting">efficacy of his 3 point throws</a>. The Warriors are followed by the San Antonio Spurs, and the Oklahoma City Thunder. The number one team in the Eastern Conference is the Cleveland Cavaliers, whose star player is LeBron James. They are followed by the Toronto Raptors and the Boston Celtics.</p>
-<div id="section-home-games" class="section level3">
-<h3>Home Games</h3>
+<p>###Home Games</p>
 <p>The plot below shows median ticket price for home games versus current overall standing of the team. Unsurprisingly, going to Warriors home games is generally much more expensive than for any other team. At 285 dollars, the median ticket price for remaining games at Oracle Arena is around $100 more than the next closest team, the Spurs.</p>
 <p>The median home game ticket price generally decreases as you go down the current standings. The most notable exception is the LA Lakers, where you can pay $280 to <a href="http://bleacherreport.com/articles/2613737-la-lakers-have-somehow-surpassed-philadelphia-76ers-as-nbas-worst">probably see them lose</a>. But then, how long until we see another Kobe?</p>
 <p>New York Knicks games are also more expensive than expected given their overall ranking, but is probably due to a Madison Square Garden premium and an income effect of living in New York (this income effect doesn’t stretch to Brooklyn). Another income effect – in the opposite direction – may be the Detroit Pistons, who, despite winning more than half their games and being ranked in the top half of teams, have the cheapest tickets available.</p>
 <p>Median ticket prices generally decrease with team rankings, but this observation really only holds for the top ten-ranked teams. After that, apart Lakers and the Knicks, there is not much difference between median home game prices. Maybe the <a href="http://espn.go.com/blog/truehoop/post/_/id/25914/mark-cuban-hopes-to-lose-and-lose-badly-someday">treadmill of mediocrity</a> starts turning. You could be paying the same amount of money to see, for example, the Pacers or the Suns, even though the former have won twice as many games.</p>
 <center>
-<h4>
+<h4 class="anchored">
 Median ticket price for remaining 15/16 home games
 </h4>
 </center>
-<iframe srcdoc=" &lt;!doctype HTML&gt;
-&lt;meta charset = 'utf-8'&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css'&gt;
-    
-    &lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'&gt;&lt;/script&gt;
-    &lt;script src='//d3js.org/d3.v3.min.js' type='text/javascript'&gt;&lt;/script&gt;
-    &lt;script src='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js' type='text/javascript'&gt;&lt;/script&gt;
-    &lt;script src='//nvd3.org/assets/lib/fisheye.js' type='text/javascript'&gt;&lt;/script&gt;
-    
-    &lt;style&gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 800px;
-      height: 400px;
-    }  
-    &lt;/style&gt;
-    
-  &lt;/head&gt;
-  &lt;body &gt;
-    
-    &lt;div id = 'chart11da01038acee' class = 'rChart nvd3'&gt;&lt;/div&gt;    
-    &lt;script type='text/javascript'&gt;
- $(document).ready(function(){
-      drawchart11da01038acee()
-    });
-    function drawchart11da01038acee(){  
-      var opts = {
- &quot;dom&quot;: &quot;chart11da01038acee&quot;,
-&quot;width&quot;:      800,
-&quot;height&quot;:      400,
-&quot;x&quot;: &quot;standing&quot;,
-&quot;y&quot;: &quot;med.price&quot;,
-&quot;group&quot;: &quot;team&quot;,
-&quot;type&quot;: &quot;scatterChart&quot;,
-&quot;showLegend&quot;: false,
-&quot;id&quot;: &quot;chart11da01038acee&quot; 
-},
-        data = [
- {
- &quot;home&quot;: &quot;Golden State Warriors&quot;,
-&quot;mean.price&quot;: 746.5825573492,
-&quot;med.price&quot;:            285,
-&quot;total.tickets&quot;: 13881,
-&quot;team&quot;: &quot;Golden State Warriors&quot;,
-&quot;away.med.price&quot;:            340,
-&quot;standing&quot;: 1 
-},
-{
- &quot;home&quot;: &quot;Los Angeles Lakers&quot;,
-&quot;mean.price&quot;: 638.9048909919,
-&quot;med.price&quot;:         279.97,
-&quot;total.tickets&quot;: 45163,
-&quot;team&quot;: &quot;Los Angeles Lakers&quot;,
-&quot;away.med.price&quot;:          267.6,
-&quot;standing&quot;: 29 
-},
-{
- &quot;home&quot;: &quot;San Antonio Spurs&quot;,
-&quot;mean.price&quot;: 331.6622040208,
-&quot;med.price&quot;:         183.98,
-&quot;total.tickets&quot;: 26856,
-&quot;team&quot;: &quot;San Antonio Spurs&quot;,
-&quot;away.med.price&quot;:            168,
-&quot;standing&quot;: 2 
-},
-{
- &quot;home&quot;: &quot;Oklahoma City Thunder&quot;,
-&quot;mean.price&quot;: 234.0735251129,
-&quot;med.price&quot;:         169.97,
-&quot;total.tickets&quot;: 19271,
-&quot;team&quot;: &quot;Oklahoma City Thunder&quot;,
-&quot;away.med.price&quot;:         156.86,
-&quot;standing&quot;: 4 
-},
-{
- &quot;home&quot;: &quot;New York Knicks&quot;,
-&quot;mean.price&quot;: 264.8877804695,
-&quot;med.price&quot;:            165,
-&quot;total.tickets&quot;: 73917,
-&quot;team&quot;: &quot;New York Knicks&quot;,
-&quot;away.med.price&quot;:         119.89,
-&quot;standing&quot;: 19 
-},
-{
- &quot;home&quot;: &quot;Cleveland Cavaliers&quot;,
-&quot;mean.price&quot;: 195.7354707026,
-&quot;med.price&quot;:            126,
-&quot;total.tickets&quot;: 12272,
-&quot;team&quot;: &quot;Cleveland Cavaliers&quot;,
-&quot;away.med.price&quot;:          271.6,
-&quot;standing&quot;: 3 
-},
-{
- &quot;home&quot;: &quot;Los Angeles Clippers&quot;,
-&quot;mean.price&quot;: 362.9090423815,
-&quot;med.price&quot;:            125,
-&quot;total.tickets&quot;: 56796,
-&quot;team&quot;: &quot;Los Angeles Clippers&quot;,
-&quot;away.med.price&quot;:         179.05,
-&quot;standing&quot;: 6 
-},
-{
- &quot;home&quot;: &quot;Miami Heat&quot;,
-&quot;mean.price&quot;: 212.5452275964,
-&quot;med.price&quot;:         120.37,
-&quot;total.tickets&quot;: 57184,
-&quot;team&quot;: &quot;Miami Heat&quot;,
-&quot;away.med.price&quot;:            147,
-&quot;standing&quot;: 8 
-},
-{
- &quot;home&quot;: &quot;Chicago Bulls&quot;,
-&quot;mean.price&quot;:  183.414019484,
-&quot;med.price&quot;:         119.01,
-&quot;total.tickets&quot;: 68046,
-&quot;team&quot;: &quot;Chicago Bulls&quot;,
-&quot;away.med.price&quot;:         149.26,
-&quot;standing&quot;: 10 
-},
-{
- &quot;home&quot;: &quot;Orlando Magic&quot;,
-&quot;mean.price&quot;: 195.5518711386,
-&quot;med.price&quot;:        117.975,
-&quot;total.tickets&quot;: 14965,
-&quot;team&quot;: &quot;Orlando Magic&quot;,
-&quot;away.med.price&quot;:             95,
-&quot;standing&quot;: 21 
-},
-{
- &quot;home&quot;: &quot;Minnesota Timberwolves&quot;,
-&quot;mean.price&quot;: 208.1714285714,
-&quot;med.price&quot;:            117,
-&quot;total.tickets&quot;: 34,
-&quot;team&quot;: &quot;Minnesota Timberwolves&quot;,
-&quot;away.med.price&quot;:           82.5,
-&quot;standing&quot;: 27 
-},
-{
- &quot;home&quot;: &quot;Toronto Raptors&quot;,
-&quot;mean.price&quot;: 178.9227711097,
-&quot;med.price&quot;:            112,
-&quot;total.tickets&quot;: 42429,
-&quot;team&quot;: &quot;Toronto Raptors&quot;,
-&quot;away.med.price&quot;:            110,
-&quot;standing&quot;: 5 
-},
-{
- &quot;home&quot;: &quot;Denver Nuggets&quot;,
-&quot;mean.price&quot;:  171.964158268,
-&quot;med.price&quot;:         108.78,
-&quot;total.tickets&quot;: 11813,
-&quot;team&quot;: &quot;Denver Nuggets&quot;,
-&quot;away.med.price&quot;:           90.1,
-&quot;standing&quot;: 24 
-},
-{
- &quot;home&quot;: &quot;Sacramento Kings&quot;,
-&quot;mean.price&quot;: 163.1164965831,
-&quot;med.price&quot;:            106,
-&quot;total.tickets&quot;: 6446,
-&quot;team&quot;: &quot;Sacramento Kings&quot;,
-&quot;away.med.price&quot;:          99.01,
-&quot;standing&quot;: 22 
-},
-{
- &quot;home&quot;: &quot;Houston Rockets&quot;,
-&quot;mean.price&quot;: 188.0682343456,
-&quot;med.price&quot;:            105,
-&quot;total.tickets&quot;: 15255,
-&quot;team&quot;: &quot;Houston Rockets&quot;,
-&quot;away.med.price&quot;:            117,
-&quot;standing&quot;: 15 
-},
-{
- &quot;home&quot;: &quot;Atlanta Hawks&quot;,
-&quot;mean.price&quot;: 181.6457681549,
-&quot;med.price&quot;:            100,
-&quot;total.tickets&quot;: 24650,
-&quot;team&quot;: &quot;Atlanta Hawks&quot;,
-&quot;away.med.price&quot;:          93.01,
-&quot;standing&quot;: 9 
-},
-{
- &quot;home&quot;: &quot;Portland Trail Blazers&quot;,
-&quot;mean.price&quot;:  158.924484968,
-&quot;med.price&quot;:            100,
-&quot;total.tickets&quot;: 17844,
-&quot;team&quot;: &quot;Portland Trail Blazers&quot;,
-&quot;away.med.price&quot;:            106,
-&quot;standing&quot;: 17 
-},
-{
- &quot;home&quot;: &quot;Brooklyn Nets&quot;,
-&quot;mean.price&quot;: 195.3687750977,
-&quot;med.price&quot;:          99.75,
-&quot;total.tickets&quot;: 31879,
-&quot;team&quot;: &quot;Brooklyn Nets&quot;,
-&quot;away.med.price&quot;:            100,
-&quot;standing&quot;: 28 
-},
-{
- &quot;home&quot;: &quot;Memphis Grizzlies&quot;,
-&quot;mean.price&quot;: 151.0936938286,
-&quot;med.price&quot;:          87.97,
-&quot;total.tickets&quot;: 24368,
-&quot;team&quot;: &quot;Memphis Grizzlies&quot;,
-&quot;away.med.price&quot;:         114.44,
-&quot;standing&quot;: 7 
-},
-{
- &quot;home&quot;: &quot;Boston Celtics&quot;,
-&quot;mean.price&quot;: 171.9399356711,
-&quot;med.price&quot;:          86.52,
-&quot;total.tickets&quot;: 45188,
-&quot;team&quot;: &quot;Boston Celtics&quot;,
-&quot;away.med.price&quot;:         119.89,
-&quot;standing&quot;: 11 
-},
-{
- &quot;home&quot;: &quot;Dallas Mavericks&quot;,
-&quot;mean.price&quot;: 149.9544251852,
-&quot;med.price&quot;:          84.01,
-&quot;total.tickets&quot;: 49171,
-&quot;team&quot;: &quot;Dallas Mavericks&quot;,
-&quot;away.med.price&quot;:             91,
-&quot;standing&quot;: 12 
-},
-{
- &quot;home&quot;: &quot;Charlotte Hornets&quot;,
-&quot;mean.price&quot;: 124.9853293496,
-&quot;med.price&quot;:          80.13,
-&quot;total.tickets&quot;: 26535,
-&quot;team&quot;: &quot;Charlotte Hornets&quot;,
-&quot;away.med.price&quot;:             80,
-&quot;standing&quot;: 16 
-},
-{
- &quot;home&quot;: &quot;Phoenix Suns&quot;,
-&quot;mean.price&quot;:  132.971847174,
-&quot;med.price&quot;:             75,
-&quot;total.tickets&quot;: 14109,
-&quot;team&quot;: &quot;Phoenix Suns&quot;,
-&quot;away.med.price&quot;:             85,
-&quot;standing&quot;: 26 
-},
-{
- &quot;home&quot;: &quot;Indiana Pacers&quot;,
-&quot;mean.price&quot;: 119.9811269571,
-&quot;med.price&quot;:             70,
-&quot;total.tickets&quot;: 27407,
-&quot;team&quot;: &quot;Indiana Pacers&quot;,
-&quot;away.med.price&quot;:            100,
-&quot;standing&quot;: 14 
-},
-{
- &quot;home&quot;: &quot;Washington Wizards&quot;,
-&quot;mean.price&quot;: 132.4703064818,
-&quot;med.price&quot;:             70,
-&quot;total.tickets&quot;: 44848,
-&quot;team&quot;: &quot;Washington Wizards&quot;,
-&quot;away.med.price&quot;:         104.65,
-&quot;standing&quot;: 20 
-},
-{
- &quot;home&quot;: &quot;Milwaukee Bucks&quot;,
-&quot;mean.price&quot;: 107.9297793939,
-&quot;med.price&quot;:           59.4,
-&quot;total.tickets&quot;: 17338,
-&quot;team&quot;: &quot;Milwaukee Bucks&quot;,
-&quot;away.med.price&quot;:          77.49,
-&quot;standing&quot;: 23 
-},
-{
- &quot;home&quot;: &quot;Utah Jazz&quot;,
-&quot;mean.price&quot;: 143.4808084862,
-&quot;med.price&quot;:           58.2,
-&quot;total.tickets&quot;: 9412,
-&quot;team&quot;: &quot;Utah Jazz&quot;,
-&quot;away.med.price&quot;:             92,
-&quot;standing&quot;: 18 
-},
-{
- &quot;home&quot;: &quot;New Orleans Pelicans&quot;,
-&quot;mean.price&quot;: 124.5160423474,
-&quot;med.price&quot;:           55.2,
-&quot;total.tickets&quot;: 32299,
-&quot;team&quot;: &quot;New Orleans Pelicans&quot;,
-&quot;away.med.price&quot;:          75.95,
-&quot;standing&quot;: 25 
-},
-{
- &quot;home&quot;: &quot;Philadelphia 76ers&quot;,
-&quot;mean.price&quot;: 89.53557283465,
-&quot;med.price&quot;:          49.99,
-&quot;total.tickets&quot;: 34636,
-&quot;team&quot;: &quot;Philadelphia 76ers&quot;,
-&quot;away.med.price&quot;:          73.53,
-&quot;standing&quot;: 30 
-},
-{
- &quot;home&quot;: &quot;Detroit Pistons&quot;,
-&quot;mean.price&quot;: 88.34122615804,
-&quot;med.price&quot;:             45,
-&quot;total.tickets&quot;: 23802,
-&quot;team&quot;: &quot;Detroit Pistons&quot;,
-&quot;away.med.price&quot;:          86.06,
-&quot;standing&quot;: 13 
-} 
-]
-  
-      if(!(opts.type===&quot;pieChart&quot; || opts.type===&quot;sparklinePlus&quot; || opts.type===&quot;bulletChart&quot;)) {
-        var data = d3.nest()
-          .key(function(d){
-            //return opts.group === undefined ? 'main' : d[opts.group]
-            //instead of main would think a better default is opts.x
-            return opts.group === undefined ? opts.y : d[opts.group];
-          })
-          .entries(data);
-      }
-      
-      if (opts.disabled != undefined){
-        data.map(function(d, i){
-          d.disabled = opts.disabled[i]
-        })
-      }
-      
-      nv.addGraph(function() {
-        var chart = nv.models[opts.type]()
-          .width(opts.width)
-          .height(opts.height)
-          
-        if (opts.type != &quot;bulletChart&quot;){
-          chart
-            .x(function(d) { return d[opts.x] })
-            .y(function(d) { return d[opts.y] })
-        }
-          
-         
-        chart
-  .color([ &quot;#006BB6&quot;, &quot;#552582&quot;, &quot;#000000&quot;, &quot;#007DC3&quot;, &quot;#F58426&quot;, &quot;#860038&quot;, &quot;#006BB6&quot;, &quot;#F9A01B&quot;, &quot;#CE1141&quot;, &quot;#C4CED3&quot;, &quot;#00A94F&quot;, &quot;#CE1141&quot;, &quot;#4FA8FF&quot;, &quot;#724C9F&quot;, &quot;#CE1142&quot;, &quot;#E03A3E&quot;, &quot;#F0163A&quot;, &quot;#000000&quot;, &quot;#23375B&quot;, &quot;#008348&quot;, &quot;#20385B&quot;, &quot;#1D1160&quot;, &quot;#E56020&quot;, &quot;#FFC633&quot;, &quot;#002566&quot;, &quot;#00471B&quot;, &quot;#002B5C&quot;, &quot;#B4975A&quot;, &quot;#006BB6&quot;, &quot;#001F70&quot; ])
-  .tooltipContent( function(key, x, y){
-        return '&lt;h3&gt;' + key + '&lt;/h3&gt;' + 
-        '&lt;p&gt;' + 'Standing: '+ x + ' , ' + 'Price: $'+ y + '&lt;/p&gt;'
-        } )
-  .showLegend(false)
-  .sizeRange([      250,      250 ])
-  .forceY([       25,      375 ])
-  .forceX([        0,       30 ])
-          
-        chart.xAxis
-  .axisLabel(&quot;Current Team Standing&quot;)
-  .tickValues( function (x) {    
-                tickvalues = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
-                return tickvalues;
-                } )
-
-        
-        
-        chart.yAxis
-  .axisLabel(&quot;Ticket price, home games ($)&quot;)
-  .width(      62)
-  .tickValues( function (x) {    
-                tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
-                return tickvalues;
-                } )
-      
-       d3.select(&quot;#&quot; + opts.id)
-        .append('svg')
-        .datum(data)
-        .transition().duration(500)
-        .call(chart);
-
-       nv.utils.windowResize(chart.update);
-       return chart;
-      });
-    };
-&lt;/script&gt;
-    
-    &lt;style&gt;
-    .tick line {
-      opacity: 0;
-    }
-    &lt;/style&gt;    
-  &lt;/body&gt;
-&lt;/html&gt; " scrolling="no" frameBorder="0" seamless class="rChart  nvd3  " id="iframe-chart11da01038acee">
-</iframe>
-<style>iframe.rChart{ width: 100%; height: 400px;}</style>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div id="section-everyone-wants-to-see-curry-lebron" class="section level3">
-<h3>Everyone wants to see Curry (+ LeBron)</h3>
+</div>
+</div>
+<section id="everyone-wants-to-see-curry-lebron" class="level3">
+<h3 class="anchored" data-anchor-id="everyone-wants-to-see-curry-lebron">Everyone wants to see Curry (+ LeBron)</h3>
 <p>Oracle is notorious for its <a href="http://abc7news.com/sports/expert-decibel-level-at-oracle-is-similar-to-jet-engine/773850/">electric atmosphere</a>, and Warriors fans are some of the most passionate in the league, so maybe there is a price premium for the home-court advantage. The plot below shows the median ticket price for each team, with the home-game price plotted against away-game price. While the home game prices for the Warriors <a href="https://www.youtube.com/watch?v=LB4rplyj3TU">are enough the make you fall over</a>, the away game prices are even worse. The median price is 340 dollars for all remaining away games for the Warriors, $55 more than their home games. Everyone wants to see <a href="https://www.youtube.com/watch?v=F8uoujg1XgE">Curry score a three from their half court logo</a>. The prospect of playing the Warriors must be daunting for any team, even at home. But the average price of tickets when the Warriors come to town must have the team and stadium owners rubbing their hands with joy.</p>
 <p>For most other teams, home and away median prices are pretty close. The notable exception is the Cleveland Cavaliers, where the away game median price more than twice the home game price. This could be explained by the LeBron Effect: the King’s Lands reach far and wide. However, the Cleveland locals aren’t so excited. The number of times the Cavs have lost a championship is too high. They don’t want to pay too much, only to get their hearts broken again.</p>
 <p>The three dots to the far right of the chart show that the Warriors, Lakers and Cavs fetch far more in away games than any other team. On the other hand, the San Antonio Spurs, despite being the second-best team in the league, having an All-Star starter, a record home-game start to the season and playing to sellout crowds at home, fail to instill any excitement in non-San Antonians. After all, Tim Duncan only dunks when necessary.</p>
 <center>
-<h4>
+<h4 class="anchored">
 Median ticket price, home games versus away games
 </h4>
 </center>
-<iframe srcdoc=" &lt;!doctype HTML&gt;
-&lt;meta charset = 'utf-8'&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css'&gt;
-    
-    &lt;script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'&gt;&lt;/script&gt;
-    &lt;script src='//d3js.org/d3.v3.min.js' type='text/javascript'&gt;&lt;/script&gt;
-    &lt;script src='//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js' type='text/javascript'&gt;&lt;/script&gt;
-    &lt;script src='//nvd3.org/assets/lib/fisheye.js' type='text/javascript'&gt;&lt;/script&gt;
-    
-    &lt;style&gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 800px;
-      height: 400px;
-    }  
-    &lt;/style&gt;
-    
-  &lt;/head&gt;
-  &lt;body &gt;
-    
-    &lt;div id = 'chart11da03e9e465f' class = 'rChart nvd3'&gt;&lt;/div&gt;    
-    &lt;script type='text/javascript'&gt;
- $(document).ready(function(){
-      drawchart11da03e9e465f()
-    });
-    function drawchart11da03e9e465f(){  
-      var opts = {
- &quot;dom&quot;: &quot;chart11da03e9e465f&quot;,
-&quot;width&quot;:      800,
-&quot;height&quot;:      400,
-&quot;x&quot;: &quot;away.med.price&quot;,
-&quot;y&quot;: &quot;med.price&quot;,
-&quot;group&quot;: &quot;team&quot;,
-&quot;type&quot;: &quot;scatterChart&quot;,
-&quot;showLegend&quot;: false,
-&quot;id&quot;: &quot;chart11da03e9e465f&quot; 
-},
-        data = [
- {
- &quot;home&quot;: &quot;Golden State Warriors&quot;,
-&quot;mean.price&quot;: 746.5825573492,
-&quot;med.price&quot;:            285,
-&quot;total.tickets&quot;: 13881,
-&quot;team&quot;: &quot;Golden State Warriors&quot;,
-&quot;away.med.price&quot;:            340,
-&quot;standing&quot;: 1 
-},
-{
- &quot;home&quot;: &quot;Los Angeles Lakers&quot;,
-&quot;mean.price&quot;: 638.9048909919,
-&quot;med.price&quot;:         279.97,
-&quot;total.tickets&quot;: 45163,
-&quot;team&quot;: &quot;Los Angeles Lakers&quot;,
-&quot;away.med.price&quot;:          267.6,
-&quot;standing&quot;: 29 
-},
-{
- &quot;home&quot;: &quot;San Antonio Spurs&quot;,
-&quot;mean.price&quot;: 331.6622040208,
-&quot;med.price&quot;:         183.98,
-&quot;total.tickets&quot;: 26856,
-&quot;team&quot;: &quot;San Antonio Spurs&quot;,
-&quot;away.med.price&quot;:            168,
-&quot;standing&quot;: 2 
-},
-{
- &quot;home&quot;: &quot;Oklahoma City Thunder&quot;,
-&quot;mean.price&quot;: 234.0735251129,
-&quot;med.price&quot;:         169.97,
-&quot;total.tickets&quot;: 19271,
-&quot;team&quot;: &quot;Oklahoma City Thunder&quot;,
-&quot;away.med.price&quot;:         156.86,
-&quot;standing&quot;: 4 
-},
-{
- &quot;home&quot;: &quot;New York Knicks&quot;,
-&quot;mean.price&quot;: 264.8877804695,
-&quot;med.price&quot;:            165,
-&quot;total.tickets&quot;: 73917,
-&quot;team&quot;: &quot;New York Knicks&quot;,
-&quot;away.med.price&quot;:         119.89,
-&quot;standing&quot;: 19 
-},
-{
- &quot;home&quot;: &quot;Cleveland Cavaliers&quot;,
-&quot;mean.price&quot;: 195.7354707026,
-&quot;med.price&quot;:            126,
-&quot;total.tickets&quot;: 12272,
-&quot;team&quot;: &quot;Cleveland Cavaliers&quot;,
-&quot;away.med.price&quot;:          271.6,
-&quot;standing&quot;: 3 
-},
-{
- &quot;home&quot;: &quot;Los Angeles Clippers&quot;,
-&quot;mean.price&quot;: 362.9090423815,
-&quot;med.price&quot;:            125,
-&quot;total.tickets&quot;: 56796,
-&quot;team&quot;: &quot;Los Angeles Clippers&quot;,
-&quot;away.med.price&quot;:         179.05,
-&quot;standing&quot;: 6 
-},
-{
- &quot;home&quot;: &quot;Miami Heat&quot;,
-&quot;mean.price&quot;: 212.5452275964,
-&quot;med.price&quot;:         120.37,
-&quot;total.tickets&quot;: 57184,
-&quot;team&quot;: &quot;Miami Heat&quot;,
-&quot;away.med.price&quot;:            147,
-&quot;standing&quot;: 8 
-},
-{
- &quot;home&quot;: &quot;Chicago Bulls&quot;,
-&quot;mean.price&quot;:  183.414019484,
-&quot;med.price&quot;:         119.01,
-&quot;total.tickets&quot;: 68046,
-&quot;team&quot;: &quot;Chicago Bulls&quot;,
-&quot;away.med.price&quot;:         149.26,
-&quot;standing&quot;: 10 
-},
-{
- &quot;home&quot;: &quot;Orlando Magic&quot;,
-&quot;mean.price&quot;: 195.5518711386,
-&quot;med.price&quot;:        117.975,
-&quot;total.tickets&quot;: 14965,
-&quot;team&quot;: &quot;Orlando Magic&quot;,
-&quot;away.med.price&quot;:             95,
-&quot;standing&quot;: 21 
-},
-{
- &quot;home&quot;: &quot;Minnesota Timberwolves&quot;,
-&quot;mean.price&quot;: 208.1714285714,
-&quot;med.price&quot;:            117,
-&quot;total.tickets&quot;: 34,
-&quot;team&quot;: &quot;Minnesota Timberwolves&quot;,
-&quot;away.med.price&quot;:           82.5,
-&quot;standing&quot;: 27 
-},
-{
- &quot;home&quot;: &quot;Toronto Raptors&quot;,
-&quot;mean.price&quot;: 178.9227711097,
-&quot;med.price&quot;:            112,
-&quot;total.tickets&quot;: 42429,
-&quot;team&quot;: &quot;Toronto Raptors&quot;,
-&quot;away.med.price&quot;:            110,
-&quot;standing&quot;: 5 
-},
-{
- &quot;home&quot;: &quot;Denver Nuggets&quot;,
-&quot;mean.price&quot;:  171.964158268,
-&quot;med.price&quot;:         108.78,
-&quot;total.tickets&quot;: 11813,
-&quot;team&quot;: &quot;Denver Nuggets&quot;,
-&quot;away.med.price&quot;:           90.1,
-&quot;standing&quot;: 24 
-},
-{
- &quot;home&quot;: &quot;Sacramento Kings&quot;,
-&quot;mean.price&quot;: 163.1164965831,
-&quot;med.price&quot;:            106,
-&quot;total.tickets&quot;: 6446,
-&quot;team&quot;: &quot;Sacramento Kings&quot;,
-&quot;away.med.price&quot;:          99.01,
-&quot;standing&quot;: 22 
-},
-{
- &quot;home&quot;: &quot;Houston Rockets&quot;,
-&quot;mean.price&quot;: 188.0682343456,
-&quot;med.price&quot;:            105,
-&quot;total.tickets&quot;: 15255,
-&quot;team&quot;: &quot;Houston Rockets&quot;,
-&quot;away.med.price&quot;:            117,
-&quot;standing&quot;: 15 
-},
-{
- &quot;home&quot;: &quot;Atlanta Hawks&quot;,
-&quot;mean.price&quot;: 181.6457681549,
-&quot;med.price&quot;:            100,
-&quot;total.tickets&quot;: 24650,
-&quot;team&quot;: &quot;Atlanta Hawks&quot;,
-&quot;away.med.price&quot;:          93.01,
-&quot;standing&quot;: 9 
-},
-{
- &quot;home&quot;: &quot;Portland Trail Blazers&quot;,
-&quot;mean.price&quot;:  158.924484968,
-&quot;med.price&quot;:            100,
-&quot;total.tickets&quot;: 17844,
-&quot;team&quot;: &quot;Portland Trail Blazers&quot;,
-&quot;away.med.price&quot;:            106,
-&quot;standing&quot;: 17 
-},
-{
- &quot;home&quot;: &quot;Brooklyn Nets&quot;,
-&quot;mean.price&quot;: 195.3687750977,
-&quot;med.price&quot;:          99.75,
-&quot;total.tickets&quot;: 31879,
-&quot;team&quot;: &quot;Brooklyn Nets&quot;,
-&quot;away.med.price&quot;:            100,
-&quot;standing&quot;: 28 
-},
-{
- &quot;home&quot;: &quot;Memphis Grizzlies&quot;,
-&quot;mean.price&quot;: 151.0936938286,
-&quot;med.price&quot;:          87.97,
-&quot;total.tickets&quot;: 24368,
-&quot;team&quot;: &quot;Memphis Grizzlies&quot;,
-&quot;away.med.price&quot;:         114.44,
-&quot;standing&quot;: 7 
-},
-{
- &quot;home&quot;: &quot;Boston Celtics&quot;,
-&quot;mean.price&quot;: 171.9399356711,
-&quot;med.price&quot;:          86.52,
-&quot;total.tickets&quot;: 45188,
-&quot;team&quot;: &quot;Boston Celtics&quot;,
-&quot;away.med.price&quot;:         119.89,
-&quot;standing&quot;: 11 
-},
-{
- &quot;home&quot;: &quot;Dallas Mavericks&quot;,
-&quot;mean.price&quot;: 149.9544251852,
-&quot;med.price&quot;:          84.01,
-&quot;total.tickets&quot;: 49171,
-&quot;team&quot;: &quot;Dallas Mavericks&quot;,
-&quot;away.med.price&quot;:             91,
-&quot;standing&quot;: 12 
-},
-{
- &quot;home&quot;: &quot;Charlotte Hornets&quot;,
-&quot;mean.price&quot;: 124.9853293496,
-&quot;med.price&quot;:          80.13,
-&quot;total.tickets&quot;: 26535,
-&quot;team&quot;: &quot;Charlotte Hornets&quot;,
-&quot;away.med.price&quot;:             80,
-&quot;standing&quot;: 16 
-},
-{
- &quot;home&quot;: &quot;Phoenix Suns&quot;,
-&quot;mean.price&quot;:  132.971847174,
-&quot;med.price&quot;:             75,
-&quot;total.tickets&quot;: 14109,
-&quot;team&quot;: &quot;Phoenix Suns&quot;,
-&quot;away.med.price&quot;:             85,
-&quot;standing&quot;: 26 
-},
-{
- &quot;home&quot;: &quot;Indiana Pacers&quot;,
-&quot;mean.price&quot;: 119.9811269571,
-&quot;med.price&quot;:             70,
-&quot;total.tickets&quot;: 27407,
-&quot;team&quot;: &quot;Indiana Pacers&quot;,
-&quot;away.med.price&quot;:            100,
-&quot;standing&quot;: 14 
-},
-{
- &quot;home&quot;: &quot;Washington Wizards&quot;,
-&quot;mean.price&quot;: 132.4703064818,
-&quot;med.price&quot;:             70,
-&quot;total.tickets&quot;: 44848,
-&quot;team&quot;: &quot;Washington Wizards&quot;,
-&quot;away.med.price&quot;:         104.65,
-&quot;standing&quot;: 20 
-},
-{
- &quot;home&quot;: &quot;Milwaukee Bucks&quot;,
-&quot;mean.price&quot;: 107.9297793939,
-&quot;med.price&quot;:           59.4,
-&quot;total.tickets&quot;: 17338,
-&quot;team&quot;: &quot;Milwaukee Bucks&quot;,
-&quot;away.med.price&quot;:          77.49,
-&quot;standing&quot;: 23 
-},
-{
- &quot;home&quot;: &quot;Utah Jazz&quot;,
-&quot;mean.price&quot;: 143.4808084862,
-&quot;med.price&quot;:           58.2,
-&quot;total.tickets&quot;: 9412,
-&quot;team&quot;: &quot;Utah Jazz&quot;,
-&quot;away.med.price&quot;:             92,
-&quot;standing&quot;: 18 
-},
-{
- &quot;home&quot;: &quot;New Orleans Pelicans&quot;,
-&quot;mean.price&quot;: 124.5160423474,
-&quot;med.price&quot;:           55.2,
-&quot;total.tickets&quot;: 32299,
-&quot;team&quot;: &quot;New Orleans Pelicans&quot;,
-&quot;away.med.price&quot;:          75.95,
-&quot;standing&quot;: 25 
-},
-{
- &quot;home&quot;: &quot;Philadelphia 76ers&quot;,
-&quot;mean.price&quot;: 89.53557283465,
-&quot;med.price&quot;:          49.99,
-&quot;total.tickets&quot;: 34636,
-&quot;team&quot;: &quot;Philadelphia 76ers&quot;,
-&quot;away.med.price&quot;:          73.53,
-&quot;standing&quot;: 30 
-},
-{
- &quot;home&quot;: &quot;Detroit Pistons&quot;,
-&quot;mean.price&quot;: 88.34122615804,
-&quot;med.price&quot;:             45,
-&quot;total.tickets&quot;: 23802,
-&quot;team&quot;: &quot;Detroit Pistons&quot;,
-&quot;away.med.price&quot;:          86.06,
-&quot;standing&quot;: 13 
-} 
-]
-  
-      if(!(opts.type===&quot;pieChart&quot; || opts.type===&quot;sparklinePlus&quot; || opts.type===&quot;bulletChart&quot;)) {
-        var data = d3.nest()
-          .key(function(d){
-            //return opts.group === undefined ? 'main' : d[opts.group]
-            //instead of main would think a better default is opts.x
-            return opts.group === undefined ? opts.y : d[opts.group];
-          })
-          .entries(data);
-      }
-      
-      if (opts.disabled != undefined){
-        data.map(function(d, i){
-          d.disabled = opts.disabled[i]
-        })
-      }
-      
-      nv.addGraph(function() {
-        var chart = nv.models[opts.type]()
-          .width(opts.width)
-          .height(opts.height)
-          
-        if (opts.type != &quot;bulletChart&quot;){
-          chart
-            .x(function(d) { return d[opts.x] })
-            .y(function(d) { return d[opts.y] })
-        }
-          
-         
-        chart
-  .color([ &quot;#006BB6&quot;, &quot;#552582&quot;, &quot;#000000&quot;, &quot;#007DC3&quot;, &quot;#F58426&quot;, &quot;#860038&quot;, &quot;#006BB6&quot;, &quot;#F9A01B&quot;, &quot;#CE1141&quot;, &quot;#C4CED3&quot;, &quot;#00A94F&quot;, &quot;#CE1141&quot;, &quot;#4FA8FF&quot;, &quot;#724C9F&quot;, &quot;#CE1142&quot;, &quot;#E03A3E&quot;, &quot;#F0163A&quot;, &quot;#000000&quot;, &quot;#23375B&quot;, &quot;#008348&quot;, &quot;#20385B&quot;, &quot;#1D1160&quot;, &quot;#E56020&quot;, &quot;#FFC633&quot;, &quot;#002566&quot;, &quot;#00471B&quot;, &quot;#002B5C&quot;, &quot;#B4975A&quot;, &quot;#006BB6&quot;, &quot;#001F70&quot; ])
-  .tooltipContent( function(key, x, y){
-        return '&lt;h3&gt;' + key + '&lt;/h3&gt;' + 
-        '&lt;p&gt;' + 'Away: $'+ x + ' , ' + 'Home: $'+ y + '&lt;/p&gt;'
-        } )
-  .showLegend(false)
-  .sizeRange([      250,      250 ])
-  .forceY([       25,      375 ])
-  .forceX([       25,      375 ])
-          
-        chart.xAxis
-  .axisLabel(&quot;Ticket price, away games ($)&quot;)
-  .tickValues( function (x) {    
-    tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
-    return tickvalues;
-} )
-
-        
-        
-        chart.yAxis
-  .axisLabel(&quot;Ticket price, home games ($)&quot;)
-  .width(      62)
-  .tickValues( function (x) {    
-    tickvalues = [25, 75, 125, 175, 225, 275, 325, 375];
-    return tickvalues;
-} )
-      
-       d3.select(&quot;#&quot; + opts.id)
-        .append('svg')
-        .datum(data)
-        .transition().duration(500)
-        .call(chart);
-
-       nv.utils.windowResize(chart.update);
-       return chart;
-      });
-    };
-&lt;/script&gt;
-    
-    &lt;style&gt;
-    .tick line {
-      opacity: 0;
-    }
-    &lt;/style&gt;    
-  &lt;/body&gt;
-&lt;/html&gt; " scrolling="no" frameBorder="0" seamless class="rChart  nvd3  " id="iframe-chart11da03e9e465f">
-</iframe>
-<style>iframe.rChart{ width: 100%; height: 400px;}</style>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div id="section-you-pay-for-what-you-get" class="section level3">
-<h3>You pay for what you get</h3>
-<p>The plot below shows median ticket price for all remaining regular games in the 15/16 season, plotted against the average standing of the two teams playing. For example, if the game is between the Warriors and the Spurs, the average rating is (1+2)/2 = 1.5. You can select to see prices involving different games using the drop downs on the left; selections show up in red.</p>
+</div>
+</div>
+</section>
+<section id="you-pay-for-what-you-get" class="level3">
+<h3 class="anchored" data-anchor-id="you-pay-for-what-you-get">You pay for what you get</h3>
+<p>The plot below originally showed median ticket price for all remaining regular games in the 15/16 season, plotted against the average standing of the two teams playing, as an interactive Shiny app. The interactive app is no longer available, but the analysis code can be found <a href="https://github.com/MJAlexander/nba">here</a>.</p>
 <p>In general, you pay for what you get: the higher the combined ranking of the two teams playing, the more expensive the tickets. Lakers games buck this trend. Note that for visibility I left the most expensive game off this chart: Kobe’s final game at the Staples Center on 13 April has a median ticket price of <a href="https://www.stubhub.com/los-angeles-lakers-tickets-los-angeles-lakers-los-angeles-staples-center-4-13-2016/event/9370774/">around $1650</a>!</p>
 <p>Despite the high price of Warrior away-games in general, it could still be cheaper to <a href="https://www.kayak.com/flights/SFO-SLC/2016-03-30/2016-03-31">fly to Utah</a> in late March to see the Jazz game, than to see any remaining home games. The most expensive games are between the Warriors and Spurs or OKC, the two teams who are most likely to threaten the Warriors chances of breaking the <a href="http://www.nba.com/history/season/19951996.html">Bull’s 72-10 record</a>. No matter what happens, Steve Kerr still may be the <a href="http://www.huffingtonpost.com/2015/06/17/steve-kerr-warriors-coach_n_7603384.html">luckiest man in NBA history</a>.</p>
-<center>
-<h4>
-Median ticket price, all remaining NBA games
-</h4>
-</center>
-<iframe src="http://shiny.demog.berkeley.edu/monicah/nba_app/?showcase=0" width="1152" height="600px">
-</iframe>
-<div id="section-notes" class="section level4">
-<h4>Notes:</h4>
-<p>These charts were made using <code>rCharts</code> (thanks Ramnath Vaidyanathan for the awesome package). Code for scraping StubHub and analysis can be found <a href="https://github.com/MJAlexander/nba">here</a>.</p>
-</div>
-</div>
-
-      </div>
-
-      <footer>
-        
+<section id="notes" class="level4">
+<h4 class="anchored" data-anchor-id="notes">Notes:</h4>
+<p>These charts were originally made using <code>rCharts</code> and have been converted to <code>ggplot2</code>. Code for scraping StubHub and analysis can be found <a href="https://github.com/MJAlexander/nba">here</a>.</p>
 
 
-        
-        
-        
-      </footer>
-    </article>
+</section>
+</section>
 
-    
-  </section>
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.monicaalexander\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
 
-      </div>
 
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
 
-    
-    <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
 
-  </section>
-</footer>
-
-    </main>
-
-    
-
-  </body>
-
-</html>
+</body></html>

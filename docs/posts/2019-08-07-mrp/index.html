@@ -1,351 +1,782 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
-    <meta name="author" content="Monica Alexander">
-    <meta name="description" content="Monica Alexander&#39;s personal website">
-    <meta name="keywords" content="blog,developer,personal">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Analyzing name changes after marriage using a non-representative survey"/>
-<meta name="twitter:description" content="Introduction Recently on Twitter, sociologist Phil Cohen put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable here for anyone to do their own analysis.
-However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average."/>
+<meta name="author" content="Monica Alexander">
+<meta name="dcterms.date" content="2019-08-07">
 
-    <meta property="og:title" content="Analyzing name changes after marriage using a non-representative survey" />
-<meta property="og:description" content="Introduction Recently on Twitter, sociologist Phil Cohen put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable here for anyone to do their own analysis.
-However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.monicaalexander.com/posts/2019-08-07-mrp/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-08-07T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2019-08-07T00:00:00&#43;00:00" />
+<title>Analyzing name changes after marriage using a non-representative survey – Monica Alexander</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
 
 
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2575636bf12bba71c1c5b79222bd7450.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-46c34704a96b1b9dbfdc14e396dd1b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
 
-    
-      <base href="https://www.monicaalexander.com/posts/2019-08-07-mrp/">
-    
-    <title>
-  Analyzing name changes after marriage using a non-representative survey · Monica Alexander
-</title>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-    
-      <link rel="canonical" href="https://www.monicaalexander.com/posts/2019-08-07-mrp/">
-    
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+</head>
 
-    
-      
-      
-      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
+<body class="nav-fixed fullcontent quarto-light">
 
-    
-
-    
-
-    
-
-    
-    
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.82.0" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://www.monicaalexander.com/">
-      Monica Alexander
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monica Alexander</span>
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/playlists/">Playlists</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
-          </li>
-        
-      
-      
-    </ul>
-  </section>
-</nav>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lab.html"> 
+<span class="menu-text">Lab</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../playlists.html"> 
+<span class="menu-text">Playlists</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact me</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Analyzing name changes after marriage using a non-representative survey</h1>
+</div>
 
 
-      <div class="content">
-        
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Analyzing name changes after marriage using a non-representative survey</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2019-08-07T00:00:00Z'>
-                August 7, 2019
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              11 minutes read
-            </span>
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Monica Alexander </p>
           </div>
-          
-          
-        </div>
-      </header>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 7, 2019</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-      <div>
-        
+
+</header>
 
 
-<div id="introduction" class="section level1">
+<section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Recently on Twitter, sociologist <a href="https://socy.umd.edu/facultyprofile/cohen/philip-n">Phil Cohen</a> put out a survey asking people about their decisions to change their name (or not) after marriage. The response was impressive - there are currently over 5,000 responses. Thanks to Phil, the data from the survey are publicly available and downloadable <a href="https://osf.io/uzqdn/">here</a> for anyone to do their own analysis.</p>
 <p>However, there’s an issue with using the raw data without lots of caveats: the respondents are not very representative of the broader population, and in particular tend to have a higher education level and are younger than average. As such, if we looked at the raw estimates from the data, on indicators like the proportion of women who kept their name after marriage, it is unlikely to be a reasonable estimate for the broader population.</p>
 <p>This is a very common problem for social scientists: trying to come up with representative estimates using non-representative data. In this post I’ll introduce one particular technique of trying to do this: multilevel regression and post-stratification (MRP). In particular, I’ll use data from the marital name change survey to estimate the proportion of women in the US who kept their maiden name after marriage.</p>
-</div>
-<div id="what-is-mrp" class="section level1">
+</section>
+<section id="what-is-mrp" class="level1">
 <h1>What is MRP?</h1>
 <p>First, a very brief outline of MRP. Imagine we run a survey asking people if they like olives. We have a survey with 1000 respondents, 500 of which are aged 21+ and 500 of which are under 21. We could use the survey results to calculate the proportion of people who like olives. However, <a href="https://www.census.gov/prod/cen2010/briefs/c2010br-03.pdf">we know</a> that the population distribution below and above age 21 is closer to 30%/70%, rather than 50/50 implied by our survey. So just taking the raw result from our survey over-represents the opinions of young people.</p>
-<div id="the-p-bit-post-stratification" class="section level2">
-<h2>The ‘P’ bit: post-stratification</h2>
+<section id="the-p-bit-post-stratification" class="level2">
+<h2 class="anchored" data-anchor-id="the-p-bit-post-stratification">The ‘P’ bit: post-stratification</h2>
 <p>Given we know the age distribution of the broader population, we can reweight (post-stratify) our results: so in this example, an estimate of the proportion of people who like olives would be</p>
 <p><span class="math display">\[
 0.3 \times \text{Proportion of those &lt;21} + 0.7 \times \text{Proportion of those 21+}
 \]</span></p>
 <p>This technique is called post-stratification. All we need is a reliable data source (such as a census, or the ACS in the US) that gives us the population weights. Data can be re-weighted based on many different categories, not just one: for example, we could post-stratify based on age, education, state of residence, etc.</p>
-</div>
-<div id="the-mr-bit-multilevel-regression" class="section level2">
-<h2>The ‘MR’ bit: multilevel regression</h2>
+</section>
+<section id="the-mr-bit-multilevel-regression" class="level2">
+<h2 class="anchored" data-anchor-id="the-mr-bit-multilevel-regression">The ‘MR’ bit: multilevel regression</h2>
 <p>Now imagine that instead of the survey above, we had a different survey, still with 1000 respondents, but 995 were aged less than 21 and 5 were 21+. That is, our survey respondents are even more biased. We could still post-stratify in exactly the same way as above to get a more representative estimate of liking olives. However, our estimate for those aged 21+ is based only on 5 people. We are putting a huge amount of weight on only 5 people.</p>
 <p>Using multilevel regression as a first step before post-stratification tries to adjust for this by regressing the outcome on different variables of interest. So instead of using the proportion of people in each subgroup who like olives calculated from the survey, we would estimate this proportion based on a regression. We could include covariates like age, sex, education and income, and end up with an estimate of the proportion in each of these [age/sex/education/income] subgroups. The key is that we have another reliable data source (such as a census or survey) that allows us to get the actual population counts in order to post-stratify on.</p>
 <p>The multilevel part refers to a set-up where information across different age groups (or education groups, or state groups, etc) is ‘pooled’ such that the responses in one group are partially informed by responses in other groups. The fewer observations in a particular subgroup, the more they are ‘pulled’ towards the mean outcome based on other subgroups. In this way, subgroups that have a small number of responses are in a sense weighted downwards in determining the overall outcome.</p>
-</div>
-</div>
-<div id="example-retaining-maiden-names-after-marriage" class="section level1">
+</section>
+</section>
+<section id="example-retaining-maiden-names-after-marriage" class="level1">
 <h1>Example: retaining maiden names after marriage</h1>
 <p>Here’s an explicit example with the marriage name change survey.</p>
 <p>The <a href="https://osf.io/uzqdn/">marital change name survey (MCNS)</a> asks lots of interesting questions, but for starters let’s just look at estimating the proportion of heterosexual women who kept their maiden name after marriage. The survey collects this information as well as other characteristics that we would expect to be associated with a woman’s propensity to keep their maiden name, including age at marriage, year of marriage, education of respondent and state of residence.</p>
 <p>The goal of our analysis is to perform two steps:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Do a multilevel regression relating maiden name retention to age, year of marriage, state and education. In particular, for individual <span class="math inline">\(i\)</span> let <span class="math inline">\(y_i\)</span> equal 1 if the respondent did not change their name after marriage, and 0 otherwise. The model is</li>
 </ol>
 <p><span class="math display">\[
 Pr(y_i = 1) = \text{logit}^{-1}\left( \alpha^{age}_{a[i]} + \alpha^{educ}_{e[i]} + \alpha^{state}_{s[i]} + \alpha^{dec}_{d[i]}\right)
 \]</span> where the <span class="math inline">\(\alpha\)</span>s are age group, education group, state and decade married effects and the notation <span class="math inline">\(a[i]\)</span> refers to the age group <span class="math inline">\(a\)</span> to which individual <span class="math inline">\(i\)</span> belongs to, etc. These are modeled in the form:</p>
 <p><span class="math display">\[
-\alpha^{age}_{a} \sim N(0, \sigma_{age}) \text{ for } a=1,2\dots A 
+\alpha^{age}_{a} \sim N(0, \sigma_{age}) \text{ for } a=1,2\dots A
 \]</span></p>
 <p>where <span class="math inline">\(A\)</span> is the total number of age groups. There are similar set ups for the other <span class="math inline">\(\alpha\)</span>s.</p>
-<ol start="2" style="list-style-type: decimal">
+<ol start="2" type="1">
 <li>Using the estimates from the regression, post-stratify based on population weights in each age, year of marriage, education and state group, derived from the American Community Survey.</li>
 </ol>
-<div id="mrp-in-r-using-brms" class="section level2">
-<h2>MRP in R using <code>brms</code></h2>
-<p>Now to work through the example in <code>R</code>. A few code snippets are included in this post, but the full code file is available <a href="https://github.com/MJAlexander/marriage-name-change">here</a>. In order to reproduce the results, you will need to download the MNCS file from <a href="https://osf.io/uzqdn/">OSF</a>, and also grab the 2017 5-year ACS data from <a href="https://usa.ipums.org/usa/index.shtml">IPUMS-USA</a>.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
-<div id="data" class="section level3">
-<h3>Data</h3>
-<p>First, I loaded in the MNCS data and did a bit of tidying up. I made a binary outcome variable <code>kept_name</code>, which indicates whether or not the respondent kept their original name after marriage. I also created a five year age group variable, a decade married variable (1979-1988, 1989-1998, … 2009-2018), and a three-group education variable (<BA, BA, >BA)<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. The resulting data looks like this:</p>
-<pre class="r"><code>d_mncs</code></pre>
-<pre><code>## # A tibble: 4,413 x 5
-##    kept_name state_name     age_group decade_married educ_group
-##        &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;     
-##  1         0 ohio           50        1979           &gt;BA       
-##  2         0 virginia       35        1999           &gt;BA       
-##  3         1 new york       35        2009           &gt;BA       
-##  4         0 rhode island   55        1999           &gt;BA       
-##  5         0 illinois       35        2009           &gt;BA       
-##  6         0 north carolina 25        2009           &gt;BA       
-##  7         1 iowa           35        1999           &gt;BA       
-##  8         1 texas          35        2009           &gt;BA       
-##  9         0 south dakota   35        1999           &gt;BA       
-## 10         0 texas          35        2009           &gt;BA       
-## # … with 4,403 more rows</code></pre>
+<section id="mrp-in-r-using-brms" class="level2">
+<h2 class="anchored" data-anchor-id="mrp-in-r-using-brms">MRP in R using <code>brms</code></h2>
+<p>Now to work through the example in <code>R</code>. A few code snippets are included in this post, but the full code file is available <a href="https://github.com/MJAlexander/marriage-name-change">here</a>. In order to reproduce the results, you will need to download the MNCS file from <a href="https://osf.io/uzqdn/">OSF</a>, and also grab the 2017 5-year ACS data from <a href="https://usa.ipums.org/usa/index.shtml">IPUMS-USA</a>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>First, I loaded in the MNCS data and did a bit of tidying up. I made a binary outcome variable <code>kept_name</code>, which indicates whether or not the respondent kept their original name after marriage. I also created a five year age group variable, a decade married variable (1979-1988, 1989-1998, … 2009-2018), and a three-group education variable (&lt;BA, BA, &gt;BA)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. The resulting data looks like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d_mncs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Next, I loaded in the ACS data that I got from IPUMS-USA. I extracted information on sex, age, marital status, year married, state, and education. I then restricted the data to just be ever-married women, and calculated new age, decade married and education variables to be consistent with those in the MNCS data. I then summed up to get the population counts in each age, education, decade married and state group. The data look like this:</p>
-<pre class="r"><code>cell_counts</code></pre>
-<pre><code>## # A tibble: 6,058 x 5
-##    state_name age_group decade_married educ_group     n
-##    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;
-##  1 alabama    25        1999           &lt;BA        19012
-##  2 alabama    25        2009           &lt;BA        37488
-##  3 alabama    25        1999           &gt;BA          959
-##  4 alabama    25        2009           &gt;BA         5319
-##  5 alabama    25        1999           BA          2986
-##  6 alabama    25        2009           BA         14261
-##  7 alaska     25        1999           &lt;BA         3320
-##  8 alaska     25        2009           &lt;BA         7001
-##  9 alaska     25        1999           &gt;BA          159
-## 10 alaska     25        2009           &gt;BA          435
-## # … with 6,048 more rows</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cell_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>These counts can be used to get proportions by group, which are in turn used in the post-stratification step. For example, to get the proportions in each age group:</p>
-<pre class="r"><code>age_prop &lt;- cell_counts %&gt;% 
-  group_by(age_group) %&gt;% 
-  mutate(prop = n/sum(n)) %&gt;% 
-  ungroup()
-
-age_prop</code></pre>
-<pre><code>## # A tibble: 6,058 x 6
-##    state_name age_group decade_married educ_group     n      prop
-##    &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;
-##  1 alabama    25        1999           &lt;BA        19012 0.00414  
-##  2 alabama    25        2009           &lt;BA        37488 0.00816  
-##  3 alabama    25        1999           &gt;BA          959 0.000209 
-##  4 alabama    25        2009           &gt;BA         5319 0.00116  
-##  5 alabama    25        1999           BA          2986 0.000650 
-##  6 alabama    25        2009           BA         14261 0.00310  
-##  7 alaska     25        1999           &lt;BA         3320 0.000723 
-##  8 alaska     25        2009           &lt;BA         7001 0.00152  
-##  9 alaska     25        1999           &gt;BA          159 0.0000346
-## 10 alaska     25        2009           &gt;BA          435 0.0000947
-## # … with 6,048 more rows</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>age_prop <span class="ot">&lt;-</span> cell_counts <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>age_prop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="model" class="section level3">
-<h3>Model</h3>
-<p>Now we use the MNCS data to model the association between keeping name and age, education, state and decade married. I’m using the <code>brms</code> package, which is a wrapper to easily run models in Stan. The model is estimated in a Bayesian set up, which essentially means we put priors on the <span class="math inline">\(\sigma\)</span> terms in the model above.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> You could also run this model in a maximum likelihood setting using <code>glmer</code>.</p>
-<pre class="r"><code>mod &lt;- brm(kept_name ~ (1|age_group) + (1|educ_group) + (1|state_name) + (1|decade_married), data = d_mncs, family=bernoulli())</code></pre>
+</section>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model">Model</h3>
+<p>Now we use the MNCS data to model the association between keeping name and age, education, state and decade married. I’m using the <code>brms</code> package, which is a wrapper to easily run models in Stan. The model is estimated in a Bayesian set up, which essentially means we put priors on the <span class="math inline">\(\sigma\)</span> terms in the model above.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> You could also run this model in a maximum likelihood setting using <code>glmer</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">brm</span>(kept_name <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>age_group) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>educ_group) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>state_name) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>decade_married), <span class="at">data =</span> d_mncs, <span class="at">family=</span><span class="fu">bernoulli</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="results" class="section level3">
-<h3>Results</h3>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
 <p>Now we can use the results of the regression to predict the outcome (whether or not a woman retained her name after marriage) for each of the age/education/state/decade married groups. We can make this prediction many, many times and then look at the resulting distribution to get the mean and 95% prediction intervals for whichever group of interest. For example, to get the estimated proportions and associated 95% PIs by age group:</p>
-<pre class="r"><code>res_age &lt;- mod %&gt;%
-  add_predicted_draws(newdata=age_prop %&gt;% 
-                        filter(age_group&gt;20, 
-                               age_group&lt;80, 
-                               decade_married&gt;1969),
-                      allow_new_levels=TRUE) %&gt;%
-  rename(kept_name_predict = .prediction) %&gt;% 
-  mutate(kept_name_predict_prop = kept_name_predict*prop) %&gt;% 
-  group_by(age_group, .draw) %&gt;% 
-  summarise(kept_name_predict = sum(kept_name_predict_prop)) %&gt;% 
-  group_by(age_group) %&gt;% 
-  summarise(mean = mean(kept_name_predict), 
-            lower = quantile(kept_name_predict, 0.025), 
-            upper = quantile(kept_name_predict, 0.975))</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res_age <span class="ot">&lt;-</span> mod <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predicted_draws</span>(<span class="at">newdata=</span>age_prop <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">filter</span>(age_group<span class="sc">&gt;</span><span class="dv">20</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                               age_group<span class="sc">&lt;</span><span class="dv">80</span>, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                               decade_married<span class="sc">&gt;</span><span class="dv">1969</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">allow_new_levels=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kept_name_predict =</span> .prediction) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">kept_name_predict_prop =</span> kept_name_predict<span class="sc">*</span>prop) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group, .draw) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">kept_name_predict =</span> <span class="fu">sum</span>(kept_name_predict_prop)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(kept_name_predict), </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">lower =</span> <span class="fu">quantile</span>(kept_name_predict, <span class="fl">0.025</span>), </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">upper =</span> <span class="fu">quantile</span>(kept_name_predict, <span class="fl">0.975</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Let’s plot these and include the raw MNCS proportions for comparison:</p>
-<pre class="r"><code>res_age %&gt;% 
-  ggplot(aes(y = mean, x = forcats::fct_inorder(age_group), color = &quot;MRP estimate&quot;)) + 
-  geom_point() +
-  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0) + 
-  ylab(&quot;proportion keeping name&quot;) + 
-  xlab(&quot;age in 2019&quot;) + 
-  geom_point(data = d_mncs %&gt;% 
-               group_by(age_group, kept_name) %&gt;%
-               summarise(n = n()) %&gt;% 
-               group_by(age_group) %&gt;% 
-               mutate(prop = n/sum(n)) %&gt;% 
-               filter(kept_name==1, age_group&lt;80, age_group&gt;20), 
-             aes(age_group, prop, color = &quot;MNCS raw data&quot;)) +
-  scale_color_manual(name = &quot;&quot;, values = c(&quot;MRP estimate&quot; = &quot;black&quot;, &quot;MNCS raw data&quot; = &quot;red&quot;)) + 
-  theme_bw(base_size = 14) +
-  ggtitle(&quot;Proportion of women keeping name after marriage&quot;)</code></pre>
-<p><img src="https://www.monicaalexander.com/img/marriage_plots/age_plot.png"></p>
-<p>The result is pretty interesting. Firstly, the MRP estimates are much lower than the raw – this is likely due to the fact that the survey has an over-sample of highly educated women, who are more likely to keep their name.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> There is some evidence of an upside-down U shape over age, which is consistent with past observations that there was a <a href="https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html">peak in name retention in the 80s and 90s</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res_age <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> mean, <span class="at">x =</span> forcats<span class="sc">::</span><span class="fu">fct_inorder</span>(age_group), <span class="at">color =</span> <span class="st">"MRP estimate"</span>)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"proportion keeping name"</span>) <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"age in 2019"</span>) <span class="sc">+</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> d_mncs <span class="sc">%&gt;%</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(age_group, kept_name) <span class="sc">%&gt;%</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>               <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>               <span class="fu">group_by</span>(age_group) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>               <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>               <span class="fu">filter</span>(kept_name<span class="sc">==</span><span class="dv">1</span>, age_group<span class="sc">&lt;</span><span class="dv">80</span>, age_group<span class="sc">&gt;</span><span class="dv">20</span>), </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(age_group, prop, <span class="at">color =</span> <span class="st">"MNCS raw data"</span>)) <span class="sc">+</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">""</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"MRP estimate"</span> <span class="ot">=</span> <span class="st">"black"</span>, <span class="st">"MNCS raw data"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Proportion of women keeping name after marriage"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="../../img/marriage_plots/age_plot.png"></p>
+<p>The result is pretty interesting. Firstly, the MRP estimates are much lower than the raw – this is likely due to the fact that the survey has an over-sample of highly educated women, who are more likely to keep their name.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> There is some evidence of an upside-down U shape over age, which is consistent with past observations that there was a <a href="https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html">peak in name retention in the 80s and 90s</a>.</p>
 <p>We can calculate the results by other groups. Here, you can see the increase in name retention with education, with a particularly high estimate for those with postgraduate education:</p>
-<p><img src="https://www.monicaalexander.com/img/marriage_plots/educ_plot.png"></p>
+<p><img src="../../img/marriage_plots/educ_plot.png"></p>
 <p>And here it is by decade; some (weak) evidence to suggest maybe an increase in name retention in the most recent decade, which would be consistent with a <a href="https://www.nytimes.com/2015/06/28/upshot/maiden-names-on-the-rise-again.html">New York Times</a> piece published a few years back.</p>
-<p><img src="https://www.monicaalexander.com/img/marriage_plots/dec_plot.png"></p>
+<p><img src="../../img/marriage_plots/dec_plot.png"></p>
 <p>Finally, here are the results by state. Utah and New York stand out as particularly low and high, respectively. Note that these proportions are not standardized with respect to age or education.</p>
-<p><img src="https://www.monicaalexander.com/img/marriage_plots/state_plot.png"></p>
-</div>
-</div>
-</div>
-<div id="summary" class="section level1">
+<p><img src="../../img/marriage_plots/state_plot.png"></p>
+</section>
+</section>
+</section>
+<section id="summary" class="level1">
 <h1>Summary</h1>
 <p>We often have to deal with data that, while containing interesting and useful information, are not representative of the broader population that we’re interested in. The MNCS contains a wealth of information on name changes that occur around marriage, and the reasons for doing so. This information that is important to study social and demographic change, but not readily available in official data sources. However, raw estimates from this survey are most probably biased.</p>
-<p>In this post I highlighted how MRP can be used to try and adjust for these biases. MRP is probably most commonly used in political analysis to reweight polling data,<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> but it is a useful technique for many different survey responses. Many modeling extensions are possible. For example, the multilevel regression need not be limited to just using random effects, as was used here, and other model set ups could be investigated.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> MRP is a relatively easy and quick way of trying to get more representative estimates out of non-representative data, while giving you a sense of the uncertainty around the estimates (unlike traditional post-stratification). The example in this post serves as an introduction to both MRP and also the MNCS survey – there is so much interesting data in there, and it’s public!<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a></p>
-</div>
-<div class="footnotes">
-<hr />
+<p>In this post I highlighted how MRP can be used to try and adjust for these biases. MRP is probably most commonly used in political analysis to reweight polling data,<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> but it is a useful technique for many different survey responses. Many modeling extensions are possible. For example, the multilevel regression need not be limited to just using random effects, as was used here, and other model set ups could be investigated.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> MRP is a relatively easy and quick way of trying to get more representative estimates out of non-representative data, while giving you a sense of the uncertainty around the estimates (unlike traditional post-stratification). The example in this post serves as an introduction to both MRP and also the MNCS survey – there is so much interesting data in there, and it’s public!<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
-<li id="fn1"><p>IPUMS is a wonderful resource and free once you register. From the 2017 5-year ACS sample you will need to select the following variables: AGE, SEX, STATEFIP, MARST, YRMARR, EDUC.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>This is probably a bit coarse; the data are available to do a finer-grained split if desired.<a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p>I just used the default priors in <code>brms</code>, which are half student’s t distributions, see here for more info: <a href="https://cran.r-project.org/web/packages/brms/brms.pdf" class="uri">https://cran.r-project.org/web/packages/brms/brms.pdf</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p>FWIW, I changed my name. The Tasmania effect outweighs any education effect, it seems.<a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p>Shout-out to <a href="https://www.petitpoll.com/">Petit Poll</a>!<a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>Look out for the work of <a href="https://arxiv.org/abs/1906.11323">Lauren Kennedy</a> et al. looking into the impact of different MRP set ups, particularly for age effects.<a href="#fnref6">↩</a></p></li>
-<li id="fn7"><p>If you’re interested in reproducible research Phil and I are giving talks at the Rostock <a href="https://www.demogr.mpg.de/en/news_press/news/news/free_access_to_demographic_research_6289.htm">Open Science Workshop</a> which is being held at the Max Planck Institute for Demographic Research (MPIDR) on October 10th and 11th, 2019.<a href="#fnref7">↩</a></p></li>
+<li id="fn1"><p>IPUMS is a wonderful resource and free once you register. From the 2017 5-year ACS sample you will need to select the following variables: AGE, SEX, STATEFIP, MARST, YRMARR, EDUC.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This is probably a bit coarse; the data are available to do a finer-grained split if desired.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>I just used the default priors in <code>brms</code>, which are half student’s t distributions, see here for more info: https://cran.r-project.org/web/packages/brms/brms.pdf<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>FWIW, I changed my name. The Tasmania effect outweighs any education effect, it seems.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Shout-out to <a href="https://www.petitpoll.com/">Petit Poll</a>!<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Look out for the work of <a href="https://arxiv.org/abs/1906.11323">Lauren Kennedy</a> et al.&nbsp;looking into the impact of different MRP set ups, particularly for age effects.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>If you’re interested in reproducible research Phil and I are giving talks at the Rostock <a href="https://www.demogr.mpg.de/en/news_press/news/news/free_access_to_demographic_research_6289.htm">Open Science Workshop</a> which is being held at the Max Planck Institute for Demographic Research (MPIDR) on October 10th and 11th, 2019.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.monicaalexander\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
 
-      </div>
-
-      <footer>
-        
 
 
-        
-        
-        
-      </footer>
-    </article>
 
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-
-    
-    <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-  </section>
-</footer>
-
-    </main>
-
-    
-
-  </body>
-
-</html>
+</body></html>

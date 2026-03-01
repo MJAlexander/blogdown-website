@@ -1,204 +1,293 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
-    <meta name="author" content="Monica Alexander">
-    <meta name="description" content="Monica Alexander&#39;s personal website">
-    <meta name="keywords" content="blog,developer,personal">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Visualizing the Bayesian workflow in R"/>
-<meta name="twitter:description" content="Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
-The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age."/>
+<meta name="author" content="Monica Alexander">
+<meta name="dcterms.date" content="2020-02-28">
 
-    <meta property="og:title" content="Visualizing the Bayesian workflow in R" />
-<meta property="og:description" content="Introduction The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading ‘Visualizing the Bayesian Workflow’ and writing lecture notes1 incorporating ideas in this paper.2 The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.
-The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-02-28T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-02-28T00:00:00&#43;00:00" />
+<title>Visualizing the Bayesian workflow in R – Monica Alexander</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
 
 
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2575636bf12bba71c1c5b79222bd7450.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-46c34704a96b1b9dbfdc14e396dd1b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
 
-    
-      <base href="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/">
-    
-    <title>
-  Visualizing the Bayesian workflow in R · Monica Alexander
-</title>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-    
-      <link rel="canonical" href="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz/">
-    
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+</head>
 
-    
-      
-      
-      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
+<body class="nav-fixed fullcontent quarto-light">
 
-    
-
-    
-
-    
-
-    
-    
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.82.0" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://www.monicaalexander.com/">
-      Monica Alexander
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monica Alexander</span>
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/playlists/">Playlists</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
-          </li>
-        
-      
-      
-    </ul>
-  </section>
-</nav>
-
-
-      <div class="content">
-        
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Visualizing the Bayesian workflow in R</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2020-02-28T00:00:00Z'>
-                February 28, 2020
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              15 minutes read
-            </span>
-          </div>
-          
-          
-        </div>
-      </header>
-
-      <div>
-        
-
-
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading <a href="https://arxiv.org/abs/1709.01449">‘Visualizing the Bayesian Workflow’</a> and writing lecture notes<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> incorporating ideas in this paper.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.</p>
-<p>The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age. It’s a bit of a choose your own adventure in some parts, because as is usually the case in R, there’s about 100 different ways of doing the same thing. I show how to run things using both Stan and with the package <code>brms</code>, which is a wrapper for Stan that allows you to specify models in a similar way to <code>glm</code> or <code>lme4</code>. Using Stan for this example is a bit of overkill because the models are simple, but I find it useful to see what’s going on (and also it’s useful to build up more complex models in Stan from simple ones).</p>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lab.html"> 
+<span class="menu-text">Lab</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../playlists.html"> 
+<span class="menu-text">Playlists</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact me</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
 </div>
-<div id="the-data" class="section level1">
-<h1>The data</h1>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Visualizing the Bayesian workflow in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Monica Alexander </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 28, 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>The following (briefly) illustrates a Bayesian workflow of model fitting and checking using R and Stan. It was inspired by me reading <a href="https://arxiv.org/abs/1709.01449">‘Visualizing the Bayesian Workflow’</a> and writing lecture notes<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> incorporating ideas in this paper.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> The paper presents a systematic workflow of visualizing the assumptions made in the modeling process, the model fit and comparison of different candidate models.</p>
+<p>The goal of this post is to illustrate these steps in an accessible way, applied to a dataset on birth weight and gestational age. It’s a bit of a choose your own adventure in some parts, because as is usually the case in R, there’s about 100 different ways of doing the same thing. I show how to run things using both Stan and with the package <code>brms</code>, which is a wrapper for Stan that allows you to specify models in a similar way to <code>glm</code> or <code>lme4</code>. Using Stan for this example is a bit of overkill because the models are simple, but I find it useful to see what’s going on (and also it’s useful to build up more complex models in Stan from simple ones).</p>
+</section>
+<section id="the-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> The data</h1>
 <p>I’m using (a sample of) the publicly available dataset of all births in the United States in 2017, available on the <a href="https://data.nber.org/data/vital-statistics-natality-data.html">NBER website</a>. For the purposes of this exercise, I’m just using a 0.1% sample of the births, which leads to 3842 observations. Details on how I got the data are <a href="https://github.com/MJAlexander/states-mortality/tree/master/birthweight_bayes_viz/births_2017_prep.R">here</a>.</p>
 <p>Let’s load in the packages we need and the dataset:</p>
-<pre class="r"><code>library(tidyverse)
-library(rstan)
-library(brms)
-library(bayesplot)
-library(loo)
-library(tidybayes)
-
-ds &lt;- read_rds(&quot;births_2017_sample.RDS&quot;)
-head(ds)</code></pre>
-<pre><code>## # A tibble: 6 x 8
-##   mager mracehisp meduc   bmi sex   combgest  dbwt ilive
-##   &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
-## 1    16         2     2  23   M           39  3.18 Y    
-## 2    25         7     2  43.6 M           40  4.14 Y    
-## 3    27         2     3  19.5 F           41  3.18 Y    
-## 4    26         1     3  21.5 F           36  3.40 Y    
-## 5    28         7     2  40.6 F           34  2.71 Y    
-## 6    31         7     3  29.3 M           35  3.52 Y</code></pre>
-<p>The dataset contains a few different variables, but for the purposes of this exercise I’m going to focus on birth weight and gestational age. Let’s rename these variables, make a <code>preterm</code> variable (which indicates whether or not gestational length was less than 32 weeks)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> and filter out unknown observations, and any babies that died.</p>
-<pre class="r"><code>ds &lt;- ds %&gt;% 
-  rename(birthweight = dbwt, gest = combgest) %&gt;% 
-  mutate(preterm = ifelse(gest&lt;32, &quot;Y&quot;, &quot;N&quot;)) %&gt;% 
-  filter(ilive==&quot;Y&quot;,gest&lt; 99, birthweight&lt;9.999)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(loo)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidybayes)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"births_2017_sample.RDS"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="super-brief-eda" class="section level1">
-<h1>Super brief EDA</h1>
-<p>An important first step to model building is exploratory data analysis, which should help to inform potential variables or functional forms of the model. Here’s some EDA in the most brief sense.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Below is a scatter plot of gestational age (weeks) and birth weight (kg) on the log scale, which appears to show some relationship:</p>
-<pre class="r"><code>ds %&gt;% 
-  ggplot(aes(log(gest), log(birthweight))) + 
-  geom_point() + geom_smooth(method = &quot;lm&quot;) + 
-  scale_color_brewer(palette = &quot;Set1&quot;) + 
-  theme_bw(base_size = 14) +
-  ggtitle(&quot;birthweight v gestational age&quot;)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The dataset contains a few different variables, but for the purposes of this exercise I’m going to focus on birth weight and gestational age. Let’s rename these variables, make a <code>preterm</code> variable (which indicates whether or not gestational length was less than 32 weeks)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and filter out unknown observations, and any babies that died.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">birthweight =</span> dbwt, <span class="at">gest =</span> combgest) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">preterm =</span> <span class="fu">ifelse</span>(gest<span class="sc">&lt;</span><span class="dv">32</span>, <span class="st">"Y"</span>, <span class="st">"N"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ilive<span class="sc">==</span><span class="st">"Y"</span>,gest<span class="sc">&lt;</span> <span class="dv">99</span>, birthweight<span class="sc">&lt;</span><span class="fl">9.999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="super-brief-eda" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Super brief EDA</h1>
+<p>An important first step to model building is exploratory data analysis, which should help to inform potential variables or functional forms of the model. Here’s some EDA in the most brief sense.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Below is a scatter plot of gestational age (weeks) and birth weight (kg) on the log scale, which appears to show some relationship:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">log</span>(gest), <span class="fu">log</span>(birthweight))) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"birthweight v gestational age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>It may be reasonable to allow for the relationship between weight and gestational age to vary by whether or not the baby was premature. If we split by prematurity, there is some evidence to suggest a different relationship between the two variables, which may lead us to consider interaction terms:</p>
-<pre class="r"><code>ds %&gt;% 
-  ggplot(aes(log(gest), log(birthweight), color = preterm)) + 
-  geom_point() + geom_smooth(method = &quot;lm&quot;) + 
-  scale_color_brewer(palette = &quot;Set1&quot;) + 
-  theme_bw(base_size = 14) + 
-  ggtitle(&quot;birthweight v gestational age&quot;)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">log</span>(gest), <span class="fu">log</span>(birthweight), <span class="at">color =</span> preterm)) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"birthweight v gestational age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="some-simple-candidate-models" class="section level1">
-<h1>Some simple candidate models</h1>
+</section>
+<section id="some-simple-candidate-models" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Some simple candidate models</h1>
 <p>Based on my super-brief-EDA(tm) I’ve come up with two candidate models. Model 1 has log birth weight as a function of log gestational age</p>
 <p><span class="math display">\[
 \log(y_i) \sim N(\beta_0 + \beta_1\log(x_i), \sigma^2)
-\]</span>
-Model 2 has an interaction term between gestation and prematurity</p>
+\]</span> Model 2 has an interaction term between gestation and prematurity</p>
 <p><span class="math display">\[
 \log(y_i) \sim N(\beta_0 + \beta_1\log(x_i) + \gamma_0 z_i + \gamma_1\log(x_i) z_i, \sigma^2)
 \]</span></p>
@@ -207,374 +296,717 @@ Model 2 has an interaction term between gestation and prematurity</p>
 <li><span class="math inline">\(x_i\)</span> is gestational age in weeks</li>
 <li><span class="math inline">\(z_i\)</span> is preterm (0 or 1, if gestational age is less than 32 weeks)</li>
 </ul>
-</div>
-<div id="prior-predictive-checks" class="section level1">
-<h1>Prior predictive checks</h1>
+</section>
+<section id="prior-predictive-checks" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Prior predictive checks</h1>
 <p>Now we have some candidate models in terms of the likelihood, we need to set some priors for our coefficients (<span class="math inline">\(\beta\)</span>s and <span class="math inline">\(\gamma\)</span>s) and for the <span class="math inline">\(\sigma\)</span> term.</p>
 <p>With prior predictive checks, we are essentially looking at the situation where we do not have any data on birthweights at all, and seeing what distribution of weights are implied by the choice of priors and likelihood. Ideally this distribution would have at least some mass around all plausible data sets.</p>
 <p>To do this in R, we simulate from the priors and likelihood, and plot the resulting distribution.</p>
-<div id="vague-priors" class="section level2">
-<h2>Vague priors</h2>
+<section id="vague-priors" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="vague-priors"><span class="header-section-number">5.1</span> Vague priors</h2>
 <p>For example, the following plots the prior predictive distribution with vague priors on sigma, and the betas for Model 1. For reference, my current weight is marked with the purple line. While I can attest to babies feeling like they have the mass of a small planet once you’ve been carrying them for 9 months, it’s highly implausible that my current adult weight should have so much probability mass assigned to it.</p>
-<pre class="r"><code>set.seed(182)
-nsims &lt;- 100
-sigma &lt;- 1 / sqrt(rgamma(nsims, 1, rate = 100))
-beta0 &lt;- rnorm(nsims, 0, 100)
-beta1 &lt;- rnorm(nsims, 0, 100)
-
-dsims &lt;- tibble(log_gest_c = (log(ds$gest)-mean(log(ds$gest)))/sd(log(ds$gest)))
-
-for(i in 1:nsims){
-  this_mu &lt;- beta0[i] + beta1[i]*dsims$log_gest_c 
-  dsims[paste0(i)] &lt;- this_mu + rnorm(nrow(dsims), 0, sigma[i])
-}
-
-dsl &lt;- dsims %&gt;% 
-  pivot_longer(`1`:`10`, names_to = &quot;sim&quot;, values_to = &quot;sim_weight&quot;)
-
-dsl %&gt;% 
-  ggplot(aes(sim_weight)) + geom_histogram(aes(y = ..density..), bins = 20, fill = &quot;turquoise&quot;, color = &quot;black&quot;) + 
-  xlim(c(-1000, 1000)) + 
-  geom_vline(xintercept = log(60), color = &quot;purple&quot;, lwd = 1.2, lty = 2) + 
-  theme_bw(base_size = 16) + 
-  annotate(&quot;text&quot;, x=300, y=0.0022, label= &quot;Monica&#39;s\ncurrent weight&quot;, 
-           color = &quot;purple&quot;, size = 5) </code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">182</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nsims <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">rgamma</span>(nsims, <span class="dv">1</span>, <span class="at">rate =</span> <span class="dv">100</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>beta1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>dsims <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">log_gest_c =</span> (<span class="fu">log</span>(ds<span class="sc">$</span>gest)<span class="sc">-</span><span class="fu">mean</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest)))<span class="sc">/</span><span class="fu">sd</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest)))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsims){</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  this_mu <span class="ot">&lt;-</span> beta0[i] <span class="sc">+</span> beta1[i]<span class="sc">*</span>dsims<span class="sc">$</span>log_gest_c </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  dsims[<span class="fu">paste0</span>(i)] <span class="ot">&lt;-</span> this_mu <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(dsims), <span class="dv">0</span>, sigma[i])</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>dsl <span class="ot">&lt;-</span> dsims <span class="sc">%&gt;%</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">10</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">"sim"</span>, <span class="at">values_to =</span> <span class="st">"sim_weight"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>dsl <span class="sc">%&gt;%</span> </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sim_weight)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"turquoise"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1000</span>, <span class="dv">1000</span>)) <span class="sc">+</span> </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">log</span>(<span class="dv">60</span>), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="dv">300</span>, <span class="at">y=</span><span class="fl">0.0022</span>, <span class="at">label=</span> <span class="st">"Monica's</span><span class="sc">\n</span><span class="st">current weight"</span>, </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="weakly-informative-priors" class="section level2">
-<h2>Weakly informative priors</h2>
+</section>
+<section id="weakly-informative-priors" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="weakly-informative-priors"><span class="header-section-number">5.2</span> Weakly informative priors</h2>
 <p>Let’s try this exercise again, but now with some <a href="https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations">weakly informative priors</a>. The distribution is much less spread out, and my current weight is now much further to the right of the distribution. Remember that these are the distributions before we look at any data, and we are doing so just to make sure that any plausible values have some probability of showing up. The picture will look much different once we take the observations into account.</p>
-<pre class="r"><code>sigma &lt;- abs(rnorm(nsims, 0, 1))
-beta0 &lt;- rnorm(nsims, 0, 1)
-beta1 &lt;- rnorm(nsims, 0, 1)
-
-dsims &lt;- tibble(log_gest_c = (log(ds$gest)-mean(log(ds$gest)))/sd(log(ds$gest)))
-
-for(i in 1:nsims){
-  this_mu &lt;- beta0[i] + beta1[i]*dsims$log_gest_c 
-  dsims[paste0(i)] &lt;- this_mu + rnorm(nrow(dsims), 0, sigma[i])
-}
-
-dsl &lt;- dsims %&gt;% 
-  pivot_longer(`1`:`10`, names_to = &quot;sim&quot;, values_to = &quot;sim_weight&quot;)
-
-dsl %&gt;% 
-  ggplot(aes(sim_weight)) + geom_histogram(aes(y = ..density..), bins = 20, fill = &quot;turquoise&quot;, color = &quot;black&quot;) + 
-  geom_vline(xintercept = log(60), color = &quot;purple&quot;, lwd = 1.2, lty = 2) + 
-  theme_bw(base_size = 16) + 
-  annotate(&quot;text&quot;, x=7, y=0.2, label= &quot;Monica&#39;s\ncurrent weight&quot;, color = &quot;purple&quot;, size = 5)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>beta1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>dsims <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">log_gest_c =</span> (<span class="fu">log</span>(ds<span class="sc">$</span>gest)<span class="sc">-</span><span class="fu">mean</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest)))<span class="sc">/</span><span class="fu">sd</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest)))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsims){</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  this_mu <span class="ot">&lt;-</span> beta0[i] <span class="sc">+</span> beta1[i]<span class="sc">*</span>dsims<span class="sc">$</span>log_gest_c </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  dsims[<span class="fu">paste0</span>(i)] <span class="ot">&lt;-</span> this_mu <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(dsims), <span class="dv">0</span>, sigma[i])</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>dsl <span class="ot">&lt;-</span> dsims <span class="sc">%&gt;%</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">10</span><span class="st">`</span>, <span class="at">names_to =</span> <span class="st">"sim"</span>, <span class="at">values_to =</span> <span class="st">"sim_weight"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>dsl <span class="sc">%&gt;%</span> </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sim_weight)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"turquoise"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">log</span>(<span class="dv">60</span>), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="dv">7</span>, <span class="at">y=</span><span class="fl">0.2</span>, <span class="at">label=</span> <span class="st">"Monica's</span><span class="sc">\n</span><span class="st">current weight"</span>, <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div id="run-the-models" class="section level1">
-<h1>Run the models</h1>
+</section>
+</section>
+<section id="run-the-models" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Run the models</h1>
 <p>Now let’s run the models described above. I will illustrate how to do this in both <code>stan</code> and <code>brms</code>.</p>
-<div id="running-the-models-in-stan" class="section level2">
-<h2>Running the models in Stan</h2>
-<p>The Stan code for model 1 is below. You can view the stan code for model 2 <a href="https://github.com/MJAlexander/states-mortality/tree/master/birthweight_bayes_viz/simple_weight_preterm_int.stan">here</a>. It’s worth noticing the <code>generated quantities</code> block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using <code>brms</code> we don’t have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></p>
-<pre class="stan"><code>data {
-  int&lt;lower=1&gt; N;       // number of observations
-  vector[N] log_gest;    // log gestational age
-  vector[N] log_weight;     // log birth weight
-}
-parameters {
-  vector[2] beta;           // coefs
-  real&lt;lower=0&gt; sigma;  // error sd for Gaussian likelihood
-}
-model {
-  // Log-likelihood
-  target += normal_lpdf(log_weight | beta[1] + beta[2] * log_gest, sigma);
-
-  // Log-priors
-  target += normal_lpdf(sigma | 0, 1)
-          + normal_lpdf(beta | 0, 1);
-}
-generated quantities {
-  vector[N] log_lik;    // pointwise log-likelihood for LOO
-  vector[N] log_weight_rep; // replications from posterior predictive dist
-
-  for (n in 1:N) {
-    real log_weight_hat_n = beta[1] + beta[2] * log_gest[n];
-    log_lik[n] = normal_lpdf(log_weight[n] | log_weight_hat_n, sigma);
-    log_weight_rep[n] = normal_rng(log_weight_hat_n, sigma);
-  }
-}</code></pre>
+<section id="running-the-models-in-stan" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="running-the-models-in-stan"><span class="header-section-number">6.1</span> Running the models in Stan</h2>
+<p>The Stan code for model 1 is below. You can view the stan code for model 2 <a href="https://github.com/MJAlexander/states-mortality/tree/master/birthweight_bayes_viz/simple_weight_preterm_int.stan">here</a>. It’s worth noticing the <code>generated quantities</code> block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using <code>brms</code> we don’t have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<div class="cell" data-output.var="mod1s">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">1</span>&gt; N;       <span class="co">// number of observations</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[N] log_gest;    <span class="co">// log gestational age</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[N] log_weight;     <span class="co">// log birth weight</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">parameters</span> {</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[<span class="dv">2</span>] beta;           <span class="co">// coefs</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">real</span>&lt;<span class="kw">lower</span>=<span class="dv">0</span>&gt; sigma;  <span class="co">// error sd for Gaussian likelihood</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">model</span> {</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Log-likelihood</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">target +=</span> normal_lpdf(log_weight | beta[<span class="dv">1</span>] + beta[<span class="dv">2</span>] * log_gest, sigma);</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Log-priors</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">target +=</span> normal_lpdf(sigma | <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>          + normal_lpdf(beta | <span class="dv">0</span>, <span class="dv">1</span>);</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="kw">generated quantities</span> {</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[N] log_lik;    <span class="co">// pointwise log-likelihood for LOO</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[N] log_weight_rep; <span class="co">// replications from posterior predictive dist</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span>:N) {</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">real</span> log_weight_hat_n = beta[<span class="dv">1</span>] + beta[<span class="dv">2</span>] * log_gest[n];</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    log_lik[n] = normal_lpdf(log_weight[n] | log_weight_hat_n, sigma);</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    log_weight_rep[n] = normal_rng(log_weight_hat_n, sigma);</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Calculate the transformed variables, and put the data into a list for Stan.</p>
-<pre class="r"><code>ds$log_weight &lt;- log(ds$birthweight)
-ds$log_gest_c &lt;- (log(ds$gest) - mean(log(ds$gest)))/sd(log(ds$gest))
-
-N &lt;- nrow(ds)
-log_weight &lt;- ds$log_weight
-log_gest_c &lt;- ds$log_gest_c 
-preterm &lt;- ifelse(ds$preterm==&quot;Y&quot;, 1, 0)
-
-# put into a list
-stan_data &lt;- list(N = N,
-                  log_weight = log_weight,
-                  log_gest = log_gest_c, 
-                  preterm = preterm)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ds<span class="sc">$</span>log_weight <span class="ot">&lt;-</span> <span class="fu">log</span>(ds<span class="sc">$</span>birthweight)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ds<span class="sc">$</span>log_gest_c <span class="ot">&lt;-</span> (<span class="fu">log</span>(ds<span class="sc">$</span>gest) <span class="sc">-</span> <span class="fu">mean</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest)))<span class="sc">/</span><span class="fu">sd</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(ds)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>log_weight <span class="ot">&lt;-</span> ds<span class="sc">$</span>log_weight</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>log_gest_c <span class="ot">&lt;-</span> ds<span class="sc">$</span>log_gest_c </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>preterm <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(ds<span class="sc">$</span>preterm<span class="sc">==</span><span class="st">"Y"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># put into a list</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">N =</span> N,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">log_weight =</span> log_weight,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">log_gest =</span> log_gest_c, </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">preterm =</span> preterm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Running the models in Stan looks like this:</p>
-<pre class="r"><code>mod1 &lt;- stan(data = stan_data, 
-             file = &quot;models/simple_weight.stan&quot;,
-             iter = 500,
-             seed = 243)
-
-mod2 &lt;- stan(data = stan_data, 
-             file = &quot;models/simple_weight_preterm_int.stan&quot;,
-             iter = 500,
-             seed = 263)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">data =</span> stan_data, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">file =</span> <span class="st">"models/simple_weight.stan"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">500</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">seed =</span> <span class="dv">243</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">data =</span> stan_data, </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">file =</span> <span class="st">"models/simple_weight_preterm_int.stan"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">500</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">seed =</span> <span class="dv">263</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Take a look at the estimates of parameters of interest. Note that I centered and standardized the gestation variable, so the interpretation in Model 1 for example is that a 1 standard deviation increase in the gestation weeks leads to a 0.14% increase in birth weight.</p>
-<pre class="r"><code>summary(mod1)[[&quot;summary&quot;]][c(paste0(&quot;beta[&quot;,1:2, &quot;]&quot;), &quot;sigma&quot;),]</code></pre>
-<pre><code>##              mean      se_mean          sd      2.5%       25%       50%
-## beta[1] 1.1624438 1.064120e-04 0.002811842 1.1570794 1.1606196 1.1623062
-## beta[2] 0.1439831 9.066275e-05 0.002617224 0.1388411 0.1421880 0.1439459
-## sigma   0.1690629 1.952945e-04 0.001996376 0.1646983 0.1679532 0.1690067
-##               75%     97.5%    n_eff      Rhat
-## beta[1] 1.1642252 1.1687179 698.2338 0.9997474
-## beta[2] 0.1457571 0.1492866 833.3437 1.0007247
-## sigma   0.1703736 0.1730148 104.4972 1.0432960</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)[[<span class="st">"summary"</span>]][<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"beta["</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">"]"</span>), <span class="st">"sigma"</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>For Model 2, the third <span class="math inline">\(\beta\)</span> relates to the effect of prematury, and the fourth <span class="math inline">\(\beta\)</span> is the interaction. The interaction effect suggests that the increase in birthweight with increased gestational age is more steep from premature babies.</p>
-<pre class="r"><code>summary(mod2)[[&quot;summary&quot;]][c(paste0(&quot;beta[&quot;,1:4, &quot;]&quot;), &quot;sigma&quot;),]</code></pre>
-<pre><code>##              mean      se_mean          sd       2.5%        25%       50%
-## beta[1] 1.1695780 1.098568e-04 0.002644516 1.16468175 1.16781334 1.1697444
-## beta[2] 0.1016943 1.466149e-04 0.003430911 0.09486125 0.09943203 0.1016294
-## beta[3] 0.5602261 8.680419e-03 0.068807739 0.42911843 0.51286040 0.5558835
-## beta[4] 0.1983536 1.635249e-03 0.014126383 0.17212096 0.18833129 0.1975351
-## sigma   0.1613039 9.611339e-05 0.001818344 0.15803181 0.15991605 0.1612618
-##               75%     97.5%     n_eff      Rhat
-## beta[1] 1.1712703 1.1745931 579.47951 1.0026436
-## beta[2] 0.1037481 0.1085696 547.59919 0.9940805
-## beta[3] 0.6111351 0.6989987  62.83378 1.0631488
-## beta[4] 0.2081473 0.2260562  74.62672 1.0439166
-## sigma   0.1626634 0.1651492 357.91841 1.0083042</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)[[<span class="st">"summary"</span>]][<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"beta["</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">"]"</span>), <span class="st">"sigma"</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="running-the-models-in-brms" class="section level2">
-<h2>Running the models in <code>brms</code></h2>
+</section>
+<section id="running-the-models-in-brms" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="running-the-models-in-brms"><span class="header-section-number">6.2</span> Running the models in <code>brms</code></h2>
 <p>Running the models in <code>brms</code> looks like this:</p>
-<pre class="r"><code>mod1b &lt;- brm(log_weight~log_gest_c, data = ds)
-mod2b &lt;- brm(log_weight~log_gest_c*preterm, data = ds)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mod1b <span class="ot">&lt;-</span> <span class="fu">brm</span>(log_weight<span class="sc">~</span>log_gest_c, <span class="at">data =</span> ds)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mod2b <span class="ot">&lt;-</span> <span class="fu">brm</span>(log_weight<span class="sc">~</span>log_gest_c<span class="sc">*</span>preterm, <span class="at">data =</span> ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div id="posterior-predictive-checks" class="section level1">
-<h1>Posterior predictive checks</h1>
-<p>Now we’ve run the models, let’s do some posterior predictive checks. The idea of posterior predictive checks is to compare our observed data to replicated data from the model.
-If our model is a good fit, we should be able to use it to generate a dataset that resembles the observed data.</p>
-<div id="ppcs-with-stan-output" class="section level2">
-<h2>PPCs with Stan output</h2>
+</section>
+</section>
+<section id="posterior-predictive-checks" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Posterior predictive checks</h1>
+<p>Now we’ve run the models, let’s do some posterior predictive checks. The idea of posterior predictive checks is to compare our observed data to replicated data from the model. If our model is a good fit, we should be able to use it to generate a dataset that resembles the observed data.</p>
+<section id="ppcs-with-stan-output" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="ppcs-with-stan-output"><span class="header-section-number">7.1</span> PPCs with Stan output</h2>
 <p>For the Stan models, we want to extract the samples from the posterior predictive distribution and can then use <code>ppc_dens_overlay</code> to compare the densities of 100 sampled datasets to the actual data:</p>
-<pre class="r"><code>set.seed(1856)
-y &lt;- log_weight
-yrep1 &lt;- extract(mod1)[[&quot;log_weight_rep&quot;]]
-samp100 &lt;- sample(nrow(yrep1), 100)
-ppc_dens_overlay(y, yrep1[samp100, ])  </code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1856</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> log_weight</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>yrep1 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod1)[[<span class="st">"log_weight_rep"</span>]]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>samp100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(yrep1), <span class="dv">100</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_dens_overlay</span>(y, yrep1[samp100, ])  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Model 2 is a bit better:</p>
-<pre class="r"><code>yrep2 &lt;- extract(mod2)[[&quot;log_weight_rep&quot;]]
-ppc_dens_overlay(y, yrep2[samp100, ])  </code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>yrep2 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod2)[[<span class="st">"log_weight_rep"</span>]]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_dens_overlay</span>(y, yrep2[samp100, ])  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>If you would like to convince yourself you know what’s going on with <code>ppc_dens_overlay</code> or would like to format your graphs from scratch, you can do the density plots yourself:</p>
-<pre class="r"><code># first, get into a tibble
-rownames(yrep1) &lt;- 1:nrow(yrep1)
-dr &lt;- as_tibble(t(yrep1))
-dr &lt;- dr %&gt;% bind_cols(i = 1:N, log_weight_obs = log(ds$birthweight))
-
-# turn into long format; easier to plot
-dr &lt;- dr %&gt;% 
-  pivot_longer(-(i:log_weight_obs), names_to = &quot;sim&quot;, values_to =&quot;y_rep&quot;)
-
-# filter to just include 100 draws and plot!
-dr %&gt;% 
-  filter(sim %in% samp100) %&gt;% 
-  ggplot(aes(y_rep, group = sim)) + 
-  geom_density(alpha = 0.2, aes(color = &quot;y_rep&quot;)) + 
-  geom_density(data = ds %&gt;% mutate(sim = 1), 
-               aes(x = log(birthweight), col = &quot;y&quot;)) + 
-  scale_color_manual(name = &quot;&quot;, 
-                     values = c(&quot;y&quot; = &quot;darkblue&quot;, 
-                                &quot;y_rep&quot; = &quot;lightblue&quot;)) + 
-  ggtitle(&quot;Distribution of observed and replicated birthweights&quot;) + 
-  theme_bw(base_size = 16)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
-<div id="test-statistics" class="section level3">
-<h3>Test statistics</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first, get into a tibble</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(yrep1) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(yrep1)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">t</span>(yrep1))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> dr <span class="sc">%&gt;%</span> <span class="fu">bind_cols</span>(<span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span>N, <span class="at">log_weight_obs =</span> <span class="fu">log</span>(ds<span class="sc">$</span>birthweight))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># turn into long format; easier to plot</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> dr <span class="sc">%&gt;%</span> </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>(i<span class="sc">:</span>log_weight_obs), <span class="at">names_to =</span> <span class="st">"sim"</span>, <span class="at">values_to =</span><span class="st">"y_rep"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># filter to just include 100 draws and plot!</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>dr <span class="sc">%&gt;%</span> </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sim <span class="sc">%in%</span> samp100) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(y_rep, <span class="at">group =</span> sim)) <span class="sc">+</span> </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"y_rep"</span>)) <span class="sc">+</span> </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">data =</span> ds <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">sim =</span> <span class="dv">1</span>), </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(birthweight), <span class="at">col =</span> <span class="st">"y"</span>)) <span class="sc">+</span> </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"y"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, </span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"y_rep"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>)) <span class="sc">+</span> </span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of observed and replicated birthweights"</span>) <span class="sc">+</span> </span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="test-statistics" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="test-statistics"><span class="header-section-number">7.1.1</span> Test statistics</h3>
 <p>As well as looking at the overall distributions of the replicated datasets versus the data, we can decide on a test statistic(s) that is a summary of interest, calculate the statistic for each replicated dataset, and compare the distribution of these values with the value of the statistic observed in the data.</p>
 <p>For example, we can look at the distribution of the median (log) birth weight across the replicated data sets in comparison to the median in the data, and plot using <code>ppc_stat</code>. For both models, the predicted median birth weight is too low.</p>
-<pre class="r"><code>ppc_stat(log_weight, yrep1, stat = &#39;median&#39;)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<pre class="r"><code>ppc_stat(log_weight, yrep2, stat = &#39;median&#39;)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_stat</span>(log_weight, yrep1, <span class="at">stat =</span> <span class="st">'median'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_stat</span>(log_weight, yrep2, <span class="at">stat =</span> <span class="st">'median'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>As before, we can also construct these plots ourselves. Here I’m calculating the proportion of babies who have a weight less than 2.5kg (considered low birth weight) in each of the replicated datasets, and comparing to the proportion in the data. Model 2 seems to do a better job here:</p>
-<pre class="r"><code>t_y &lt;- mean(y&lt;=log(2.5))
-t_y_rep &lt;- sapply(1:nrow(yrep1), function(i) mean(yrep1[i,]&lt;=log(2.5)))
-t_y_rep_2 &lt;- sapply(1:nrow(yrep2), function(i) mean(yrep2[i,]&lt;=log(2.5)))
-
-ggplot(data = as_tibble(t_y_rep), aes(value)) + 
-    geom_histogram(aes(fill = &quot;replicated&quot;)) + 
-    geom_vline(aes(xintercept = t_y, color = &quot;observed&quot;), lwd = 1.5) + 
-  ggtitle(&quot;Model 1: proportion of births less than 2.5kg&quot;) + 
-  theme_bw(base_size = 16) + 
-  scale_color_manual(name = &quot;&quot;, 
-                     values = c(&quot;observed&quot; = &quot;darkblue&quot;))+
-  scale_fill_manual(name = &quot;&quot;, 
-                     values = c(&quot;replicated&quot; = &quot;lightblue&quot;)) </code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(data = as_tibble(t_y_rep_2), aes(value)) + 
-    geom_histogram(aes(fill = &quot;replicated&quot;)) + 
-    geom_vline(aes(xintercept = t_y, color = &quot;observed&quot;), lwd = 1.5) + 
-  ggtitle(&quot;Model 2: proportion of births less than 2.5kg&quot;) + 
-  theme_bw(base_size = 16) + 
-  scale_color_manual(name = &quot;&quot;, 
-                     values = c(&quot;observed&quot; = &quot;darkblue&quot;))+
-  scale_fill_manual(name = &quot;&quot;, 
-                     values = c(&quot;replicated&quot; = &quot;lightblue&quot;)) </code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-18-2.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(y<span class="sc">&lt;=</span><span class="fu">log</span>(<span class="fl">2.5</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>t_y_rep <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(yrep1), <span class="cf">function</span>(i) <span class="fu">mean</span>(yrep1[i,]<span class="sc">&lt;=</span><span class="fu">log</span>(<span class="fl">2.5</span>)))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>t_y_rep_2 <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(yrep2), <span class="cf">function</span>(i) <span class="fu">mean</span>(yrep2[i,]<span class="sc">&lt;=</span><span class="fu">log</span>(<span class="fl">2.5</span>)))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">as_tibble</span>(t_y_rep), <span class="fu">aes</span>(value)) <span class="sc">+</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">"replicated"</span>)) <span class="sc">+</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> t_y, <span class="at">color =</span> <span class="st">"observed"</span>), <span class="at">lwd =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Model 1: proportion of births less than 2.5kg"</span>) <span class="sc">+</span> </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"observed"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>))<span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"replicated"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>)) </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">as_tibble</span>(t_y_rep_2), <span class="fu">aes</span>(value)) <span class="sc">+</span> </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">"replicated"</span>)) <span class="sc">+</span> </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> t_y, <span class="at">color =</span> <span class="st">"observed"</span>), <span class="at">lwd =</span> <span class="fl">1.5</span>) <span class="sc">+</span> </span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Model 2: proportion of births less than 2.5kg"</span>) <span class="sc">+</span> </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"observed"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>))<span class="sc">+</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">""</span>, </span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"replicated"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div id="ppcs-with-brms-output" class="section level2">
-<h2>PPCs with <code>brms</code> output</h2>
+</section>
+</section>
+<section id="ppcs-with-brms-output" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="ppcs-with-brms-output"><span class="header-section-number">7.2</span> PPCs with <code>brms</code> output</h2>
 <p>With the models built in brms, we can use the <code>posterior_predict</code> function to get samples from the posterior predictive distribution:</p>
-<pre class="r"><code>yrep1b &lt;- posterior_predict(mod1b)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>yrep1b <span class="ot">&lt;-</span> <span class="fu">posterior_predict</span>(mod1b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Alterantively, you can use the <code>tidybayes</code> package to add predicted draws to the original <code>ds</code> data tibble. This option is nice if you want to do a lot of ggplotting later on, because the data is already in tidy format.</p>
-<pre class="r"><code>ds_yrep1 &lt;- ds %&gt;% 
-  select(log_weight, log_gest_c) %&gt;% 
-  add_predicted_draws(mod1b)
-head(ds_yrep1)</code></pre>
-<pre><code>## # A tibble: 6 x 7
-## # Groups:   log_weight, log_gest_c, .row [1]
-##   log_weight log_gest_c  .row .chain .iteration .draw .prediction
-##        &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt; &lt;int&gt;       &lt;dbl&gt;
-## 1       1.16      0.188     1     NA         NA     1       1.21 
-## 2       1.16      0.188     1     NA         NA     2       1.16 
-## 3       1.16      0.188     1     NA         NA     3       1.14 
-## 4       1.16      0.188     1     NA         NA     4       1.38 
-## 5       1.16      0.188     1     NA         NA     5       0.975
-## 6       1.16      0.188     1     NA         NA     6       0.893</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ds_yrep1 <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(log_weight, log_gest_c) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predicted_draws</span>(mod1b)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ds_yrep1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Once you have the posterior predictive samples, you can use the <code>bayesplot</code> package as we did above with the Stan output, or do the plots yourself in <code>ggplot</code>.</p>
-<p>Another quick alternative with <code>brms</code> that avoids manually getting the posterior predictive samples altogether is to use the <code>pp_check</code> function, which is a wrapper for all the <code>bayesplot</code> options. e.g. density overlays:</p>
-<pre class="r"><code>pp_check(mod1b, type = &quot;dens_overlay&quot;, nsamples = 100)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
-<p>e.g. test statistics:</p>
-<pre class="r"><code>pp_check(mod1b, type = &quot;stat&quot;, stat = &#39;median&#39;, nsamples = 100)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>Another quick alternative with <code>brms</code> that avoids manually getting the posterior predictive samples altogether is to use the <code>pp_check</code> function, which is a wrapper for all the <code>bayesplot</code> options. e.g.&nbsp;density overlays:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pp_check</span>(mod1b, <span class="at">type =</span> <span class="st">"dens_overlay"</span>, <span class="at">nsamples =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>e.g.&nbsp;test statistics:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pp_check</span>(mod1b, <span class="at">type =</span> <span class="st">"stat"</span>, <span class="at">stat =</span> <span class="st">'median'</span>, <span class="at">nsamples =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="loo-cv" class="section level1">
-<h1>LOO-CV</h1>
+</section>
+</section>
+<section id="loo-cv" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> LOO-CV</h1>
 <p>The last piece of this workflow is comparing models using leave-one-out cross validation. We are interested in estimating the out-of-sample predictive accuracy at each point <span class="math inline">\(i\)</span>, when all we have to fit the model is data that without point <span class="math inline">\(i\)</span>. We want to estimate the leave-one-out (LOO) posterior predictive densities <span class="math inline">\(p(y_i|\boldsymbol{y_{-i}})\)</span> and a summary of these across all points, which is called the LOO expected log pointwise predictive density (<span class="math inline">\(\text{elpd}_{LOO}\)</span>). The bigger the numbers, the better we are at predicting the left out point <span class="math inline">\(i\)</span>.</p>
 <p>By comparing the (<span class="math inline">\(\text{elpd}_{LOO}\)</span>) across models, we can choose the model that has the higher value. By looking at values for the individual points, we can see which observations are particularly hard to predict.</p>
-<p>To calculate the (<span class="math inline">\(\text{elpd}_{LOO}\)</span>) in R, we will use the <code>loo</code> package. This estimates the LOO posterior predictive densities using Pareto Smoothed Importance Sampling (PSIS)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>, and requires point estimates of the log likelihood.</p>
-<div id="loo-cv-with-stan-output" class="section level2">
-<h2>LOO-CV with Stan output</h2>
+<p>To calculate the (<span class="math inline">\(\text{elpd}_{LOO}\)</span>) in R, we will use the <code>loo</code> package. This estimates the LOO posterior predictive densities using Pareto Smoothed Importance Sampling (PSIS)<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, and requires point estimates of the log likelihood.</p>
+<section id="loo-cv-with-stan-output" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="loo-cv-with-stan-output"><span class="header-section-number">8.1</span> LOO-CV with Stan output</h2>
 <p>For the Stan models, we need to extract the log-likelihood, and then run <code>loo</code>. (The <code>save_psis = TRUE</code> is needed for the LOO-PIT graphs below).</p>
-<pre class="r"><code>loglik1 &lt;- extract(mod1)[[&quot;log_lik&quot;]]
-loglik2 &lt;- extract(mod2)[[&quot;log_lik&quot;]]
-loo1 &lt;- loo(loglik1, save_psis = TRUE)
-loo2 &lt;- loo(loglik2, save_psis = TRUE)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>loglik1 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod1)[[<span class="st">"log_lik"</span>]]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>loglik2 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod2)[[<span class="st">"log_lik"</span>]]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>loo1 <span class="ot">&lt;-</span> <span class="fu">loo</span>(loglik1, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>loo2 <span class="ot">&lt;-</span> <span class="fu">loo</span>(loglik2, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>We can look at the summaries of these and also compare across models. The <span class="math inline">\(\text{elpd}_{LOO}\)</span> is higher for Model 2, so it is preferred.</p>
-<pre class="r"><code>loo1</code></pre>
-<pre><code>## 
-## Computed from 500 by 3842 log-likelihood matrix
-## 
-##          Estimate    SE
-## elpd_loo   1377.5  72.3
-## p_loo         9.0   1.3
-## looic     -2755.0 144.6
-## ------
-## Monte Carlo SE of elpd_loo is 0.1.
-## 
-## All Pareto k estimates are good (k &lt; 0.5).
-## See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
-<pre class="r"><code>loo2</code></pre>
-<pre><code>## 
-## Computed from 500 by 3842 log-likelihood matrix
-## 
-##          Estimate    SE
-## elpd_loo   1552.0  69.8
-## p_loo        16.2   2.6
-## looic     -3104.0 139.7
-## ------
-## Monte Carlo SE of elpd_loo is 0.2.
-## 
-## All Pareto k estimates are good (k &lt; 0.5).
-## See help(&#39;pareto-k-diagnostic&#39;) for details.</code></pre>
-<pre class="r"><code>compare(loo1, loo2)</code></pre>
-<pre><code>## elpd_diff        se 
-##     174.5      36.3</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loo1</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>loo2</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">compare</span>(loo1, loo2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The output mentions Pareto k estimates, which give an indication of how ‘influential’ each point is. The higher the value of <span class="math inline">\(k\)</span>, the more influential the point. <a href="https://mc-stan.org/loo/reference/pareto-k-diagnostic.html">Values of <span class="math inline">\(k\)</span> over 0.7 are not good</a>, and suggest the need for model re-specification. The values of <span class="math inline">\(k\)</span> can be extracted from the <code>loo</code> object like this:</p>
-<pre class="r"><code>head(loo1$diagnostics$pareto_k)</code></pre>
-<pre><code>## [1] -0.05329232  0.05934065 -0.20993121 -0.19775285 -0.13801892 -0.02027345</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(loo1<span class="sc">$</span>diagnostics<span class="sc">$</span>pareto_k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>or plotted easily like this:</p>
-<pre class="r"><code>plot(loo1)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<div id="loo-pit" class="section level3">
-<h3>LOO-PIT</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(loo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="loo-pit" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="loo-pit"><span class="header-section-number">8.1.1</span> LOO-PIT</h3>
 <p>Another useful model diagnostic is the LOO <a href="https://en.wikipedia.org/wiki/Probability_integral_transform">probability integral transform</a> (PIT). This essentially looks to see where each point <span class="math inline">\(y_i\)</span> falls in its predictive distribution <span class="math inline">\(p(y_i|\boldsymbol{y_{-i}})\)</span>. If the model is well calibrated these should look like Uniform distributions. We can use <code>bayesplot</code> to plot these against 100 simulate standard Uniforms. The results in this case aren’t too bad.</p>
-<pre class="r"><code>ppc_loo_pit_overlay(yrep = yrep1, y = y, lw = weights(loo1$psis_object)) + ggtitle(&quot;LOO-PIT Model 1&quot;)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
-<pre class="r"><code>ppc_loo_pit_overlay(yrep = yrep2, y = y, lw = weights(loo2$psis_object)) + ggtitle(&quot;LOO-PIT Model 2&quot;)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2020-28-02-bayes_viz_files/figure-html/unnamed-chunk-27-2.png" width="672" /></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_loo_pit_overlay</span>(<span class="at">yrep =</span> yrep1, <span class="at">y =</span> y, <span class="at">lw =</span> <span class="fu">weights</span>(loo1<span class="sc">$</span>psis_object)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"LOO-PIT Model 1"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_loo_pit_overlay</span>(<span class="at">yrep =</span> yrep2, <span class="at">y =</span> y, <span class="at">lw =</span> <span class="fu">weights</span>(loo2<span class="sc">$</span>psis_object)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"LOO-PIT Model 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div id="loo-cv-with-brms-output" class="section level2">
-<h2>LOO-CV with <code>brms</code> output</h2>
+</section>
+</section>
+<section id="loo-cv-with-brms-output" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="loo-cv-with-brms-output"><span class="header-section-number">8.2</span> LOO-CV with <code>brms</code> output</h2>
 <p>With <code>brms</code>, the log likelihood is calculated automatically, and we can just pass the model objects directly to <code>loo</code>, for example:</p>
-<pre class="r"><code>loo1b &lt;- loo(mod1b, save_psis = TRUE)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>loo1b <span class="ot">&lt;-</span> <span class="fu">loo</span>(mod1b, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Once we have the <code>loo</code> object, the rest of the plots etc can be done as above with the Stan output.</p>
-</div>
-</div>
-<div id="summary" class="section level1">
-<h1>Summary</h1>
+</section>
+</section>
+<section id="summary" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Summary</h1>
 <p>Visualization is a powerful tool in assessing model assumptions and performance. For Bayesian models, it’s important to think about how priors interplay with the likelihood (even before we observe data), to see how newly predicted data line up with the observed data, and to see how the model performs out of sample. For Bayesian models there are potentially an overwhelming number of different outputs, and in R there are a million different ways to do the same thing, so hopefully this post helps someone wade through these depths, towards a more structured Bayesian workflow.</p>
-</div>
-<div class="footnotes">
-<hr />
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
-<li id="fn1"><p>If any students are reading this, it contains answers for most of the lab questions, lol.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>I am very lucky to work with one of the authors, <a href="https://twitter.com/dan_p_simpson">Dan Simpson</a>, who listens to my questions and comments at length with an admirable level of patience, usually in exchange for coffee.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>Technically this is whether or not the birth was ‘very preterm’ according to WHO definitions: <a href="https://www.who.int/news-room/fact-sheets/detail/preterm-birth" class="uri">https://www.who.int/news-room/fact-sheets/detail/preterm-birth</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>Someone I <a href="https://www.rohanalexander.com">know</a> was recently asked “when do you know that your EDA is done?” Their response was, EDA is never done, you just die.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>It’s also possible / easy to get posterior predictive samples in R after running the model, <a href="https://github.com/MJAlexander/states-mortality/tree/master/birthweight_bayes_viz/yrep_birthweight_example.R">here</a> is some example code. Doing everything in Stan is neater, but it might be clearer to see what’s going on doing it yourself in R.<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>More details <a href="https://arxiv.org/abs/1507.04544">here</a>.<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>If any students are reading this, it contains answers for most of the lab questions, lol.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>I am very lucky to work with one of the authors, <a href="https://twitter.com/dan_p_simpson">Dan Simpson</a>, who listens to my questions and comments at length with an admirable level of patience, usually in exchange for coffee.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Technically this is whether or not the birth was ‘very preterm’ according to WHO definitions: https://www.who.int/news-room/fact-sheets/detail/preterm-birth<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Someone I <a href="https://www.rohanalexander.com">know</a> was recently asked “when do you know that your EDA is done?” Their response was, EDA is never done, you just die.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>It’s also possible / easy to get posterior predictive samples in R after running the model, <a href="https://github.com/MJAlexander/states-mortality/tree/master/birthweight_bayes_viz/yrep_birthweight_example.R">here</a> is some example code. Doing everything in Stan is neater, but it might be clearer to see what’s going on doing it yourself in R.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>More details <a href="https://arxiv.org/abs/1507.04544">here</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.monicaalexander\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
 
-      </div>
-
-      <footer>
-        
 
 
-        
-        
-        
-      </footer>
-    </article>
 
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-
-    
-    <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-  </section>
-</footer>
-
-    </main>
-
-    
-
-  </body>
-
-</html>
+</body></html>

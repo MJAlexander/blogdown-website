@@ -1,0 +1,19 @@
+---
+title: "Monica Alexander"
+toc: false
+page-layout: full
+body-classes: homepage
+---
+
+```{=html}
+<div class="home-profile">
+<img src="images/MonicaNewNew.jpg" class="home-avatar" alt="Monica Alexander">
+<h1 class="home-name">Monica Alexander</h1>
+<p class="home-subtitle">Associate Professor, Statistics and Sociology, University of Toronto</p>
+<div class="home-links">
+<a href="https://github.com/MJAlexander" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+<a href="https://bsky.app/profile/monjalexander.bsky.social" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+<a href="mailto:monica.alexander@utoronto.ca" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+</div>
+</div>
+```

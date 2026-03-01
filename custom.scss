@@ -1,0 +1,137 @@
+/*-- scss:defaults --*/
+$body-bg: #FAFAFA;
+$body-color: #212121;
+$link-color: #1565c0;
+$font-family-sans-serif: Lato, Helvetica, sans-serif;
+$font-family-monospace: 'Source Code Pro', monospace;
+$navbar-bg: #FFFFFF;
+$footer-bg: #FAFAFA;
+
+/*-- scss:rules --*/
+
+/* Navbar refinements */
+.navbar {
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.navbar-nav .nav-link {
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: #555 !important;
+  transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: $link-color !important;
+}
+
+/* Homepage profile */
+.home-profile {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+}
+
+.home-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+.home-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.home-subtitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #212121;
+  margin-bottom: 1.5rem;
+}
+
+.home-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+
+  a {
+    color: #212121;
+    text-decoration: none;
+    font-size: 1.6rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+}
+
+/* Hide the default title block on the homepage */
+body.homepage #title-block-header,
+body.homepage .quarto-title-block {
+  display: none;
+}
+
+/* Slightly smaller page title on homepage */
+#title-block-header .title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Content area — constrain width for readability */
+.content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Blog post listing */
+#listing-listing {
+  .listing-title {
+    font-weight: 600;
+  }
+
+  .listing-date {
+    color: #888;
+    font-size: 0.85rem;
+  }
+}
+
+/* Code blocks */
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: #1a1a1a;
+}
+
+h1 { font-weight: 700; }
+h2 { font-weight: 600; }
+
+/* Subtle footer */
+.nav-footer {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Remove the search icon from navbar if not needed */
+.navbar .aa-DetachedSearchButton {
+  border: none;
+}

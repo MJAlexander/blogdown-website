@@ -1,239 +1,650 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
-    <meta name="author" content="Monica Alexander">
-    <meta name="description" content="Monica Alexander&#39;s personal website">
-    <meta name="keywords" content="blog,developer,personal">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Lifespan variation as a measure of mortality progress and inequality"/>
-<meta name="twitter:description" content="Introduction This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest paper on the topic.
-One of the most common aggregate measure of mortality we tend to look at is life expectancy."/>
+<meta name="author" content="Monica Alexander">
+<meta name="dcterms.date" content="2018-12-21">
 
-    <meta property="og:title" content="Lifespan variation as a measure of mortality progress and inequality" />
-<meta property="og:description" content="Introduction This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest paper on the topic.
-One of the most common aggregate measure of mortality we tend to look at is life expectancy." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.monicaalexander.com/posts/2018-21-12-lifespan/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-12-21T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-12-21T00:00:00&#43;00:00" />
+<title>Lifespan variation as a measure of mortality progress and inequality – Monica Alexander</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
 
 
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2575636bf12bba71c1c5b79222bd7450.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-46c34704a96b1b9dbfdc14e396dd1b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
 
-    
-      <base href="https://www.monicaalexander.com/posts/2018-21-12-lifespan/">
-    
-    <title>
-  Lifespan variation as a measure of mortality progress and inequality · Monica Alexander
-</title>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-    
-      <link rel="canonical" href="https://www.monicaalexander.com/posts/2018-21-12-lifespan/">
-    
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+</head>
 
-    
-      
-      
-      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
+<body class="nav-fixed fullcontent quarto-light">
 
-    
-
-    
-
-    
-
-    
-    
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.82.0" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://www.monicaalexander.com/">
-      Monica Alexander
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monica Alexander</span>
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/playlists/">Playlists</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
-          </li>
-        
-      
-      
-    </ul>
-  </section>
-</nav>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lab.html"> 
+<span class="menu-text">Lab</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../playlists.html"> 
+<span class="menu-text">Playlists</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact me</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lifespan variation as a measure of mortality progress and inequality</h1>
+</div>
 
 
-      <div class="content">
-        
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Lifespan variation as a measure of mortality progress and inequality</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2018-12-21T00:00:00Z'>
-                December 21, 2018
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              5 minutes read
-            </span>
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Monica Alexander </p>
           </div>
-          
-          
-        </div>
-      </header>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 21, 2018</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-      <div>
-        
+
+</header>
 
 
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This post looks at how variation in lifespan has evolved over time for different states in the US, and how this measure complements trends in life expectancy. I was inspired to write this after hearing a great talk by Alyson van Raalte last week at MPIDR and reading her latest <a href="http://science.sciencemag.org/content/362/6418/1002">paper</a> on the topic.</p>
-<p>One of the most common aggregate measure of mortality we tend to look at is life expectancy. The formal definition of (period) life expectancy at birth is the average number of years someone would live if the current age-specific mortality rates did not change in future. Given that age-specific mortality rates are generally improving over time, this isn’t really a realistic measure of longevity<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, but it’s a useful way of summarizing mortality at all ages into one number.</p>
+<p>One of the most common aggregate measure of mortality we tend to look at is life expectancy. The formal definition of (period) life expectancy at birth is the average number of years someone would live if the current age-specific mortality rates did not change in future. Given that age-specific mortality rates are generally improving over time, this isn’t really a realistic measure of longevity<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, but it’s a useful way of summarizing mortality at all ages into one number.</p>
 <p>The ‘expectancy’ part of the name comes from the fact that life expectancy is an average, or expectation. Of all the deaths that happen in a population, we are just looking at the average age at which they occur. However, there are many other ways of summarizing distributions with one number: for example, the median or mode age at death. Another such measure — lifespan variation — captures the variation in ages at death.</p>
 <p>As an example, the figure below shows the distribution of ages at deaths for Californian males in 1960 and 2010. (These data are from the <a href="https://usa.mortality.org/">HMD US states project</a>). Notice that the distribution has shifted to the right, which corresponds to improving mortality and increased life expectancy (as shown by the vertical lines). In addition, notice that the distribution in 2010 is not as spread out — the distribution of deaths is more concentrated around the mean age. That is, variation in lifespan has decreased from 1960 to 2010.</p>
-<div class="figure">
-<img src="https://www.monicaalexander.com/img/dx_CA.png" width="600" />
-
-</div>
-<p>Increases in life expectancy are usually coupled with decreases in lifespan variation. This is due to the fact that life expectancy increases usually occur because of improvements in infant mortality (which leads to a decrease in the spike observed in the first-year mortality) and decreases in premature deaths (e.g. decreases in cardiovascular diseases). However, as van Raalte and coauthors point out, this relationship of increasing life expectancy and decreasing lifespan variation is not always the case, and recently there has been a reversal of the trend for many populations.</p>
+<p><img src="../../img/dx_CA.png" class="img-fluid" width="600"></p>
+<p>Increases in life expectancy are usually coupled with decreases in lifespan variation. This is due to the fact that life expectancy increases usually occur because of improvements in infant mortality (which leads to a decrease in the spike observed in the first-year mortality) and decreases in premature deaths (e.g.&nbsp;decreases in cardiovascular diseases). However, as van Raalte and coauthors point out, this relationship of increasing life expectancy and decreasing lifespan variation is not always the case, and recently there has been a reversal of the trend for many populations.</p>
 <p>I’ll briefly describe one way to calculate lifespan variation and show trends by US state. Note that all data come from the <a href="https://usa.mortality.org/">HMD US states Project</a>.</p>
-</div>
-<div id="measuring-lifespan-variation" class="section level2">
-<h2>Measuring lifespan variation</h2>
+</section>
+<section id="measuring-lifespan-variation" class="level2">
+<h2 class="anchored" data-anchor-id="measuring-lifespan-variation">Measuring lifespan variation</h2>
 <p>There are several different ways of measuring lifespan variation. In this post, I use the standard deviation of age of death, which can be calculated from lifetable quantities as</p>
 <p><span class="math display">\[
 \sqrt{\sum_0^\omega \frac{\left(x - e_0 \right)^2d_x}{\sum_0^\omega d_x}}
 \]</span></p>
 <p>where <span class="math inline">\(e_0\)</span> is life expectancy at birth, <span class="math inline">\(d_x\)</span> is the lifetable deaths at age <span class="math inline">\(x\)</span> and <span class="math inline">\(\omega\)</span> is the open age interval (110+ in the case of HMD data).</p>
-<p>There are many other options to calculate, including: standard deviation from age 10 (which eliminates the effects of child mortality, see <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2005.00092.x">Edwards and Tuljapurkar</a>); interquartile range; life disparity (<span class="math inline">\(e^\dagger\)</span>) (e.g. see the new paper by <a href="https://link.springer.com/article/10.1007/s13524-018-0729-9?wt_mc=alerts.TOCjournals">Aburto and van Raalte</a>). I chose standard deviation because I find it intuitive and it’s easy to calculate based on lifetable columns. However, other measures would probably show similar trends.</p>
-</div>
-<div id="lifespan-variation-in-the-us" class="section level2">
-<h2>Lifespan variation in the US</h2>
+<p>There are many other options to calculate, including: standard deviation from age 10 (which eliminates the effects of child mortality, see <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1728-4457.2005.00092.x">Edwards and Tuljapurkar</a>); interquartile range; life disparity (<span class="math inline">\(e^\dagger\)</span>) (e.g.&nbsp;see the new paper by <a href="https://link.springer.com/article/10.1007/s13524-018-0729-9?wt_mc=alerts.TOCjournals">Aburto and van Raalte</a>). I chose standard deviation because I find it intuitive and it’s easy to calculate based on lifetable columns. However, other measures would probably show similar trends.</p>
+</section>
+<section id="lifespan-variation-in-the-us" class="level2">
+<h2 class="anchored" data-anchor-id="lifespan-variation-in-the-us">Lifespan variation in the US</h2>
 <p>The plot below shows life expectancy at birth and lifespan variation for the United States (data from <a href="https://www.mortality.org">HMD</a>). The recent decline in life expectancy in the United States has gained a lot of <a href="https://www.washingtonpost.com/national/health-science/us-life-expectancy-declines-again-a-dismal-trend-not-seen-since-world-war-i/2018/11/28/ae58bc8c-f28c-11e8-bc79-68604ed88993_story.html?noredirect=on&amp;utm_term=.9fc59cc5fb08">attention</a>. However, note that lifespan variation started to increase before life expectancy started to plateau/decrease.</p>
-<div class="figure">
-<img src="https://www.monicaalexander.com/img/USA.png" width="600" />
-
-</div>
+<p><img src="../../img/USA.png" class="img-fluid" width="600"></p>
 <p>Looking by state, life expectancy has increased everywhere, with recent evidence of plateauing and declining in some states (note that these data are only up to 2015, so the declines would be more apparent with more recent data). On the other hand, lifespan variation has generally declined, but plateaued much earlier than life expectancy. An increase in lifespan variation is apparent for some states, including some New England and Mid-West states.</p>
-<div class="figure">
-<img src="https://www.monicaalexander.com/img/facet.png" width="5600" />
-
-</div>
+<p><img src="../../img/facet.png" class="img-fluid" width="5600"></p>
 <p>For example, the plots below show life expectancy and lifespan variation for New Hampshire and West Virginia, two states that have been <a href="https://github.com/mkiang/opioid_hotspots">hardest hit by the opioid epidemic</a>. For these states, lifespan variation has increased back up to the level it was in the 1980s-90s.</p>
-<div class="figure">
-<img src="https://www.monicaalexander.com/img/NH_WV.png" width="800" />
-
-</div>
+<p><img src="../../img/NH_WV.png" class="img-fluid" width="800"></p>
 <p>It’s also interesting to compare trends in states that have a similar life expectancy. For instance, comparing Georgia and Ohio, the latter has experienced a much more pronounced increase in lifespan in recent years.</p>
-<div class="figure">
-<img src="https://www.monicaalexander.com/img/GA_OH.png" width="800" />
-
-</div>
-</div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
+<p><img src="../../img/GA_OH.png" class="img-fluid" width="800"></p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Lifespan variation is easily calculable from lifetable quantities, and is an interesting measure of mortality progress and inequality. Even if life expectancy is increasing, the variation of lifespan could also be increasing, which suggests increased inequality in death – while a proportion of the population are dying at older ages, there is also an increased proportion dying prematurely. Increased variation in the age of death means greater uncertainty around timing of death, which has implications for how people think about their future.</p>
 <p>All data are freely available and the code I used to generate plots etc is available on my <a href="https://github.com/MJAlexander/states-mortality">GitHub</a>.</p>
-</div>
-<div class="footnotes">
-<hr />
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
-<li id="fn1"><p>Follow <a href="https://twitter.com/les_ja">Leslie Root</a> on Twitter for amusing rants on people misinterpreting life expectancies.<a href="#fnref1">↩</a></p></li>
+<li id="fn1"><p>Follow <a href="https://twitter.com/les_ja">Leslie Root</a> on Twitter for amusing rants on people misinterpreting life expectancies.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.monicaalexander\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
 
-      </div>
-
-      <footer>
-        
 
 
-        
-        
-        
-      </footer>
-    </article>
 
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-
-    
-    <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-  </section>
-</footer>
-
-    </main>
-
-    
-
-  </body>
-
-</html>
+</body></html>

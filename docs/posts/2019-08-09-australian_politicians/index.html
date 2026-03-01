@@ -1,345 +1,769 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
 
-    <meta name="author" content="Monica Alexander">
-    <meta name="description" content="Monica Alexander&#39;s personal website">
-    <meta name="keywords" content="blog,developer,personal">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Exploring the AustralianPoliticans R Package"/>
-<meta name="twitter:description" content="Australia federated in 1901.1 Rohan Alexander is unusually interested in the history of Australian politicians, and he decided to convert some of his knowledge into an R package, the appropriately named, AustralianPoliticians. In brief, the package has datasets that contain information on every person who has ever sat in the House of Representatives (MPs) or the Senate since 1901. This post is a shameless plug for that package,2 and shows you how to read in and play around with the data."/>
+<meta name="author" content="Monica Alexander">
+<meta name="dcterms.date" content="2019-09-08">
 
-    <meta property="og:title" content="Exploring the AustralianPoliticans R Package" />
-<meta property="og:description" content="Australia federated in 1901.1 Rohan Alexander is unusually interested in the history of Australian politicians, and he decided to convert some of his knowledge into an R package, the appropriately named, AustralianPoliticians. In brief, the package has datasets that contain information on every person who has ever sat in the House of Representatives (MPs) or the Senate since 1901. This post is a shameless plug for that package,2 and shows you how to read in and play around with the data." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-09-08T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2019-09-08T00:00:00&#43;00:00" />
-
-
-
-    
-      <base href="https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/">
-    
-    <title>
-  Exploring the AustralianPoliticans R Package · Monica Alexander
-</title>
-
-    
-      <link rel="canonical" href="https://www.monicaalexander.com/posts/2019-08-09-australian_politicians/">
-    
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
-
-    
-      
-      
-      <link rel="stylesheet" href="https://www.monicaalexander.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
-
-    
-
-    
-
-    
-
-    
-    
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://www.monicaalexander.com/images/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.82.0" />
-  </head>
-
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
-  <section class="container">
-    <a class="navigation-title" href="https://www.monicaalexander.com/">
-      Monica Alexander
-    </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/about/">About</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/news/">News</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/posts/">Blog</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/research/">Research</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/lab/">Lab</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/teaching/">Teaching</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/playlists/">Playlists</a>
-          </li>
-        
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://www.monicaalexander.com/contact/">Contact me</a>
-          </li>
-        
-      
-      
-    </ul>
-  </section>
-</nav>
+<title>Exploring the AustralianPoliticans R Package – Monica Alexander</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
 
 
-      <div class="content">
-        
-  <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">Exploring the AustralianPoliticans R Package</h1>
-        </div>
-        <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2019-09-08T00:00:00Z'>
-                September 8, 2019
-              </time>
-            </span>
-            <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              7 minutes read
-            </span>
-          </div>
-          
-          
-        </div>
-      </header>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2575636bf12bba71c1c5b79222bd7450.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-46c34704a96b1b9dbfdc14e396dd1b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
 
-      <div>
-        
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-
-<p>Australia federated in 1901.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> <a href="https://rohanalexander.com/">Rohan Alexander</a> is unusually interested in the history of Australian politicians, and he decided to convert some of his knowledge into an R package, the appropriately named, <a href="https://github.com/RohanAlexander/AustralianPoliticians"><code>AustralianPoliticians</code></a>. In brief, the package has datasets that contain information on every person who has ever sat in the House of Representatives (MPs) or the Senate since 1901. This post is a shameless plug for that package,<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and shows you how to read in and play around with the data.</p>
-<div id="install-the-package-and-load-in-the-data" class="section level1">
-<h1>Install the package and load in the data</h1>
-<p>First, let’s load in some packages we need and install the <code>AustralianPoliticians</code> package. It’s not on CRAN so you’ll need to install it from GitHub.</p>
-<pre class="r"><code>library(tidyverse)
-library(lubridate)
-devtools::install_github(&quot;RohanAlexander/AustralianPoliticians&quot;)</code></pre>
-<p>The <code>AustralianPoliticians</code> package has a series of datasets built into it. Let’s read in the main dataset <code>all</code> and the MP and Senate datasets:</p>
-<pre class="r"><code>all &lt;- AustralianPoliticians::all %&gt;% as_tibble()
-by_division_mps &lt;- AustralianPoliticians::by_division_mps %&gt;% as_tibble()
-by_state_senators &lt;- AustralianPoliticians::by_state_senators %&gt;% as_tibble()</code></pre>
-<p>The <a href="https://github.com/RohanAlexander/AustralianPoliticians">README</a> on GitHub has good explanations of what each dataset contains. Briefly, the <code>all</code> dataset contains one row for each politician, and has information on their name, gender, date of birth, date of death, Wikipedia page etc. The <code>by_division_mps</code> and <code>by_state_senators</code> datasets have info on which electoral divisions / states each politician held. Note, these can change over time, so there can be more than one row/observation per politician. There’s dates the positions were held, the reason why the position ended (defeated, resigned, died etc), and other interesting info. The tables are easily joined the the <code>all</code> dataset based on the <code>uniqueID</code> column. There are other datasets available based on party and whether or not the person was a Prime Minister.</p>
-<div id="deaths-of-australian-politicians" class="section level2">
-<h2>Deaths of Australian politicians</h2>
-<p>Because I’m a demographer, and a fun sort of person, I wanted to look at the mortality of politicians. The following bit of code calculates the age of death for all those who have died, as well as the year and age they were first elected:</p>
-<pre class="r"><code>deaths &lt;- all %&gt;% 
-  rowwise() %&gt;% 
-  # some people only have a birth year available, let&#39;s arbitrarily say they were born in the middle of the year
-  mutate(birth_final = as_date(ifelse(is.na(birthDate),
-                                      ymd(paste(birthYear, 06, 30, sep=&quot;-&quot;)), 
-                                      birthDate))) %&gt;% 
-  select(uniqueID, displayName, deathDate, birth_final) %&gt;%  
-  # calculate age at death
-  mutate(age_at_death = interval(birth_final, deathDate)/years(1)) %&gt;% 
-  # filter(!is.na(age_at_death)) %&gt;% 
-  # join on MP and senate info
-  left_join(by_state_senators) %&gt;% 
-  left_join(by_division_mps) %&gt;% 
-  group_by(uniqueID) %&gt;% 
-  # just keep the initial election
-  filter(row_number()==1) %&gt;% 
-  mutate(year_first_active = ifelse(is.na(senatorsFrom), year(mpsFrom), year(senatorsFrom)), 
-         age_active = ifelse(is.na(senatorsFrom), 
-                            interval(birth_final, mpsFrom)/years(1), 
-                            interval(birth_final, senatorsFrom)/years(1)),
-         birth_year = year(birth_final)) %&gt;% 
-  ungroup()
-deaths</code></pre>
-<pre><code>## # A tibble: 1,776 x 22
-##    uniqueID displayName deathDate  birth_final age_at_death senatorsState
-##    &lt;chr&gt;    &lt;chr&gt;       &lt;date&gt;     &lt;date&gt;             &lt;dbl&gt; &lt;chr&gt;        
-##  1 Abbott1… Abbott, Ri… 1940-02-28 1859-06-30          80.7 VIC          
-##  2 Abbott1… Abbott, Pe… 1940-09-09 1869-05-14          71.3 NSW          
-##  3 Abbott1… Abbott, Mac 1960-12-30 1877-07-03          83.5 NSW          
-##  4 Abbott1… Abbott, Au… 1975-04-30 1886-01-04          89.3 &lt;NA&gt;         
-##  5 Abbott1… Abbott, Jo… 1965-05-07 1891-10-18          73.6 &lt;NA&gt;         
-##  6 Abbott1… Abbott, To… NA         1957-11-04          NA   &lt;NA&gt;         
-##  7 Abel1939 Abel, John  NA         1939-06-25          NA   &lt;NA&gt;         
-##  8 Abetz19… Abetz, Eric NA         1958-01-25          NA   TAS          
-##  9 Adams19… Adams, Jud… 2012-03-31 1943-04-11          69.0 WA           
-## 10 Adams19… Adams, Dick NA         1951-04-29          NA   &lt;NA&gt;         
-## # … with 1,766 more rows, and 16 more variables: senatorsFrom &lt;date&gt;,
-## #   senatorsTo &lt;date&gt;, senatorsEndReason &lt;chr&gt;, senatorsSec15Sel &lt;int&gt;,
-## #   senatorsComments &lt;chr&gt;, mpsDivision &lt;chr&gt;, mpsState &lt;chr&gt;,
-## #   mpsEnteredAtByElection &lt;chr&gt;, mpsFrom &lt;date&gt;, mpsTo &lt;date&gt;,
-## #   mpsEndReason &lt;chr&gt;, mpsChangedSeat &lt;int&gt;, mpsComments &lt;chr&gt;,
-## #   year_first_active &lt;dbl&gt;, age_active &lt;dbl&gt;, birth_year &lt;dbl&gt;</code></pre>
-<p>So what proportion of all politicians have died? Almost 56%:</p>
-<pre class="r"><code>sum(!is.na(deaths$age_at_death))/nrow(deaths)</code></pre>
-<pre><code>## [1] 0.5579955</code></pre>
-<p>Let’s look at the proportion of politicians who have died by birth year:</p>
-<pre class="r"><code>deaths %&gt;% 
-  group_by(birth_year) %&gt;% 
-  summarise(proportion = sum(!is.na(age_at_death))/n()) %&gt;% 
-  ggplot(aes(birth_year, proportion)) + 
-  geom_point() + 
-  theme_bw(base_size = 12) + 
-  ggtitle(&quot;Proportion of politicians who are dead by birth year&quot;)</code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2019-08-09-australian_politicians_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>So all politicians born before 1916 are now dead. In contrast, no politicans born after 1963 has died so far. The oldest politician is George Pearce, who is almost 102:</p>
-<pre class="r"><code>deaths %&gt;% 
-  filter(is.na(age_at_death)) %&gt;% 
-  arrange(birth_year) %&gt;% 
-  filter(row_number()==1) %&gt;% 
-  mutate(age = interval(birth_final, today())/years(1)) %&gt;% 
-  select(displayName, age) </code></pre>
-<pre><code>## # A tibble: 1 x 2
-##   displayName      age
-##   &lt;chr&gt;          &lt;dbl&gt;
-## 1 Pearce, George  102.</code></pre>
-<div id="average-age-at-death-by-cohort" class="section level3">
-<h3>Average age at death by cohort</h3>
-<p>Let’s look at the average age of death of these politicians and compare it to the national average. I got the national data from the <a href="https://www.aihw.gov.au/reports/life-expectancy-death/deaths-in-australia/data">Australian Institute of Health and Welfare’s website</a>. The indicator is <span class="math inline">\(e45+45\)</span> for males, which is the expected age at death for those who lived at least until age 45. I didn’t want to compare to the usual life expectancy at birth, because we know that politicians already have to survive long enough to become politicians. Looking at the average age that people entered parliament, 45 is not too far off:</p>
-<pre class="r"><code>deaths %&gt;%  
-  summarise(mean(age_active, na.rm = T))</code></pre>
-<pre><code>## # A tibble: 1 x 1
-##   `mean(age_active, na.rm = T)`
-##                           &lt;dbl&gt;
-## 1                          45.2</code></pre>
-<p>I use males because there’s been hardly any women in parliament (:( ). Let’s read in the national data and calculate a year mid-point:</p>
-<pre class="r"><code>e45 &lt;- read_csv(&quot;e45.csv&quot;)    </code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   Year = col_character(),
-##   e45 = col_double()
-## )</code></pre>
-<pre class="r"><code>e45 &lt;- e45 %&gt;% 
-  mutate(start_year = as.numeric(str_sub(Year, 1,4)),
-         end_year = as.numeric(str_sub(Year, 6,9)),
-         year = floor((start_year+end_year)/2))
-e45</code></pre>
-<pre><code>## # A tibble: 37 x 5
-##    Year        e45 start_year end_year  year
-##    &lt;chr&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
-##  1 1881–1890  68         1881     1890  1885
-##  2 1891–1900  69         1891     1900  1895
-##  3 1901–1910  69.8       1901     1910  1905
-##  4 1920–1922  71         1920     1922  1921
-##  5 1932–1934  71.9       1932     1934  1933
-##  6 1946–1948  71.8       1946     1948  1947
-##  7 1953–1955  72.2       1953     1955  1954
-##  8 1960–1962  72.4       1960     1962  1961
-##  9 1965–1967  72         1965     1967  1966
-## 10 1970–1972  72.1       1970     1972  1971
-## # … with 27 more rows</code></pre>
-<p>Now graph the average age at death for politicians and the national data that we have. The size of the dot represents the number of people who died from that cohort.</p>
-<pre class="r"><code>deaths %&gt;% 
-  full_join(e45 %&gt;% rename(birth_year = year)) %&gt;% 
-  filter(age_at_death&gt;0) %&gt;% 
-  group_by(birth_year, e45) %&gt;% 
-  summarise(mean_age = mean(age_at_death), 
-            deaths = n()) %&gt;% 
-  ggplot(aes(birth_year, mean_age)) + geom_point(aes(size = deaths)) +
-  geom_point(aes(birth_year, e45, color = &#39;National average&#39;), size = 4, pch = 10) +
-  scale_color_manual(name = &quot;&quot;, values = c(&quot;National average&quot; = &quot;red&quot;)) + 
-  scale_size_continuous(name = &quot;number of deaths&quot;) +
-  ylab(&quot;average age at death (years)&quot;) + xlab(&quot;birth year&quot;) + 
-  ggtitle(&quot;Average age at death of Australian politicians by birth year&quot;) + 
-  theme_bw(base_size = 12) </code></pre>
-<p><img src="https://www.monicaalexander.com/posts/2019-08-09-australian_politicians_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<p>So the average age of death for politicians is generally well above the national average. There’s a steep drop in the later years, from about 1935 onwards, as these cohorts are still fairly young. The youngest ten are listed below, along with their reason for leaving parliament:</p>
-<pre class="r"><code>deaths %&gt;% 
-  filter(!is.na(age_at_death), birth_year&gt;1935) %&gt;% 
-  arrange(age_at_death) %&gt;% 
-  mutate(reason_leaving = ifelse(is.na(senatorsEndReason), mpsEndReason, senatorsEndReason)) %&gt;% 
-  select(displayName, birth_year, age_at_death, reason_leaving) %&gt;% 
-  filter(row_number() %in% 1:10)</code></pre>
-<pre><code>## # A tibble: 10 x 4
-##    displayName    birth_year age_at_death reason_leaving
-##    &lt;chr&gt;               &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;         
-##  1 Knight, John         1943         37.3 Died          
-##  2 Kirwan, Frank        1937         39.0 Defeated      
-##  3 Gerick, Jane         1963         40.7 Defeated      
-##  4 Wilton, Greg         1955         44.6 Died          
-##  5 Bell, Robert         1950         51.1 Defeated      
-##  6 West, Andrea         1952         57.6 Defeated      
-##  7 Vigor, David         1939         58.8 Defeated      
-##  8 Knott, Peter         1956         59.2 Defeated      
-##  9 Young, Mick          1936         59.5 Resigned      
-## 10 Haines, Janine       1945         59.5 Term Expired</code></pre>
-</div>
-</div>
-<div id="summary" class="section level2">
-<h2>Summary</h2>
-<p>If you’ve ever wanted to know about Australian Politicians, this is the package for you. These data could be combined with data from other sources, for example Twitter data to study more recent politicians, Hansard data, or data from other countries for international comparisons. This is also a great dataset to study a relatively privledged group of society.</p>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>“Our nation was created with a vote, not a war”: h/t to <a href="https://www.youtube.com/watch?v=wkGEMYSgIo0&amp;feature=youtu.be">this</a> ad for teaching me the name of Australia’s first Prime Minister.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Because why else is one in a relationship if not to have someone advertise your R package.<a href="#fnref2">↩</a></p></li>
-</ol>
-</div>
-
-      </div>
-
-      <footer>
-        
-
-
-        
-        
-        
-      </footer>
-    </article>
-
-    
-  </section>
-
-      </div>
-
-      <footer class="footer">
-  <section class="container">
-    
-    
-    
-    
-
-    
-    <script src="//yihui.name/js/math-code.js"></script>
-<script async
-src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
 </script>
 
-  </section>
-</footer>
+</head>
 
-    </main>
+<body class="nav-fixed fullcontent quarto-light">
 
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Monica Alexander</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../news.html"> 
+<span class="menu-text">News</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../lab.html"> 
+<span class="menu-text">Lab</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../playlists.html"> 
+<span class="menu-text">Playlists</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact me</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
     
+<!-- main -->
+<main class="content" id="quarto-document-content">
 
-  </body>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exploring the AustralianPoliticans R Package</h1>
+</div>
 
-</html>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Monica Alexander </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 8, 2019</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Australia federated in 1901.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <a href="https://rohanalexander.com/">Rohan Alexander</a> is unusually interested in the history of Australian politicians, and he decided to convert some of his knowledge into an R package, the appropriately named, <a href="https://github.com/RohanAlexander/AustralianPoliticians"><code>AustralianPoliticians</code></a>. In brief, the package has datasets that contain information on every person who has ever sat in the House of Representatives (MPs) or the Senate since 1901. This post is a shameless plug for that package,<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and shows you how to read in and play around with the data.</p>
+<section id="install-the-package-and-load-in-the-data" class="level1">
+<h1>Install the package and load in the data</h1>
+<p>First, let’s load in some packages we need and install the <code>AustralianPoliticians</code> package. It’s not on CRAN so you’ll need to install it from GitHub.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"RohanAlexander/AustralianPoliticians"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>AustralianPoliticians</code> package has a series of datasets built into it. Let’s read in the main dataset <code>all</code> and the MP and Senate datasets:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>all <span class="ot">&lt;-</span> AustralianPoliticians<span class="sc">::</span>all <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>by_division_mps <span class="ot">&lt;-</span> AustralianPoliticians<span class="sc">::</span>by_division_mps <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>by_state_senators <span class="ot">&lt;-</span> AustralianPoliticians<span class="sc">::</span>by_state_senators <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <a href="https://github.com/RohanAlexander/AustralianPoliticians">README</a> on GitHub has good explanations of what each dataset contains. Briefly, the <code>all</code> dataset contains one row for each politician, and has information on their name, gender, date of birth, date of death, Wikipedia page etc. The <code>by_division_mps</code> and <code>by_state_senators</code> datasets have info on which electoral divisions / states each politician held. Note, these can change over time, so there can be more than one row/observation per politician. There’s dates the positions were held, the reason why the position ended (defeated, resigned, died etc), and other interesting info. The tables are easily joined the the <code>all</code> dataset based on the <code>uniqueID</code> column. There are other datasets available based on party and whether or not the person was a Prime Minister.</p>
+<section id="deaths-of-australian-politicians" class="level2">
+<h2 class="anchored" data-anchor-id="deaths-of-australian-politicians">Deaths of Australian politicians</h2>
+<p>Because I’m a demographer, and a fun sort of person, I wanted to look at the mortality of politicians. The following bit of code calculates the age of death for all those who have died, as well as the year and age they were first elected:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>deaths <span class="ot">&lt;-</span> all <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># some people only have a birth year available, let's arbitrarily say they were born in the middle of the year</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">birth_final =</span> <span class="fu">as_date</span>(<span class="fu">ifelse</span>(<span class="fu">is.na</span>(birthDate),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="fu">ymd</span>(<span class="fu">paste</span>(birthYear, <span class="dv">06</span>, <span class="dv">30</span>, <span class="at">sep=</span><span class="st">"-"</span>)), </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                                      birthDate))) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(uniqueID, displayName, deathDate, birth_final) <span class="sc">%&gt;%</span>  </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate age at death</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age_at_death =</span> <span class="fu">interval</span>(birth_final, deathDate)<span class="sc">/</span><span class="fu">years</span>(<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter(!is.na(age_at_death)) %&gt;% </span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># join on MP and senate info</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(by_state_senators) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(by_division_mps) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(uniqueID) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># just keep the initial election</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>()<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_first_active =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(senatorsFrom), <span class="fu">year</span>(mpsFrom), <span class="fu">year</span>(senatorsFrom)), </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">age_active =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(senatorsFrom), </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">interval</span>(birth_final, mpsFrom)<span class="sc">/</span><span class="fu">years</span>(<span class="dv">1</span>), </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">interval</span>(birth_final, senatorsFrom)<span class="sc">/</span><span class="fu">years</span>(<span class="dv">1</span>)),</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">birth_year =</span> <span class="fu">year</span>(birth_final)) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>deaths</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So what proportion of all politicians have died? Almost 56%:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(deaths<span class="sc">$</span>age_at_death))<span class="sc">/</span><span class="fu">nrow</span>(deaths)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s look at the proportion of politicians who have died by birth year:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(birth_year) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">proportion =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_at_death))<span class="sc">/</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(birth_year, proportion)) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Proportion of politicians who are dead by birth year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So all politicians born before 1916 are now dead. In contrast, no politicans born after 1963 has died so far. The oldest politician is George Pearce, who is almost 102:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(age_at_death)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(birth_year) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>()<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> <span class="fu">interval</span>(birth_final, <span class="fu">today</span>())<span class="sc">/</span><span class="fu">years</span>(<span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(displayName, age) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="average-age-at-death-by-cohort" class="level3">
+<h3 class="anchored" data-anchor-id="average-age-at-death-by-cohort">Average age at death by cohort</h3>
+<p>Let’s look at the average age of death of these politicians and compare it to the national average. I got the national data from the <a href="https://www.aihw.gov.au/reports/life-expectancy-death/deaths-in-australia/data">Australian Institute of Health and Welfare’s website</a>. The indicator is <span class="math inline">\(e45+45\)</span> for males, which is the expected age at death for those who lived at least until age 45. I didn’t want to compare to the usual life expectancy at birth, because we know that politicians already have to survive long enough to become politicians. Looking at the average age that people entered parliament, 45 is not too far off:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>deaths <span class="sc">%&gt;%</span>  </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(age_active, <span class="at">na.rm =</span> T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I use males because there’s been hardly any women in parliament (:( ). Let’s read in the national data and calculate a year mid-point:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>e45 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"e45.csv"</span>)    </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>e45 <span class="ot">&lt;-</span> e45 <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_year =</span> <span class="fu">as.numeric</span>(<span class="fu">str_sub</span>(Year, <span class="dv">1</span>,<span class="dv">4</span>)),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">end_year =</span> <span class="fu">as.numeric</span>(<span class="fu">str_sub</span>(Year, <span class="dv">6</span>,<span class="dv">9</span>)),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">floor</span>((start_year<span class="sc">+</span>end_year)<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>e45</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now graph the average age at death for politicians and the national data that we have. The size of the dot represents the number of people who died from that cohort.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(e45 <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">birth_year =</span> year)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age_at_death<span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(birth_year, e45) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age_at_death), </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">deaths =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(birth_year, mean_age)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> deaths)) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(birth_year, e45, <span class="at">color =</span> <span class="st">'National average'</span>), <span class="at">size =</span> <span class="dv">4</span>, <span class="at">pch =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">""</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"National average"</span> <span class="ot">=</span> <span class="st">"red"</span>)) <span class="sc">+</span> </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">name =</span> <span class="st">"number of deaths"</span>) <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"average age at death (years)"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"birth year"</span>) <span class="sc">+</span> </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Average age at death of Australian politicians by birth year"</span>) <span class="sc">+</span> </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So the average age of death for politicians is generally well above the national average. There’s a steep drop in the later years, from about 1935 onwards, as these cohorts are still fairly young. The youngest ten are listed below, along with their reason for leaving parliament:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>deaths <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age_at_death), birth_year<span class="sc">&gt;</span><span class="dv">1935</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(age_at_death) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">reason_leaving =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(senatorsEndReason), mpsEndReason, senatorsEndReason)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(displayName, birth_year, age_at_death, reason_leaving) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>If you’ve ever wanted to know about Australian Politicians, this is the package for you. These data could be combined with data from other sources, for example Twitter data to study more recent politicians, Hansard data, or data from other countries for international comparisons. This is also a great dataset to study a relatively privledged group of society.</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“Our nation was created with a vote, not a war”: h/t to <a href="https://www.youtube.com/watch?v=wkGEMYSgIo0&amp;feature=youtu.be">this</a> ad for teaching me the name of Australia’s first Prime Minister.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Because why else is one in a relationship if not to have someone advertise your R package.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.monicaalexander\.com\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
