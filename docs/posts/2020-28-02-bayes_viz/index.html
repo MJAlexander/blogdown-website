@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2575636bf12bba71c1c5b79222bd7450.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-919c7ec90743d9b1e9761dff04b41dfc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-46c34704a96b1b9dbfdc14e396dd1b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4a4ee4c0c262f04a871cf79e6eccbbbb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,6 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -120,7 +122,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -145,6 +147,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Monica Alexander</span>
     </a>
@@ -243,7 +247,7 @@ window.Quarto = {
 <p>I’m using (a sample of) the publicly available dataset of all births in the United States in 2017, available on the <a href="https://data.nber.org/data/vital-statistics-natality-data.html">NBER website</a>. For the purposes of this exercise, I’m just using a 0.1% sample of the births, which leads to 3842 observations. Details on how I got the data are <a href="https://github.com/MJAlexander/states-mortality/tree/master/birthweight_bayes_viz/births_2017_prep.R">here</a>.</p>
 <p>Let’s load in the packages we need and the dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstan)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bayesplot)</span>
@@ -251,35 +255,35 @@ window.Quarto = {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidybayes)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"births_2017_sample.RDS"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The dataset contains a few different variables, but for the purposes of this exercise I’m going to focus on birth weight and gestational age. Let’s rename these variables, make a <code>preterm</code> variable (which indicates whether or not gestational length was less than 32 weeks)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and filter out unknown observations, and any babies that died.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ds <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">birthweight =</span> dbwt, <span class="at">gest =</span> combgest) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">preterm =</span> <span class="fu">ifelse</span>(gest<span class="sc">&lt;</span><span class="dv">32</span>, <span class="st">"Y"</span>, <span class="st">"N"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ilive<span class="sc">==</span><span class="st">"Y"</span>,gest<span class="sc">&lt;</span> <span class="dv">99</span>, birthweight<span class="sc">&lt;</span><span class="fl">9.999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ilive<span class="sc">==</span><span class="st">"Y"</span>,gest<span class="sc">&lt;</span> <span class="dv">99</span>, birthweight<span class="sc">&lt;</span><span class="fl">9.999</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="super-brief-eda" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Super brief EDA</h1>
 <p>An important first step to model building is exploratory data analysis, which should help to inform potential variables or functional forms of the model. Here’s some EDA in the most brief sense.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Below is a scatter plot of gestational age (weeks) and birth weight (kg) on the log scale, which appears to show some relationship:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">log</span>(gest), <span class="fu">log</span>(birthweight))) <span class="sc">+</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span> </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"birthweight v gestational age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"birthweight v gestational age"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>It may be reasonable to allow for the relationship between weight and gestational age to vary by whether or not the baby was premature. If we split by prematurity, there is some evidence to suggest a different relationship between the two variables, which may lead us to consider interaction terms:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ds <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">log</span>(gest), <span class="fu">log</span>(birthweight), <span class="at">color =</span> preterm)) <span class="sc">+</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span> </span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span> </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"birthweight v gestational age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"birthweight v gestational age"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="some-simple-candidate-models" class="level1" data-number="4">
@@ -306,7 +310,7 @@ window.Quarto = {
 <h2 data-number="5.1" class="anchored" data-anchor-id="vague-priors"><span class="header-section-number">5.1</span> Vague priors</h2>
 <p>For example, the following plots the prior predictive distribution with vague priors on sigma, and the betas for Model 1. For reference, my current weight is marked with the purple line. While I can attest to babies feeling like they have the mass of a small planet once you’ve been carrying them for 9 months, it’s highly implausible that my current adult weight should have so much probability mass assigned to it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">182</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">182</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nsims <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">rgamma</span>(nsims, <span class="dv">1</span>, <span class="at">rate =</span> <span class="dv">100</span>))</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">100</span>)</span>
@@ -328,14 +332,14 @@ window.Quarto = {
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">log</span>(<span class="dv">60</span>), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="dv">300</span>, <span class="at">y=</span><span class="fl">0.0022</span>, <span class="at">label=</span> <span class="st">"Monica's</span><span class="sc">\n</span><span class="st">current weight"</span>, </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">5</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="weakly-informative-priors" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="weakly-informative-priors"><span class="header-section-number">5.2</span> Weakly informative priors</h2>
 <p>Let’s try this exercise again, but now with some <a href="https://github.com/stan-dev/stan/wiki/Prior-Choice-Recommendations">weakly informative priors</a>. The distribution is much less spread out, and my current weight is now much further to the right of the distribution. Remember that these are the distributions before we look at any data, and we are doing so just to make sure that any plausible values have some probability of showing up. The picture will look much different once we take the observations into account.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">abs</span>(<span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">1</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>beta0 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>beta1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(nsims, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -353,7 +357,7 @@ window.Quarto = {
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sim_weight)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> ..density..), <span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"turquoise"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">log</span>(<span class="dv">60</span>), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="dv">7</span>, <span class="at">y=</span><span class="fl">0.2</span>, <span class="at">label=</span> <span class="st">"Monica's</span><span class="sc">\n</span><span class="st">current weight"</span>, <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x=</span><span class="dv">7</span>, <span class="at">y=</span><span class="fl">0.2</span>, <span class="at">label=</span> <span class="st">"Monica's</span><span class="sc">\n</span><span class="st">current weight"</span>, <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -364,7 +368,7 @@ window.Quarto = {
 <h2 data-number="6.1" class="anchored" data-anchor-id="running-the-models-in-stan"><span class="header-section-number">6.1</span> Running the models in Stan</h2>
 <p>The Stan code for model 1 is below. You can view the stan code for model 2 <a href="https://github.com/MJAlexander/states-mortality/tree/master/birthweight_bayes_viz/simple_weight_preterm_int.stan">here</a>. It’s worth noticing the <code>generated quantities</code> block: for our model checks later on, we need to generate 1) pointwise estimates of the log-likelihood and 2) samples from the posterior predictive distribution. When using <code>brms</code> we don’t have to worry about this because the log-likelihood is calculated by default, and the posterior predictive samples can be generated afterwards.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
 <div class="cell" data-output.var="mod1s">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stan code-with-copy"><code class="sourceCode stan"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> {</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span>&lt;<span class="kw">lower</span>=<span class="dv">1</span>&gt; N;       <span class="co">// number of observations</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[N] log_gest;    <span class="co">// log gestational age</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">vector</span>[N] log_weight;     <span class="co">// log birth weight</span></span>
@@ -390,11 +394,11 @@ window.Quarto = {
 <span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    log_lik[n] = normal_lpdf(log_weight[n] | log_weight_hat_n, sigma);</span>
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    log_weight_rep[n] = normal_rng(log_weight_hat_n, sigma);</span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Calculate the transformed variables, and put the data into a list for Stan.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ds<span class="sc">$</span>log_weight <span class="ot">&lt;-</span> <span class="fu">log</span>(ds<span class="sc">$</span>birthweight)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ds<span class="sc">$</span>log_weight <span class="ot">&lt;-</span> <span class="fu">log</span>(ds<span class="sc">$</span>birthweight)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ds<span class="sc">$</span>log_gest_c <span class="ot">&lt;-</span> (<span class="fu">log</span>(ds<span class="sc">$</span>gest) <span class="sc">-</span> <span class="fu">mean</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest)))<span class="sc">/</span><span class="fu">sd</span>(<span class="fu">log</span>(ds<span class="sc">$</span>gest))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(ds)</span>
@@ -406,11 +410,11 @@ window.Quarto = {
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>stan_data <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">N =</span> N,</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">log_weight =</span> log_weight,</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">log_gest =</span> log_gest_c, </span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">preterm =</span> preterm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">preterm =</span> preterm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Running the models in Stan looks like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">data =</span> stan_data, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">data =</span> stan_data, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">file =</span> <span class="st">"models/simple_weight.stan"</span>,</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">500</span>,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">seed =</span> <span class="dv">243</span>)</span>
@@ -418,23 +422,23 @@ window.Quarto = {
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">stan</span>(<span class="at">data =</span> stan_data, </span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">file =</span> <span class="st">"models/simple_weight_preterm_int.stan"</span>,</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">500</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">seed =</span> <span class="dv">263</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">seed =</span> <span class="dv">263</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Take a look at the estimates of parameters of interest. Note that I centered and standardized the gestation variable, so the interpretation in Model 1 for example is that a 1 standard deviation increase in the gestation weeks leads to a 0.14% increase in birth weight.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)[[<span class="st">"summary"</span>]][<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"beta["</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">"]"</span>), <span class="st">"sigma"</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod1)[[<span class="st">"summary"</span>]][<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"beta["</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">"]"</span>), <span class="st">"sigma"</span>),]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>For Model 2, the third <span class="math inline">\(\beta\)</span> relates to the effect of prematury, and the fourth <span class="math inline">\(\beta\)</span> is the interaction. The interaction effect suggests that the increase in birthweight with increased gestational age is more steep from premature babies.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)[[<span class="st">"summary"</span>]][<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"beta["</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">"]"</span>), <span class="st">"sigma"</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod2)[[<span class="st">"summary"</span>]][<span class="fu">c</span>(<span class="fu">paste0</span>(<span class="st">"beta["</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">"]"</span>), <span class="st">"sigma"</span>),]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="running-the-models-in-brms" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="running-the-models-in-brms"><span class="header-section-number">6.2</span> Running the models in <code>brms</code></h2>
 <p>Running the models in <code>brms</code> looks like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mod1b <span class="ot">&lt;-</span> <span class="fu">brm</span>(log_weight<span class="sc">~</span>log_gest_c, <span class="at">data =</span> ds)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mod2b <span class="ot">&lt;-</span> <span class="fu">brm</span>(log_weight<span class="sc">~</span>log_gest_c<span class="sc">*</span>preterm, <span class="at">data =</span> ds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mod1b <span class="ot">&lt;-</span> <span class="fu">brm</span>(log_weight<span class="sc">~</span>log_gest_c, <span class="at">data =</span> ds)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mod2b <span class="ot">&lt;-</span> <span class="fu">brm</span>(log_weight<span class="sc">~</span>log_gest_c<span class="sc">*</span>preterm, <span class="at">data =</span> ds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -445,20 +449,20 @@ window.Quarto = {
 <h2 data-number="7.1" class="anchored" data-anchor-id="ppcs-with-stan-output"><span class="header-section-number">7.1</span> PPCs with Stan output</h2>
 <p>For the Stan models, we want to extract the samples from the posterior predictive distribution and can then use <code>ppc_dens_overlay</code> to compare the densities of 100 sampled datasets to the actual data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1856</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1856</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> log_weight</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>yrep1 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod1)[[<span class="st">"log_weight_rep"</span>]]</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>samp100 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(yrep1), <span class="dv">100</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_dens_overlay</span>(y, yrep1[samp100, ])  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_dens_overlay</span>(y, yrep1[samp100, ])  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Model 2 is a bit better:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>yrep2 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod2)[[<span class="st">"log_weight_rep"</span>]]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_dens_overlay</span>(y, yrep2[samp100, ])  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>yrep2 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod2)[[<span class="st">"log_weight_rep"</span>]]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_dens_overlay</span>(y, yrep2[samp100, ])  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>If you would like to convince yourself you know what’s going on with <code>ppc_dens_overlay</code> or would like to format your graphs from scratch, you can do the density plots yourself:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first, get into a tibble</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first, get into a tibble</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(yrep1) <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(yrep1)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">t</span>(yrep1))</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>dr <span class="ot">&lt;-</span> dr <span class="sc">%&gt;%</span> <span class="fu">bind_cols</span>(<span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span>N, <span class="at">log_weight_obs =</span> <span class="fu">log</span>(ds<span class="sc">$</span>birthweight))</span>
@@ -478,19 +482,19 @@ window.Quarto = {
 <span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"y"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, </span>
 <span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>                                <span class="st">"y_rep"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>)) <span class="sc">+</span> </span>
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of observed and replicated birthweights"</span>) <span class="sc">+</span> </span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="test-statistics" class="level3" data-number="7.1.1">
 <h3 data-number="7.1.1" class="anchored" data-anchor-id="test-statistics"><span class="header-section-number">7.1.1</span> Test statistics</h3>
 <p>As well as looking at the overall distributions of the replicated datasets versus the data, we can decide on a test statistic(s) that is a summary of interest, calculate the statistic for each replicated dataset, and compare the distribution of these values with the value of the statistic observed in the data.</p>
 <p>For example, we can look at the distribution of the median (log) birth weight across the replicated data sets in comparison to the median in the data, and plot using <code>ppc_stat</code>. For both models, the predicted median birth weight is too low.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_stat</span>(log_weight, yrep1, <span class="at">stat =</span> <span class="st">'median'</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_stat</span>(log_weight, yrep2, <span class="at">stat =</span> <span class="st">'median'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_stat</span>(log_weight, yrep1, <span class="at">stat =</span> <span class="st">'median'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_stat</span>(log_weight, yrep2, <span class="at">stat =</span> <span class="st">'median'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>As before, we can also construct these plots ourselves. Here I’m calculating the proportion of babies who have a weight less than 2.5kg (considered low birth weight) in each of the replicated datasets, and comparing to the proportion in the data. Model 2 seems to do a better job here:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(y<span class="sc">&lt;=</span><span class="fu">log</span>(<span class="fl">2.5</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>t_y <span class="ot">&lt;-</span> <span class="fu">mean</span>(y<span class="sc">&lt;=</span><span class="fu">log</span>(<span class="fl">2.5</span>))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>t_y_rep <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(yrep1), <span class="cf">function</span>(i) <span class="fu">mean</span>(yrep1[i,]<span class="sc">&lt;=</span><span class="fu">log</span>(<span class="fl">2.5</span>)))</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>t_y_rep_2 <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(yrep2), <span class="cf">function</span>(i) <span class="fu">mean</span>(yrep2[i,]<span class="sc">&lt;=</span><span class="fu">log</span>(<span class="fl">2.5</span>)))</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -512,7 +516,7 @@ window.Quarto = {
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name =</span> <span class="st">""</span>, </span>
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"observed"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>))<span class="sc">+</span></span>
 <span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">name =</span> <span class="st">""</span>, </span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"replicated"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                     <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"replicated"</span> <span class="ot">=</span> <span class="st">"lightblue"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -520,23 +524,23 @@ window.Quarto = {
 <h2 data-number="7.2" class="anchored" data-anchor-id="ppcs-with-brms-output"><span class="header-section-number">7.2</span> PPCs with <code>brms</code> output</h2>
 <p>With the models built in brms, we can use the <code>posterior_predict</code> function to get samples from the posterior predictive distribution:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>yrep1b <span class="ot">&lt;-</span> <span class="fu">posterior_predict</span>(mod1b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>yrep1b <span class="ot">&lt;-</span> <span class="fu">posterior_predict</span>(mod1b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Alterantively, you can use the <code>tidybayes</code> package to add predicted draws to the original <code>ds</code> data tibble. This option is nice if you want to do a lot of ggplotting later on, because the data is already in tidy format.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ds_yrep1 <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ds_yrep1 <span class="ot">&lt;-</span> ds <span class="sc">%&gt;%</span> </span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(log_weight, log_gest_c) <span class="sc">%&gt;%</span> </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predicted_draws</span>(mod1b)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ds_yrep1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ds_yrep1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once you have the posterior predictive samples, you can use the <code>bayesplot</code> package as we did above with the Stan output, or do the plots yourself in <code>ggplot</code>.</p>
 <p>Another quick alternative with <code>brms</code> that avoids manually getting the posterior predictive samples altogether is to use the <code>pp_check</code> function, which is a wrapper for all the <code>bayesplot</code> options. e.g.&nbsp;density overlays:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pp_check</span>(mod1b, <span class="at">type =</span> <span class="st">"dens_overlay"</span>, <span class="at">nsamples =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pp_check</span>(mod1b, <span class="at">type =</span> <span class="st">"dens_overlay"</span>, <span class="at">nsamples =</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>e.g.&nbsp;test statistics:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pp_check</span>(mod1b, <span class="at">type =</span> <span class="st">"stat"</span>, <span class="at">stat =</span> <span class="st">'median'</span>, <span class="at">nsamples =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pp_check</span>(mod1b, <span class="at">type =</span> <span class="st">"stat"</span>, <span class="at">stat =</span> <span class="st">'median'</span>, <span class="at">nsamples =</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -549,31 +553,31 @@ window.Quarto = {
 <h2 data-number="8.1" class="anchored" data-anchor-id="loo-cv-with-stan-output"><span class="header-section-number">8.1</span> LOO-CV with Stan output</h2>
 <p>For the Stan models, we need to extract the log-likelihood, and then run <code>loo</code>. (The <code>save_psis = TRUE</code> is needed for the LOO-PIT graphs below).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>loglik1 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod1)[[<span class="st">"log_lik"</span>]]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>loglik1 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod1)[[<span class="st">"log_lik"</span>]]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>loglik2 <span class="ot">&lt;-</span> <span class="fu">extract</span>(mod2)[[<span class="st">"log_lik"</span>]]</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>loo1 <span class="ot">&lt;-</span> <span class="fu">loo</span>(loglik1, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>loo2 <span class="ot">&lt;-</span> <span class="fu">loo</span>(loglik2, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>loo2 <span class="ot">&lt;-</span> <span class="fu">loo</span>(loglik2, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can look at the summaries of these and also compare across models. The <span class="math inline">\(\text{elpd}_{LOO}\)</span> is higher for Model 2, so it is preferred.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loo1</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>loo1</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>loo2</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">compare</span>(loo1, loo2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">compare</span>(loo1, loo2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The output mentions Pareto k estimates, which give an indication of how ‘influential’ each point is. The higher the value of <span class="math inline">\(k\)</span>, the more influential the point. <a href="https://mc-stan.org/loo/reference/pareto-k-diagnostic.html">Values of <span class="math inline">\(k\)</span> over 0.7 are not good</a>, and suggest the need for model re-specification. The values of <span class="math inline">\(k\)</span> can be extracted from the <code>loo</code> object like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(loo1<span class="sc">$</span>diagnostics<span class="sc">$</span>pareto_k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(loo1<span class="sc">$</span>diagnostics<span class="sc">$</span>pareto_k)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>or plotted easily like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(loo1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(loo1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="loo-pit" class="level3" data-number="8.1.1">
 <h3 data-number="8.1.1" class="anchored" data-anchor-id="loo-pit"><span class="header-section-number">8.1.1</span> LOO-PIT</h3>
 <p>Another useful model diagnostic is the LOO <a href="https://en.wikipedia.org/wiki/Probability_integral_transform">probability integral transform</a> (PIT). This essentially looks to see where each point <span class="math inline">\(y_i\)</span> falls in its predictive distribution <span class="math inline">\(p(y_i|\boldsymbol{y_{-i}})\)</span>. If the model is well calibrated these should look like Uniform distributions. We can use <code>bayesplot</code> to plot these against 100 simulate standard Uniforms. The results in this case aren’t too bad.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_loo_pit_overlay</span>(<span class="at">yrep =</span> yrep1, <span class="at">y =</span> y, <span class="at">lw =</span> <span class="fu">weights</span>(loo1<span class="sc">$</span>psis_object)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"LOO-PIT Model 1"</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_loo_pit_overlay</span>(<span class="at">yrep =</span> yrep2, <span class="at">y =</span> y, <span class="at">lw =</span> <span class="fu">weights</span>(loo2<span class="sc">$</span>psis_object)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"LOO-PIT Model 2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_loo_pit_overlay</span>(<span class="at">yrep =</span> yrep1, <span class="at">y =</span> y, <span class="at">lw =</span> <span class="fu">weights</span>(loo1<span class="sc">$</span>psis_object)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"LOO-PIT Model 1"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ppc_loo_pit_overlay</span>(<span class="at">yrep =</span> yrep2, <span class="at">y =</span> y, <span class="at">lw =</span> <span class="fu">weights</span>(loo2<span class="sc">$</span>psis_object)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"LOO-PIT Model 2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -581,7 +585,7 @@ window.Quarto = {
 <h2 data-number="8.2" class="anchored" data-anchor-id="loo-cv-with-brms-output"><span class="header-section-number">8.2</span> LOO-CV with <code>brms</code> output</h2>
 <p>With <code>brms</code>, the log likelihood is calculated automatically, and we can just pass the model objects directly to <code>loo</code>, for example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>loo1b <span class="ot">&lt;-</span> <span class="fu">loo</span>(mod1b, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>loo1b <span class="ot">&lt;-</span> <span class="fu">loo</span>(mod1b, <span class="at">save_psis =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Once we have the <code>loo</code> object, the rest of the plots etc can be done as above with the Stan output.</p>
 </section>
@@ -656,13 +660,14 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

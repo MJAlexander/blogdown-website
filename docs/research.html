@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2575636bf12bba71c1c5b79222bd7450.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-919c7ec90743d9b1e9761dff04b41dfc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-46c34704a96b1b9dbfdc14e396dd1b90.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4a4ee4c0c262f04a871cf79e6eccbbbb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +69,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Source+Code+Pro:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 
 </head>
@@ -79,6 +81,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Monica Alexander</span>
     </a>
@@ -200,14 +204,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="working-papers-projects-and-pre-prints" class="level1">
 <h1>Working papers, projects, and pre-prints</h1>
 <ul>
-<li>Pejchinovska, M., and <strong>Alexander, M.</strong>. <a href="https://osf.io/preprints/socarxiv/uz8ev/">‘A Bayesian framework to account for misclassification error and uncertainty in the estimation of abortion incidence’</a>.</li>
-<li>Badolato, L., Decter-Frain, A. G., Irons, N., Miranda, M. L., Walk, E., Zhalieva, E., <strong>Alexander, M.</strong>, Basellini, U., Zagheni, E. (2023). <a href="https://www.demogr.mpg.de/papers/working/wp-2023-008.pdf">‘Predicting individual-level longevity with statistical and machine learning methods.’</a>.</li>
 <li><strong>Alexander, M.</strong> and Root, L. ‘<a href="https://osf.io/preprints/socarxiv/k5qp7/">Racial disparities in fetal and infant outcomes: a multiple-decrement life table approach</a>’.</li>
 <li><strong>Alexander, M.</strong>, ‘<a href="https://osf.io/preprints/socarxiv/uqwxj">Decomposing dimensions of mortality inequality</a>’.</li>
 <li>Chong, M., Alburez-Gutierrez, D., Del Fava, E., <strong>Alexander, M.</strong>, &amp; Zagheni, E. (2022). ’<a href="https://www.demogr.mpg.de/papers/working/wp-2022-005.pdf">Identifying and correcting bias in big crowd-sourced online genealogies</a>.</li>
-<li><strong>Alexander, M.</strong>, Chong, M.Y.C., and Pejcinovska, M. ‘<a href="https://arxiv.org/abs/2101.05240">Estimating causes of maternal death in data-sparse contexts</a>’.</li>
-<li><strong>Alexander, M.</strong>, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. ‘Forecasting child welfare outcomes in the United States’. <a href="https://monica-alexander.shinyapps.io/foster_care/">Shiny app</a>; <a href="./pdf/fc_paa.pdf">Paper presented at PAA 2022</a>.</li>
-<li>Alexander, R., and <strong>Alexander, M.</strong>. ‘<a href="https://arxiv.org/abs/2111.09299">The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018</a>’.</li>
 <li><strong>Alexander, M.</strong>, and Goldstein, J., ‘<a href="https://osf.io/preprints/socarxiv/q79ye/">Deaths without denominators: using a matched dataset to study mortality patterns in the United States</a>’.</li>
 </ul>
 </section>
@@ -215,7 +214,8 @@ ul.task-list li input[type="checkbox"] {
 <h1>Working papers where there is not so much working happening</h1>
 <ul>
 <li><strong>Alexander, M.</strong>, ‘<a href="./pdf/temporal_smoothing.pdf">Temporal smoothers for use in demographic estimation and projection</a>’. This paper turned into another paper (Susmann et al., above). I wrote an R package to accompany the paper, which can be found on my <a href="https://github.com/MJAlexander/distortr">GitHub</a>. One day I might translate the models from JAGS to Stan.</li>
-<li>Chung, P.H., and <strong>Alexander, M.</strong>, ‘<a href="https://p-chung.com/paa/2019/abstract/">Kin Dependency Ratios: An Extension and Application of the Goodman Method for Estimating the Availability of Kin</a>’.</li>
+<li><strong>Alexander, M.</strong>, Wildeman, C., Roehrkasse, A., and Rudlang-Perman, K. ‘Forecasting child welfare outcomes in the United States’. <a href="https://monica-alexander.shinyapps.io/foster_care/">Shiny app</a>; <a href="./pdf/fc_paa.pdf">Paper presented at PAA 2022</a>.</li>
+<li>Alexander, R., and <strong>Alexander, M.</strong>. ‘<a href="https://arxiv.org/abs/2111.09299">The Increased Effect of Elections and Changing Prime Ministers on Topics Discussed in the Australian Federal Parliament between 1901 and 2018</a>’.</li>
 </ul>
 </section>
 <section id="talks" class="level1">
@@ -232,9 +232,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>A package to fit Rogers-Castro migration models, <code>rcbayes</code>, is on <a href="https://cran.uib.no/web/packages/rcbayes/index.html">CRAN</a>.</li>
 <li>I am a contributor to the <a href="https://timriffe.github.io/DemoTools/">DemoTools</a> R package.</li>
-<li>I made a children’s book in R called <a href="https://github.com/MJAlexander/d_is_for_demography">‘D is for Demography’</a>. My toddler prefers ‘The Very Hungry Caterpillar’ or ‘Wombat Stew’.</li>
+<li>I made a children’s book in R called <a href="https://github.com/MJAlexander/d_is_for_demography">‘D is for Demography’</a>.</li>
 <li><a href="https://github.com/MJAlexander/states-mortality">This repo</a> on my GitHub has various bits and pieces of code, mostly related to mortality, but some other stuff too.</li>
-<li><a href="https://monica-alexander.shinyapps.io/babynames_app/">Shiny app</a> to explore baby names in Australia, Ontario, and USA</li>
 </ul>
 
 
@@ -292,13 +291,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
