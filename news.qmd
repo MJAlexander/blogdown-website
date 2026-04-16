@@ -2,8 +2,9 @@
 title: "News"
 ---
 
+- **16 April 2026**: The next [Formal Demography Working Group](https://formaldemography.github.io/working_group/) is 23 April at 11am ET.
 - **11 February 2026**: [Paper](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-12464628/407367/The-Limits-of-Predicting-Individual-Level) in *Demography* on the limits of predicting individual-level mortality, led by the fabulous past students of the MPIDR Summer Incubator Program. 
-- **28 January 2026**: The next [Formal Demography Working Group](https://formaldemography.github.io/working_group/) is 5 Febuary at 10am ET.
+- **28 January 2026**: The next [Formal Demography Working Group](https://formaldemography.github.io/working_group/) is 5 February at 10am ET.
 - **21 January 2026**: The [Toronto Population Network](https://isi.utoronto.ca/initiative/population-network/) Seminar Series is happening this semester!
 - **24 October 2025**: The [Toronto Population Network](https://www.eventbrite.ca/e/toronto-population-network-tickets-1652952438239) is holding its first event on 6 November.
 - **15 September 2025**: Excited to be involved with the new [Bayesian Social Sciences Section of ISBA](https://bss-isba.github.io/).
