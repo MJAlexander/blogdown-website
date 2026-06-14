@@ -2,6 +2,7 @@
 title: "News"
 ---
 
+- **5 May 2026**: [Paper](https://onlinelibrary.wiley.com/doi/full/10.1111/sifp.70053) in *Studies in Family Planning* on accounting for misclassification error and uncertainty in the estimation of abortion prevalence, led by Marija Pejchinovska. 
 - **16 April 2026**: The next [Formal Demography Working Group](https://formaldemography.github.io/working_group/) is 23 April at 11am ET.
 - **11 February 2026**: [Paper](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-12464628/407367/The-Limits-of-Predicting-Individual-Level) in *Demography* on the limits of predicting individual-level mortality, led by the fabulous past students of the MPIDR Summer Incubator Program. 
 - **28 January 2026**: The next [Formal Demography Working Group](https://formaldemography.github.io/working_group/) is 5 February at 10am ET.
