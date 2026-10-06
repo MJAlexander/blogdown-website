@@ -7,6 +7,7 @@ A list of papers is also on [Google Scholar](https://scholar.google.ca/citations
 
 
 # Peer-reviewed publications
+- **Alexander, M.**, Alexander, R., & Root, L. (2026). ['Decomposition of Black and White Infant Mortality Rates'](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2854316). *JAMA Network Open*, 9(9), e2635321.
 - Omenti, R., **Alexander, M.**, & Barban, N. ['Bayesian indirect estimation of historical fertility in Europe and US using online genealogical data'](https://doi.org/10.1177/00491241261463559). *Sociological Methods & Research*, 2026.  doi: 10.1177/00491241261463559.
 - Pejchinovska, M., & **Alexander, M.** ['A Bayesian Framework to Account for Misclassification Error and Uncertainty in the Estimation of Abortion Prevalence'](). *Studies in Family Planning*, 2026. doi: 10.1111/sifp.70053
 - Badolato, L., Decter-Frain, A., Irons, N.J., Miranda, M.L., Walk, E., Zhalieva, E., **Alexander, M.**, Basellini, U. & Zagheni, E. ['The Limits of Predicting Individual-Level Longevity: Insights From the US Health and Retirement Study.'](https://read.dukeupress.edu/demography/article/doi/10.1215/00703370-12464628/407367/The-Limits-of-Predicting-Individual-Level). *Demography*, 2026. doi: 10.1215/00703370-12464628.

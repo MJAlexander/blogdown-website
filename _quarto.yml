@@ -28,8 +28,6 @@ website:
         href: lab.qmd
       - text: "Teaching"
         href: teaching.qmd
-      - text: "Playlists"
-        href: playlists.qmd
       - text: "Contact me"
         href: contact.qmd
   page-footer:
